@@ -1,0 +1,3 @@
+C:\Users\paul.cowan\.horn\languages\boo\Output\booc.exe -t:library -o:C:\Projects\sandbox\boo\boo\obj\Debug\boo.dll -nologo -debug -r:"C:\Program Files\BooLangStudio\Dependencies\boo\build\Boo.Lang.dll" -r:"C:\Program Files\BooLangStudio\Dependencies\boo\build\Boo.Lang.Useful.dll" -r:C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll -r:C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.dll -r:C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll -vvv -p:ast C:\Projects\sandbox\boo\boo\Class.boo
+
+PAUSE
