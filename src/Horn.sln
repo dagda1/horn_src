@@ -15,15 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horn.Console", "Horn.Consol
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74C6B946-74C3-4C84-85C0-F0AE01E963C7}"
 	ProjectSection(SolutionItems) = preProject
-		rake\asm_info_builder.rb = rake\asm_info_builder.rb
-		rake\build_tools.rb = rake\build_tools.rb
 		common-project.xml = common-project.xml
 		common.xml = common.xml
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		Horn.build = Horn.build
-		rake\project_config.rb = rake\project_config.rb
-		rakefile.rb = rakefile.rb
-		rake\xunit_runner.rb = rake\xunit_runner.rb
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horn.Core.Integration", "Horn.Core.Integration\Horn.Core.Integration.csproj", "{BA9C5A30-FC54-48D0-BA59-E48BDCA75777}"
