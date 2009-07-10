@@ -14,7 +14,7 @@ namespace Horn.Core.Spec.Unit.dsl
     public abstract class BaseDSLSpecification : Specification
     {
         protected const string Description = "A .NET build and dependency manager";
-        protected const string SvnUrl = "http://scotaltdotnet.googlecode.com/svn/trunk/";
+        protected const string SvnUrl = "https://hornget.googlecode.com/svn/trunk/";
         protected const string FileName = "horn";
         protected const string BuildFile = "src/horn.sln";
         public static readonly Dictionary<string, object> MetaData = new Dictionary<string, object> { { "homepage", "http://code.google.com/p/scotaltdotnet/" }, { "forum", "http://groups.google.co.uk/group/horn-development?hl=en" }, { "contrib", false} };

@@ -41,8 +41,8 @@ namespace Horn.Core.Spec.Unit.dsl
         [Fact]
         public void Then_the_model_contains_multiple_exports()
         {
-            Assert.Equal("http://scotaltdotnet.googlecode.com/svn/trunk/src/one", configReader.BuildMetaData.ExportList[0].Url);
-            Assert.Equal("http://scotaltdotnet.googlecode.com/svn/trunk/src/two", configReader.BuildMetaData.ExportList[1].Url);
+            Assert.Equal("https://hornget.googlecode.com/svn/trunk/src/one", configReader.BuildMetaData.ExportList[0].Url);
+            Assert.Equal("https://hornget.googlecode.com/svn/trunk/src/two", configReader.BuildMetaData.ExportList[1].Url);
             Assert.Equal("one", configReader.BuildMetaData.ExportList[0].ExportPath);
             Assert.Equal(configReader.BuildMetaData.ExportList[1].ExportPath, string.Empty);
             Assert.IsAssignableFrom(typeof(SVNSourceControl), configReader.BuildMetaData.ExportList[0]);
@@ -53,7 +53,7 @@ namespace Horn.Core.Spec.Unit.dsl
 
     public class When_we_need_an_export_list : Specification
     {
-        private const string Url = "http://scotaltdotnet.googlecode.com/svn/trunk/src/one";
+        private const string Url = "https://hornget.googlecode.com/svn/trunk/src/one";
         private const string ExportToPath = @"C:\exportto";
         private ExportData exportData;
 

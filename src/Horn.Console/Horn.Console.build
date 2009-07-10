@@ -33,7 +33,7 @@
     </assemblyfileset>
   </target>
   <target name="generate-assemblyinfo" depends="init common.generate-assemblyinfo" />
-  <target name="build" description="Build ${project::get-name()}" depends="generate-assemblyinfo common.compile-exe"/>
+  <target name="build" description="Build ${project::get-name()}" depends="generate-assemblyinfo common.compile-dll"/>
 </project>
 
 
