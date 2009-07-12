@@ -19,13 +19,13 @@ namespace Horn.Core.Spec.SCM
 
             sourceControl = new SourceControlDouble("http://someurl.com/");
 
-            sourceControl.Export(packageTree);
+            sourceControl.RetrieveSource(packageTree);
         }
 
         [Fact]
         public void Then_the_a_source_control_export_is_performed()
         {
-            Assert.True(sourceControl.ExportWasCalled);
+            Assert.True(sourceControl.CheckOutWasCalled);
         }
     }
 
@@ -41,13 +41,13 @@ namespace Horn.Core.Spec.SCM
 
             sourceControl = new SourceControlDouble("http://someurl.com/");
 
-            sourceControl.Export(packageTree);
+            sourceControl.RetrieveSource(packageTree);
         }
 
         [Fact]
         public void Then_the_a_source_control_export_is_performed()
         {
-            Assert.True(sourceControl.ExportWasCalled);
+            Assert.True(sourceControl.UpdateWasCalled);
         }
     }
 
@@ -61,7 +61,7 @@ namespace Horn.Core.Spec.SCM
 
             sourceControl = new SourceControlDoubleWitholdRevision("http://someurl.com/");
 
-            sourceControl.Export(packageTree);
+            sourceControl.RetrieveSource(packageTree);
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace Horn.Core.Spec.SCM
 
         protected override void Because()
         {
-            sourceControl.Export(packageTree);
+            sourceControl.RetrieveSource(packageTree);
         }
 
 

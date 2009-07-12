@@ -70,7 +70,7 @@ namespace Horn.Core.Integration.Builder
 
             var dependentDir = new DirectoryInfo(dependentPath);
 
-            dependentTree.Stub(x => x.OutputDirectory).Return(dependentDir);
+            dependentTree.Stub(x => x.Result).Return(dependentDir);
             
             File.Create(Path.Combine(dependentPath, dependentFilename)).Close();
 

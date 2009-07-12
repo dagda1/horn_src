@@ -4,7 +4,7 @@ using Horn.Framework.helpers;
 using Xunit;
 
 namespace Horn.Core.Spec.RevisionDataSpecs
-{   
+{
     public class When_a_package_has_no_revision_data : Specification
     {
         private IPackageTree package;
@@ -24,6 +24,12 @@ namespace Horn.Core.Spec.RevisionDataSpecs
         public void Then_a_new_revision_data_is_created()
         {
             Assert.Equal("0", revisionData.Revision);
+        }
+
+        [Fact]
+        public void Then_the_revision_data_indicates_a_checkout_is_required()
+        {
+            Assert.True(revisionData.ShouldCheckOut());
         }
     }
 
@@ -49,7 +55,7 @@ namespace Horn.Core.Spec.RevisionDataSpecs
         }
     }
 
-    public class When_comparing_a_scm_revison_against_a_package_with_no_revision_data : Specification
+    public class When_comparing_a_scm_revison_against_a_package_with_revision_data : Specification
     {
         private IPackageTree package;
         private IRevisionData treeRevisionData;
@@ -71,6 +77,12 @@ namespace Horn.Core.Spec.RevisionDataSpecs
         public void Then_the_revision_data_indicates_an_update_is_required()
         {
             Assert.True(treeRevisionData.ShouldUpdate(scmRevisionData));
+        }
+
+        [Fact]
+        public void Then_the_revision_data_indicates_a_checkout_is_not_required()
+        {
+            Assert.False(scmRevisionData.ShouldCheckOut());
         }
     }
 }

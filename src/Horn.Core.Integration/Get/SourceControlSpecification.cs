@@ -5,7 +5,7 @@ namespace Horn.Core.Spec.Integration.Get
 {
     public class When_Horn_Is_In_The_BuildMetaData : SourceControlTestBase
     {
-        public const string HORN_URL = "https://hornget.googlecode.com/svn/trunk";
+        public const string HORN_URL = "https://hornget.googlecode.com/svn/trunk/src/Horn.Core/Utils/IoC";
 
         protected override void Because()
         {
@@ -13,7 +13,7 @@ namespace Horn.Core.Spec.Integration.Get
 
             SourceControl svn = new SVNSourceControl(HORN_URL);
 
-            svn.Export(packageTree);
+            svn.RetrieveSource(packageTree);
         }
 
         [Fact]

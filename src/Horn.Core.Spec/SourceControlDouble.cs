@@ -10,7 +10,12 @@ namespace Horn.Core.Spec
     public class SourceControlDouble : SVNSourceControl
     {
         private FileInfo _tempFile;
+
+        public bool CheckOutWasCalled;
+
         public bool ExportWasCalled;
+
+        public bool UpdateWasCalled;
 
         public bool FileWasDownloaded
         {
@@ -51,9 +56,9 @@ namespace Horn.Core.Spec
             Console.WriteLine("In initialise");
         }
 
-        protected override string Download(FileSystemInfo destination)
+        protected override string Download(FileSystemInfo destination, GetOperation getOperation)
         {
-            Console.WriteLine("In Download");
+            Console.WriteLine("In Download performing a {0}", getOperation);
 
             if (!destination.Exists)
                 ((DirectoryInfo)destination).Create();
@@ -62,7 +67,12 @@ namespace Horn.Core.Spec
 
             FileHelper.CreateFileWithRandomData(_tempFile.FullName);
 
-            ExportWasCalled = true;
+            if (getOperation == GetOperation.CheckOut)
+                CheckOutWasCalled = true;
+            else if (getOperation == GetOperation.Update)
+                UpdateWasCalled = true;
+            else if (getOperation == GetOperation.Export)
+                ExportWasCalled = true;
 
             return long.MaxValue.ToString();
         }

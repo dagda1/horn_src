@@ -127,8 +127,6 @@ namespace Horn.Core.PackageCommands
             if (!buildMetaData.RepositoryElementList.HasElements())
                 return;
 
-            componentTree.DeleteWorkingDirectory();
-
             foreach (var repositoryElement in buildMetaData.RepositoryElementList)
             {
                 repositoryElement.PrepareRepository(componentTree, get).Export();

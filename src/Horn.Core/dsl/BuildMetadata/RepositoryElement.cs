@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Horn.Core.extensions;
 using Horn.Core.GetOperations;
@@ -43,7 +44,7 @@ namespace Horn.Core.Dsl
 
             repositoryTree = root.RetrievePackage(RepositoryName);
 
-            get.From(buildMetaData.SourceControl).ExportTo(repositoryTree);
+            get.From(buildMetaData.SourceControl).ExportTo(repositoryTree);            
 
             return this;
         }

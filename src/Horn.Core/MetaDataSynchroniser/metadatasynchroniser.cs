@@ -10,14 +10,12 @@ namespace Horn.Core.Tree.MetaDataSynchroniser
 
         public void SynchronisePackageTree(IPackageTree packageTree)
         {
-            sourceControl.Export(packageTree);
+            sourceControl.RetrieveSource(packageTree);
         }
 
         public MetaDataSynchroniser(SourceControl sourceControl)
         {
             this.sourceControl = sourceControl;
         }
-
     }
-
 }

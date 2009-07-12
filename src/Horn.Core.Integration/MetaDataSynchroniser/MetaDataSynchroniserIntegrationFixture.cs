@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
@@ -21,8 +22,14 @@ namespace Horn.Core.Integration.MetaDataSynchroniserFixtures
 
         protected override void After_each_spec()
         {
-            if (Directory.Exists(rootPath))
-                Directory.Delete(rootPath, true);
+            try
+            {
+                if (Directory.Exists(rootPath))
+                    Directory.Delete(rootPath, true);
+            }
+            catch
+            {               
+            }
         }
 
         protected override void Because()

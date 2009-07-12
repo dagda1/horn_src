@@ -98,7 +98,7 @@ namespace Horn.Core.extensions
         {
             foreach (var dir in source.GetDirectories())
             {
-                if (dir.FullName.Contains(".Svn"))
+                if (dir.FullName.ToLower().Contains(".svn"))
                     continue;
 
                 var newDirectory = new DirectoryInfo(Path.Combine(destination.FullName, dir.Name));

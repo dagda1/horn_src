@@ -5,10 +5,14 @@ namespace Horn.Core.Dsl
 {
     public interface IRepositoryElement
     {
-        string ExportPath { get; }
-        string IncludePath { get; }
-        string RepositoryName { get; }
         void Export();
+
+        string ExportPath { get; }
+        
+        string IncludePath { get; }
+        
+        string RepositoryName { get; }
+        
         IRepositoryElement PrepareRepository(IPackageTree packageToExportTo, IGet get);
     }
 }

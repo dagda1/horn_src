@@ -1,4 +1,3 @@
-using System;
 using Horn.Core.SCM;
 using Xunit;
 namespace Horn.Core.Spec.Unit.GetSpecs
@@ -24,7 +23,7 @@ namespace Horn.Core.Spec.Unit.GetSpecs
         [Fact]
         public void Should_Retrieve_Source_From_VersionControl()
         {
-            Assert.True(sourceControl.ExportWasCalled);
+            Assert.True(sourceControl.CheckOutWasCalled);
         }
 
         [Fact]

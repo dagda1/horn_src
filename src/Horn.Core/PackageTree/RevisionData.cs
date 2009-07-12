@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
+using Horn.Core.SCM;
 using log4net;
 
 namespace Horn.Core.PackageStructure
@@ -49,11 +50,21 @@ namespace Horn.Core.PackageStructure
             }
         }
 
+        public virtual GetOperation Operation()
+        {
+            return ShouldCheckOut() ? GetOperation.CheckOut : GetOperation.Update;
+        }
+
         public virtual void RecordRevision(IPackageTree packageTree, string revisionVlaue)
         {
             var fileInfo = GetRevisionFile(packageTree);
 
             RecordRevision(fileInfo, revisionVlaue);
+        }
+
+        public bool ShouldCheckOut()
+        {
+            return (long.Parse(Revision) == 0);
         }
 
         public bool ShouldUpdate(IRevisionData other)

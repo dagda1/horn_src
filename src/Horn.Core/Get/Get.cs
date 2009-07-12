@@ -12,14 +12,14 @@ namespace Horn.Core.GetOperations
 
         public virtual IPackageTree ExportTo(IPackageTree packageTree)
         {
-            sourceControl.Export(packageTree);
+            sourceControl.RetrieveSource(packageTree);
 
             return packageTree;
         }
 
         public IPackageTree ExportTo(IPackageTree packageTree, string path, bool initialise)
         {
-            sourceControl.Export(packageTree, path, initialise);
+            sourceControl.RetrieveSource(packageTree, path, initialise);
 
             return packageTree;
         }
