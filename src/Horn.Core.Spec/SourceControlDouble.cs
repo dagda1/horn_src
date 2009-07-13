@@ -10,11 +10,8 @@ namespace Horn.Core.Spec
     public class SourceControlDouble : SVNSourceControl
     {
         private FileInfo _tempFile;
-
         public bool CheckOutWasCalled;
-
         public bool ExportWasCalled;
-
         public bool UpdateWasCalled;
 
         public bool FileWasDownloaded
@@ -33,10 +30,25 @@ namespace Horn.Core.Spec
             }
         }
 
+        public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
+        {
+            return PerformSCMOperation(destination, GetOperation.CheckOut);
+        }
+
         public void Dispose()
         {
             if (_tempFile != null && _tempFile.Exists)
                 _tempFile.Delete();
+        }
+
+        public override string Export(IPackageTree packageTree, FileSystemInfo destination)
+        {
+            return PerformSCMOperation(destination, GetOperation.Export);
+        }
+
+        public override string Update(IPackageTree packageTree, FileSystemInfo destination)
+        {
+            return PerformSCMOperation(destination, GetOperation.Update);
         }
 
         protected override Thread StartMonitoring()
@@ -56,8 +68,8 @@ namespace Horn.Core.Spec
             Console.WriteLine("In initialise");
         }
 
-        protected override string Download(FileSystemInfo destination, GetOperation getOperation)
-        {
+        private string PerformSCMOperation(FileSystemInfo destination, GetOperation getOperation)
+        {           
             Console.WriteLine("In Download performing a {0}", getOperation);
 
             if (!destination.Exists)

@@ -5,6 +5,7 @@ using System.Threading;
 using Horn.Core.extensions;
 using Horn.Core.PackageStructure;
 using log4net;
+using SharpSvn;
 
 namespace Horn.Core.SCM
 {
@@ -27,13 +28,17 @@ namespace Horn.Core.SCM
             get { return downloadMonitor; }
         }
 
-        protected abstract string Download(FileSystemInfo destination, GetOperation operation);
-
         public virtual string ExportPath { get; protected set; }
 
         public abstract string Revision { get; }
 
         public string Url {get; private set;}
+
+        public abstract string CheckOut(IPackageTree packageTree, FileSystemInfo destination);
+
+        public abstract string Export(IPackageTree packageTree, FileSystemInfo destination);
+
+        public abstract string Update(IPackageTree packageTree, FileSystemInfo destination);
 
         protected abstract void Initialise(IPackageTree packageTree);
 
@@ -71,7 +76,7 @@ namespace Horn.Core.SCM
             
             Thread monitoringThread = StartMonitoring();
 
-            var revision = Download(packageTree.WorkingDirectory, revisionData.Operation());
+            var revision = Download(packageTree, packageTree.WorkingDirectory, revisionData.Operation());
 
             StopMonitoring(monitoringThread);
 
@@ -93,7 +98,7 @@ namespace Horn.Core.SCM
 
                 Thread monitoringThread = StartMonitoring();
 
-                Download(exportPath, GetOperation.Export);
+                Download(packageTree, exportPath, GetOperation.Export);
 
                 StopMonitoring(monitoringThread);
             }
@@ -109,6 +114,8 @@ namespace Horn.Core.SCM
             downloadMonitor.StopMonitoring = true;
 
             log.Error(ex);
+
+            throw new RemoteScmException(ex.UnwrapException());
         }
 
         protected virtual void RecordCurrentRevision(IPackageTree tree, string revision)
@@ -137,6 +144,28 @@ namespace Horn.Core.SCM
             downloadMonitor = new DefaultDownloadMonitor();
         }
 
+        protected virtual string Download(IPackageTree packageTree, FileSystemInfo destination, GetOperation operation)
+        {
+            string result = string.Empty;
+
+            switch (operation)
+            {
+                case GetOperation.CheckOut:
+                    result = CheckOut(packageTree, destination);
+                    break;
+                case GetOperation.Update:
+                    result = Update(packageTree, destination);
+                    break;
+                case GetOperation.Export:
+                    result = Export(packageTree, destination);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(string.Format("Unknown get operation passed to Download {0}", operation));
+            }
+
+            return result;
+        }
+
         protected SourceControl(string url)
         {
             Url = url;
@@ -151,8 +180,5 @@ namespace Horn.Core.SCM
         protected SourceControl()
         {
         }
-
-
-
     }
 }

@@ -121,7 +121,9 @@
     <Compile Include="dsl\BuildMetadata\RepositoryElement.cs" />
     <Compile Include="exceptions\NullTreeException.cs" />
     <Compile Include="exceptions\ProcessFailedException.cs" />
+    <Compile Include="exceptions\RemoteScmException.cs" />
     <Compile Include="exceptions\UnkownInstallPackageException.cs" />
+    <Compile Include="extensions\ExceptionExtensions.cs" />
     <Compile Include="Utils\CmdLine\CommandArgs.cs" />
     <Compile Include="Utils\CmdLine\ICommandArgs.cs" />
     <Compile Include="Utils\WithLogging.cs" />

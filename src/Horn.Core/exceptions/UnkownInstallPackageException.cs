@@ -2,7 +2,7 @@ using System;
 
 namespace Horn.Core
 {
-    [global::System.Serializable]
+    [Serializable]
     public class UnkownInstallPackageException : Exception
     {
         protected UnkownInstallPackageException(
