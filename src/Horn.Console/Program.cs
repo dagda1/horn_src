@@ -42,7 +42,11 @@ namespace Horn.Console
             catch (UnkownInstallPackageException unpe)
             {
                 log.Info(unpe.Message);
-            }            
+            } 
+            catch(RemoteScmException scm)
+            {
+                log.Info(scm.Message);
+            }
         }
 
         private static void InitialiseIoC(ICommandArgs commandArgs)
