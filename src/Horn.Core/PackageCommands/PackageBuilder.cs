@@ -55,7 +55,7 @@ namespace Horn.Core.PackageCommands
 
         protected virtual void BuildSource(IPackageTree nextTree, IBuildMetaData nextMetaData)
         {
-            log.InfoFormat("\nHorn is building {0}.\n\n".ToUpper(), nextMetaData.BuildEngine);
+            log.InfoFormat("\nHorn is building {0}.\n\n".ToUpper(), nextMetaData.InstallName);
 
             nextMetaData.BuildEngine.Build(processFactory, nextTree);
         }

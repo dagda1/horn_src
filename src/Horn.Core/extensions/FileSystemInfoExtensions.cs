@@ -145,8 +145,8 @@ namespace Horn.Core.extensions
             if (string.IsNullOrEmpty(parts))
                 return source.FullName;
 
-            if (parts.Trim() == ".")
-                return source.FullName;
+            if (parts.Trim() == "." && (!source.IsFile()))
+                return Path.Combine(((DirectoryInfo) source).Parent.FullName, "Output");
 
             var outputPath = source.FullName;
 

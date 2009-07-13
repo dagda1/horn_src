@@ -72,9 +72,6 @@ namespace Horn.Core.BuildEngines
 
             ProcessBuild(packageTree, processFactory, pathToBuildTool, cmdLineArguments);
 
-            if (BuildRootDirectory == ".")
-                return this;
-
             CopyArtifactsToBuildDirectory(packageTree);
 
             builtPackages.Add(packageTree.Name, packageTree.Name);
