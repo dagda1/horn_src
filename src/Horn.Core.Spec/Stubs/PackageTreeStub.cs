@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Horn.Core.Dsl;
 using Horn.Core.PackageStructure;
+using Horn.Core.Utils.CmdLine;
 
 namespace Horn.Core.Spec.Doubles
 {
@@ -172,6 +173,11 @@ namespace Horn.Core.Spec.Doubles
                 return this;
 
             return dependencyTrees[packageName];
+        }
+
+        public IPackageTree RetrievePackage(ICommandArgs commandArgs)
+        {
+            return RetrievePackage(commandArgs.PackageName);
         }
 
         public PackageTreeStub(string baseDirectory)

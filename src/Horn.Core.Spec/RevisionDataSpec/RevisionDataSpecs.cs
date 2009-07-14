@@ -12,7 +12,7 @@ namespace Horn.Core.Spec.RevisionDataSpecs
 
         protected override void Before_each_spec()
         {
-            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITHOUT_REVISION);
+            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithoutRevision);
         }
 
         protected override void Because()
@@ -40,7 +40,7 @@ namespace Horn.Core.Spec.RevisionDataSpecs
 
         protected override void Before_each_spec()
         {
-            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITH_REVISION);
+            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithRevision);
         }
 
         protected override void Because()
@@ -63,7 +63,7 @@ namespace Horn.Core.Spec.RevisionDataSpecs
 
         protected override void Before_each_spec()
         {
-            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITHOUT_REVISION);
+            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithoutRevision);
         }
 
         protected override void Because()

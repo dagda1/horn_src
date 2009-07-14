@@ -37,7 +37,7 @@ namespace Horn.Core.Spec.SCM
         {
             SourceControl.ClearDownLoadedPackages();
 
-            var packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITH_REVISION);
+            var packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithRevision);
 
             sourceControl = new SourceControlDouble("http://someurl.com/");
 
@@ -57,7 +57,7 @@ namespace Horn.Core.Spec.SCM
 
         protected override void Because()
         {
-            var packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITH_REVISION);
+            var packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithRevision);
 
             sourceControl = new SourceControlDoubleWitholdRevision("http://someurl.com/");
 
@@ -80,7 +80,7 @@ namespace Horn.Core.Spec.SCM
         {
             sourceControl = new SourceControlDouble("http://somesvnuri.com/Svn");
 
-            packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITHOUT_REVISION);
+            packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithoutRevision);
         }
 
         protected override void Because()

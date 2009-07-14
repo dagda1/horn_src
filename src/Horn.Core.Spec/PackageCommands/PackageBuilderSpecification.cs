@@ -12,7 +12,6 @@ using Horn.Core.Spec.Doubles;
 using Horn.Core.Spec.helpers;
 using Horn.Core.Spec.Unit.GetSpecs;
 using Horn.Core.Utils;
-using Horn.Core.Utils.CmdLine;
 using Horn.Core.Utils.Framework;
 using Horn.Framework.helpers;
 using Horn.Spec.Framework.doubles;
@@ -42,7 +41,7 @@ namespace Horn.Core.Spec.Unit.PackageCommands
 
             wholeTree.Stub(x => x.BuildNodes()).Return(new List<IPackageTree> {wholeTree});
 
-            wholeTree.Stub(x => x.RetrievePackage("horn")).Return(componentTree);
+            wholeTree.Stub(x => x.RetrievePackage(CommandLineHelper.GetCommandLineArgs("horn"))).Return(componentTree).IgnoreArguments();
 
             wholeTree.Stub(x => x.GetBuildMetaData("horn")).Return(buildMetaData).IgnoreArguments().Repeat.Any();
 

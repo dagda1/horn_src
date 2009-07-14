@@ -21,21 +21,5 @@ namespace Horn.Core.Spec.PackageTreeSpecs
         {
             Assert.True(Directory.Exists(packageTree.Result.FullName));
         }
-
-        protected override void After_each_spec()
-        {
-            var root = packageTree.Root.CurrentDirectory;
-
-            if (!root.Exists)
-                return;
-
-            try
-            {
-                root.Delete(true);
-            }
-            catch
-            {
-            }
-        }
     }
 }

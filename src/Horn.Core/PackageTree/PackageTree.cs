@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Horn.Core.Dsl;
 using Horn.Core.Tree.MetaDataSynchroniser;
+using Horn.Core.Utils.CmdLine;
 
 namespace Horn.Core.PackageStructure
 {
@@ -126,14 +126,25 @@ namespace Horn.Core.PackageStructure
             }
         }
 
-        public DirectoryInfo WorkingDirectory
-        {
-            get { return IsRoot ? CurrentDirectory : workingDirectory; }
-            private set { workingDirectory = value; }
-        }
-
         public string Version { get; set; }
 
+        public DirectoryInfo WorkingDirectory
+        {
+            get
+            {
+                if (IsRoot)
+                    return CurrentDirectory;
+
+                if(string.IsNullOrEmpty(Version)) 
+                    return workingDirectory;
+
+                var versionedDirectoryPath = string.Format("{0}-{1}", workingDirectory.FullName, Version);
+
+                return new DirectoryInfo(versionedDirectoryPath);
+            }
+
+            private set { workingDirectory = value; }
+        }
 
         public void Add(IPackageTree item)
         {
@@ -201,18 +212,36 @@ namespace Horn.Core.PackageStructure
             item.Parent = null;
         }
 
-        public IPackageTree RetrievePackage(string packageName)
+        public IPackageTree RetrievePackage(ICommandArgs commandArgs)
         {
-            var result = Root.GetAllPackages()
-                .Where(c => c.Name == packageName).ToList();
+            var packageName = commandArgs.PackageName;
 
-            if (result.Count() == 0)
-                return new NullPackageTree();
-                
-            return result.First();
+            var version = commandArgs.Version;
+
+            return RetrievePackage(packageName, version);
         }
 
+        public IPackageTree RetrievePackage(string packageName)
+        {
+            return RetrievePackage(packageName, null);
+        }
 
+        private IPackageTree RetrievePackage(string packageName, string version)
+        {
+            var nodes = Root.GetAllPackages()
+                .Where(c => c.Name == packageName).ToList();
+
+            if (nodes.Count() == 0)
+                return new NullPackageTree();
+
+            var result = nodes.First();
+
+            //HACK: Need a better way of initialising the package tree with the version information
+            if (!string.IsNullOrEmpty(version))
+                result.Version = version;
+
+            return result;
+        }
 
         private int RootDirectoryContainsBuildFiles()
         {
@@ -251,8 +280,6 @@ namespace Horn.Core.PackageStructure
             return (directory.GetFiles("*.boo").Length > 0) &&
                    (!libraryNodes.Contains(directory.Name.ToLower()));
         }
-
-
 
         public PackageTree(IMetaDataSynchroniser metaDataSynchroniser)
         {

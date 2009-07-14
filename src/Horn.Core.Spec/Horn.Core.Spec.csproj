@@ -114,6 +114,7 @@
     <Compile Include="BuildEngine\BuildWithNantSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
+    <Compile Include="RevisionDataSpec\RevisionDataVersionSepecs.cs" />
     <Compile Include="Stubs\StubProcess.cs" />
     <Compile Include="Stubs\StubProcessFactory.cs" />
     <Compile Include="CmdLine\CommandArgsSpec.cs" />

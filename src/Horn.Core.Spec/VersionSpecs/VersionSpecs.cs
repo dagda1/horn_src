@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 using System.IO;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dsl;
@@ -6,11 +6,9 @@ using Horn.Core.GetOperations;
 using Horn.Core.PackageCommands;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
-using Horn.Core.Spec.BuildEngineSpecs;
 using Horn.Core.Spec.Doubles;
 using Horn.Core.Spec.helpers;
 using Horn.Core.Utils.CmdLine;
-using Horn.Spec.Framework.doubles;
 using Rhino.Mocks;
 using Xunit;
 
@@ -64,6 +62,16 @@ namespace Horn.Core.Spec.VersionSpecs
         public void Then_the_correct_build_file_is_selected()
         {
             get.AssertWasCalled(x => x.From(sourceControl));
+        }
+
+        [Fact]
+        public void Then_the_correct_working_directory_is_selected()
+        {
+            var castle = packageTree.RetrievePackage("castle");
+
+            castle.Version = "2.1.0";
+
+            Assert.Equal("Working-2.1.0", castle.WorkingDirectory.Name);
         }
     }
 }

@@ -11,7 +11,8 @@ namespace Horn.Core.PackageStructure
         private readonly FileInfo revisionFileInfo;
         private string revision;
         private static readonly ILog log = LogManager.GetLogger(typeof (RevisionData));
-        public const string FILE_NAME = "revision.horn";
+        public const string FileName = "revision.horn";
+        public const string VersionedFileName = "revision-{0}.horn";
 
         public bool Exists
         {
@@ -89,9 +90,15 @@ namespace Horn.Core.PackageStructure
 
         private FileInfo GetRevisionFile(IPackageTree packageTree)
         {
-            var file = Path.Combine(packageTree.CurrentDirectory.FullName, FILE_NAME);
+            string fileName;
 
-            return new FileInfo(file);
+            if (!packageTree.IsAversionRequest)
+                fileName = Path.Combine(packageTree.CurrentDirectory.FullName, FileName);
+            else
+                fileName = Path.Combine(packageTree.CurrentDirectory.FullName,
+                                        string.Format(VersionedFileName, packageTree.Version));
+
+            return new FileInfo(fileName);
         }
 
         public RevisionData(string revision)

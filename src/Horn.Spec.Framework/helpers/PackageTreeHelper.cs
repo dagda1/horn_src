@@ -5,10 +5,8 @@ namespace Horn.Framework.helpers
 {
     public static class PackageTreeHelper
     {
-
-        public const string PACKAGE_WITHOUT_REVISION = "norevisionpackage";
-        public  const string PACKAGE_WITH_REVISION = "log4net";
-
+        public const string PackageWithoutRevision = "norevisionpackage";
+        public  const string PackageWithRevision = "log4net";
 
         public static DirectoryInfo CreateEmptyDirectoryStructureForTesting()
         {
@@ -33,17 +31,18 @@ namespace Horn.Framework.helpers
 
             string fileToCopy = File.Exists(hornFile) ? hornFile : buildFile;
 
-            CreateBuildFiles(fileToCopy, horn, true);
+            CreateBuildFiles(fileToCopy, horn, true, false);
 
             string loggers = CreateDirectory(rootDirectory, "loggers");
             string log4net = CreateDirectory(loggers, "log4net");
 
             var log4NetBuildFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"BuildConfigs\Horn\log4net.boo");
 
-            CreateBuildFiles(log4NetBuildFile, log4net, true);
+            CreateBuildFiles(log4NetBuildFile, log4net, true, true);
 
             string ioc = CreateDirectory(rootDirectory, "ioc");
             string castle = CreateDirectory(ioc, "castle");
+
             string working = CreateDirectory(castle, "working");
             CreateTempBuildStructure(working);
             CreateDirectory(working, "Tools");
@@ -53,19 +52,19 @@ namespace Horn.Framework.helpers
 
             File.Copy(castleVersionBuildFile, Path.Combine(castle, "castle-2.1.0.boo"));
 
-            CreateBuildFiles(castleBuildFile, castle, true);
+            CreateBuildFiles(castleBuildFile, castle, true, false);
 
             string tests = CreateDirectory(rootDirectory, "tests");
-            string norevisionpackage = CreateDirectory(tests, PACKAGE_WITHOUT_REVISION);
+            string norevisionpackage = CreateDirectory(tests, PackageWithoutRevision);
 
-            CreateBuildFiles(log4NetBuildFile, norevisionpackage, false);
+            CreateBuildFiles(log4NetBuildFile, norevisionpackage, false, true);
 
             CreateBuildEnginesStructure(rootDirectory);
 
             return new DirectoryInfo(rootDirectory);
         }
 
-        public static void CreateBuildFiles(string sourceFile, string destinationFolder, bool createRevisionFile)
+        public static void CreateBuildFiles(string sourceFile, string destinationFolder, bool createRevisionFile, bool createVersionedRevisionFile)
         {
             if (!File.Exists(sourceFile))
                 throw new FileNotFoundException(string.Format("The build file {0} does not exist", sourceFile));
@@ -79,6 +78,16 @@ namespace Horn.Framework.helpers
 
             var revisionFile = Path.Combine(destinationFolder, "revision.horn");
 
+            var versionedRevisionFile = Path.Combine(destinationFolder, "revision-2.1.0.horn");
+
+            CreateRevisionFile(revisionFile);
+
+            if(createVersionedRevisionFile)
+                CreateRevisionFile(versionedRevisionFile);
+        }
+
+        private static void CreateRevisionFile(string revisionFile)
+        {
             using(var streamWriter = new StreamWriter(revisionFile))
             {
                 streamWriter.Write("revision=1");

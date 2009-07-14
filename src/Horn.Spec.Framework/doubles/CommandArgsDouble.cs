@@ -21,6 +21,13 @@ namespace Horn.Spec.Framework.doubles
             RebuildOnly = rebuildOnly;
         }
 
+        public CommandArgsDouble(string installName, string version)
+            : this(installName)
+        {
+            PackageName = installName;
+            Version = version;
+        }
+
         public CommandArgsDouble(string installName, bool rebuildOnly, string version)
             : this(installName, rebuildOnly)
         {

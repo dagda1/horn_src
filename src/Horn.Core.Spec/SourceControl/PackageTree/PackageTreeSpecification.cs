@@ -65,10 +65,8 @@ namespace Horn.Core.Spec.Unit.HornTree
 
     public class When_Given_A_Request_For_A_Build_File : DirectorySpecificationBase
     {
-
         private IPackageTree hornTree;
         private IDependencyResolver dependencyResolver;
-
 
         protected override void Before_each_spec()
         {
@@ -98,7 +96,6 @@ namespace Horn.Core.Spec.Unit.HornTree
 
             BaseDSLSpecification.AssertBuildMetaDataValues(metaData);
         }
-
     }
 
     public class When_Build_Nodes_Are_Requested : DirectorySpecificationBase
@@ -208,7 +205,6 @@ namespace Horn.Core.Spec.Unit.HornTree
         {
             Assert.True(packageTree.Exists);
         }
-
     }
 
     public class When_a_package_revision_data_does_not_exist : Specification
@@ -220,7 +216,7 @@ namespace Horn.Core.Spec.Unit.HornTree
 
         protected override void Before_each_spec()
         {
-            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITHOUT_REVISION);
+            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithoutRevision);
         }
 
         protected override void Because()
@@ -246,7 +242,7 @@ namespace Horn.Core.Spec.Unit.HornTree
 
         protected override void Before_each_spec()
         {
-            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PACKAGE_WITH_REVISION);
+            package = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithRevision);
         }
 
         protected override void Because()

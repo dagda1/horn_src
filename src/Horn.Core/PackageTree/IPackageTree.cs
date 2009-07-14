@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Horn.Core.Dsl;
+using Horn.Core.Utils.CmdLine;
 
 namespace Horn.Core.PackageStructure
 {
@@ -51,5 +52,7 @@ namespace Horn.Core.PackageStructure
         IPackageTree GetRootPackageTree(DirectoryInfo rootFolder);
 
         IPackageTree RetrievePackage(string packageName);
+
+        IPackageTree RetrievePackage(ICommandArgs commandArgs);
     }
 }

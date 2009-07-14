@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="doubles\CommandArgsDouble.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="helpers\CommandLineHelper.cs" />
     <Compile Include="helpers\DirectoryHelper.cs" />
     <Compile Include="helpers\FileHelper.cs" />
     <Compile Include="helpers\PackageTreeHelper.cs" />

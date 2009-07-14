@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Horn.Core.Dsl;
+using Horn.Core.Utils.CmdLine;
 
 namespace Horn.Core.PackageStructure
 {
@@ -140,6 +141,11 @@ namespace Horn.Core.PackageStructure
         }
 
         public IPackageTree RetrievePackage(string packageName)
+        {
+            throw new NullTreeException();
+        }
+
+        public IPackageTree RetrievePackage(ICommandArgs commandArgs)
         {
             throw new NullTreeException();
         }

@@ -25,11 +25,7 @@ namespace Horn.Core.PackageCommands
             if (!packageTree.BuildNodes().Select(x => x.Name).ToList().Contains(commandArgs.PackageName))
                 throw new UnkownInstallPackageException(string.Format("No package definition exists for {0}.", commandArgs.PackageName));
             
-            IPackageTree componentTree = packageTree.RetrievePackage(commandArgs.PackageName);
-
-            //HACK: Need a better way of initialising the package tree with the version information
-            if (!string.IsNullOrEmpty(commandArgs.Version))
-                componentTree.Version = commandArgs.Version;
+            IPackageTree componentTree = packageTree.RetrievePackage(commandArgs);
 
             IDependencyTree dependencyTree = GetDependencyTree(componentTree);
 
