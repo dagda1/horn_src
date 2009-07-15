@@ -47,6 +47,9 @@ namespace Horn.Core.SCM
 
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
+            if (e.FullPath.Length > 240)
+                return;
+
             var file = Path.GetFileName(e.FullPath);
 
             var dir = Path.GetDirectoryName(e.FullPath);

@@ -1,5 +1,5 @@
-﻿install castle.tools:
-	description "Dynamic Proxy Generator for the CLR."
+﻿install castle.facilities:
+	description "A castle facility augments the container with new functionality."
 	
 	prebuild:
 		cmd "xcopy /s /y \"../Patch\" ."
