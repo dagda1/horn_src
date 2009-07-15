@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Horn.Core.BuildEngines;
 using Horn.Core.Dsl;
 using Horn.Core.Utils.CmdLine;
 
@@ -141,6 +142,11 @@ namespace Horn.Core.PackageStructure
         }
 
         public IPackageTree RetrievePackage(string packageName)
+        {
+            throw new NullTreeException();
+        }
+
+        public IPackageTree RetrievePackage(Dependency dependency)
         {
             throw new NullTreeException();
         }

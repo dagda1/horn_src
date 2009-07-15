@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Horn.Core.BuildEngines;
 using Horn.Core.Dsl;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.CmdLine;
@@ -173,6 +174,11 @@ namespace Horn.Core.Spec.Doubles
                 return this;
 
             return dependencyTrees[packageName];
+        }
+
+        public IPackageTree RetrievePackage(Dependency dependency)
+        {
+            return RetrievePackage(dependency.PackageName);
         }
 
         public IPackageTree RetrievePackage(ICommandArgs commandArgs)

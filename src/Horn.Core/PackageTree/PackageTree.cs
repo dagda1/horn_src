@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Horn.Core.BuildEngines;
 using Horn.Core.Dsl;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Core.Utils.CmdLine;
@@ -210,6 +212,11 @@ namespace Horn.Core.PackageStructure
             children.Remove(item);
 
             item.Parent = null;
+        }
+
+        public IPackageTree RetrievePackage(Dependency dependency)
+        {
+            return RetrievePackage(dependency.PackageName, dependency.Version);
         }
 
         public IPackageTree RetrievePackage(ICommandArgs commandArgs)
