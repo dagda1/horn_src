@@ -292,13 +292,6 @@ namespace Horn.Core.Dsl
             buildMetaData.SourceControl = SourceControl.Create<SVNSourceControl>(url);
         }
 
-        protected BooConfigReader()
-        {
-            buildMetaData = new BuildMetaData();
-
-            Global.package.PackageInfo.Clear();
-        }
-
         private void SetBuildEngine(IBuildTool tool, string buildFile, FrameworkVersion version)
         {
             buildMetaData.BuildEngine = new BuildEngine(tool, buildFile, version, IoC.Resolve<IDependencyDispatcher>());
@@ -308,9 +301,17 @@ namespace Horn.Core.Dsl
         {
             buildMetaData.BuildEngine.GenerateStrongKey = true;
         }
+
         public void shared_library(string sharedLib)
         {
             buildMetaData.BuildEngine.SharedLibrary = sharedLib;
+        }
+
+        protected BooConfigReader()
+        {
+            buildMetaData = new BuildMetaData();
+
+            Global.package.PackageInfo.Clear();
         }
     }
 }

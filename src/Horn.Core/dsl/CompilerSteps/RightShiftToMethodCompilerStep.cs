@@ -1,3 +1,4 @@
+using System;
 using Boo.Lang.Compiler.Ast;
 using Boo.Lang.Compiler.Steps;
 
@@ -47,12 +48,34 @@ namespace Horn.Core.Dsl
 
         protected virtual void AddDependency(ArrayLiteralExpression dependencies, BinaryExpression binaryExpression)
         {
-            //HACK: Need a better Expression type for pass a list of strings into a method
-            var stringExpression = new StringLiteralExpression(string.Format("{0}|{1}",
-                                                    binaryExpression.Left.ToString().Trim('\''),
-                                                    binaryExpression.Right.ToString().Trim('\'')));
+            StringLiteralExpression dependency;
 
-            dependencies.Items.Add(stringExpression);
+            //HACK: replace with proper AST method invocation
+            if (binaryExpression.Left is StringLiteralExpression)
+            {
+                dependency = new StringLiteralExpression(string.Format("{0}|{1}",
+                                                    binaryExpression.Left.ToString().Trim('\''),
+                                                    binaryExpression.Right.ToString().Trim('\'')));                
+            }
+            else if(binaryExpression.Left is BinaryExpression)
+            {
+
+                var left = (BinaryExpression) binaryExpression.Left;
+
+                var package = left.Left.ToString().Trim('\'');
+                var version = left.Right.ToString().Trim('\'');
+                var dll = binaryExpression.Right.ToString().Trim('\'');
+
+                dependency = new StringLiteralExpression(string.Format("{0}|{1}|{2}",
+                                                    package,
+                                                    dll,
+                                                    version));
+            }
+            else
+                throw new ArgumentOutOfRangeException(string.Format("Unkonwn Expression type {0} passed to RightShiftToMethodCompilerStep.AddDependency", binaryExpression.Left.GetType().Name));
+
+
+            dependencies.Items.Add(dependency);
         }
     }
 }

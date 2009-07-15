@@ -114,6 +114,7 @@
     <Compile Include="BuildEngine\BuildWithNantSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
+    <Compile Include="dsl\VersionedDependencySpec.cs" />
     <Compile Include="RevisionDataSpec\RevisionDataVersionSepecs.cs" />
     <Compile Include="Stubs\StubProcess.cs" />
     <Compile Include="Stubs\StubProcessFactory.cs" />
@@ -184,6 +185,7 @@
     <Content Include="BuildConfigs\Horn\hornprebuild.boo" />
     <Content Include="BuildConfigs\Horn\log4net.boo" />
     <Content Include="BuildConfigs\Horn\repository.boo" />
+    <Content Include="BuildConfigs\Horn\versioneddependency.boo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
