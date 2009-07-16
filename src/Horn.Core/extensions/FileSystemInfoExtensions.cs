@@ -1,16 +1,21 @@
 using System.Collections.Generic;
 using System.IO;
+using log4net;
 
 namespace Horn.Core.extensions
 {
     public static class FileSystemInfoExtensions
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof (FileSystemInfoExtensions));
+
         public static void CopyToDirectory(this DirectoryInfo source, DirectoryInfo destination)
         {
             if (destination.Exists)
                 destination.Delete(true);
 
             destination.Create();
+
+            LogCopyTask(source, destination);
 
             CopyFiles(source, destination);
 
@@ -103,6 +108,8 @@ namespace Horn.Core.extensions
 
                 var newDirectory = new DirectoryInfo(Path.Combine(destination.FullName, dir.Name));
 
+                LogCopyTask(dir, newDirectory);
+
                 dir.CopyToDirectory(newDirectory);
             }
         }
@@ -113,8 +120,15 @@ namespace Horn.Core.extensions
             {
                 var destinationFile = Path.Combine(destination.FullName, Path.GetFileName(file.FullName));
 
+                LogCopyTask(source, destination);
+
                 file.CopyTo(destinationFile, true);
             }
+        }
+
+        private static void LogCopyTask(FileSystemInfo source, FileSystemInfo destination)
+        {
+            log.InfoFormat("Copying from {0} to {1}", source.FullName, destination.FullName);
         }
 
         private static string[] AddFiles(string dir, string searchPattern, string[] filePaths, List<string> results)

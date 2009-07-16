@@ -59,7 +59,7 @@ namespace Horn.Core.Dependencies
 
             foreach (var dependency in dependencies)
             {
-                var package = packageTree.RetrievePackage(dependency.PackageName);
+                var package = packageTree.RetrievePackage(dependency);
 
                 CalculateDependencies(package, currentTree);
             }
