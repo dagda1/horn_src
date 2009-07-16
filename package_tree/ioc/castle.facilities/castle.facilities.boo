@@ -5,7 +5,6 @@ install castle.facilities:
 		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:  
-		repository(castle, part("Core"), to("Core"))
 		repository(castle, part("ActiveRecord"), to("ActiveRecord"))
 		repository(castle, part("Facilities"), to("Facilities"))
 		repository(castle, part("Services"), to("Services"))
@@ -22,10 +21,10 @@ install castle.facilities:
 	build_root_dir "build"		
 	   
 dependencies:
-	depend "castle.tools"   >> "Castle.DynamicProxy"
+	depend "castle.tools"   >> "Castle.Core"
 	depend "castle.tools"   >> "Castle.DynamicProxy2"
 	depend "castle.windsor" >> "Castle.MicroKernel"
-	depend "castle.windsor" >> "Castle.MicroKernel"
+	depend "castle.windsor" >> "Castle.Windsor"
 	depend "nhibernate"		>> "2.1" >> "NHibernate"       
 	depend "nhibernate"     >> "2.1" >> "Iesi.Collections" 
 	
