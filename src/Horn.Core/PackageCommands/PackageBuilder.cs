@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dependencies;

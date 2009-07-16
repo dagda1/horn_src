@@ -128,6 +128,9 @@ namespace Horn.Core.extensions
 
         private static void LogCopyTask(FileSystemInfo source, FileSystemInfo destination)
         {
+            if ((source.FullName.Length) > 240 || (destination.FullName.Length > 240))
+                return;
+
             log.InfoFormat("Copying from {0} to {1}", source.FullName, destination.FullName);
         }
 
