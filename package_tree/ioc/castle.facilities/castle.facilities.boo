@@ -21,8 +21,8 @@ install castle.facilities:
 	build_root_dir "build"		
 	   
 dependencies:
-	depend "castle.tools"   >> "Castle.Core"
-	depend "castle.tools"   >> "Castle.DynamicProxy2"
+	depend "castle.windsor"   >> "Castle.Core"
+	depend "castle.windsor"   >> "Castle.DynamicProxy2"
 	depend "castle.windsor" >> "Castle.MicroKernel"
 	depend "castle.windsor" >> "Castle.Windsor"
 	depend "nhibernate"		>> "2.1" >> "NHibernate"       
