@@ -19,8 +19,8 @@ install castle.windsor:
 	build_root_dir "build"
 	
 dependencies:
-	dependency "castle" >> "castle.core"
-	dependency "castle" >> "Castle.DynamicProxy2"
+	dependency "castle.tools" >> "castle.core"
+	dependency "castle.tools" >> "Castle.DynamicProxy2"
 	
 package.homepage = "http://www.castleproject.org/"
 package.forum    = "http://groups.google.co.uk/group/castle-project-users?hl=en"  
