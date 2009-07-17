@@ -72,14 +72,16 @@ namespace Horn.Core.Spec.helpers
             buildMetaData.BuildEngine = new BuildEngine(new BuildToolStub(), String.Format("{0}.boo", packageName), Utils.Framework.FrameworkVersion.FrameworkVersion35, MockRepository.GenerateStub<IDependencyDispatcher>());
             foreach (string dependencyName in dependencyNames)
             {
-                buildMetaData.BuildEngine.Dependencies.Add(new Dependency(dependencyName, String.Format("{0}", dependencyName)));
+                var dependency = new Dependency(dependencyName, dependencyName);
+
+                buildMetaData.BuildEngine.Dependencies.Add(dependency);
             }
 
             var packageTree = MockRepository.GenerateStub<IPackageTree>();
             packageTree.Stub(x => x.Name).Return(packageName);
-            packageTree.Stub(x => x.GetBuildMetaData("root")).Return(buildMetaData);
-            packageTree.Stub(x => x.GetBuildMetaData("complexDependency")).Return(buildMetaData);
-            packageTree.Stub(x => x.GetBuildMetaData("sharedDependency")).Return(buildMetaData);
+            packageTree.Stub(x => x.GetBuildMetaData("root")).Return(buildMetaData).Repeat.Any();
+            packageTree.Stub(x => x.GetBuildMetaData("complexDependency")).Return(buildMetaData).Repeat.Any();
+            packageTree.Stub(x => x.GetBuildMetaData("sharedDependency")).Return(buildMetaData).Repeat.Any();
 
             return packageTree; 
         }

@@ -95,36 +95,4 @@ namespace Horn.Core.Spec.Dependencies
             Assert.Equal("root is a dependent of itself", ex.Message);
         }
     }
-
-    public class When_We_Have_A_Complex_Dependency : DirectorySpecificationBase
-    {
-        protected IDependencyTree dependencyTree;
-        protected IPackageTree packageTree;
-
-        protected override void Because()
-        {
-            packageTree = TreeHelper.CreatePackageTreeNode("root", new string[] { "complexDependency", "sharedDependency" });
-            IPackageTree dependentTree = TreeHelper.CreatePackageTreeNode("complexDependency", new[] { "sharedDependency" });
-            IPackageTree sharedTree = TreeHelper.CreatePackageTreeNode("sharedDependency", new string[] { });
-
-            IPackageTree[] packages = new[] { packageTree, dependentTree, sharedTree };
-
-            foreach (IPackageTree packageStub in packages)
-            {
-                foreach (IPackageTree retrievedPackage in packages)
-                {
-                    var dependency = new Dependency(retrievedPackage.Name, retrievedPackage.Name);
-
-                    packageStub.Stub(x => x.RetrievePackage(dependency)).Return(retrievedPackage);                    
-                }
-            }
-        }
-
-        //[Fact]
-        public void Then_No_Exception_Is_Raised()
-        {
-            dependencyTree = new DependencyTree(packageTree);
-            Assert.NotNull(dependencyTree);
-        }
-    }
 }

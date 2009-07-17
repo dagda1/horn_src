@@ -65,7 +65,6 @@ namespace Horn.Core.Dependencies
             }
 
             return currentTree;
-
         }
 
         private void InsertDependenciesBeforeParent(BuildTree tree, IPackageTree packageTree)
