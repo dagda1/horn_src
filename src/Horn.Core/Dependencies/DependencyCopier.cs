@@ -16,6 +16,9 @@ namespace Horn.Core.Dependencies
                 CopyFile(file, location);
             }
 
+            //Ensure we at least copy the dependency to the root folder
+            CopyFile(file, Path.Combine(destination.FullName, Path.GetFileName(file.FullName)));
+
             return locationsToCopyTo;
         }
 

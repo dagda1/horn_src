@@ -15,9 +15,14 @@ namespace Horn.Core.Dependencies
         private static string[] AllowedExtensions = new string[]
                                                         {".exe", ".dll", ".pdb", ".exe.config", ".config", ".resources", ".rsp"};
 
-        public void Dispatch(IPackageTree packageTree, IEnumerable<Dependency> dependencies, string dependenciesRoot)
+        public void Dispatch(IPackageTree packageTree, IList<Dependency> dependencies, string dependenciesRoot)
         {
             DirectoryInfo dependencyDirectory = GetDependencyDirectory(packageTree, dependenciesRoot);
+
+            if (dependencies.HasElements() && (!dependencyDirectory.Exists))
+                throw new DirectoryNotFoundException(string.Format("Package {0} cannot find folder {1} to resolve the dependencies",
+                                        packageTree.Name, dependencyDirectory.FullName));
+
 
             foreach (Dependency dependency in dependencies)
             {

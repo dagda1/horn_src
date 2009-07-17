@@ -119,6 +119,7 @@
     <Compile Include="dsl\BuildMetadata\ExportData.cs" />
     <Compile Include="dsl\BuildMetadata\IRepositoryElement.cs" />
     <Compile Include="dsl\BuildMetadata\RepositoryElement.cs" />
+    <Compile Include="exceptions\DependencyFolderNotFoundException.cs" />
     <Compile Include="exceptions\NullTreeException.cs" />
     <Compile Include="exceptions\ProcessFailedException.cs" />
     <Compile Include="exceptions\RemoteScmException.cs" />

@@ -54,12 +54,13 @@ namespace Horn.Core.Dependencies
                 XElement project = LoadProject(file);
                 XElement dependencyElement = FindCorrectElement(project);
 
-                if (HasADependency(dependencyElement, dependencyName, dependencyElement))
-                {
-                    InfoFormat("Dependency: {0} has dependency on {1}", file.Key, dependencyName);
-                    UpdateReference(dependencyElement, dependencyFileVersion, dependencyName);
-                    SaveProject(file, project);
-                }
+                if (!HasADependency(dependencyElement, dependencyName, dependencyElement)) 
+                    continue;
+
+                InfoFormat("Dependency: {0} has dependency on {1}", file.Key, dependencyName);
+
+                UpdateReference(dependencyElement, dependencyFileVersion, dependencyName);
+                SaveProject(file, project);
             }
         }
 
