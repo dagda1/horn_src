@@ -7,7 +7,7 @@
 	shared_library "lib"	
 
 dependencies:
-	depend @log4net >>  "log4net"	
+	depend @log4net >>  "1.2.10" >>  "log4net"	
 	depend @castle  >>  "castle.core"
 	depend @castle  >>  "Castle.DynamicProxy2"
 	depend @castle  >>  "castle.microKernel"
