@@ -10,7 +10,7 @@ install castle:
 	switches:
 		parameters "sign=true","build.warnaserrors=false"
 		
-	shared_library "SharedLibs/net/2.0"
+	shared_library "SharedLibs"
 	build_root_dir "build"		
 	
 dependencies:    
