@@ -16,7 +16,7 @@ install castle.tools:
 	switches:
 		parameters "sign=true","common.testrunner.enabled=false", "common.silverlight=false"
 		
-	shared_library "SharedLibs/net/2.0"
+	shared_library "SharedLibs"
 	build_root_dir "build"		
 	
 package.homepage = "http://www.castleproject.org/"
