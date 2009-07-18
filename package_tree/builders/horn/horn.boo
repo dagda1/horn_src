@@ -8,10 +8,10 @@
 
 dependencies:
 	depend @log4net >>  "1.2.10" >>  "log4net"	
-	depend @castle  >>  "castle.core"
-	depend @castle  >>  "Castle.DynamicProxy2"
-	depend @castle  >>  "castle.microKernel"
-	depend @castle  >>  "castle.windsor"
+	depend "castle.windsor"  >>  "castle.core"
+	depend "castle.windsor"  >>  "Castle.DynamicProxy2"
+	depend "castle.windsor"  >>  "castle.microKernel"
+	depend "castle.windsor"  >>  "castle.windsor"
 
 package.homepage = "http://code.google.com/p/hornget/"
 package.forum    = "http://groups.google.co.uk/group/horn-development?hl=en"	
