@@ -22,7 +22,7 @@
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${testresults.dir}" />
 		
-    <call target="copy-referenced-assemblies"/>
+		<call target="copy-referenced-assemblies"/>
 	</target>
 
   <target name="copy-referenced-assemblies">
@@ -104,4 +104,6 @@
     </copy>
   </target>  
 
+  <target name="generate-assemblyinfo" depends="common.assemblyinfo" />  
+  
 </project>

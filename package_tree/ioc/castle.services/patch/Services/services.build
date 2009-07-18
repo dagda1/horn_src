@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding='iso-8859-1' ?>
 <project
-	name="castle-facilities"
+	name="castle-services"
 	default="build"
 	xmlns="http://nant.sf.net/release/0.85/nant.xsd"
 >
@@ -9,29 +9,19 @@
 	<include buildfile="${root.dir}/common-project.xml" />
 
 	<fileset id="buildfiles.all">
-		<!-- Files have to be in dependency order -->		
-		<include name="AutomaticTransactionManagement/AutomaticTransactionManagement.build" />
-		<include name="ActiveRecordIntegration/ActiveRecordIntegration.build" />
-		<!--
-		<include name="DynamicLoader/DynamicLoader.build" />
-		-->
-		<include name="BatchRegistration/BatchRegistration.build" />
-		<include name="Cache/Cache.build" />
-		<include name="Logging/Logging.build" /> 
-		<include name="NHibernateIntegration/NHibernateIntegration.build" />
-		<include name="Synchronize/Synchronize.build" />
-		<include name="Remoting/Remoting.build" />
-		<include name="Wcf/default.build" if="${dotnet.v3.0.installed}"/>
+		<!-- Files have to be in dependency order -->
+		<include name="Transaction/Transaction.build" />
+		<include name="Logging/logging.build" />
 	</fileset>
 
-	<target name="build" depends="environment.init common.build" />	
-	
-	<target name="environment.init" depends="common.init">
-		<mkdir dir="${build.dir}" />
-		<mkdir dir="${testresults.dir}" />
+  <target name="build" depends="environment.init common.build" />
 
-		<call target="copy-referenced-assemblies"/>
-	</target>
+  <target name="environment.init" depends="common.init">
+    <mkdir dir="${build.dir}" />
+    <mkdir dir="${testresults.dir}" />
+
+    <call target="copy-referenced-assemblies"/>
+  </target>
 
   <target name="copy-referenced-assemblies">
     <property name="lib.dir" value="${path::combine(root.dir, 'SharedLibs')}"/>
@@ -115,3 +105,4 @@
   <target name="generate-assemblyinfo" depends="common.assemblyinfo" />
 
 </project>
+
