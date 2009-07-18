@@ -22,6 +22,9 @@ install castle.components:
 dependencies:
 	dependency "castle.tools" >> "castle.core"
 	dependency "castle.tools" >> "NVelocity"
+	depend "castle.windsor"   >> "Castle.DynamicProxy2"
+	depend "castle.windsor"   >> "Castle.MicroKernel"
+	depend "castle.windsor"   >> "Castle.Windsor"	
 	
 package.homepage = "http://www.castleproject.org/"
 package.forum    = "http://groups.google.co.uk/group/castle-project-users?hl=en"  
