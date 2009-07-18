@@ -32,7 +32,9 @@ namespace Horn.Core.Dependencies
                 foreach (FileInfo nextFile in sourceFiles)
                 {
                     IEnumerable<string> dependencyPaths = dependentCopier.CopyDependency(nextFile, dependencyDirectory);
-                    dependentUpdater.Execute(packageTree, dependencyPaths, dependency);
+
+                    //we might still need this at some stage
+                    //dependentUpdater.Execute(packageTree, dependencyPaths, dependency);
                 }
             }
         }

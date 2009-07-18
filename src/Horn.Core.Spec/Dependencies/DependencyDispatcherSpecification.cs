@@ -22,12 +22,6 @@ namespace Horn.Core.Spec.Dependencies
 
             Assert.Equal(1, files.Length);
         }
-
-        [Fact]
-        public void should_delegate_to_dependant_updater()
-        {
-            dependentUpdater.AssertWasCalled(x => x.Execute(Arg<IPackageTree>.Is.Anything, Arg<IEnumerable<string>>.Is.Anything, Arg<Dependency>.Is.Anything));
-        }
     }
 
     public class when_dispatching_dependencies_and_the_destination_does_not_exist : dependency_dispatcher_context

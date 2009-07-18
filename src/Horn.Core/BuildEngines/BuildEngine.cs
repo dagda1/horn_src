@@ -149,7 +149,6 @@ namespace Horn.Core.BuildEngines
 
         protected virtual void CopyArtifactsToBuildDirectory(IPackageTree packageTree)
         {
-
             DirectoryInfo buildDir = GetBuildDirectory(GetDirectoryFromParts(packageTree.WorkingDirectory, BuildRootDirectory));
 
             foreach (var file in buildDir.GetFiles())

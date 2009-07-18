@@ -45,7 +45,7 @@ namespace Horn.Core.PackageStructure
         {
             get
             {
-                if (string.IsNullOrEmpty(Version))
+                if (!IsAversionRequest)
                     return Name;
 
                 return string.Format("{0}-{1}", Name, Version);
@@ -198,9 +198,6 @@ namespace Horn.Core.PackageStructure
         public IPackageTree GetRootPackageTree(DirectoryInfo rootFolder)
         {
             IPackageTree root = new PackageTree(rootFolder, null);
-
-            //HACK: Remember to remove
-            //return root;
 
             metaDataSynchroniser.SynchronisePackageTree(root);
 
