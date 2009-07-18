@@ -1,16 +1,20 @@
-install nhcontrib:
+install nhibernate.search:
 	description "Second level cache provider using memcached."
-	get_from svn("https://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Caches/")
-	build_with nant, buildfile("MemCache/default.build"), FrameworkVersion35	
+	get_from svn("https://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Search/")
+	build_with nant, buildfile("default.build"), FrameworkVersion35	
 		
 	switches:
 		parameters "with.examples=false"
 		
-	shared_library "Lib"
+	shared_library "lib"
 	build_root_dir "build"		
 	
-dependencies:  
-	depend @nhibernate  >>  "Nhibernate"
+dependencies:
+	depend "castle.tools" >> "Castle.Core"
+	depend "castle.tools" >> "Castle.DynamicProxy2"
+	depend "nhibernate"   >> "2.1" >> "NHibernate"       
+	depend "nhibernate"   >> "2.1" >> "Iesi.Collections" 
+	depend "nhibernate"   >> "2.1" >> "NHibernate.ByteCode.Castle" 	
 
 package.homepage = "http://www.ohloh.net/p/NHibernateContrib"
 package.forum    = "http://groups.google.co.uk/group/nhusers?hl=en"
