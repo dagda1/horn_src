@@ -24,8 +24,8 @@ dependencies:
 	depend "castle.tools"        >> "Castle.DynamicProxy2"
 	depend "castle.components"   >> "Castle.Components.Validator"
 	depend "nhibernate.search"   >> "NHibernate"       
-	depend "nhibernate.search"   >> "Iesi.Collections"
-	depend "nhibernate.search"   >> "NHibernate.Search" 	
+	depend "nhibernate"		     >> "2.1" >> "NHibernate"       
+	depend "nhibernate"          >> "2.1" >> "Iesi.Collections" 	
 	
 package.homepage = "http://www.castleproject.org/"
 package.forum    = "http://groups.google.co.uk/group/castle-project-users?hl=en"  
