@@ -5,9 +5,8 @@ install castle.facilities:
 		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:  
-		repository(castle, part("ActiveRecord"), to("ActiveRecord"))
+		repository(castle, part("SharedLibs"), to("SharedLibs"))
 		repository(castle, part("Facilities"), to("Facilities"))
-		repository(castle, part("Services"), to("Services"))
 		repository(castle, part("common.xml"), to("common.xml"))
 		repository(castle, part("common-project.xml"), to("common-project.xml"))
 		repository(castle, part("CastleKey.snk"), to("CastleKey.snk"))
@@ -17,16 +16,20 @@ install castle.facilities:
 	switches:
 		parameters "sign=true","common.testrunner.enabled=false", "common.silverlight=false"
 		
-	shared_library "SharedLibs/net/2.0"
+	shared_library "SharedLibs"
 	build_root_dir "build"		
 	   
 dependencies:
-	depend "castle.windsor"   >> "Castle.Core"
-	depend "castle.windsor"   >> "Castle.DynamicProxy2"
-	depend "castle.windsor" >> "Castle.MicroKernel"
-	depend "castle.windsor" >> "Castle.Windsor"
-	depend "nhibernate"		>> "2.1" >> "NHibernate"       
-	depend "nhibernate"     >> "2.1" >> "Iesi.Collections" 
+	depend "castle.windsor"      >> "Castle.Core"
+	depend "castle.windsor"      >> "Castle.DynamicProxy2"
+	depend "castle.windsor"      >> "Castle.MicroKernel"
+	depend "castle.windsor"      >> "Castle.Windsor"
+	depend "castle.activerecord" >> "Castle.ActiveRecord"
+	depend "castle.services"     >> "Castle.Services.Transaction"
+	depend "castle.services"     >> "Castle.Services.Logging.Log4netIntegration"
+	depend "castle.services"     >> "Castle.Services.Logging.NLogIntegration"
+	depend "nhibernate"		     >> "2.1" >> "NHibernate"       
+	depend "nhibernate"          >> "2.1" >> "Iesi.Collections" 
 	
 package.homepage = "http://www.castleproject.org/"
 package.forum    = "http://groups.google.co.uk/group/castle-project-users?hl=en"    
