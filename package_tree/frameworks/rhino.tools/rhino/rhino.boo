@@ -5,7 +5,7 @@ install rhino:
 	build_with nant, buildfile("default.build"), FrameworkVersion35
 		
 	switches:
-		parameters "sign=true","common.testrunner.enabled=false","build.warnaserrors=false"
+		parameters "build.warnaserrors=false","common.testrunner.enabled=false","sign=true"
 		
 	shared_library "SharedLibs"
 	build_root_dir "build"		
