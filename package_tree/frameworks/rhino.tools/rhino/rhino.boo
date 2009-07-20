@@ -11,16 +11,6 @@ install rhino:
 	build_root_dir "build"		
 	
 dependencies:    
-	#depend @log4net >> "log4net"
-	depend @boo					 >> "Boo.Lang.Extensions"
-	depend @boo				     >> "Boo.Lang.Interpreter"
-	depend @boo				     >> "Boo.Lang.Parser"
-	depend @boo				     >> "Boo.Lang.Useful"
-	depend @boo				     >> "Boo.NAnt.Tasks"  
-	depend @boo				     >> "Boo.Lang.CodeDom"
-	depend @boo				     >> "Boo.Lang.Compiler"	
-	depend @boo				     >> "booc"
-	depend @boo				     >> "Boo.Lang"
 	depend "castle.tools"        >> "Castle.Core"
 	depend "castle.tools"        >> "Castle.DynamicProxy"
 	depend "castle.tools"		 >> "Castle.DynamicProxy2"
@@ -35,6 +25,16 @@ dependencies:
 	depend "nhibernate"		     >> "2.1" >> "NHibernate"     
 	depend "nhibernate"		     >> "2.1" >> "NHibernate.ByteCode.Castle"
 	depend "nhibernate"          >> "2.1" >> "Iesi.Collections"	
+	/*depend @log4net >> "log4net"
+	depend @boo					 >> "Boo.Lang.Extensions"
+	depend @boo				     >> "Boo.Lang.Interpreter"
+	depend @boo				     >> "Boo.Lang.Parser"
+	depend @boo				     >> "Boo.Lang.Useful"
+	depend @boo				     >> "Boo.NAnt.Tasks"  
+	depend @boo				     >> "Boo.Lang.CodeDom"
+	depend @boo				     >> "Boo.Lang.Compiler"	
+	depend @boo				     >> "booc"
+	depend @boo				     >> "Boo.Lang"*/
 	
 package.homepage = "http://ayende.com/projects/rhino-mocks.aspx"
 package.forum    = "http://groups.google.co.uk/group/rhino-tools-dev"
