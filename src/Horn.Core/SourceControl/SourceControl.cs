@@ -5,7 +5,6 @@ using System.Threading;
 using Horn.Core.extensions;
 using Horn.Core.PackageStructure;
 using log4net;
-using SharpSvn;
 
 namespace Horn.Core.SCM
 {
