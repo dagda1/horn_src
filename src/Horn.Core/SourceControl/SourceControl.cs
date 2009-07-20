@@ -111,9 +111,10 @@ namespace Horn.Core.SCM
 
         protected void HandleExceptions(Exception ex)
         {
-            downloadMonitor.StopMonitoring = true;
-
             log.Error(ex);
+
+            if(downloadMonitor != null)
+                downloadMonitor.StopMonitoring = true;
 
             throw new RemoteScmException(ex.UnwrapException());
         }
