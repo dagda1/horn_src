@@ -1,4 +1,4 @@
-install nhcontrib:
+install nhcontrib.caches:
 	description "NHibernate Caches contains several Cache Provider's for NHibernate's Cache mechanism."
 	
 	prebuild:
