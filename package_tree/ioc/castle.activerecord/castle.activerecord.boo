@@ -1,5 +1,5 @@
 install castle.activerecord:
-	description "Castle provides a number of services."
+	description "The Castle ActiveRecord project is an implementation of the ActiveRecord pattern for .NET."
 	
 	prebuild:
 		cmd "xcopy /s /y \"../Patch\" ."
@@ -24,7 +24,8 @@ dependencies:
 	depend "castle.tools"        >> "Castle.DynamicProxy2"
 	depend "castle.components"   >> "Castle.Components.Validator"
 	depend "nhibernate.search"   >> "NHibernate.Search"       
-	depend "nhibernate"		     >> "2.1" >> "NHibernate"       
+	depend "nhibernate"		     >> "2.1" >> "NHibernate"
+	depend "nhibernate"		     >> "2.1" >> "NHibernate.ByteCode.Castle"
 	depend "nhibernate"          >> "2.1" >> "Iesi.Collections" 	
 	
 package.homepage = "http://www.castleproject.org/"

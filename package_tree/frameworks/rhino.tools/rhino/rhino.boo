@@ -32,7 +32,8 @@ dependencies:
 	depend "castle.components"   >> "Castle.Components.Validator"
 	depend "castle.activerecord" >> "Castle.ActiveRecord"
 	depend "castle.facilities"   >> "Castle.Facilities.AutomaticTransactionManagement"
-	depend "nhibernate"		     >> "2.1" >> "NHibernate"       
+	depend "nhibernate"		     >> "2.1" >> "NHibernate"     
+	depend "nhibernate"		     >> "2.1" >> "NHibernate.ByteCode.Castle"
 	depend "nhibernate"          >> "2.1" >> "Iesi.Collections"	
 	
 package.homepage = "http://ayende.com/projects/rhino-mocks.aspx"
