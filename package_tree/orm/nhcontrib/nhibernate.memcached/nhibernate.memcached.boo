@@ -12,6 +12,7 @@ install nhcontrib:
 dependencies:  
 	depend "nhibernate" >> "2.1" >> "NHibernate"     
 	depend "nhibernate"	>> "2.1" >> "NHibernate.ByteCode.Castle"
+	depend "nhibernate"	>> "2.1" >> "NHibernate.ByteCode.LinFu.dll"
 	depend "nhibernate" >> "2.1" >> "Iesi.Collections"
 
 package.homepage = "http://www.ohloh.net/p/NHibernateContrib"
