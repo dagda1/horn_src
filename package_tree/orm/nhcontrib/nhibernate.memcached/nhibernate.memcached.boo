@@ -10,7 +10,9 @@ install nhcontrib:
 	build_root_dir "build"		
 	
 dependencies:  
-	depend @nhibernate  >>  "Nhibernate"
+	depend "nhibernate"		     >> "2.1" >> "NHibernate"     
+	depend "nhibernate"		     >> "2.1" >> "NHibernate.ByteCode.Castle"
+	depend "nhibernate"          >> "2.1" >> "Iesi.Collections"	
 
 package.homepage = "http://www.ohloh.net/p/NHibernateContrib"
 package.forum    = "http://groups.google.co.uk/group/nhusers?hl=en"
