@@ -59,16 +59,16 @@ namespace Horn.Core.BuildEngines
             if (builtPackages.ContainsKey(packageTree.Name))
                 return this;
 
-            string pathToBuildFile = string.Format("\"{0}\"", GetBuildFilePath(packageTree));
+            string pathToBuildFile = string.Format("{0}", GetBuildFilePath(packageTree).QuotePath());
 
             if (GenerateStrongKey)
-                GenerateKeyFile(packageTree);
+                GenerateKeyFile(processFactory, packageTree);
 
             CopyDependenciesTo(packageTree);
 
             var cmdLineArguments = BuildTool.CommandLineArguments(pathToBuildFile, this, packageTree, Version);
 
-            var pathToBuildTool = string.Format("\"{0}\"", BuildTool.PathToBuildTool(packageTree, Version));
+            var pathToBuildTool = string.Format("{0}", BuildTool.PathToBuildTool(packageTree, Version).QuotePath());
 
             ProcessBuild(packageTree, processFactory, pathToBuildTool, cmdLineArguments);
 
@@ -79,12 +79,12 @@ namespace Horn.Core.BuildEngines
             return this;
         }
 
-        public virtual void GenerateKeyFile(IPackageTree packageTree)
+        public virtual void GenerateKeyFile(IProcessFactory processFactory, IPackageTree packageTree)
         {
             string strongKey = Path.Combine(packageTree.WorkingDirectory.FullName,
                                             string.Format("{0}.snk", packageTree.Name));
 
-            string commandLine = string.Format("\"{0}\" -k \"{1}\"", packageTree.Sn, strongKey);
+            string cmdLineArguments = string.Format("-k {1}", packageTree.Sn, strongKey.QuotePath());
 
             var PSI = new ProcessStartInfo("cmd.exe")
                                        {
@@ -94,21 +94,20 @@ namespace Horn.Core.BuildEngines
                                            UseShellExecute = false
                                        };
 
-            Process p = Process.Start(PSI);
-            StreamWriter SW = p.StandardInput;
-            StreamReader SR = p.StandardOutput;
-            SW.WriteLine(commandLine);
-            SW.Close();
-            string pOutput = SR.ReadToEnd();
-            p.WaitForExit();
+            IProcess process = processFactory.GetProcess(packageTree.Sn.ToString().QuotePath(), cmdLineArguments, packageTree.WorkingDirectory.FullName);
 
-            if (p.ExitCode != 0)
+            while (true)
             {
-                string errorMessage = "GenerateKeyFile process failed with Exit Code: " + p.ExitCode;
-                log.Error(errorMessage);
-                log.Error(pOutput);
-                throw new ProcessFailedException(errorMessage);
+                string line = process.GetLineOrOutput();
+
+                if (line == null)
+                    break;
+
+                log.Info(line);
             }
+
+            process.WaitForExit();
+
         }
 
         public virtual DirectoryInfo GetBuildDirectory(DirectoryInfo root)
