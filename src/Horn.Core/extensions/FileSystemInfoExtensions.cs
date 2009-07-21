@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using log4net;
@@ -13,7 +14,7 @@ namespace Horn.Core.extensions
             if(deleteDestination)
             {
                 if (destination.Exists)
-                    destination.Delete(true);               
+                    destination.SafeDelete();               
             }
 
             if(!destination.Exists)
@@ -131,6 +132,18 @@ namespace Horn.Core.extensions
 
                 file.CopyTo(destinationFile.FullName, true);
             }
+        }
+
+        private static void SafeDelete(this DirectoryInfo source)
+        {
+            try
+            {
+                source.Delete(true);
+            }
+            catch
+            {               
+            }
+            
         }
 
         private static void LogCopyTask(FileSystemInfo source, FileSystemInfo destination)
