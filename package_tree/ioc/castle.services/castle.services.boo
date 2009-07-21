@@ -1,8 +1,5 @@
 install castle.services:
 	description "Castle provides a number of services."
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:
 		repository(castle, part("SharedLibs"), to("SharedLibs"))

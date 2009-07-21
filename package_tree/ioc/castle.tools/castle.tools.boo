@@ -1,8 +1,5 @@
 install castle.tools:
 	description "Dynamic Proxy Generator for the CLR."
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:
 		repository(castle, part("Tools"), to("Tools"))

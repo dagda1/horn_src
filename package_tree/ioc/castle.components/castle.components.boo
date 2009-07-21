@@ -1,8 +1,5 @@
 install castle.components:
 	description "Castle validator, templating engine etc."
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:
 		repository(castle, part("SharedLibs"), to("SharedLibs"))

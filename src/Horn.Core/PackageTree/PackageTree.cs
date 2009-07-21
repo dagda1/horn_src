@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dsl;
+using Horn.Core.extensions;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Core.Utils.CmdLine;
 
@@ -15,22 +16,23 @@ namespace Horn.Core.PackageStructure
         private DirectoryInfo result;
         public const string RootPackageTreeName = ".horn";
         private readonly IList<IPackageTree> children;
+        private DirectoryInfo patchDirectory;
         private DirectoryInfo workingDirectory;
         private readonly static string[] reservedDirectoryNames = new[]{"working", "build_root_dir"};
         private static readonly string[] libraryNodes = new[] {"lib", "debug", "buildengines"};
 
-        public string BuildFile{ get; set; }
+        public virtual string BuildFile{ get; set; }
 
-        public IBuildMetaData BuildMetaData{ get; private set; }
+        public virtual IBuildMetaData BuildMetaData { get; private set; }
 
-        public IPackageTree[] Children
+        public virtual IPackageTree[] Children
         {
             get { return children.ToArray(); }
         }
 
-        public DirectoryInfo CurrentDirectory { get; private set; }
+        public virtual DirectoryInfo CurrentDirectory { get; private set; }
 
-        public bool Exists
+        public virtual bool Exists
         {
             get
             {
@@ -41,7 +43,7 @@ namespace Horn.Core.PackageStructure
             }
         }
 
-        public string FullName
+        public virtual string FullName
         {
             get
             {
@@ -52,21 +54,21 @@ namespace Horn.Core.PackageStructure
             }
         }
 
-        public bool IsAversionRequest
+        public virtual bool IsAversionRequest
         {
             get { return string.IsNullOrEmpty(Version) == false; }
         }
 
-        public bool IsBuildNode { get; private set; }
+        public virtual bool IsBuildNode { get; private set; }
 
-        public bool IsRoot
+        public virtual bool IsRoot
         {
             get { return (Parent == null); }
         }
 
-        public string Name{ get; private set; }
+        public virtual string Name { get; private set; }
 
-        public FileInfo Nant
+        public virtual FileInfo Nant
         {
             get
             {
@@ -80,11 +82,29 @@ namespace Horn.Core.PackageStructure
             }
         }
 
-        public DirectoryInfo OutputDirectory { get; private set; }
+        public virtual DirectoryInfo OutputDirectory { get; private set; }
 
-        public IPackageTree Parent { get; set; }
+        public virtual DirectoryInfo PatchDirectory
+        {
+            get
+            {
+                if (patchDirectory != null)
+                    return patchDirectory;
 
-        public DirectoryInfo Result
+                patchDirectory = new DirectoryInfo(Path.Combine(CurrentDirectory.FullName, "patch"));
+
+                return patchDirectory;
+            }
+        }
+
+        public virtual bool PatchExists
+        {
+            get { return PatchDirectory.Exists; }
+        }
+
+        public virtual IPackageTree Parent { get; set; }
+
+        public virtual DirectoryInfo Result
         {
             get
             {
@@ -97,7 +117,7 @@ namespace Horn.Core.PackageStructure
             }
         }
 
-        public IPackageTree Root
+        public virtual IPackageTree Root
         {
             get
             {
@@ -115,7 +135,7 @@ namespace Horn.Core.PackageStructure
             }
         }
 
-        public FileInfo Sn
+        public virtual FileInfo Sn
         {
             get
             {
@@ -128,9 +148,9 @@ namespace Horn.Core.PackageStructure
             }
         }
 
-        public string Version { get; set; }
+        public virtual string Version { get; set; }
 
-        public DirectoryInfo WorkingDirectory
+        public virtual DirectoryInfo WorkingDirectory
         {
             get
             {
@@ -148,14 +168,14 @@ namespace Horn.Core.PackageStructure
             private set { workingDirectory = value; }
         }
 
-        public void Add(IPackageTree item)
+        public virtual void Add(IPackageTree item)
         {
             item.Parent = this;
 
             children.Add(item);
         }
 
-        public List<IPackageTree> BuildNodes()
+        public virtual List<IPackageTree> BuildNodes()
         {
             var result = Root.GetAllPackages()
                 .Where(c => c.IsBuildNode).ToList();
@@ -183,19 +203,19 @@ namespace Horn.Core.PackageStructure
             WorkingDirectory.Delete(true);
         }
 
-        public IBuildMetaData GetBuildMetaData(string packageName)
+        public virtual IBuildMetaData GetBuildMetaData(string packageName)
         {
             IPackageTree packageTree = RetrievePackage(packageName);
 
             return GetBuildMetaData(packageTree);
         }
 
-        public IRevisionData GetRevisionData()
+        public virtual IRevisionData GetRevisionData()
         {
             return new RevisionData(this);
         }
 
-        public IPackageTree GetRootPackageTree(DirectoryInfo rootFolder)
+        public virtual IPackageTree GetRootPackageTree(DirectoryInfo rootFolder)
         {
             IPackageTree root = new PackageTree(rootFolder, null);
 
@@ -204,19 +224,27 @@ namespace Horn.Core.PackageStructure
             return new PackageTree(rootFolder, null);            
         }
 
-        public void Remove(IPackageTree item)
+        public virtual void PatchPackage()
+        {
+            if (!PatchExists)
+                return;
+
+            PatchDirectory.CopyToDirectory(WorkingDirectory, false);
+        }
+
+        public virtual void Remove(IPackageTree item)
         {
             children.Remove(item);
 
             item.Parent = null;
         }
 
-        public IPackageTree RetrievePackage(Dependency dependency)
+        public virtual IPackageTree RetrievePackage(Dependency dependency)
         {
             return RetrievePackage(dependency.PackageName, dependency.Version);
         }
 
-        public IPackageTree RetrievePackage(ICommandArgs commandArgs)
+        public virtual IPackageTree RetrievePackage(ICommandArgs commandArgs)
         {
             var packageName = commandArgs.PackageName;
 
@@ -225,7 +253,7 @@ namespace Horn.Core.PackageStructure
             return RetrievePackage(packageName, version);
         }
 
-        public IPackageTree RetrievePackage(string packageName)
+        public virtual IPackageTree RetrievePackage(string packageName)
         {
             return RetrievePackage(packageName, null);
         }

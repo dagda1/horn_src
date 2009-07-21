@@ -85,6 +85,16 @@ namespace Horn.Core.PackageStructure
             get { throw new NullTreeException(); }
         }
 
+        public DirectoryInfo PatchDirectory
+        {
+            get { throw new NullTreeException(); }
+        }
+
+        public bool PatchExists
+        {
+            get { throw new NullTreeException(); }
+        }
+
         public DirectoryInfo Result
         {
             get { throw new NullTreeException(); }
@@ -139,6 +149,11 @@ namespace Horn.Core.PackageStructure
         public IPackageTree GetRootPackageTree(DirectoryInfo rootFolder)
         {
             throw new NullTreeException();
+        }
+
+        public void PatchPackage()
+        {
+            throw new NotImplementedException();
         }
 
         public IPackageTree RetrievePackage(string packageName)

@@ -1,8 +1,5 @@
 install castle.activerecord:
 	description "The Castle ActiveRecord project is an implementation of the ActiveRecord pattern for .NET."
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:
 		repository(castle, part("SharedLibs"), to("SharedLibs"))

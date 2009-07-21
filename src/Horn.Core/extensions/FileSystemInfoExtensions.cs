@@ -8,18 +8,22 @@ namespace Horn.Core.extensions
     {
         private static readonly ILog log = LogManager.GetLogger(typeof (FileSystemInfoExtensions));
 
-        public static void CopyToDirectory(this DirectoryInfo source, DirectoryInfo destination)
+        public static void CopyToDirectory(this DirectoryInfo source, DirectoryInfo destination, bool deleteDestination)
         {
-            if (destination.Exists)
-                destination.Delete(true);
+            if(deleteDestination)
+            {
+                if (destination.Exists)
+                    destination.Delete(true);               
+            }
 
-            destination.Create();
+            if(!destination.Exists)
+                destination.Create();
 
             LogCopyTask(source, destination);
 
             CopyFiles(source, destination);
 
-            CopyDirectories(source, destination);
+            CopyDirectories(source, destination, deleteDestination);
         }
 
         public static FileSystemInfo GetExportPath(string fullPath)
@@ -99,7 +103,7 @@ namespace Horn.Core.extensions
 
 
 
-        private static void CopyDirectories(DirectoryInfo source, DirectoryInfo destination)
+        private static void CopyDirectories(DirectoryInfo source, DirectoryInfo destination, bool deleteDestination)
         {
             foreach (var dir in source.GetDirectories())
             {
@@ -110,7 +114,7 @@ namespace Horn.Core.extensions
 
                 LogCopyTask(dir, newDirectory);
 
-                dir.CopyToDirectory(newDirectory);
+                dir.CopyToDirectory(newDirectory, deleteDestination);
             }
         }
 
@@ -118,11 +122,14 @@ namespace Horn.Core.extensions
         {
             foreach (var file in source.GetFiles())
             {
-                var destinationFile = Path.Combine(destination.FullName, Path.GetFileName(file.FullName));
+                var destinationFile = new FileInfo(Path.Combine(destination.FullName, Path.GetFileName(file.FullName)));
 
                 LogCopyTask(source, destination);
 
-                file.CopyTo(destinationFile, true);
+                if(!destinationFile.Directory.Exists)
+                    destinationFile.Directory.Create();
+
+                file.CopyTo(destinationFile.FullName, true);
             }
         }
 

@@ -1,8 +1,5 @@
 install castle.facilities:
 	description "A castle facility augments the container with new functionality."
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:  
 		repository(castle, part("SharedLibs"), to("SharedLibs"))

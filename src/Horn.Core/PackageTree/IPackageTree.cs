@@ -30,6 +30,10 @@ namespace Horn.Core.PackageStructure
 
         DirectoryInfo OutputDirectory { get; }
 
+        DirectoryInfo PatchDirectory { get; }
+
+        bool PatchExists { get; }
+
         DirectoryInfo Result { get; }
 
         IPackageTree Root { get; }
@@ -51,6 +55,8 @@ namespace Horn.Core.PackageStructure
         IRevisionData GetRevisionData();
 
         IPackageTree GetRootPackageTree(DirectoryInfo rootFolder);
+
+        void PatchPackage();
 
         IPackageTree RetrievePackage(string packageName);
 

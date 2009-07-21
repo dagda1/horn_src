@@ -6,7 +6,8 @@ namespace Horn.Framework.helpers
     public static class PackageTreeHelper
     {
         public const string PackageWithoutRevision = "norevisionpackage";
-        public  const string PackageWithRevision = "log4net";
+        public const string PackageWithRevision = "log4net";
+        public const string PackageWithPatch = PackageWithRevision;
 
         public static DirectoryInfo CreateEmptyDirectoryStructureForTesting()
         {
@@ -36,6 +37,8 @@ namespace Horn.Framework.helpers
             string loggers = CreateDirectory(rootDirectory, "loggers");
             string log4net = CreateDirectory(loggers, "log4net");
 
+            CreatePatchDirectory(log4net);
+
             var log4NetBuildFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"BuildConfigs\Horn\log4net.boo");
 
             CreateBuildFiles(log4NetBuildFile, log4net, true, true);
@@ -62,6 +65,21 @@ namespace Horn.Framework.helpers
             CreateBuildEnginesStructure(rootDirectory);
 
             return new DirectoryInfo(rootDirectory);
+        }
+
+        public static void CreatePatchDirectory(string rootFolder)
+        {
+            const string patchFile = "patchfile.txt";
+
+            var patchDirectory = CreateDirectory(Path.Combine(rootFolder, "patch"));
+
+            var childDirectory = CreateDirectory(Path.Combine(patchDirectory, "child"));
+
+            var sourceFile = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BuildConfigs\\Horn"), patchFile);
+
+            var destinationFile = Path.Combine(childDirectory, patchFile);
+
+            File.Copy(sourceFile, destinationFile, true);
         }
 
         public static void CreateBuildFiles(string sourceFile, string destinationFolder, bool createRevisionFile, bool createVersionedRevisionFile)

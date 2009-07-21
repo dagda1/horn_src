@@ -115,7 +115,9 @@
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
     <Compile Include="dsl\VersionedDependencySpec.cs" />
+    <Compile Include="PrebuildSpecs\ConventionPrebuildSpecs.cs" />
     <Compile Include="RevisionDataSpec\RevisionDataVersionSepecs.cs" />
+    <Compile Include="Stubs\PackageBuilderWithOnlyPrebuildStub.cs" />
     <Compile Include="Stubs\StubProcess.cs" />
     <Compile Include="Stubs\StubProcessFactory.cs" />
     <Compile Include="CmdLine\CommandArgsSpec.cs" />
@@ -186,6 +188,8 @@
     <Content Include="BuildConfigs\Horn\log4net.boo" />
     <Content Include="BuildConfigs\Horn\repository.boo" />
     <Content Include="BuildConfigs\Horn\versioneddependency.boo" />
+    <Content Include="BuildConfigs\Horn\patchfile.txt" />
+    <Content Include="BuildConfigs\Horn\version\versioneddependency.boo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

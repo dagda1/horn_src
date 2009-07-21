@@ -1,8 +1,5 @@
 install nhcontrib.caches:
-	description "NHibernate Caches contains several Cache Provider's for NHibernate's Cache mechanism."
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."	
+	description "NHibernate Caches contains several Cache Provider's for NHibernate's Cache mechanism."	
 	
 	get_from svn("https://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Caches/")
 	build_with nant, buildfile("default.build"), FrameworkVersion35	

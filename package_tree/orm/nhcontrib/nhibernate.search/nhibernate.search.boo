@@ -1,11 +1,9 @@
 install nhibernate.search:
 	description "Nhibernate search."
+	
 	get_from svn("https://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Search/")
 	build_with nant, buildfile("default.build"), FrameworkVersion35	
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."	
-		
+
 	switches:
 		parameters "with.examples=false"
 		

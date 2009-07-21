@@ -58,7 +58,7 @@ namespace Horn.Core.Dsl
 
             var directoryInfo = (DirectoryInfo)source;
             var destinationDirectory = (DirectoryInfo)destination;
-            directoryInfo.CopyToDirectory(destinationDirectory);
+            directoryInfo.CopyToDirectory(destinationDirectory, true);
         }
 
         public RepositoryElement(string repositoryName, string includePath, string exportPath)

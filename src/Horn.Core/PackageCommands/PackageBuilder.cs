@@ -17,7 +17,7 @@ namespace Horn.Core.PackageCommands
         private readonly ICommandArgs commandArgs;
         private static readonly ILog log = LogManager.GetLogger(typeof(PackageBuilder));
 
-        public void Execute(IPackageTree packageTree)
+        public virtual void Execute(IPackageTree packageTree)
         {
             LogPackageDetails();
 
@@ -57,6 +57,8 @@ namespace Horn.Core.PackageCommands
 
         protected virtual void ExecutePrebuildCommands(IBuildMetaData metaData, IPackageTree packageTree)
         {
+            packageTree.PatchPackage();
+
             if (!metaData.PrebuildCommandList.HasElements())
                 return;
 
@@ -71,7 +73,7 @@ namespace Horn.Core.PackageCommands
             return nextTree.GetBuildMetaData(nextTree.BuildFile);
         }
 
-        protected void LogPackageDetails()
+        protected virtual void LogPackageDetails()
         {
             var message = string.Format("installing {0} ", commandArgs.PackageName);
 

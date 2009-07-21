@@ -1,8 +1,5 @@
 install castle.windsor:
 	description "Windsor is an inversion of control container that aggregates the MicroKernel offering a friendly fool-proof interface and options to external configurations."
-	
-	prebuild:
-		cmd "xcopy /s /y \"../Patch\" ."
 		
 	include:
 		repository(castle, part("SharedLibs"), to("SharedLibs"))

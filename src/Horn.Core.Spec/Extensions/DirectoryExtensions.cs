@@ -16,7 +16,7 @@ namespace Horn.Core.Spec.Extensions
 
             destination = new DirectoryInfo(Path.Combine(new DirectoryInfo("C:\\").FullName, "Working"));
 
-            source.CopyToDirectory(destination);
+            source.CopyToDirectory(destination, true);
         }
 
         //[Fact], too slow to be useful

@@ -87,6 +87,16 @@ namespace Horn.Core.Spec.Doubles
             set { throw new NotImplementedException(); }
         }
 
+        public DirectoryInfo PatchDirectory
+        {
+            get { return null; }
+        }
+
+        public bool PatchExists
+        {
+            get { return false; }
+        }
+
         public IPackageTree Parent
         {
             get { throw new NotImplementedException(); }
@@ -161,6 +171,11 @@ namespace Horn.Core.Spec.Doubles
         public IPackageTree GetRootPackageTree(DirectoryInfo rootFolder)
         {
             throw new NotImplementedException();
+        }
+
+        public void PatchPackage()
+        {
+            Console.WriteLine("Patchin package");
         }
 
         public void Remove(IPackageTree item)
