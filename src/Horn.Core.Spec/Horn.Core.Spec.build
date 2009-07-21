@@ -6,6 +6,7 @@
     <property name="build.warnmissingdocs" value="false" />
     <property name="assembly.version" value="1.0.0" />
     <property name="assembly.description" value="The unit test project of horn." />
+    <copy file="${root.dir}/Horn.Core.Spec/BuildConfigs/Horn/patchfile.txt" todir="${build.dir}/BuildConfigs/Horn" />
     <assemblyfileset id="project.references" basedir="${build.dir}">
       <include name="Boo.Lang.dll" />
       <include name="Boo.Lang.Compiler.dll"  />
