@@ -44,7 +44,7 @@ namespace Horn.Core.BuildEngines
             parameters.ForEach(x =>
                                    {
                                        var parts = x.Split('=');
-                                        
+
                                        Parameters.Add(parts[0], parts[1]);
                                    });
         }
@@ -83,8 +83,8 @@ namespace Horn.Core.BuildEngines
         {
             string strongKey = Path.Combine(packageTree.WorkingDirectory.FullName,
                                             string.Format("{0}.snk", packageTree.Name));
-                                            
-            string commandLine = string.Format("{0} -k {1}", packageTree.Sn, strongKey);
+
+            string commandLine = string.Format("\"{0}\" -k \"{1}\"", packageTree.Sn, strongKey);
 
             var PSI = new ProcessStartInfo("cmd.exe")
                                        {
@@ -99,6 +99,16 @@ namespace Horn.Core.BuildEngines
             StreamReader SR = p.StandardOutput;
             SW.WriteLine(commandLine);
             SW.Close();
+            string pOutput = SR.ReadToEnd();
+            p.WaitForExit();
+
+            if (p.ExitCode != 0)
+            {
+                string errorMessage = "GenerateKeyFile process failed with Exit Code: " + p.ExitCode;
+                log.Error(errorMessage);
+                log.Error(pOutput);
+                throw new ProcessFailedException(errorMessage);
+            }
         }
 
         public virtual DirectoryInfo GetBuildDirectory(DirectoryInfo root)
