@@ -1,5 +1,9 @@
 install rhino:
 	description "Rhino tools including Rhino Mocks, Rhino ETL, Binsor etc."
+	
+	prebuild:
+		cmd "xcopy /s /y \"../Patch\" ."	
+	
 	get_from svn("https://rhino-tools.svn.sourceforge.net/svnroot/rhino-tools/trunk")
 	
 	build_with nant, buildfile("default.build"), FrameworkVersion35
