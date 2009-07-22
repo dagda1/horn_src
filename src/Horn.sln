@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74C6B946-74C3-4C84-85C0-F0AE01E963C7}"
 	ProjectSection(SolutionItems) = preProject
 		common-project.xml = common-project.xml
+		common.xml = common.xml
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 	EndProjectSection
 EndProject
