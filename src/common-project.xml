@@ -105,26 +105,46 @@
 
   <target name="common.compile-exe"
 		description="Compile sources into a console executable">
+    <echo message="build.msbuild = ${build.msbuild}"/>
+    <if test="${build.msbuild}">
+      <property name="msbuildlogger" value="" unless="${property::exists('CCNetLabel')}" />
+      <property name="msbuildlogger" value="/logger:ThoughtWorks.CruiseControl.MsBuild.XmlLogger" if="${property::exists('CCNetLabel')}" />
+      <property name="msbuild.defines" value="${string::replace(current.build.defines, ',', ';')}" />
 
-    <csc
-			target="exe"
-			define="${current.build.defines}"
-			debug="${build.debug}"
-			optimize="${build.optimize}"
-			warnaserror="${build.warnaserrors}"
-			output="${build.dir}/${project::get-name()}.exe"
-      platform="x86"
-		>
-      <nowarn>
-        <warning number="1591" unless="${build.warnmissingdocs}" />
-        <!-- No XML comment for publicly visible member -->
-      </nowarn>
-      <sources refid="project.sources" />
-      <references refid="project.references" />
-      <resources refid="project.resources" />
-      <arg line="${csc.keyfile}" if="${assembly.sign}" />
-      <arg line="${csc.args}" />
-    </csc>
+      <exec program="${framework::get-framework-directory(framework::get-target-framework())}/MSBuild.exe" workingdir="${build.dir}">
+        <arg file="${src.dir}/${project.vsproj}" />
+        <arg value="/p:Configuration=${project.config}" />
+        <arg value="/p:OutputPath=&quot;${build.dir}&quot;" />
+        <arg value="/p:TreatWarningsAsErrors=${build.warnaserrors}" />
+        <arg value='/p:DefineConstants="${msbuild.defines}"' />
+        <arg value='/t:Rebuild' if="${build.rebuild}" />
+        <arg value="/p:DocumentationFile=&quot;${build.dir}/${project::get-name()}.xml&quot;" />
+        <arg value="/p:NoWarn=1591" unless="${build.warnmissingdocs}" />
+        <arg line="/p:SignAssembly=${assembly.sign} /p:AssemblyOriginatorKeyFile=&quot;${key.file}&quot;" />
+        <!--<arg value="${msbuildlogger}" />-->
+      </exec>
+    </if>
+	<if test="${not build.msbuild}">
+		<csc
+				target="exe"
+				define="${current.build.defines}"
+				debug="${build.debug}"
+				optimize="${build.optimize}"
+				warnaserror="${build.warnaserrors}"
+				output="${build.dir}/${project::get-name()}.exe"
+		  platform="x86"
+			>
+		  <nowarn>
+			<warning number="1591" unless="${build.warnmissingdocs}" />
+			<!-- No XML comment for publicly visible member -->
+		  </nowarn>
+		  <sources refid="project.sources" />
+		  <references refid="project.references" />
+		  <resources refid="project.resources" />
+		  <arg line="${csc.keyfile}" if="${assembly.sign}" />
+		  <arg line="${csc.args}" />
+		</csc>
+	</if>
   </target>
 
   <target name="common.set-assembly-attribute-values">
