@@ -9,6 +9,7 @@ namespace Horn.Spec.Framework.doubles
 
         public bool RebuildOnly { get; private set; }
         public string Version { get; private set; }
+        public bool Refresh { get; set; }
 
         public CommandArgsDouble(string installName)
         {

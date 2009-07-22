@@ -168,7 +168,8 @@ Options :
                                  {
                                      new Parameter("install", true, true, false),
                                      new Parameter("rebuildonly", false, false, false),
-                                     new Parameter("version", false, true, false)
+                                     new Parameter("version", false, true, false),
+                                     new Parameter("refresh", false, false, false)
                                  };
 
             paramTable = parameters.ToArray();

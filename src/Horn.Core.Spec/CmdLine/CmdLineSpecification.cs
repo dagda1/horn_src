@@ -169,4 +169,42 @@ namespace Horn.Core.Spec.Unit.CmdLine
             Assert.True(parser.CommandArguments.RebuildOnly);
         }
     }
+
+    public class When_horn_receives_a_refresh_switch : CmdLineErrorSpecificationBase
+    {
+        protected override string[] Args
+        {
+            get { return new[] { "-install:castle.windsor", "-refresh" }; }
+        }
+
+        protected override string ExpectErrorMessage
+        {
+            get { return ""; }
+        }
+
+        protected override void Because()
+        {
+            parser = new SwitchParser(Output, Args);
+
+            IsValid = parser.IsAValidRequest();
+        }
+
+        [Fact]
+        public void Then_the_parsed_arguments_Are_Valid()
+        {
+            Assert.True(IsValid);
+        }
+
+        [Fact]
+        public void Then_the_install_name_should_be_castle_windsor()
+        {
+            Assert.Equal("castle.windsor", parser.CommandArguments.PackageName);
+        }
+
+        [Fact]
+        public void Then_the_command_args_specifies_refresh()
+        {
+            Assert.True(parser.CommandArguments.Refresh);
+        }
+    }
 }
