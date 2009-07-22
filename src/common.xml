@@ -151,7 +151,7 @@
 
     <call target="set-${framework::get-target-framework()}-framework-configuration" />
 
-    <property name="build.msbuild" 	value="true" overwrite="false" />
+    <property name="build.msbuild" value="false" overwrite="false" />
   </target>
 
 	<target name="set-net-2.0-framework-configuration">
@@ -170,7 +170,7 @@
 				<property name="dev.env.dir" value="${default.dev.env.dir}" />
 			</if>
 		</if>
-		<property name="build.msbuild"	value="true" overwrite="true" readonly="false" />
+		<property name="build.msbuild"	value="false" overwrite="true" readonly="false" />
 		<property name="project.vsproj" value="${project::get-name()}.csproj" />
 	</target>
 
@@ -180,7 +180,7 @@
 		<property name="link.sdkdoc.version" value="SDK_v3_5" />
 		<property name="merge.targetplatform" value="v3" />
 		<property name="csc.keyfile" value="/keyfile:${key.file}" />
-		<property name="build.msbuild"	value="true" overwrite="true" readonly="false" />
+		<property name="build.msbuild"	value="false" overwrite="true" readonly="false" />
 		<property name="project.vsproj" value="${project::get-name()}.csproj" />
 	</target>
 
