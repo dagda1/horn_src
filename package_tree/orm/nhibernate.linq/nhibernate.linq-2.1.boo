@@ -1,5 +1,5 @@
 install nhibernate.linq:
-	description "Nhibernate Linq - Linq provider for NHibernate"
+	description "Nhibernate Linq - Linq provider for NHibernate "
 	
 	get_from svn("https://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Linq/")
 	build_with nant, buildfile("default.build"), FrameworkVersion35	
