@@ -14,6 +14,7 @@ install FluentNHibernate:
 dependencies:    
 	depend "castle.tools" 		 >> "Castle.Core"
 	depend "castle.tools" 		 >> "Castle.DynamicProxy2"
+	depend "castle.tools" 		 >> "Castle.DynamicProxy"
 	depend "nhibernate"		     >> "2.1" >> "NHibernate"     
 	depend "nhibernate"		     >> "2.1" >> "NHibernate.ByteCode.Castle"
 	depend "nhibernate"          >> "2.1" >> "Iesi.Collections"
