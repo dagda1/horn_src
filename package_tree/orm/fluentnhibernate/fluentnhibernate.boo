@@ -1,5 +1,5 @@
 install FluentNHibernate:
-	description "Fluent, XML-less, compile safe, automated, testable mappings for NHibernate"	
+	description "Fluent, XML-less, compile safe, automated, testable mappings for NHibernate "	
 	
 	get_from svn("http://fluent-nhibernate.googlecode.com/svn/trunk")
 	
