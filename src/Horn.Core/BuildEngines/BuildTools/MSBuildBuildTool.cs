@@ -1,5 +1,6 @@
 using System;
 using Horn.Core.BuildEngines;
+using Horn.Core.extensions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.Framework;
 
@@ -11,8 +12,8 @@ namespace Horn.Core
                         FrameworkVersion version)
         {
             return string.Format(
-                    "\"{0}\" /p:OutputPath=\"{1}\"  /p:TargetFrameworkVersion={2} /p:NoWarn=1591 /consoleloggerparameters:Summary",
-                    pathToBuildFile, packageTree.OutputDirectory, GetFrameworkVersionForBuildTool(version));
+                    "{0} /p:OutputPath=\"{1}\"  /p:TargetFrameworkVersion={2} /p:NoWarn=1591 /consoleloggerparameters:Summary",
+                    pathToBuildFile.QuotePath(), packageTree.OutputDirectory, GetFrameworkVersionForBuildTool(version));
         }
 
         public string GetFrameworkVersionForBuildTool(FrameworkVersion version)
