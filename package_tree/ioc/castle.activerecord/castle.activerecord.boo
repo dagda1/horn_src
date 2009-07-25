@@ -20,7 +20,7 @@ dependencies:
 	depend "castle.tools"        >> "Castle.Core"
 	depend "castle.tools"        >> "Castle.DynamicProxy2"
 	depend "castle.components"   >> "Castle.Components.Validator"
-	depend "nhibernate.search"   >> "NHibernate.Search"       
+	#depend "nhibernate.search"   >> "NHibernate.Search"       
 	depend "nhibernate"		     >> "2.1" >> "NHibernate"
 	depend "nhibernate"		     >> "2.1" >> "NHibernate.ByteCode.Castle"
 	depend "nhibernate"          >> "2.1" >> "Iesi.Collections" 	
