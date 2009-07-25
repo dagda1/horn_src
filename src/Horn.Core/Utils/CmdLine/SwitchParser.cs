@@ -102,7 +102,7 @@ Options :
             string usage = "USAGE:" + Environment.NewLine;
 
             foreach (var paramRow in paramTable)
-                usage += string.Format("{0}-{1}:{{{2}}}{3}{4}" + Environment.NewLine, paramRow.Required ? string.Empty : "[", paramRow.Key, "", paramRow.Reoccurs ? "*" : "", paramRow.Required ? "" : "]");
+                usage += string.Format("{0}-{1}{2}{3}{4}" + Environment.NewLine, paramRow.Required ? string.Empty : "[", paramRow.Key, paramRow.RequiresArgument ? ":{}" : "", paramRow.Reoccurs ? "*" : "", paramRow.Required ? "" : "]");
 
             output.WriteLine();
             output.WriteLine(usage);
