@@ -422,10 +422,6 @@
                     <categories>
                         <exclude name="NotWorking" />
                     </categories>
-                    <references basedir="build">
-                        <include name="Cegeka.Income.Services.dll" />
-                        <include name="Cegeka.Util.dll" />
-                    </references>
                 </test>
             </nunit2>
                 ]]>
@@ -473,11 +469,6 @@
             Assemblies to include in test.
             </summary>
         </member>
-        <member name="P:NAnt.NUnit2.Types.NUnit2Test.References">
-            <summary>
-            Assemblies to scan for missing assembly references.
-            </summary>
-        </member>
         <member name="P:NAnt.NUnit2.Types.NUnit2Test.Categories">
             <summary>
             Categories of test cases to include or exclude.
@@ -521,13 +512,12 @@
             class.
             </summary>
         </member>
-        <member name="M:NAnt.NUnit2.Tasks.NUnit2TestDomain.CreateRunner(System.IO.FileInfo,System.IO.FileInfo,System.Collections.Specialized.StringCollection)">
+        <member name="M:NAnt.NUnit2.Tasks.NUnit2TestDomain.CreateRunner(System.IO.FileInfo,System.IO.FileInfo)">
             <summary>
             Runs a single testcase.
             </summary>
             <param name="assemblyFile">The test assembly.</param>
             <param name="configFile">The application configuration file for the test domain.</param>
-            <param name="referenceAssemblies">List of files to scan for missing assembly references.</param>
             <returns>
             The result of the test.
             </returns>
@@ -537,9 +527,9 @@
             Helper class called when an assembly resolve event is raised.
             </summary>
         </member>
-        <member name="M:NAnt.NUnit2.Tasks.NUnit2TestDomain.AssemblyResolveHandler.#ctor(System.String[],System.String[])">
+        <member name="M:NAnt.NUnit2.Tasks.NUnit2TestDomain.AssemblyResolveHandler.#ctor(System.String[])">
             <summary> 
-            Initializes an instanse of the <see cref="T:NAnt.NUnit2.Tasks.NUnit2TestDomain.AssemblyResolveHandler"/>
+            Initializes an instanse of the <see cref="T:NAnt.NUnit2.Tasks.NUnit2TestDomain.AssemblyResolveHandler"/> 
             class.
             </summary>
         </member>
@@ -566,12 +556,6 @@
         <member name="F:NAnt.NUnit2.Tasks.NUnit2TestDomain.AssemblyResolveHandler._probePaths">
             <summary>
             Holds the list of directories that will be scanned for missing
-            assembly references.
-            </summary>
-        </member>
-        <member name="F:NAnt.NUnit2.Tasks.NUnit2TestDomain.AssemblyResolveHandler._referenceAssemblies">
-            <summary>
-            Holds the list of assemblies that can be scanned for missing
             assembly references.
             </summary>
         </member>

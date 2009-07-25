@@ -2890,243 +2890,6 @@
             </returns>
             <see cref="T:NAnt.Core.Functions.VersionFunctions"/>
         </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.Exists(System.String)">
-            <summary>
-            Checks whether the specified framework exists, and is valid.
-            </summary>
-            <param name="framework">The framework to test.</param>
-            <returns>
-            <see langword="true" /> if the specified framework exists ; otherwise,
-            <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.SdkExists(System.String)">
-            <summary>
-            Checks whether the SDK for the specified framework is installed.
-            </summary>
-            <param name="framework">The framework to test.</param>
-            <returns>
-            <see langword="true"/> if the SDK for specified framework is installed; 
-            otherwise, <see langword="false"/>.
-            </returns>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework">
-            <summary>
-            Gets the identifier of the current target framework.
-            </summary>
-            <returns>
-            The identifier of the current target framework.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework">
-            <summary>
-            Gets the identifier of the runtime framework.
-            </summary>
-            <returns>
-            The identifier of the runtime framework.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetFamily(System.String)">
-            <summary>
-            Gets the family of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the family should be returned.</param>
-            <returns>
-            The family of the specified framework.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetVersion">
-            <summary>
-            Gets the version of the current target framework.
-            </summary>
-            <returns>
-            The version of the current target framework.
-            </returns>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetVersion(System.String)">
-            <summary>
-            Gets the version of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the version should be returned.</param>
-            <returns>
-            The version of the specified framework.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetDescription">
-            <summary>
-            Gets the description of the current target framework.
-            </summary>
-            <returns>
-            The description of the current target framework.
-            </returns>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetDescription(System.String)">
-            <summary>
-            Gets the description of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the description should be returned.</param>
-            <returns>
-            The description of the specified framework.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetClrVersion">
-            <summary>
-            Gets the Common Language Runtime version of the current target
-            framework.
-            </summary>
-            <returns>
-            The Common Language Runtime version of the current target framework.
-            </returns>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetClrVersion(System.String)">
-            <summary>
-            Gets the Common Language Runtime version of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the Common Language Runtime version should be returned.</param>
-            <returns>
-            The Common Language Runtime version of the specified framework.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetFrameworkDirectory(System.String)">
-            <summary>
-            Gets the framework directory of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the framework directory should be returned.</param>
-            <returns>
-            The framework directory of the specified framework.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetAssemblyDirectory(System.String)">
-            <summary>
-            Gets the assembly directory of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the assembly directory should be returned.</param>
-            <returns>
-            The assembly directory of the specified framework.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetSdkDirectory(System.String)">
-            <summary>
-            Gets the SDK directory of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the SDK directory should be returned.</param>
-            <returns>
-            The SDK directory of the specified framework, or an empty 
-            <see cref="T:System.String"/> if the SDK of the specified framework is not 
-            installed.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetToolPath(System.String)">
-            <summary>
-            Gets the absolute path of the specified tool for the current
-            target framework.
-            </summary>
-            <param name="tool">The file name of the tool to search for.</param>
-            <returns>
-            The absolute path to <paramref name="tool"/> if found in one of the
-            configured tool paths; otherwise, an error is reported.
-            </returns>
-            <exception cref="T:System.IO.FileNotFoundException"><paramref name="tool"/> could not be found in the configured tool paths.</exception>
-            <remarks>
-              <para>
-              The configured tool paths are scanned in the order in which they
-              are defined in the framework configuration.
-              </para>
-              <para>
-              The file name of the tool to search should include the extension.
-              </para>
-            </remarks>
-            <example>
-              <para>Use <b>gacutil</b> to install an assembly in the GAC.</para>
-              <code>
-                <![CDATA[
-            <exec program="${framework::get-tool-path('gacutil.exe')}" managed="strict">
-                <arg value="/i" />
-                <arg file="Cegeka.HealthFramework.dll" />
-            </exec>
-                ]]>
-              </code>
-            </example>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeEngine(System.String)">
-            <summary>
-            Gets the runtime engine of the specified framework.
-            </summary>
-            <param name="framework">The framework of which the runtime engine should be returned.</param>
-            <returns>
-            The full path to the runtime engine of the specified framework, or
-            an empty <see cref="T:System.String"/> if no runtime engine is defined
-            for the specified framework.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
-            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetFrameworks(NAnt.Core.FrameworkTypes)">
-            <summary>
-            Gets a comma-separated list of frameworks filtered by the specified
-            <see cref="T:NAnt.Core.FrameworkTypes"/>.
-            </summary>
-            <param name="types">A bitwise combination of <see cref="T:NAnt.Core.FrameworkTypes"/> values that filter the frameworks to retrieve.</param>
-            <returns>
-            A comma-separated list of frameworks filtered by the specified
-            <see cref="T:NAnt.Core.FrameworkTypes"/>, sorted on name.
-            </returns>
-            <example>
-              <para>
-              Define a <b>build-all</b> target that executes the <b>build</b>
-              target once for each installed framework targeting compact
-              devices.
-              </para>
-              <code>
-                <![CDATA[
-            <target name="build-all">
-                <foreach item="String" in="${framework::get-frameworks('installed compact')}" delim="," property="framework">
-                    <property name="nant.settings.currentframework" value="${framework}" />
-                    <call target="build" />
-                </foreach>
-            </target>
-            
-            <target name="build">
-                ...
-            </target>
-                ]]>
-              </code>
-            </example>
-        </member>
-        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetFramework(System.String)">
-            <summary>
-            Checks whether the specified framework is valid.
-            </summary>
-            <param name="framework">The framework to check.</param>
-            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
-        </member>
         <member name="M:NAnt.Core.Functions.Int32ConversionFunctions.Parse(System.String)">
             <summary>
             Converts the specified string representation of a number to its 
@@ -3246,97 +3009,6 @@
             <returns>
             The NAnt assembly.
             </returns>
-        </member>
-        <member name="M:NAnt.Core.Functions.NAntFunctions.ScanProbingPaths(System.String)">
-            <summary>
-            Searches the probing paths of the current target framework for the
-            specified file.
-            </summary>
-            <param name="fileName">The name of the file to search for.</param>
-            <returns>
-            The absolute path to <paramref name="fileName"/> if found in one of the
-            configured probing; otherwise, an error is reported.
-            </returns>
-            <exception cref="T:System.IO.FileNotFoundException"><paramref name="fileName"/> could not be found in the configured probing paths.</exception>
-            <remarks>
-              <para>
-              The (relative) probing paths are resolved relative to the base
-              directory of the appdomain in which NAnt is running.
-              </para>
-              <para>
-              The configured probing paths are scanned recursively in the order
-              in which they are defined in the framework configuration.
-              </para>
-              <para>
-              The file name to search should include the extension.
-              </para>
-            </remarks>
-            <example>
-              <para>
-              Compile an assembly referencing the <c>nunit.framework</c> assembly
-              for the current target framework that is shipped as part of the
-              NAnt distribution.
-              </para>
-              <code>
-                <![CDATA[
-            <csc target="library" output="NAnt.Core.Tests.dll">
-                <sources basedir="NAnt.Core">
-                    <include name="**/*.cs" />
-                </sources>
-                <references>
-                    <include name="NAnt.Core.dll" />
-                    <include name="${framework::get-lib-path('nunit.framework.dll')}" />
-                </references>
-            </csc>
-                ]]>
-              </code>
-            </example>
-        </member>
-        <member name="M:NAnt.Core.Functions.NAntFunctions.ScanProbingPaths(System.String,System.String)">
-            <summary>
-            Searches the probing paths of the current target framework for the
-            specified file.
-            </summary>
-            <param name="baseDirectory">The directory to use a base directory for the probing paths.</param>
-            <param name="fileName">The name of the file to search for.</param>
-            <returns>
-            The absolute path to <paramref name="fileName"/> if found in one of the
-            configured probing; otherwise, an error is reported.
-            </returns>
-            <exception cref="T:System.IO.FileNotFoundException"><paramref name="fileName"/> could not be found in the configured probing paths.</exception>
-            <remarks>
-              <para>
-              The (relative) probing paths are resolved relative to the specified
-              base directory.
-              </para>
-              <para>
-              The configured probing paths are scanned recursively in the order
-              in which they are defined in the framework configuration.
-              </para>
-              <para>
-              The file name to search should include the extension.
-              </para>
-            </remarks>
-            <example>
-              <para>
-              Compile an assembly referencing the <c>nunit.framework</c> assembly
-              for the current target framework that is shipped as part of the
-              NAnt distribution.
-              </para>
-              <code>
-                <![CDATA[
-            <csc target="library" output="NAnt.Core.Tests.dll">
-                <sources basedir="NAnt.Core">
-                    <include name="**/*.cs" />
-                </sources>
-                <references>
-                    <include name="NAnt.Core.dll" />
-                    <include name="${framework::get-lib-path('nunit.framework.dll')}" />
-                </references>
-            </csc>
-                ]]>
-              </code>
-            </example>
         </member>
         <member name="M:NAnt.Core.Functions.ProjectFunctions.GetName">
             <summary>
@@ -3505,6 +3177,183 @@
               <code>property::is-dynamic('debug')</code>
             </example>
         </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.Exists(System.String)">
+            <summary>
+            Checks whether the specified framework exists, and is valid.
+            </summary>
+            <param name="framework">The framework to test.</param>
+            <returns>
+            <see langword="true" /> if the specified framework exists ; otherwise,
+            <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.SdkExists(System.String)">
+            <summary>
+            Checks whether the SDK for the specified framework is installed.
+            </summary>
+            <param name="framework">The framework to test.</param>
+            <returns>
+            <see langword="true"/> if the SDK for specified framework is installed; 
+            otherwise, <see langword="false"/>.
+            </returns>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework">
+            <summary>
+            Gets the identifier of the current target framework.
+            </summary>
+            <returns>
+            The identifier of the current target framework.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework">
+            <summary>
+            Gets the identifier of the runtime framework.
+            </summary>
+            <returns>
+            The identifier of the runtime framework.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetFamily(System.String)">
+            <summary>
+            Gets the family of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the family should be returned.</param>
+            <returns>
+            The family of the specified framework.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetVersion(System.String)">
+            <summary>
+            Gets the version of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the version should be returned.</param>
+            <returns>
+            The version of the specified framework.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetDescription(System.String)">
+            <summary>
+            Gets the description of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the description should be returned.</param>
+            <returns>
+            The description of the specified framework.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetClrVersion(System.String)">
+            <summary>
+            Gets the Common Language Runtime version of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the Common Language Runtime version should be returned.</param>
+            <returns>
+            The Common Language Runtime version of the specified framework.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetFrameworkDirectory(System.String)">
+            <summary>
+            Gets the framework directory of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the framework directory should be returned.</param>
+            <returns>
+            The framework directory of the specified framework.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetAssemblyDirectory(System.String)">
+            <summary>
+            Gets the assembly directory of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the assembly directory should be returned.</param>
+            <returns>
+            The assembly directory of the specified framework.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetSdkDirectory(System.String)">
+            <summary>
+            Gets the SDK directory of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the SDK directory should be returned.</param>
+            <returns>
+            The SDK directory of the specified framework, or an empty 
+            <see cref="T:System.String"/> if the SDK of the specified framework is not 
+            installed.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetToolPath(System.String)">
+            <summary>
+            Gets the absolute path of the specified tool for the current
+            target framework.
+            </summary>
+            <param name="tool">The file name of the tool to search for.</param>
+            <returns>
+            The absolute path to <paramref name="tool"/> if found in one of the
+            configured tool paths; otherwise, an error is reported.
+            </returns>
+            <exception cref="T:System.IO.FileNotFoundException"><paramref name="tool"/> could not be found in the configured tool paths.</exception>
+            <remarks>
+              <para>
+              The configured tool paths are scanned in the order in which they
+              are defined in the framework configuration.
+              </para>
+              <para>
+              The file name of the tool to search should include the extension.
+              </para>
+            </remarks>
+            <example>
+              <para>Use <b>gacutil</b> to install an assembly in the GAC.</para>
+              <code>
+                <![CDATA[
+            <exec program="${framework::get-tool-path('gacutil.exe')}" managed="strict">
+                <arg value="/i" />
+                <arg file="Cegeka.HealthFramework.dll" />
+            </exec>
+                ]]>
+              </code>
+            </example>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeEngine(System.String)">
+            <summary>
+            Gets the runtime engine of the specified framework.
+            </summary>
+            <param name="framework">The framework of which the runtime engine should be returned.</param>
+            <returns>
+            The full path to the runtime engine of the specified framework, or
+            an empty <see cref="T:System.String"/> if no runtime engine is defined
+            for the specified framework.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetRuntimeFramework"/>
+            <seealso cref="M:NAnt.Core.Functions.FrameworkFunctions.GetTargetFramework"/>
+        </member>
+        <member name="M:NAnt.Core.Functions.FrameworkFunctions.GetFramework(System.String)">
+            <summary>
+            Checks whether the specified framework is valid.
+            </summary>
+            <param name="framework">The framework to check.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="framework"/> is not a valid framework identifier.</exception>
+        </member>
         <member name="M:NAnt.Core.Functions.PlatformFunctions.GetName">
             <summary>
             Gets the name of the platform on which NAnt is running.
@@ -3515,29 +3364,19 @@
         </member>
         <member name="M:NAnt.Core.Functions.PlatformFunctions.IsWin32">
             <summary>
-            Checks whether NAnt is running on Windows (and not just 32-bit Windows
-            as the name may lead you to believe).
+            Checks whether NAnt is running on the win32 platform.
             </summary>
             <returns>
-            <see langword="true" /> if NAnt is running on Windows;
-            otherwise, <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Functions.PlatformFunctions.IsWindows">
-            <summary>
-            Checks whether NAnt is running on Windows.
-            </summary>
-            <returns>
-            <see langword="true" /> if NAnt is running on Windows;
+            <see langword="true" /> if NAnt is running on the win32 platform;
             otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:NAnt.Core.Functions.PlatformFunctions.IsUnix">
             <summary>
-            Checks whether NAnt is running on Unix.
+            Checks whether NAnt is running on unix.
             </summary>
             <returns>
-            <see langword="true" /> if NAnt is running on Unix;
+            <see langword="true" /> if NAnt is running on unix;
             otherwise, <see langword="false" />.
             </returns>
         </member>
@@ -7553,18 +7392,7 @@
             <param name="name"></param>
             <param name="value"></param>
             <param name="overwrite"></param>
-            <returns>
-            <c>0</c> if the execution is successful; otherwise, <c>-1</c>.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Tasks.SetEnvTask.unsetenv(System.String)">
-            <summary>
-            Deletes all instances of the variable name.
-            </summary>
-            <param name="name">The variable to unset.</param>
-            <returns>
-            <c>0</c> if the execution is successful; otherwise, <c>-1</c>.
-            </returns>
+            <returns></returns>
         </member>
         <member name="M:NAnt.Core.Tasks.SetEnvTask.Initialize">
             <summary>
@@ -8881,11 +8709,6 @@
                 </item>
                 <item>
                     <description>
-                    **/vssver2.scc
-                    </description>
-                </item>
-                <item>
-                    <description>
                     **/_vti_cnf/**
                     </description>
                 </item>
@@ -9143,13 +8966,13 @@
         </member>
         <member name="P:NAnt.Core.Types.FileSet.IncludesFiles">
             <summary>
-            The files from which a list of patterns or files to include should
+            The files from which a list of patterns or files to include should 
             be obtained.
             </summary>
         </member>
         <member name="P:NAnt.Core.Types.FileSet.ExcludesFiles">
             <summary>
-            The files from which a list of patterns or files to exclude should
+            The files from which a list of patterns or files to exclude should 
             be obtained.
             </summary>
         </member>
@@ -10224,19 +10047,6 @@
               the patternset is defined. Each line of this file is taken to be a
               pattern.
               </para>
-              <para>
-              The number sign (#) as the first non-blank character in a line denotes
-              that all text following it is a comment:
-              </para>
-              <code>
-                <![CDATA[
-                   EventLog.cs
-                   # requires Mono.Posix
-                   SysLogEventLogImpl.cs
-                   # uses the win32 eventlog API
-                   Win32EventLogImpl.cs
-                ]]>
-              </code>
               <para>
               Patterns can be grouped to sets, and later be referenced by their
               <see cref="P:NAnt.Core.DataTypeBase.ID"/>.
@@ -11771,23 +11581,11 @@
             <summary>
             Moves a file filtering its content through the filter chain.
             </summary>
-            <param name="sourceFileName">The file to move.</param>
-            <param name="destFileName">The file to move move to.</param>
+            <param name="sourceFileName">The file to move</param>
+            <param name="destFileName">The file to move move to</param>
             <param name="filterChain">Chain of filters to apply when moving, or <see langword="null" /> is no filters should be applied.</param>
             <param name="inputEncoding">The encoding used to read the soure file.</param>
             <param name="outputEncoding">The encoding used to write the destination file.</param>
-        </member>
-        <member name="M:NAnt.Core.Util.FileUtils.ReadFile(System.String,NAnt.Core.Filters.FilterChain,System.Text.Encoding)">
-            <summary>
-            Reads a file filtering its content through the filter chain.
-            </summary>
-            <param name="fileName">The file to read.</param>
-            <param name="filterChain">Chain of filters to apply when reading, or <see langword="null" /> is no filters should be applied.</param>
-            <param name="inputEncoding">The encoding used to read the file.</param>
-            <remarks>
-            If <paramref name="inputEncoding" /> is <see langword="null" />,
-            then the system's ANSI code page will be used to read the file.
-            </remarks>
         </member>
         <member name="M:NAnt.Core.Util.FileUtils.GetTempDirectory">
             <summary>
@@ -11836,21 +11634,6 @@
             </summary>
             <returns>
             The home directory of the current user.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Util.FileUtils.ResolveFile(System.String[],System.String,System.Boolean)">
-            <summary>
-            Scans a list of directories for the specified filename.
-            </summary>
-            <param name="directories">The list of directories to search.</param>
-            <param name="fileName">The name of the file to look for.</param>
-            <param name="recursive">Specifies whether the directory should be searched recursively.</param>
-            <remarks>
-            The directories are scanned in the order in which they are defined.
-            </remarks>
-            <returns>
-            The absolute path to the specified file, or null if the file was
-            not found.
             </returns>
         </member>
         <member name="T:NAnt.Core.Util.GacCache">
@@ -13125,14 +12908,6 @@
             The description of the framework.
             </value>
         </member>
-        <member name="P:NAnt.Core.FrameworkInfo.Vendor">
-            <summary>
-            Gets the vendor of the framework.
-            </summary>
-            <value>
-            The vendor of the framework.
-            </value>
-        </member>
         <member name="P:NAnt.Core.FrameworkInfo.Version">
             <summary>
             Gets the version of the framework.
@@ -13158,15 +12933,6 @@
             When <see cref="P:NAnt.Core.FrameworkInfo.ClrVersion"/> is <see langword="null"/>, the
             framework is not considered valid.
             </remarks>
-        </member>
-        <member name="P:NAnt.Core.FrameworkInfo.ClrType">
-            <summary>
-            Gets the CLR type of the framework.
-            </summary>
-            <value>
-            The CLR type of the framework.
-            </value>
-            <exception cref="T:System.ArgumentException">The framework is not valid.</exception>
         </member>
         <member name="P:NAnt.Core.FrameworkInfo.VisualStudioVersion">
             <summary>
@@ -13288,69 +13054,6 @@
             <summary>
             Initializes a new instance of the <see cref="T:NAnt.Core.FrameworkInfoDictionary"/> class
             with the specified capacity.
-            </summary>
-        </member>
-        <member name="T:NAnt.Core.FrameworkTypes">
-            <summary>
-            Defines the types of frameworks.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.NotInstalled">
-            <summary>
-            Frameworks that are supported on the current platform, but are not
-            installed.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.Installed">
-            <summary>
-            Frameworks that are installed on the current system.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.InstallStateMask">
-            <summary>
-            Retrieves installation state attributes.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.Desktop">
-            <summary>
-            Frameworks that typically target full desktop devices.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.Compact">
-            <summary>
-            Frameworks that target compact devices.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.Browser">
-            <summary>
-            Frameworks that run in a browser.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.DeviceMask">
-            <summary>
-            Retrieves device attributes.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.Mono">
-            <summary>
-            Frameworks released as part of the open-source <see href="http://www.mono-project.com">Mono</see>
-            project.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.MS">
-            <summary>
-            Frameworks released by Microsoft.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.VendorMask">
-            <summary>
-            Retrieves vendor attributes.
-            </summary>
-        </member>
-        <member name="F:NAnt.Core.FrameworkTypes.All">
-            <summary>
-            All frameworks supported on the current platform, regarless of their
-            installation state, target device or vendor.
             </summary>
         </member>
         <member name="T:NAnt.Core.Location">
@@ -14311,37 +14014,6 @@
             A shallow copy of the specified <see cref="T:System.Collections.Specialized.StringCollection"/>.
             </returns>
         </member>
-        <member name="P:NAnt.Core.PlatformHelper.Is64Bit">
-            <summary>
-            Returns a value indicating whether NAnt is running in 64-bit mode.
-            </summary>
-            <value>
-            <see langword="true" /> if NAnt is running in 64-bit mode; otherwise,
-            <see langword="false" />.
-            </value>
-        </member>
-        <member name="P:NAnt.Core.PlatformHelper.Is32Bit">
-            <summary>
-            Returns a value indicating whether NAnt is running in 32-bit mode.
-            </summary>
-            <remarks>
-            Note that even if the platform is 64-bit, NAnt may be running in
-            32-bit mode.
-            </remarks>
-            <value>
-            <see langword="true" /> if NAnt is running in 32-bit mode; otherwise,
-            <see langword="false" />.
-            </value>
-        </member>
-        <member name="P:NAnt.Core.PlatformHelper.IsWindows">
-            <summary>
-            Returns a value indicating whether NAnt is running on Windows.
-            </summary>
-            <value>
-            <see langword="true" /> if NAnt is running on Windows;
-            otherwise, <see langword="false" />.
-            </value>
-        </member>
         <member name="T:NAnt.Core.Project">
             <summary>
             Central representation of a NAnt project.
@@ -14478,64 +14150,6 @@
             Optimized for framework initialization projects, by skipping automatic
             discovery of extension assemblies and framework configuration.
             </remarks>
-        </member>
-        <member name="M:NAnt.Core.Project.GetFrameworks(NAnt.Core.FrameworkTypes)">
-            <summary>
-            Gets the list of supported frameworks filtered by the specified
-            <see cref="T:NAnt.Core.FrameworkTypes"/> parameter.
-            </summary>
-            <param name="types">A bitwise combination of <see cref="T:NAnt.Core.FrameworkTypes"/> values that filter the frameworks to retrieve.</param>
-            <returns>
-            An array of type <see cref="T:NAnt.Core.FrameworkInfo"/> that contains the
-            frameworks specified by the <paramref name="types"/> parameter,
-            sorted on name.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Project.GetLocation(System.Xml.XmlNode)">
-            <summary>
-            Returns the <see cref="T:NAnt.Core.Location"/> of the given node in an XML
-            file loaded by NAnt.
-            </summary>
-            <remarks>
-              <para>
-              The <paramref name="node"/> must be from an <see cref="T:System.Xml.XmlDocument"/>
-              that has been loaded by NAnt.
-              </para>
-              <para>
-              NAnt also does not process any of the following node types:
-              </para>
-              <list type="bullet">
-                <item>
-                    <description><see cref="F:System.Xml.XmlNodeType.Whitespace"/></description>
-                </item>
-                <item>
-                    <description><see cref="F:System.Xml.XmlNodeType.EndElement"/></description>
-                </item>
-                <item>
-                    <description><see cref="F:System.Xml.XmlNodeType.ProcessingInstruction"/></description>
-                </item>
-                <item>
-                    <description><see cref="F:System.Xml.XmlNodeType.XmlDeclaration"/></description>
-                </item>
-                <item>
-                    <description><see cref="F:System.Xml.XmlNodeType.DocumentType"/></description>
-                </item>
-              </list>
-              <para>
-              As a result, no location information is available for these nodes.
-              </para>
-            </remarks>
-            <param name="node">The <see cref="T:System.Xml.XmlNode"/> to get the <see cref="T:NAnt.Core.Location"/> for.</param>
-            <returns>
-            <see cref="T:NAnt.Core.Location"/> of the given node in an XML file loaded by NAnt, or
-            <see cref="F:NAnt.Core.Location.UnknownLocation"/> if the node was not loaded from
-            an XML file.
-            </returns>
-            <exception cref="T:System.ArgumentException">
-              <para><paramref name="node"/> is from an XML file that was not loaded by NAnt.</para>
-              <para>-or</para>
-              <para><paramref name="node"/> was not processed by NAnt (eg. an XML declaration).</para>
-            </exception>
         </member>
         <member name="M:NAnt.Core.Project.OnBuildStarted(System.Object,NAnt.Core.BuildEventArgs)">
             <summary>
@@ -15732,17 +15346,16 @@
             <param name="project">The project to work from.</param>
             <param name="scan">Specified whether to scan the <see cref="P:NAnt.Core.Project.BaseDirectory"/> for extension assemblies.</param>
         </member>
-        <member name="M:NAnt.Core.TypeFactory.LookupFunction(System.String,NAnt.Core.Extensibility.FunctionArgument[],NAnt.Core.Project)">
+        <member name="M:NAnt.Core.TypeFactory.LookupFunction(System.String,NAnt.Core.Project)">
             <summary>
-            Looks up a function by name and argument count.
+            Looks up a function by name.
             </summary>
-            <param name="functionName">The name of the function to lookup, including namespace prefix.</param>
-            <param name="args">The argument of the function to lookup.</param>
+            <param name="methodName">The name of the function to lookup, including namespace prefix.</param>
             <param name="project">The <see cref="T:NAnt.Core.Project"/> in which the function is invoked.</param>
             <returns>
             A <see cref="T:System.Reflection.MethodInfo"/> representing the function, or 
-            <see langword="null"/> if a function with the given name and
-            arguments does not exist.
+            <see langword="null"/> if a function with the given name does not
+            exist.
             </returns>
         </member>
         <member name="M:NAnt.Core.TypeFactory.CreateTask(System.Xml.XmlNode,NAnt.Core.Project)">
