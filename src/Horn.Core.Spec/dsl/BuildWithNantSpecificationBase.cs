@@ -8,7 +8,7 @@ using Rhino.Mocks;
 
 namespace Horn.Core.Spec.Unit.dsl
 {
-    public class BuildWithNantSpecificationBase : Specification
+    public abstract class BuildWithNantSpecificationBase : Specification
     {
         protected BooConfigReader configReader;
         protected DslFactory factory;
@@ -26,11 +26,6 @@ namespace Horn.Core.Spec.Unit.dsl
             factory.Register<BooConfigReader>(new ConfigReaderEngine());
 
             packageTree = MockRepository.GenerateStub<IPackageTree>();
-        }
-
-        protected override void Because()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

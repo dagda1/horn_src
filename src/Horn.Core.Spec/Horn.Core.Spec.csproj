@@ -111,6 +111,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="BuildEngine\BuildEngineExceptionSpecs.cs" />
     <Compile Include="BuildEngine\BuildEngineStub.cs" />
     <Compile Include="BuildEngine\BuildWithNantSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />

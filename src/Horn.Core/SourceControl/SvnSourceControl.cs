@@ -115,7 +115,7 @@ namespace Horn.Core.SCM
 
         protected override void SetMonitor(string destination)
         {
-            downloadMonitor = new DownloadMonitor(destination);
+            downloadMonitor = new DefaultDownloadMonitor();
         }
 
         public SVNSourceControl()
