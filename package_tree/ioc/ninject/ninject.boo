@@ -13,13 +13,13 @@
 	shared_library "lib"
 	build_root_dir "bin/net-3.5/release"
 
-/*dependencies:
+dependencies:
 	depend "castle"	>> "Castle.Core"
 	depend "castle" >> "Castle.DynamicProxy2"
 	depend "castle" >> "Castle.MicroKernel"
 	depend "castle" >> "Castle.Windsor"
 	depend "castle" >> "Castle.MonoRail.Framework"
-	depend "linfu"	>> "LinFu.DynamicProxy"*/
+	depend "linfu"	>> "LinFu.DynamicProxy"
 
 package.homepage = "http://ninject.org/"
 package.forum    = "http://groups.google.com/group/ninject"
