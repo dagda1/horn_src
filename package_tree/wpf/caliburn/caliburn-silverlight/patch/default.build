@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<project name="Caliburn">
+  <include buildfile="Caliburn.build"/>
+
+  <target name="platformNet35" depends="platform-net35_patched">
+  </target>
+
+  <target name="platformSilverlight20" depends="platform-silverlight20">
+  </target>
+
+  <target name="platformSilverlight30" depends="platform-silverlight30">
+  </target>
+
+  <target name="platform-net35_patched" depends="config">
+    <if test="${framework::exists('net-3.5')}">
+      <echo message="Building Caliburn ${build.version} for .NET Framework v3.5."/>
+      <call target="config-platform-net35"/>
+      <copy todir="${current.path.bin}">
+        <fileset basedir="${current.path.lib}">
+          <include name="*.dll"/>
+          <include name="*.xml"/>
+        </fileset>
+      </copy>
+      <call target="core"/>
+      <call target="presentationframework"/>
+      <call target="modelframework"/>
+      <call target="testability"/>
+      <call target="castle"/>
+      <call target="spring"/>
+      <call target="structuremap"/>
+      <call target="unity"/>
+      <call target="mef"/>
+      <call target="ninject"/>
+      <call target="test" unless="${skip.tests}"/>
+      <call target="package-platform"/>
+    </if>
+    <if test="${not(framework::exists('net-3.5'))}">
+      <echo message="The .NET Framework v3.5 compiler is required. Skipping platform."/>
+    </if>
+  </target>
+
+</project>

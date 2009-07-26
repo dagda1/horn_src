@@ -10,7 +10,7 @@ install caliburn:
 		tasks release,platformSilverlight30
 
 	shared_library "lib/Silverlight-3.0"
-	build_root_dir "bin/Silverlight-3.0/release"		
+	build_root_dir "bin"		
 	
 package.homepage = "http://caliburn.codeplex.com/"
 package.forum    = "http://caliburn.codeplex.com/Thread/List.aspx"
