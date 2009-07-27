@@ -6,6 +6,9 @@ install nhibernate:
 	switches:
 		parameters "with.examples=false"
 		
+	with:
+		tasks clean,build
+
 	shared_library "lib/net/3.5"
 	build_root_dir "build"		
 	

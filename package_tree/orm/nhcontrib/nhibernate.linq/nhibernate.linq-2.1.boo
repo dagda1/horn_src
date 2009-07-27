@@ -3,6 +3,12 @@ install nhibernate.linq:
 	
 	get_from svn("https://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Linq/")
 	build_with nant, buildfile("default.build"), FrameworkVersion35	
+	
+	switches:
+		parameters "skip.tests=true"
+
+	with:
+		tasks clean,build
 		
 	generate_strong_key
 		

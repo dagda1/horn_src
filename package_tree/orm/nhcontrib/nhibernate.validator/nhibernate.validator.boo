@@ -5,8 +5,11 @@ install nhibernate.validator:
 	build_with nant, buildfile("default.build"), FrameworkVersion35	
 
 	switches:
-		parameters "with.examples=false"
+		parameters "skip.tests=true"
 		
+	with:
+		tasks clean,build
+
 	generate_strong_key
 		
 	shared_library "lib"

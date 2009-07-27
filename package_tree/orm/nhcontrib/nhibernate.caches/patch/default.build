@@ -22,7 +22,10 @@
 		<include name="SysCache2/default.build" unless="${skip.syscache2}"/>
 		<!--<include name="Velocity/default.build" unless="${skip.memcache}"/>-->
 	</fileset>
-	
+  
+  <target name="clean" description="cleans the build folder">
+    <delete dir="${targets.build}" failonerror="false"/>
+  </target>
 	
 	<target name="init">
 		<if test="${test}">
@@ -33,7 +36,7 @@
 		</if>
 	</target>
 
-	<target name="build" depends="init"	description="Builds NHibernate in the current configuration">
+	<target name="build" depends="init clean"	description="Builds NHibernate in the current configuration">
 		<nant target="build">
 			<buildfiles refid="buildfiles.all" />
 		</nant>

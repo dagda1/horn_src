@@ -7,7 +7,7 @@ install caliburn:
 		parameters "skip.tests=true"
 
 	with:
-		tasks release,platformSilverlight30
+		tasks clean,release,platformSilverlight30
 
 	shared_library "lib/Silverlight-3.0"
 	build_root_dir "bin"		
