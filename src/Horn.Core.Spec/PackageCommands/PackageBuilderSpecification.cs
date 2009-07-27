@@ -116,7 +116,7 @@ namespace Horn.Core.Spec.Unit.PackageCommands
         [Fact]
         public void Then_an_unknown_package_exception_is_thrown()
         {
-            Assert.Throws<UnkownInstallPackageException>(() => packageBuilder.Execute(packageTree));
+            Assert.Throws<UnknownInstallPackageException>(() => packageBuilder.Execute(packageTree));
         }
     }
 

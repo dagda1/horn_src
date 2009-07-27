@@ -75,6 +75,7 @@ namespace Horn.Core.Integration.Builder
             File.Create(Path.Combine(dependentPath, dependentFilename)).Close();
 
             packageTree.Stub(x => x.RetrievePackage("dependency")).Return(dependentTree);
+
         }
 
         [Fact]

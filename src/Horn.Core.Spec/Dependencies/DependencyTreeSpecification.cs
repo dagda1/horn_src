@@ -95,4 +95,37 @@ namespace Horn.Core.Spec.Dependencies
             Assert.Equal("root is a dependent of itself", ex.Message);
         }
     }
+
+    public class When_A_Dependency_Doesnt_Exist : DirectorySpecificationBase
+    {
+        protected IBuildMetaData dependencyBuildMetaData;
+        protected IBuildMetaData rootBuildMetaData;
+        protected IDependencyTree dependencyTree;
+        protected IPackageTree packageTree;
+        protected IPackageTree dependentTree;
+
+        protected override void Because()
+        {
+            rootBuildMetaData = CreateStub<IBuildMetaData>();
+            dependencyBuildMetaData = CreateStub<IBuildMetaData>();
+
+            rootBuildMetaData.BuildEngine = new BuildEngine(new BuildToolStub(), "root.boo", Utils.Framework.FrameworkVersion.FrameworkVersion35, CreateStub<IDependencyDispatcher>());
+            rootBuildMetaData.BuildEngine.Dependencies.Add(new Dependency("simpleDependency", "simpleDependency"));
+            dependencyBuildMetaData.BuildEngine = new BuildEngine(new BuildToolStub(), "simpleDependency", Utils.Framework.FrameworkVersion.FrameworkVersion35, CreateStub<IDependencyDispatcher>());
+
+            packageTree = CreateStub<IPackageTree>();
+            packageTree.Stub(x => x.Name).Return("root");
+            packageTree.Stub(x => x.GetBuildMetaData("root")).Return(rootBuildMetaData);
+
+            dependentTree = new NullPackageTree();
+
+            packageTree.Stub(x => x.RetrievePackage(new Dependency("dependency", "dependency"))).IgnoreArguments().Return(dependentTree);
+        }
+
+        [Fact]
+        public void Then_An_UnknownInstallPackageException_Is_Thrown()
+        {
+            Assert.Throws<UnknownInstallPackageException>(() => new DependencyTree(packageTree));
+        }
+    }
 }

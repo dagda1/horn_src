@@ -61,6 +61,9 @@ namespace Horn.Core.Dependencies
             {
                 var package = packageTree.RetrievePackage(dependency);
 
+                if (package is NullPackageTree)
+                    throw new UnknownInstallPackageException(string.Format("No package definition exists for dependent package {0}, which is required by {1}.", dependency.PackageName, packageTree.FullName));
+
                 CalculateDependencies(package, currentTree);
             }
 

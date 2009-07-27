@@ -39,7 +39,7 @@ namespace Horn.Console
             {
                 IoC.Resolve<IPackageCommand>(parser.ParsedArgs.First().Key).Execute(packageTree);
             }
-            catch (UnkownInstallPackageException unpe)
+            catch (UnknownInstallPackageException unpe)
             {
                 log.Info(unpe.Message);
             } 

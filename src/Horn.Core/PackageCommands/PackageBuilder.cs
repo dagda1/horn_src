@@ -22,7 +22,7 @@ namespace Horn.Core.PackageCommands
             LogPackageDetails();
 
             if (!packageTree.BuildNodes().Select(x => x.Name).ToList().Contains(commandArgs.PackageName))
-                throw new UnkownInstallPackageException(string.Format("No package definition exists for {0}.", commandArgs.PackageName));
+                throw new UnknownInstallPackageException(string.Format("No package definition exists for {0}.", commandArgs.PackageName));
             
             IPackageTree componentTree = packageTree.RetrievePackage(commandArgs);
 
