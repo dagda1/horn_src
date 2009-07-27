@@ -116,6 +116,7 @@
     <Compile Include="BuildEngine\BuildWithNantSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
+    <Compile Include="dsl\DslWithRakeSpecification.cs" />
     <Compile Include="dsl\VersionedDependencySpec.cs" />
     <Compile Include="PrebuildSpecs\ConventionPrebuildSpecs.cs" />
     <Compile Include="RevisionDataSpec\RevisionDataVersionSepecs.cs" />
@@ -195,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="BuildConfigs\Horn\hornrake.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Horn.Core.Spec.build" />
   </ItemGroup>
   <ItemGroup>

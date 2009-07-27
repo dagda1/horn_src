@@ -4,6 +4,7 @@ using Boo.Lang.Compiler.Ast;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dependencies;
 using Horn.Core.SCM;
+using Horn.Core.Utils;
 using Horn.Core.Utils.Framework;
 
 namespace Horn.Core.Dsl
@@ -268,13 +269,11 @@ namespace Horn.Core.Dsl
             SetBuildEngine(new NAntBuildTool(), buildFile, version);
         }
 
-        protected void rake(string buildFile, Action action, string frameWorkVersion)
+        protected void rake(string buildFile, string frameWorkVersion)
         {
             var version = (FrameworkVersion)Enum.Parse(typeof(FrameworkVersion), frameWorkVersion);
 
-            SetBuildEngine(new RakeBuildTool(), buildFile, version);
-
-            action();
+            SetBuildEngine(new RakeBuildTool(new EnvironmentVariable()), buildFile, version);
         }
 
         protected void SetBuildTargets(string[] taskActions)

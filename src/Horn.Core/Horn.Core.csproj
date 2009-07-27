@@ -109,6 +109,8 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Utils\EnvironmentVariable.cs" />
+    <Compile Include="Utils\IEnvironmentVariable.cs" />
     <Compile Include="BuildEngines\Dependency.cs" />
     <Compile Include="Dependencies\BuildTree.cs" />
     <Compile Include="Dependencies\DependencyCopier.cs" />
