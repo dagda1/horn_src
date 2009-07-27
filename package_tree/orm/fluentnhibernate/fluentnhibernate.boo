@@ -8,7 +8,7 @@ install FluentNHibernate:
 	switches:
 		parameters "build.warnaserrors=false","common.testrunner.enabled=false","sign=true"
 		
-	shared_library "tools"
+	shared_library "tools/NHibernate"
 	build_root_dir "src/FluentNHibernate/obj/Debug"		
 	
 dependencies:    

@@ -14,11 +14,11 @@
 	build_root_dir "bin/net-3.5/release"
 
 dependencies:
-	depend "castle"	>> "Castle.Core"
-	depend "castle" >> "Castle.DynamicProxy2"
-	depend "castle" >> "Castle.MicroKernel"
-	depend "castle" >> "Castle.Windsor"
-	depend "castle" >> "Castle.MonoRail.Framework"
+	depend "castle.tools"	>> "Castle.Core"
+	depend "castle.tools" >> "Castle.DynamicProxy2"
+	depend "castle.windsor" >> "Castle.MicroKernel"
+	depend "castle.windsor" >> "Castle.Windsor"
+	/*depend "castle.monorail" >> "Castle.MonoRail.Framework"*/
 	depend "linfu"	>> "LinFu.DynamicProxy"
 
 package.homepage = "http://ninject.org/"

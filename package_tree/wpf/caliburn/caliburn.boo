@@ -7,16 +7,16 @@ install caliburn:
 		parameters "skip.tests=true"
 
 	with:
-		tasks release,platformNet35
+		tasks clean,release,platformNet35
 
 	shared_library "lib/net-3.5"
 	build_root_dir "bin/net-3.5/release"		
 	
 dependencies:
-	depend "castle" >> "Castle.Core"
-	depend "castle" >> "Castle.DynamicProxy2"
-	depend "castle" >> "Castle.MicroKernel"
-	depend "castle" >> "Castle.Windsor"
+	depend "castle.tools" >> "Castle.Core"
+	depend "castle.tools" >> "Castle.DynamicProxy2"
+	depend "castle.windsor" >> "Castle.MicroKernel"
+	depend "castle.windsor" >> "Castle.Windsor"
 	
 package.homepage = "http://caliburn.codeplex.com/"
 package.forum    = "http://caliburn.codeplex.com/Thread/List.aspx"
