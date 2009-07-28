@@ -10,12 +10,12 @@ namespace Horn.Core
 {
     public class RakeBuildTool : IBuildTool
     {
-        private readonly IEnvironmentVariable _environmentVariable;
-        string directory = null;
+        private readonly IEnvironmentVariable environmentVariable;
+        string directory;
 
         public RakeBuildTool(IEnvironmentVariable environmentVariable)
         {
-            _environmentVariable = environmentVariable;
+            this.environmentVariable = environmentVariable;
         }
 
         public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree, FrameworkVersion version)
@@ -49,7 +49,7 @@ namespace Horn.Core
         private string GetRubyDirectory()
         {
             if (string.IsNullOrEmpty(directory))
-                directory = _environmentVariable.GetDirectoryFor("ruby.exe");
+                directory = environmentVariable.GetDirectoryFor("ruby.exe");
 
             if (string.IsNullOrEmpty(directory))
             {
