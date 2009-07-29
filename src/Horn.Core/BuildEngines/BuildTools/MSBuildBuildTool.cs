@@ -3,22 +3,23 @@ using Horn.Core.BuildEngines;
 using Horn.Core.extensions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.Framework;
+using System.IO;
 
 namespace Horn.Core
 {
     public class MSBuildBuildTool : IBuildTool
     {
-        public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree, 
+        public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree,
                         FrameworkVersion version)
         {
             return string.Format(
                     "{0} /p:OutputPath=\"{1}\"  /p:TargetFrameworkVersion={2} /p:NoWarn=1591 /consoleloggerparameters:Summary",
-                    pathToBuildFile.QuotePath(), packageTree.OutputDirectory, GetFrameworkVersionForBuildTool(version));
+                    pathToBuildFile.QuotePath(), Path.Combine(packageTree.WorkingDirectory.FullName, buildEngine.BuildRootDirectory), GetFrameworkVersionForBuildTool(version));
         }
 
         public string GetFrameworkVersionForBuildTool(FrameworkVersion version)
         {
-            switch(version)
+            switch (version)
             {
                 case FrameworkVersion.FrameworkVersion2:
                     return "v2.0";

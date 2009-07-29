@@ -113,6 +113,16 @@ namespace Horn.Core.SCM
                 return;
         }
 
+        public override bool ShouldUpdate(string currentRevision)
+        {
+            string revision = Revision;
+            log.InfoFormat("Current Revision is = {0}", currentRevision);
+
+            log.InfoFormat("Revision at remote scm is {0}", revision);
+
+            return (long.Parse(revision) > long.Parse(currentRevision));
+        }
+
         protected override void SetMonitor(string destination)
         {
             downloadMonitor = new DefaultDownloadMonitor();

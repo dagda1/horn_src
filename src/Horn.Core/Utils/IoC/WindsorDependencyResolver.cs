@@ -10,7 +10,7 @@ using Horn.Core.Tree.MetaDataSynchroniser;
 using System.Reflection;
 using Horn.Core.Dependencies;
 using Horn.Core.Utils.CmdLine;
-using Parameter=Castle.MicroKernel.Registration.Parameter;
+using Parameter = Castle.MicroKernel.Registration.Parameter;
 
 namespace Horn.Core.Utils.IoC
 {
@@ -50,6 +50,12 @@ namespace Horn.Core.Utils.IoC
             innerContainer.Register(
                 Component.For<SVNSourceControl>()
                             .Named("Svn")
+                            .LifeStyle.Transient
+                );
+
+            innerContainer.Register(
+                Component.For<GitSourceControl>()
+                            .Named("Git")
                             .LifeStyle.Transient
                 );
 
@@ -98,6 +104,12 @@ namespace Horn.Core.Utils.IoC
             innerContainer.Register(
                 Component.For<IPackageTree>()
                             .ImplementedBy<PackageTree>()
+                            .LifeStyle.Transient
+                );
+
+            innerContainer.Register(
+                Component.For<IEnvironmentVariable>()
+                            .ImplementedBy<EnvironmentVariable>()
                             .LifeStyle.Transient
                 );
 

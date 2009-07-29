@@ -11,7 +11,7 @@ namespace Horn.Core.Utils
             {
                 if (string.IsNullOrEmpty(item))
                     continue;
-                if (File.Exists(Path.Combine(item, "ruby.exe")))
+                if (File.Exists(Path.Combine(item, fileName)))
                 {
                     return item;
                 }

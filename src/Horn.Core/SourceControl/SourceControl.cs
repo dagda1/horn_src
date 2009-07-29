@@ -20,7 +20,7 @@ namespace Horn.Core.SCM
         protected static readonly ILog log = LogManager.GetLogger(typeof(SVNSourceControl));
         private static readonly Dictionary<string, string> downloadedPackages = new Dictionary<string, string>();
         private static readonly object locker = new object();
-        protected  IDownloadMonitor downloadMonitor;
+        protected IDownloadMonitor downloadMonitor;
 
         public IDownloadMonitor DownloadMonitor
         {
@@ -31,7 +31,7 @@ namespace Horn.Core.SCM
 
         public abstract string Revision { get; }
 
-        public string Url {get; private set;}
+        public string Url { get; private set; }
 
         public abstract string CheckOut(IPackageTree packageTree, FileSystemInfo destination);
 
@@ -55,24 +55,25 @@ namespace Horn.Core.SCM
             return sourceControl;
         }
 
+        public abstract bool ShouldUpdate(string currentRevision);
+
         public virtual void RetrieveSource(IPackageTree packageTree)
         {
             if (downloadedPackages.ContainsKey(packageTree.Name))
                 return;
 
-            if (!packageTree.GetRevisionData().ShouldUpdate(new RevisionData(Revision)))
+            if (!ShouldUpdate(packageTree.GetRevisionData().Revision))
             {
                 downloadedPackages.Add(packageTree.Name, packageTree.Name);
-
                 return;
             }
 
             var revisionData = packageTree.GetRevisionData();
-                
+
             Initialise(packageTree);
 
             SetMonitor(packageTree.WorkingDirectory.FullName);
-            
+
             Thread monitoringThread = StartMonitoring();
 
             var revision = Download(packageTree, packageTree.WorkingDirectory, revisionData.Operation());
@@ -112,7 +113,7 @@ namespace Horn.Core.SCM
         {
             log.Error(ex);
 
-            if(downloadMonitor != null)
+            if (downloadMonitor != null)
                 downloadMonitor.StopMonitoring = true;
 
             throw new RemoteScmException(ex.UnwrapException());

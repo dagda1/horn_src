@@ -15,7 +15,7 @@ namespace Horn.Core.Dsl
 
         public IBuildMetaData BuildMetaData
         {
-            get { return buildMetaData; }        
+            get { return buildMetaData; }
         }
 
         public virtual PackageMetaData PackageMetaData
@@ -67,7 +67,7 @@ namespace Horn.Core.Dsl
         }
 
         [Meta]
-        public static Expression install(ReferenceExpression expression, 
+        public static Expression install(ReferenceExpression expression,
                                                         BlockExpression action)
         {
             var installName = new StringLiteralExpression(expression.Name);
@@ -107,8 +107,8 @@ namespace Horn.Core.Dsl
 
                 MethodInvocationExpression export;
 
-                if(expression.Arguments.Count == 1)
-                {                     
+                if (expression.Arguments.Count == 1)
+                {
                     export = new MethodInvocationExpression(new ReferenceExpression("ExportData"),
                                                                 new StringLiteralExpression(remoteUrl),
                                                                 new StringLiteralExpression(sourceType));
@@ -136,7 +136,7 @@ namespace Horn.Core.Dsl
         {
             var includeList = new ArrayLiteralExpression();
 
-            foreach(var statement in includes.Body.Statements)
+            foreach (var statement in includes.Body.Statements)
             {
                 var expression = (MethodInvocationExpression)((ExpressionStatement)statement).Expression;
 
@@ -159,12 +159,12 @@ namespace Horn.Core.Dsl
         public static Expression prebuild(BlockExpression commands)
         {
             var cmdList = new ArrayLiteralExpression();
-            
+
             foreach (Statement statement in commands.Body.Statements)
             {
-                var expression = (MethodInvocationExpression)((ExpressionStatement) statement).Expression;
+                var expression = (MethodInvocationExpression)((ExpressionStatement)statement).Expression;
 
-                cmdList.Items.Add(new StringLiteralExpression(expression.Arguments[0].ToString().Trim(new char[]{'\''})));
+                cmdList.Items.Add(new StringLiteralExpression(expression.Arguments[0].ToString().Trim(new char[] { '\'' })));
             }
 
             return new MethodInvocationExpression(new ReferenceExpression("ParseCommands"), cmdList);
@@ -197,7 +197,7 @@ namespace Horn.Core.Dsl
         public static Expression with(Expression action)
         {
             return new MethodInvocationExpression(
-                    new ReferenceExpression("AssignTasks"), 
+                    new ReferenceExpression("AssignTasks"),
                     action
                 );
         }
@@ -236,7 +236,7 @@ namespace Horn.Core.Dsl
 
         public void build_root_dir(string path)
         {
-            buildMetaData.BuildEngine.BuildRootDirectory = path;   
+            buildMetaData.BuildEngine.BuildRootDirectory = path;
         }
 
         public void ParseCommands(string[] cmdList)
@@ -247,7 +247,7 @@ namespace Horn.Core.Dsl
         public void ParseExportList(ExportData[] exports)
         {
             foreach (var exportData in exports)
-                buildMetaData.ExportList.Add(exportData.SourceControl);                
+                buildMetaData.ExportList.Add(exportData.SourceControl);
         }
 
         public virtual void ParseIncludes(RepositoryElement[] elements)
@@ -289,6 +289,11 @@ namespace Horn.Core.Dsl
         protected void svn(string url)
         {
             buildMetaData.SourceControl = SourceControl.Create<SVNSourceControl>(url);
+        }
+
+        protected void git(string url)
+        {
+            buildMetaData.SourceControl = SourceControl.Create<GitSourceControl>(url);
         }
 
         private void SetBuildEngine(IBuildTool tool, string buildFile, FrameworkVersion version)

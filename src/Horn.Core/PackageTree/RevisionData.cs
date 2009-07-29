@@ -74,7 +74,7 @@ namespace Horn.Core.PackageStructure
 
             log.InfoFormat("Revision at remote scm is {0}", other.Revision);
 
-            return (long.Parse(other.Revision) > long.Parse(Revision));
+            return other.Revision != Revision;
         }
 
         private void RecordRevision(FileInfo fileInfo, string revisionValue)
