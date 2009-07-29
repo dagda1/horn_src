@@ -3,7 +3,7 @@ install FluentNHibernate:
 	
 	get_from svn("http://fluent-nhibernate.googlecode.com/svn/trunk")
 	
-	build_with msbuild, buildfile("src/FluentNHibernate.sln"), FrameworkVersion35
+	build_with rake, buildfile("RakeFile"), FrameworkVersion35
 
 	with:
 		tasks compile
