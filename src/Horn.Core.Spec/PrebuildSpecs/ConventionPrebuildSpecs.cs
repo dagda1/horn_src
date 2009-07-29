@@ -18,7 +18,7 @@ using Xunit;
 
 namespace Horn.Core.Spec.PrebuildSpecs
 {
-    public class When_the_requested_project_contains_prebulid_commands : GetSpecificationBase
+    public class When_the_requested_project_contains_prebuild_commands : GetSpecificationBase
     {
         private MockRepository mockRepository;
 
