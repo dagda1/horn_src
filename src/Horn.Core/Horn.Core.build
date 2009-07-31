@@ -20,6 +20,7 @@
       <include name="Castle.Windsor.dll" />
       <include name="log4net.dll" />
       <include name="Rhino.DSL.dll" />
+      <include name="GitCommands.dll"/>
       <include name="Rhino.Mocks.dll" />
       <include name="SharpSvn.dll" />
       <include name="System.dll" />
