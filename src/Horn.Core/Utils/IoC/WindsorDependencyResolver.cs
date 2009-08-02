@@ -126,8 +126,5 @@ namespace Horn.Core.Utils.IoC
                     .WithService.FirstInterface().Configure(config => config.LifeStyle.Transient)
                 );
         }
-
-
-
     }
 }

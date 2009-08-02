@@ -117,15 +117,5 @@ namespace Horn.Core.SCM
 
             return Revision != currentRevision;
         }
-
-        public GitSourceControl(string url)
-            : base(url)
-        {
-        }
-
-        public GitSourceControl(string url, string exportPath)
-            : base(url, exportPath)
-        {
-        }
     }
 }
