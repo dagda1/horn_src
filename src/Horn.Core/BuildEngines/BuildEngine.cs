@@ -136,6 +136,9 @@ namespace Horn.Core.BuildEngines
 
         public virtual DirectoryInfo GetDirectoryFromParts(DirectoryInfo sourceDirectory, string parts)
         {
+            if (parts == ".")
+                return sourceDirectory;
+
             return sourceDirectory.GetDirectoryFromParts(parts);
         }
 
