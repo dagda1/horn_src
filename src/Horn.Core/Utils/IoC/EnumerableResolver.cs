@@ -6,9 +6,7 @@ namespace Horn.Core.Utils.IoC
 {
     public class EnumerableResolver : ISubDependencyResolver
     {
-
         private readonly IKernel kernel;
-
 
         public bool CanResolve(CreationContext context, ISubDependencyResolver parentResolver,
                                ComponentModel model,
@@ -31,14 +29,10 @@ namespace Horn.Core.Utils.IoC
         }
 
 
-
         public EnumerableResolver(IKernel kernel)
         {
             this.kernel = kernel;
 
         }
-
-
-
     }
 }
