@@ -113,7 +113,10 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="BuildEngines\Process\CommandLineRunner.cs" />
     <Compile Include="SourceControl\GitSourceControl.cs" />
+    <Compile Include="BuildEngines\Process\IShellRunner.cs" />
+    <Compile Include="SourceControl\MercurialSourceControl.cs" />
     <Compile Include="Utils\EnvironmentVariable.cs" />
     <Compile Include="Utils\IEnvironmentVariable.cs" />
     <Compile Include="BuildEngines\Dependency.cs" />

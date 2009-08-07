@@ -72,6 +72,7 @@
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\log4net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="NAnt, Version=0.86.2898.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
@@ -114,12 +115,14 @@
     <Compile Include="BuildEngine\BuildEngineExceptionSpecs.cs" />
     <Compile Include="BuildEngine\BuildEngineStub.cs" />
     <Compile Include="BuildEngine\BuildWithNantSpecification.cs" />
+    <Compile Include="BuildEngine\CommandLineRunnerSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
     <Compile Include="dsl\DslWithGitSpecification.cs" />
     <Compile Include="dsl\DslWithRakeSpecification.cs" />
     <Compile Include="dsl\GitSourceControlSpecificationBase.cs" />
     <Compile Include="dsl\VersionedDependencySpec.cs" />
+    <Compile Include="dsl\DslWithMercurialSpecification.cs" />
     <Compile Include="PrebuildSpecs\ConventionPrebuildSpecs.cs" />
     <Compile Include="RevisionDataSpec\RevisionDataVersionSepecs.cs" />
     <Compile Include="Stubs\PackageBuilderWithOnlyPrebuildStub.cs" />
@@ -202,6 +205,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="BuildConfigs\Horn\horngit.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BuildConfigs\Horn\hornhg.boo">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Horn.Core.Spec.build" />

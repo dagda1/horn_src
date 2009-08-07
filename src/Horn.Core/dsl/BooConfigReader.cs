@@ -184,9 +184,9 @@ namespace Horn.Core.Dsl
         {
             var arrayExpression = new ArrayLiteralExpression();
 
-            for (var i = 0; i < expressions.Length; i++)
-                arrayExpression.Items.Add(new StringLiteralExpression(expressions[i].Name));
-
+			for (var i = 0; i < expressions.Length; i++)
+				arrayExpression.Items.Add(new StringLiteralExpression(expressions[i].Name));
+			
             return new MethodInvocationExpression(
                 new ReferenceExpression("SetBuildTargets"),
                 arrayExpression
@@ -295,6 +295,11 @@ namespace Horn.Core.Dsl
         {
             buildMetaData.SourceControl = SourceControl.Create<GitSourceControl>(url);
         }
+
+		protected void hg(string url)
+		{
+			buildMetaData.SourceControl = SourceControl.Create<MercurialSourceControl>(url);
+		}
 
         private void SetBuildEngine(IBuildTool tool, string buildFile, FrameworkVersion version)
         {
