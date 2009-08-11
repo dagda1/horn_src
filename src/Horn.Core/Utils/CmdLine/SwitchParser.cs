@@ -12,11 +12,9 @@ namespace Horn.Core.Utils.CmdLine
         #region console help text
 
         public const string HelpText =
-@"HORN - SCOTALT.NET
+@"THE HORN PACKAGE MANAGERS
                                           
-http://code.google.com/p/scotaltdotnet/
-
-http://groups.google.com/group/scotaltnet
+http://code.google.com/p/hornget/
 
 Usage : horn -install:<component>
 Options :
