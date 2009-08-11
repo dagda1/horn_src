@@ -12,7 +12,7 @@ namespace Horn.Core.Utils.CmdLine
         #region console help text
 
         public const string HelpText =
-@"THE HORN PACKAGE MANAGERS
+@"THE HORN PACKAGE MANAGER
                                           
 http://code.google.com/p/hornget/
 
