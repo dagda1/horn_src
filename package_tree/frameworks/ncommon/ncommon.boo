@@ -16,6 +16,7 @@ dependencies:
 	depend "castle.tools"        >> "Castle.DynamicProxy"
 	depend "castle.tools"        >> "Castle.DynamicProxy2"
 	depend "nhibernate"	     >> "2.1" >> "NHibernate"
+	depend "nhibernate"	     >> "2.1" >> "nunit.framework"
 	depend "nhibernate"	     >> "2.1" >> "LinFu.DynamicProxy"     
 	depend "nhibernate"	     >> "2.1" >> "NHibernate.ByteCode.Castle"
 	depend "nhibernate"          >> "2.1" >> "Iesi.Collections"
