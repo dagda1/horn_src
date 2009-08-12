@@ -5,11 +5,8 @@ install ncommon:
 	
 	build_with msbuild, buildfile("NCommon Everything.sln"), FrameworkVersion35
 		
-	switches:
-		parameters "build.warnaserrors=false","common.testrunner.enabled=false","sign=true"
-		
 	shared_library "Libs"
-	build_root_dir "."		
+	build_root_dir "build"		
 	
 dependencies:   
 	depend @log4net              >> "1.2.10" >>  "log4net"
