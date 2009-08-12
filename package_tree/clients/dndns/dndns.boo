@@ -4,7 +4,7 @@ install dndns:
 	
 	build_with msbuild, buildfile("SourceCode/DnDns/DnDns.sln"), FrameworkVersion35		
 		
-	build_root_dir "."
+	build_root_dir "build"
 	
 package.homepage = "http://dndns.codeplex.com/"
 package.forum    = "http://dndns.codeplex.com/Thread/List.aspx"
