@@ -10,17 +10,6 @@ install n2cms:
 	shared_library "lib"
 
 dependencies:
-	depend @nhibernate             	>> "2.0" >> "NHibernate"     
-	depend @nhibernate             	>> "2.0" >> "NHibernate.ByteCode.Castle"
-	depend @nhibernate          	>> "2.0" >> "Iesi.Collections"
-	depend "nhibernate.caches"   	>> "NHibernate.Caches.SysCache2"
-	depend "nhibernate.linq"   		>> "NHibernate.Linq"
-	depend "nhibernate.jetdriver"   >> "NHibernate.JetDriver"
-	depend @log4net >>  "1.2.10" 	>> "log4net"	
-	depend "castle.windsor"  		>> "castle.core"
-	depend "castle.windsor"  		>> "Castle.DynamicProxy2"
-	depend "castle.windsor"  		>> "castle.microKernel"
-	depend "castle.windsor"  		>> "castle.windsor"
 	depend "rhino"  				>> "Rhino.Mocks"
 
 package.homepage = "http://n2cms.com/"
