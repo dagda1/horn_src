@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 using Horn.Core.BuildEngines;
 using Horn.Core.extensions;
 using Horn.Core.PackageStructure;
@@ -13,19 +12,9 @@ namespace Horn.Core
         public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree,
                         FrameworkVersion version)
         {
-            var cmdLine = new StringBuilder();
-
-            cmdLine.AppendFormat(
-                     "{0} /p:OutputPath=\"{1}\"  /p:TargetFrameworkVersion={2} /p:NoWarn=1591 /consoleloggerparameters:Summary /target:{3}",
-                     pathToBuildFile.QuotePath(), Path.Combine(packageTree.WorkingDirectory.FullName, buildEngine.BuildRootDirectory),
-                     GetFrameworkVersionForBuildTool(version), String.Join(",", buildEngine.Tasks.ToArray()));
-
-            foreach(var parameter in buildEngine.Parameters)
-            {
-                cmdLine.AppendFormat(" {0}={1}", parameter.Key, parameter.Value);
-            }
-
-            return cmdLine.ToString();
+            return string.Format(
+                    "{0} /p:OutputPath=\"{1}\"  /p:TargetFrameworkVersion={2} /p:NoWarn=1591 /consoleloggerparameters:Summary",
+                    pathToBuildFile.QuotePath(), Path.Combine(packageTree.WorkingDirectory.FullName, buildEngine.BuildRootDirectory), GetFrameworkVersionForBuildTool(version));
         }
 
         public string GetFrameworkVersionForBuildTool(FrameworkVersion version)

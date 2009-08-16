@@ -2,8 +2,8 @@
 	description "A .NET build and dependency manager"
 	
 	export:
-	  svn("https://hornget.googlecode.com/svn/trunk/src/one", to("one"))
-	  svn("https://hornget.googlecode.com/svn/trunk/src/two")
+	  svn("http://hornget.googlecode.com/svn/trunk/src/one", to("one"))
+	  svn("http://hornget.googlecode.com/svn/trunk/src/two")
 	
 	prebuild:  
 	  cmd "dir"

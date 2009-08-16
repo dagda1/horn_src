@@ -1,6 +1,6 @@
 ﻿install horngit:
 	description "Mercurial test"
-	get_from hg("https://hornget.googlecode.com/svn/trunk/")
+	get_from hg("http://hornget.googlecode.com/svn/trunk/")
 	build_with msbuild, buildfile("src/horn.sln"), FrameworkVersion35
                 
 package.homepage = "http://code.google.com/p/scotaltdotnet/"

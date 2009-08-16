@@ -1,6 +1,6 @@
 ﻿install horn:
 	description "A .NET build and dependency manager"
-	get_from svn("https://hornget.googlecode.com/svn/trunk/")
+	get_from svn("http://hornget.googlecode.com/svn/trunk/")
 	build_with msbuild, buildfile("src/horn.sln"), FrameworkVersion35
 	build_root_dir "Output"
 	shared_library "."
