@@ -4,6 +4,12 @@ install FluentNHibernate:
 	get_from svn("http://fluent-nhibernate.googlecode.com/svn/trunk")
 	
 	build_with msbuild, buildfile("src/FluentNHibernate.sln"), FrameworkVersion35
+
+	with:
+		tasks compile
+		
+	switches:
+		parameters "build.warnaserrors=false","common.testrunner.enabled=false","sign=true"
 		
 	shared_library "tools/NHibernate"
 	build_root_dir "build"		
@@ -18,4 +24,4 @@ dependencies:
 	depend "nhibernate.caches"   >> "NHibernate.Caches.SysCache"
 
 package.homepage = "http://fluentnhibernate.org/"
-package.forum    = "http://groups.google.com/group/fluent-nhibernate"
+package.forum    = "http://groups.google.com/group/fluent-nhibernate"  
