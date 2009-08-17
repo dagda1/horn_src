@@ -45,6 +45,8 @@ namespace Horn.Core.Integration.Builder
 
             packageTree.Stub(x => x.OutputDirectory).Return(new DirectoryInfo(outputPath));
 
+            packageTree.Stub(x => x.Result).Return(new DirectoryInfo(outputPath));
+
             var executionBase = AppDomain.CurrentDomain.BaseDirectory;
 
             return ResolveRootPath(executionBase);
