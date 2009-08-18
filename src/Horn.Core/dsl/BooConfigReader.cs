@@ -276,6 +276,13 @@ namespace Horn.Core.Dsl
             SetBuildEngine(new RakeBuildTool(new EnvironmentVariable()), buildFile, version);
         }
 
+		protected void phantom(string buildFile, string frameWorkVersion)
+		{
+			var version = (FrameworkVersion)Enum.Parse(typeof(FrameworkVersion), frameWorkVersion);
+
+			SetBuildEngine(new PhantomBuildTool(), buildFile, version);
+		}
+
         protected void SetBuildTargets(string[] taskActions)
         {
             buildMetaData.BuildEngine.AssignTasks(taskActions);

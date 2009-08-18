@@ -115,6 +115,7 @@
     <Compile Include="BuildEngine\BuildEngineExceptionSpecs.cs" />
     <Compile Include="BuildEngine\BuildEngineStub.cs" />
     <Compile Include="BuildEngine\BuildWithNantSpecification.cs" />
+    <Compile Include="BuildEngine\BuildWithPhantomSpec.cs" />
     <Compile Include="BuildEngine\CommandLineRunnerSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
@@ -208,6 +209,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="BuildConfigs\Horn\hornhg.boo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BuildConfigs\Horn\hornphantom.boo">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Horn.Core.Spec.build" />
