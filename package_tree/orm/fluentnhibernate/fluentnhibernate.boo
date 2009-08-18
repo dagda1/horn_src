@@ -1,7 +1,7 @@
 install FluentNHibernate:
 	description "Fluent, XML-less, compile safe, automated, testable mappings for NHibernate "	
 	
-	get_from svn("http://fluent-nhibernate.googlecode.com/svn/svn-sync")
+	get_from svn("http://fluent-nhibernate.googlecode.com/svn/svn-sync/")
 	#get_from git("git://github.com/jagregory/fluent-nhibernate.git")
 	
 	build_with msbuild, buildfile("src/FluentNHibernate.sln"), FrameworkVersion35		
