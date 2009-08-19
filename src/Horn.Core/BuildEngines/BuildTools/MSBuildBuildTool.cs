@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Horn.Core.BuildEngines;
 using Horn.Core.extensions;
 using Horn.Core.PackageStructure;
@@ -12,12 +13,39 @@ namespace Horn.Core
         public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree,
                         FrameworkVersion version)
         {
-            return string.Format(
-                    "{0} /p:OutputPath=\"{1}\"  /p:TargetFrameworkVersion={2} /p:NoWarn=1591 /consoleloggerparameters:Summary",
-                    pathToBuildFile.QuotePath(), Path.Combine(packageTree.WorkingDirectory.FullName, buildEngine.BuildRootDirectory), GetFrameworkVersionForBuildTool(version));
-        }
+			var cmdLine = new StringBuilder();
 
-        public string GetFrameworkVersionForBuildTool(FrameworkVersion version)
+			cmdLine.AppendFormat(
+					 "{0} /p:OutputPath=\"{1}\"  /p:TargetFrameworkVersion={2} /p:NoWarn=1591 /consoleloggerparameters:Summary",
+					 pathToBuildFile.QuotePath(), Path.Combine(packageTree.WorkingDirectory.FullName, buildEngine.BuildRootDirectory),
+					 GetFrameworkVersionForBuildTool(version));
+
+			AppendTasks(buildEngine, cmdLine);
+			AppendParameters(buildEngine, cmdLine);
+
+			return cmdLine.ToString();
+		}
+
+    	private static void AppendParameters(BuildEngine buildEngine, StringBuilder cmdLine)
+    	{
+    		if (buildEngine.Parameters == null || buildEngine.Parameters.Count == 0)
+				return;
+
+    		foreach (var parameter in buildEngine.Parameters)
+    		{
+    			cmdLine.AppendFormat(" {0}={1}", parameter.Key, parameter.Value);
+    		}
+    	}
+
+    	private static void AppendTasks(BuildEngine buildEngine, StringBuilder cmdLine)
+    	{
+    		if (buildEngine.Tasks == null || buildEngine.Tasks.Count == 0)
+    			return;
+
+    		cmdLine.AppendFormat(" /t:{0}", String.Join(";", buildEngine.Tasks.ToArray()));
+    	}
+
+    	public string GetFrameworkVersionForBuildTool(FrameworkVersion version)
         {
             switch (version)
             {
