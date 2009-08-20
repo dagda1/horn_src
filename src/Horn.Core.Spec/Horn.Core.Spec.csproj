@@ -119,8 +119,6 @@
     <Compile Include="BuildEngine\CommandLineRunnerSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="BuildEngine\MSBuildBuildToolSpecification.cs" />
-    <Compile Include="BuildEngine\MSBuildBuildToolSpecification.cs" />
-    <Compile Include="BuildEngine\MSBuildBuildToolSpecification.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
     <Compile Include="dsl\DslWithGitSpecification.cs" />
     <Compile Include="dsl\DslWithRakeSpecification.cs" />
