@@ -1,4 +1,4 @@
-﻿install log4net:
+﻿install boo:
 	description "A wrist friendly language fro the CLI"
 	get_from svn("http://svn.codehaus.org/boo/boo/trunk/")
 	

@@ -1,5 +1,5 @@
 install mvccontrib:
-	description "This project adds additional functionality on top of the MVC Framework."
+	description "This project adds additional functionality on top of the ASP.NET MVC Framework."
 	
 	get_from svn("http://mvccontrib.googlecode.com/svn/trunk/")
 	build_with nant, buildfile("nant.build"), FrameworkVersion35	

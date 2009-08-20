@@ -1,5 +1,5 @@
 install ncommon:
-	description "ncommon framework."	
+	description "NCommon is a library that contains implementations of commonly used design patterns when developing applications."	
 	
 	get_from svn("https://ncommon.svn.codeplex.com/svn/trunk/")
 	
@@ -20,3 +20,6 @@ dependencies:
 	depend "nhibernate"	     >> "2.1" >> "NHibernate.ByteCode.LinFu"
 	depend "nhibernate.linq"     >> "2.1" >> "nhibernate.linq"
 	depend "fluentnhibernate"    >> "FluentNHibernate"
+	
+package.homepage = "http://ncommon.codeplex.com/"
+package.forum    = "http://ncommon.codeplex.com/Thread/List.aspx"
