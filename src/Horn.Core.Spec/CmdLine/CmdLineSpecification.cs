@@ -42,7 +42,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_Console_Should_Output_Help_Text()
         {
-            AssertOutputContains(SwitchParser.HelpText);
+            AssertOutputContains(new SwitchParser().HelpText);
         }
 
         [Fact]

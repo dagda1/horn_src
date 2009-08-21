@@ -19,14 +19,14 @@
 		parameters "sign=true","common.testrunner.enabled=false", "common.silverlight=false"
 		
 	shared_library "SharedLibs/net/2.0"
-	build_root_dir "build"		
+	build_root_dir "build"
 	   
 dependencies:
 	depend "castle.tools"   >> "Castle.DynamicProxy"
 	depend "castle.tools"   >> "Castle.DynamicProxy2"
 	depend "castle.windsor" >> "Castle.MicroKernel"
 	depend "castle.windsor" >> "Castle.MicroKernel"
-	depend "nhibernate"		>> "2.1" >> "NHibernate"       
+	depend "nhibernate">> "2.1" >> "NHibernate"       
 	depend "nhibernate"     >> "2.1" >> "Iesi.Collections" 
 	
 package.homepage = "http://www.castleproject.org/"

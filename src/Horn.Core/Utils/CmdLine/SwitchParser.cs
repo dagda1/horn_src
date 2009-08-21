@@ -11,21 +11,11 @@ namespace Horn.Core.Utils.CmdLine
     {
         #region console help text
 
-        public const string HelpText =
-@"THE HORN PACKAGE MANAGER
-                                          
-http://code.google.com/p/hornget/
-
-Usage : horn -install:<component>
-Options :
-    -rebuildonly                Do not check for the latest source code.
-    -version:<version_number>   The specific version of a package.";
-
         #endregion        
 
-        private readonly TextWriter output;
-        private readonly Parameter[] paramTable;
-        private readonly Dictionary<string, IList<string>> parsedArgs;
+        protected TextWriter output;
+        protected Parameter[] paramTable;
+        protected Dictionary<string, IList<string>> parsedArgs;
         private static readonly ILog log = LogManager.GetLogger(typeof(SwitchParser));
 
         public ICommandArgs CommandArguments
@@ -39,6 +29,12 @@ Options :
         public Dictionary<string, IList<string>> ParsedArgs
         {
             get { return parsedArgs; }
+        }
+
+        public string HelpText
+        {
+            get;
+            set;
         }
 
         public virtual bool IsAValidRequest()
@@ -90,7 +86,7 @@ Options :
 
         public virtual void OutputHelpText()
         {
-            output.WriteLine(HelpText);
+            output.WriteLine(this.HelpText);
         }
 
         public virtual bool OutputValidationMessage(string message)
@@ -108,7 +104,7 @@ Options :
             return false;
         }
 
-        private Dictionary<string, IList<string>> Parse(string[] args)
+        protected Dictionary<string, IList<string>> Parse(string[] args)
         {
             const string argsRegex = @"-([a-zA-Z_][a-zA-Z_0-9]{0,}):?((?<=:).{0,})?";
             string name;
@@ -158,7 +154,20 @@ Options :
             }
         }
 
-        public SwitchParser(TextWriter output, string[] args)
+        public SwitchParser()
+        {
+            this.HelpText = 
+@"THE HORN PACKAGE MANAGER
+                                          
+http://code.google.com/p/hornget/
+
+Usage : horn -install:<component>
+Options :
+    -rebuildonly                Do not check for the latest source code.
+    -version:<version_number>   The specific version of a package.";
+        }
+
+        public SwitchParser(TextWriter output, string[] args) : this()
         {
             this.output = output;
 

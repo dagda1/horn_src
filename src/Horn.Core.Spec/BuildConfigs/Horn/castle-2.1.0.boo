@@ -11,7 +11,7 @@
 		parameters "sign=true","build.warnaserrors=false"
 		
 	shared_library "SharedLibs/net/2.0"
-	build_root_dir "build"		
+	build_root_dir "build"
 	
 package.homepage = "http://www.castleproject.org/"
 package.forum    = "http://groups.google.co.uk/group/castle-project-users?hl=en"  
