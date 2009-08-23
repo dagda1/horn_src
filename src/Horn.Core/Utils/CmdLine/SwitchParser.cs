@@ -164,7 +164,8 @@ http://code.google.com/p/hornget/
 Usage : horn -install:<component>
 Options :
     -rebuildonly                Do not check for the latest source code.
-    -version:<version_number>   The specific version of a package.";
+    -version:<version_number>   The specific version of a package.
+    -output:<file_path>         The output folder. It is advised to keep it short to avoid failing builds";
         }
 
         public SwitchParser(TextWriter output, string[] args) : this()
@@ -176,7 +177,8 @@ Options :
                                      new Parameter("install", true, true, false),
                                      new Parameter("rebuildonly", false, false, false),
                                      new Parameter("version", false, true, false),
-                                     new Parameter("refresh", false, false, false)
+                                     new Parameter("refresh", false, false, false),
+                                     new Parameter("output",false,true,false)
                                  };
 
             paramTable = parameters.ToArray();

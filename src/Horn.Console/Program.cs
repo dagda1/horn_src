@@ -33,7 +33,7 @@ namespace Horn.Console
 
             InitialiseIoC(parser.CommandArguments);
 
-            var packageTree = IoC.Resolve<IPackageTree>().GetRootPackageTree(GetRootFolderPath());
+            var packageTree = IoC.Resolve<IPackageTree>().GetRootPackageTree(GetRootFolderPath(parser.CommandArguments));
 
             try
             {
@@ -58,11 +58,19 @@ namespace Horn.Console
             log.Debug("IOC initialised.....");
         }
 
-        private static DirectoryInfo GetRootFolderPath()
+        private static DirectoryInfo GetRootFolderPath(ICommandArgs commandArgs)
         {
-            var documents = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            string rootFolder;
+            if (!String.IsNullOrEmpty(commandArgs.OutputPath))
+            {
+                rootFolder = Path.Combine(commandArgs.OutputPath, PackageTree.RootPackageTreeName);
+            }
+            else
+            {
+                var documents = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
-            var rootFolder = Path.Combine(documents.Parent.FullName, PackageTree.RootPackageTreeName);
+                rootFolder = Path.Combine(documents.Parent.FullName, PackageTree.RootPackageTreeName);   
+            }            
 
             log.DebugFormat("root folder = {0}", rootFolder);
 

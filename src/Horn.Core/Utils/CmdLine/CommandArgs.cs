@@ -24,6 +24,8 @@ namespace Horn.Core.Utils.CmdLine
 
         public virtual bool Refresh { get; private set; }
 
+        public virtual string OutputPath { get; private set; }
+
         public CommandArgs(IDictionary<string, IList<string>> switches)
         {
             PackageName = switches["install"][0];
@@ -34,6 +36,9 @@ namespace Horn.Core.Utils.CmdLine
 
             if (switches.Keys.Contains("version"))
                 Version = switches["version"][0];
+
+            if (switches.Keys.Contains("output"))
+                OutputPath = switches["output"][0];
         }
     }
 }

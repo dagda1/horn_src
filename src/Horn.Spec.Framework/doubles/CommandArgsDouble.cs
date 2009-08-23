@@ -10,6 +10,7 @@ namespace Horn.Spec.Framework.doubles
         public bool RebuildOnly { get; private set; }
         public string Version { get; private set; }
         public bool Refresh { get; set; }
+        public string OutputPath { get; set; }
 
         public CommandArgsDouble(string installName)
         {
@@ -33,6 +34,12 @@ namespace Horn.Spec.Framework.doubles
             : this(installName, rebuildOnly)
         {
             Version = version;
+        }
+
+        public CommandArgsDouble(string installName, bool rebuildOnly, string version, string outputPath)
+            :this(installName,rebuildOnly,version)
+        {
+            OutputPath = outputPath;
         }
     }
 }
