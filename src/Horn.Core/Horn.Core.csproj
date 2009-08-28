@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="BuildEngines\BuildTools\PhantomBuildTool.cs" />
     <Compile Include="BuildEngines\Process\CommandLineRunner.cs" />
+    <Compile Include="exceptions\BuildFailedException.cs" />
     <Compile Include="SourceControl\GitSourceControl.cs" />
     <Compile Include="BuildEngines\Process\IShellRunner.cs" />
     <Compile Include="SourceControl\MercurialSourceControl.cs" />

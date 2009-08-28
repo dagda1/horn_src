@@ -42,7 +42,11 @@ namespace Horn.Console
             catch (UnknownInstallPackageException unpe)
             {
                 log.Info(unpe.Message);
-            } 
+            }
+            catch (BuildFailedException bfe)
+            {
+                log.Info(bfe.Message);
+            }
             catch(RemoteScmException scm)
             {
                 log.Info(scm.Message);

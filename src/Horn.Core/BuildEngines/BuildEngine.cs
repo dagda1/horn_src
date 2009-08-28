@@ -156,7 +156,14 @@ namespace Horn.Core.BuildEngines
                 log.Info(line);
             }
 
-            process.WaitForExit();
+            try
+            {
+                process.WaitForExit();
+            }
+            catch (ProcessFailedException)
+            {
+                throw new BuildFailedException(string.Format("The build tool {0} failed building the {1} package", packageTree.BuildMetaData.BuildEngine.BuildTool, packageTree.Name));
+            }
         }
 
         protected virtual void CopyArtifactsToBuildDirectory(IPackageTree packageTree)
