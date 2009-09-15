@@ -114,6 +114,8 @@
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BuildEngines\BuildTools\PhantomBuildTool.cs" />
+    <Compile Include="BuildEngines\IModeSettings.cs" />
+    <Compile Include="BuildEngines\ModeSettings.cs" />
     <Compile Include="BuildEngines\Process\CommandLineRunner.cs" />
     <Compile Include="exceptions\BuildFailedException.cs" />
     <Compile Include="SourceControl\GitSourceControl.cs" />

@@ -126,6 +126,7 @@
     <Compile Include="dsl\GitSourceControlSpecificationBase.cs" />
     <Compile Include="dsl\VersionedDependencySpec.cs" />
     <Compile Include="dsl\DslWithMercurialSpecification.cs" />
+    <Compile Include="dsl\WithModesSpecification.cs" />
     <Compile Include="PrebuildSpecs\ConventionPrebuildSpecs.cs" />
     <Compile Include="RevisionDataSpec\RevisionDataVersionSepecs.cs" />
     <Compile Include="Stubs\PackageBuilderWithOnlyPrebuildStub.cs" />
@@ -216,6 +217,7 @@
     <Content Include="BuildConfigs\Horn\hornphantom.boo">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="BuildConfigs\Horn\hornwithmodes.boo" />
     <None Include="Horn.Core.Spec.build" />
   </ItemGroup>
   <ItemGroup>

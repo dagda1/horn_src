@@ -12,9 +12,12 @@ namespace Horn.Core.BuildEngines
 {
     public class BuildEngine
     {
+        public const string DefaultModeName = "default";
+
         private static readonly Dictionary<string, string> builtPackages = new Dictionary<string, string>();
         private IDependencyDispatcher dependencyDispatcher;
         private static readonly ILog log = LogManager.GetLogger(typeof(MSBuildBuildTool));
+
 
         public virtual string BuildFile { get; private set; }
 
@@ -22,36 +25,83 @@ namespace Horn.Core.BuildEngines
 
         public virtual IBuildTool BuildTool { get; private set; }
 
+        public IModeSettings DefaultModeSettings { get { return Modes[ DefaultModeName ]; } }
+
+        public IModeSettings CurrentModeSettings { get; private set; }
+
         public virtual List<Dependency> Dependencies { get; protected set; }
 
         public virtual bool GenerateStrongKey { get; set; }
 
-        public virtual Dictionary<string, string> Parameters { get; private set; }
+        public virtual Dictionary<string, string> Parameters
+        {
+            get
+            {
+                var parameters = new Dictionary<string, string>( DefaultModeSettings.Parameters );
+                if( CurrentModeSettings != null )
+                {
+                    // Current mode settings will override any duplicate key values
+                    CurrentModeSettings.Parameters.ForEach(parameter => parameters[parameter.Key] = parameter.Value);
+                }
+                return parameters;
+            }
+        }
 
         public virtual string SharedLibrary { get; set; }
 
-        public virtual List<string> Tasks { get; private set; }
+        public virtual List<string> Tasks
+        {
+            get
+            {
+                var tasks = new List<string>( DefaultModeSettings.Tasks );
+                if( CurrentModeSettings != null )
+                {
+                    CurrentModeSettings.Tasks.ForEach( tasks.Add, task => !tasks.Contains( task ) );
+                }
+                return tasks;
+            }
+        }
 
         public virtual FrameworkVersion Version { get; private set; }
 
+        public virtual IDictionary<string, IModeSettings> Modes { get; private set;}
+
         public virtual void AssignParameters(string[] parameters)
         {
-            if ((parameters == null) || (parameters.Length == 0))
-                return;
-
-            Parameters = new Dictionary<string, string>();
-
-            parameters.ForEach(x =>
-                                   {
-                                       var parts = x.Split('=');
-
-                                       Parameters.Add(parts[0], parts[1]);
-                                   });
+            CurrentModeSettings.AssignParameters( parameters );
         }
 
         public virtual void AssignTasks(string[] tasks)
         {
-            Tasks = new List<string>(tasks);
+            CurrentModeSettings.AssignTasks( tasks );
+        }
+
+        public virtual void SetMode( string modeName )
+        {
+            if( modeName == DefaultModeName )
+            {
+                throw new ArgumentException( "You cannot explicity set the mode to the default mode ( " + DefaultModeName + ").  Use ResetMode() instead.");
+            }
+
+            if( CurrentModeSettings.Name != DefaultModeName )
+            {
+                throw new InvalidOperationException( "You cannot change modes when the current mode is not the default mode.  Ensure you call ResetMode() after each use of SetMode().");
+            }
+
+            if( Modes.ContainsKey( modeName ))
+            {
+                CurrentModeSettings = Modes[ modeName ];
+                return;
+            }
+
+            var modeSettings = new ModeSettings( modeName );
+            Modes.Add( modeName, modeSettings );
+            CurrentModeSettings = modeSettings;
+        }
+
+        public virtual void ResetMode()
+        {
+            CurrentModeSettings = Modes[ DefaultModeName ];
         }
 
         public virtual BuildEngine Build(IProcessFactory processFactory, IPackageTree packageTree)
@@ -205,6 +255,10 @@ namespace Horn.Core.BuildEngines
             Version = version;
             Dependencies = new List<Dependency>();
             this.dependencyDispatcher = dependencyDispatcher;
+            Modes = new Dictionary<string, IModeSettings>();
+            var defaultMode = new ModeSettings( DefaultModeName );
+            Modes.Add( DefaultModeName, defaultMode );
+            CurrentModeSettings = defaultMode;
         }
     }
 }

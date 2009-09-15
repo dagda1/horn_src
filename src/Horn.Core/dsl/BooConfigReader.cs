@@ -202,6 +202,19 @@ namespace Horn.Core.Dsl
                 );
         }
 
+
+        [Meta]
+        public static Expression mode(ReferenceExpression expression, BlockExpression action)
+        {
+            var modename = new StringLiteralExpression(expression.Name);
+
+            return new MethodInvocationExpression(
+                    new ReferenceExpression("ApplyModeSettings"),
+                    modename,
+                    action
+                );
+        }
+
         public void AddDependencies(string[] dependencies)
         {
             Array.ForEach(dependencies, item =>
@@ -293,6 +306,14 @@ namespace Horn.Core.Dsl
             buildMetaData.BuildEngine.AssignParameters(parameters);
         }
 
+        protected void ApplyModeSettings(string mode, Action modeSettings)
+        {
+            // Way to much knowledge required here - should be a cleaner way of doing this
+            BuildMetaData.BuildEngine.SetMode(mode);
+            modeSettings();
+            BuildMetaData.BuildEngine.ResetMode();
+        }
+
         protected void svn(string url)
         {
             buildMetaData.SourceControl = SourceControl.Create<SVNSourceControl>(url);
@@ -326,7 +347,6 @@ namespace Horn.Core.Dsl
         protected BooConfigReader()
         {
             buildMetaData = new BuildMetaData();
-
             Global.package.PackageInfo.Clear();
         }
     }
