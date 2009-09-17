@@ -12,7 +12,7 @@ install n2cms:
     shared_library "lib"
 
 dependencies:
-    depend "nhibernate"            >> "2.1" >> "NHibernate
+    depend "nhibernate"            >> "2.1" >> "NHibernate"
     depend "nhibernate"            >> "2.1" >> "NHibernate.ByteCode.Castle"
     depend "nhibernate"            >> "2.1" >> "Iesi.Collections"
     depend "nhibernate.linq"       >> "2.1" >> "NHibernate.Linq"
