@@ -7,7 +7,6 @@ namespace Horn.Core.Dsl
 {
     public class BooBuildConfigReader : IBuildConfigReader
     {
-
         private BooConfigReader configReader;
         protected DslFactory factory;
 
@@ -61,10 +60,14 @@ namespace Horn.Core.Dsl
 
             configReader.Prepare();
 
+            foreach (var packageInfo in configReader.PackageMetaData.PackageInfo)
+            {
+                configReader.BuildMetaData.ProjectInfo.Add(packageInfo.Key, packageInfo.Value);
+            }
+
+            configReader.PackageMetaData.PackageInfo.Clear();
+
             return configReader.BuildMetaData;
         }
-
-
-
     }
 }
