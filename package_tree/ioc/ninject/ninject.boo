@@ -1,5 +1,5 @@
 ﻿install ninject:    
-	get_from svn("http://ninject.googlecode.com/svn/trunk")    
+	get_from git("git://github.com/enkari/ninject1.git")    
 	build_with nant, buildfile("Ninject.build"), FrameworkVersion35     
 
 	switches:        
