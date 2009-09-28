@@ -1,3 +1,7 @@
+using System.IO;
+using Horn.Core.PackageStructure;
+using Rhino.Mocks;
+
 namespace Horn.Core.Spec.BuildEngineSpecs
 {
     using Dsl;
@@ -24,7 +28,10 @@ namespace Horn.Core.Spec.BuildEngineSpecs
             var cmdLineArgs = batch.CommandLineArguments(configReader.BuildMetaData.BuildEngine.BuildFile, configReader.BuildMetaData.BuildEngine, packageTree,
                                                         FrameworkVersion.FrameworkVersion35).Trim();
 
-            Assert.Equal(EXPECTED, cmdLineArgs);
+            var pathToBuildFile = batch.PathToBuildTool(packageTree, FrameworkVersion.FrameworkVersion35);
+
+
+            Assert.Equal(EXPECTED, pathToBuildFile);
         }
     }
 }

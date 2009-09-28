@@ -13,6 +13,9 @@ namespace Horn.Core.extensions
         /// <returns></returns>
         public static string QuotePath(this String str)
         {
+            if(string.IsNullOrEmpty(str))
+                return str;
+
             if (str.StartsWith("\"") && str.EndsWith("\""))
                 return str;
             return String.Format("\"{0}\"", str);
