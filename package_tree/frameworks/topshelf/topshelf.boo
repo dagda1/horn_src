@@ -4,8 +4,8 @@ install topshelf:
     with:
         tasks compileandcopytobuild
 
-    shared_library "bin"
-    build_root_dir "build"
+    shared_library "lib"
+    build_root_dir "build_output"
 
 dependencies:
     depend "magnum"                  >> "Magnum"
