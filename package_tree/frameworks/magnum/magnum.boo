@@ -2,9 +2,6 @@ install magnum:
     get_from svn("http://magnum.googlecode.com/svn/trunk")
     build_with batch, buildfile("build.bat"), FrameworkVersion35
 
-    with:
-        tasks compileandcopytobuild
-
     shared_library "bin"
     build_root_dir "build"
 

@@ -7,18 +7,21 @@ namespace Horn.Core
     using PackageStructure;
     using Utils.Framework;
 
-    public class BatchBuildTool :
-        IBuildTool
+    public class BatchBuildTool : IBuildTool
     {
+        private string buildFile;
+
         public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree, FrameworkVersion version)
         {
-            return string.Format(pathToBuildFile, GenerateParameters(buildEngine.Parameters));
+            buildFile = pathToBuildFile;
+
+            return GenerateParameters(buildEngine.Parameters);
         
         }
 
         public string PathToBuildTool(IPackageTree packageTree, FrameworkVersion version)
         {
-            return packageTree.BuildFile;
+            return buildFile;
         }
 
         public string GetFrameworkVersionForBuildTool(FrameworkVersion version)
