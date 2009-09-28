@@ -282,6 +282,13 @@ namespace Horn.Core.Dsl
             SetBuildEngine(new NAntBuildTool(), buildFile, version);
         }
 
+        protected void batch(string buildFile, string frameWorkVersion)
+        {
+            var version = (FrameworkVersion)Enum.Parse(typeof(FrameworkVersion), frameWorkVersion);
+
+            SetBuildEngine(new BatchBuildTool(), buildFile, version);
+        }
+
         protected void rake(string buildFile, string frameWorkVersion)
         {
             var version = (FrameworkVersion)Enum.Parse(typeof(FrameworkVersion), frameWorkVersion);
