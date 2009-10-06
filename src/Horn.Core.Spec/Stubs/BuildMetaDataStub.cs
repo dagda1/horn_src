@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Horn.Core.Dsl;
 using Horn.Core.SCM;
 
-namespace Horn.Core.Spec.Doubles
+namespace Horn.Spec.Framework.Stubs
 {
     public class BuildMetaDataStub : IBuildMetaData
     {
-        public BuildEngines.BuildEngine BuildEngine { get; set; }
+        public Core.BuildEngines.BuildEngine BuildEngine { get; set; }
 
         public string Description { get; set; }
 
@@ -23,13 +23,16 @@ namespace Horn.Core.Spec.Doubles
 
         public SourceControl SourceControl { get; set; }
 
-        public BuildMetaDataStub(BuildEngines.BuildEngine buildEngine, SourceControl sourceControl)
+        public string Version { get; set; }
+
+        public BuildMetaDataStub(Core.BuildEngines.BuildEngine buildEngine, SourceControl sourceControl)
         {
             BuildEngine = buildEngine;
             SourceControl = sourceControl;
             PrebuildCommandList = new List<string>();
             RepositoryElementList = new List<IRepositoryElement>();
             ExportList = new List<SourceControl>();
+            ProjectInfo = new Dictionary<string, object>();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.IO;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dependencies;
 using Horn.Core.PackageStructure;
-using Horn.Core.Spec.Doubles;
+using Horn.Spec.Framework.Stubs;
 
 namespace Horn.Core.Spec.Dependencies
 {

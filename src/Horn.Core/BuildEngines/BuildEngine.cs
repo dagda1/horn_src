@@ -33,6 +33,15 @@ namespace Horn.Core.BuildEngines
 
         public virtual bool GenerateStrongKey { get; set; }
 
+        public virtual FileInfo GetSnExe(IPackageTree packageTree)
+        {
+            var path = Path.Combine(packageTree.Root.CurrentDirectory.FullName, "buildengines");
+            path = Path.Combine(path, "Sn");
+            path = Path.Combine(path, "sn.exe");
+
+            return new FileInfo(path);            
+        }
+
         public virtual Dictionary<string, string> Parameters
         {
             get
@@ -134,7 +143,7 @@ namespace Horn.Core.BuildEngines
             string strongKey = Path.Combine(packageTree.WorkingDirectory.FullName,
                                             string.Format("{0}.snk", packageTree.Name));
 
-            string cmdLineArguments = string.Format("-k {1}", packageTree.Sn, strongKey.QuotePath());
+            string cmdLineArguments = string.Format("-k {0}", strongKey.QuotePath());
 
             var PSI = new ProcessStartInfo("cmd.exe")
                                        {
@@ -144,7 +153,9 @@ namespace Horn.Core.BuildEngines
                                            UseShellExecute = false
                                        };
 
-            IProcess process = processFactory.GetProcess(packageTree.Sn.ToString().QuotePath(), cmdLineArguments, packageTree.WorkingDirectory.FullName);
+            var sn = GetSnExe(packageTree);
+
+            IProcess process = processFactory.GetProcess(sn.ToString().QuotePath(), cmdLineArguments, packageTree.WorkingDirectory.FullName);
 
             while (true)
             {

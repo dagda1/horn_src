@@ -8,8 +8,8 @@ using Horn.Core.SCM;
 using Horn.Core.Spec.Doubles;
 using Horn.Core.Spec.helpers;
 using Horn.Core.Spec.Unit.GetSpecs;
-using Horn.Core.Utils.CmdLine;
 using Horn.Spec.Framework.doubles;
+using Horn.Spec.Framework.Stubs;
 using Rhino.Mocks;
 using Xunit;
 

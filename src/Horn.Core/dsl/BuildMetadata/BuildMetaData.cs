@@ -11,7 +11,7 @@ namespace Horn.Core.Dsl
 
         public string Description { get; set; }
 
-        public List<SourceControl> ExportList{ get; set; }
+        public List<SourceControl> ExportList { get; set; }
 
         public string InstallName { get; set; }
 
@@ -22,6 +22,8 @@ namespace Horn.Core.Dsl
         public List<IRepositoryElement> RepositoryElementList { get; set; }
 
         public SourceControl SourceControl { get; set; }
+
+        public string Version { get; set; }
 
         public BuildMetaData()
         {

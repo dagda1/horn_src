@@ -6,10 +6,12 @@ using Horn.Core.Dsl;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.CmdLine;
 
-namespace Horn.Core.Spec.Doubles
+namespace Horn.Spec.Framework.Stubs
 {
     public class PackageTreeStub : IPackageTree
     {
+        public event BuildNodeCreatedHandler BuildNodeCreated;
+
         private readonly IBuildMetaData buildMetaData;
         private readonly string name;
         private readonly bool useInternalDictionary;
@@ -17,12 +19,18 @@ namespace Horn.Core.Spec.Doubles
 
         public string BaseDirectory
         {
-            get; private set;
+            get;
+            private set;
         }
 
         public string BuildFile
         {
             get { return "defaul.build"; }
+        }
+
+        public void BuildTree(IPackageTree parent, DirectoryInfo directory)
+        {
+            throw new NotImplementedException();
         }
 
         public IBuildMetaData BuildMetaData
@@ -135,6 +143,9 @@ namespace Horn.Core.Spec.Doubles
 
         public void Add(IPackageTree item)
         {
+            if (BuildNodeCreated != null)
+                BuildNodeCreated(item);
+
             throw new NotImplementedException();
         }
 
@@ -145,12 +156,30 @@ namespace Horn.Core.Spec.Doubles
 
         public List<IPackageTree> BuildNodes()
         {
-            return new List<IPackageTree>{this};
+            return new List<IPackageTree> { this };
         }
 
-        public void CreateRequiredDirectories()
+        public bool CannotAddThisDirectory(IPackageTree packageTreeNode, string[] reservedNames)
         {
             throw new NotImplementedException();
+        }
+
+        public event CategoryNodeCreated CategoryCreated;
+
+        public virtual void OnCategoryCreated(IPackageTree packageTreeNode)
+        {
+            if (CategoryCreated != null)
+                CategoryCreated(packageTreeNode);
+        }
+
+        public List<IBuildMetaData> GetAllPackageMetaData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IBuildMetaData GetBuildMetaData()
+        {
+            return GetBuildMetaData(Name);
         }
 
         public void DeleteWorkingDirectory()

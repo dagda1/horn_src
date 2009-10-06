@@ -39,7 +39,8 @@ namespace Horn.Core.Dsl
 
         public List<string> PrebuildCommandList
         {
-            get; set;
+            get;
+            set;
         }
 
         public Dictionary<string, object> ProjectInfo
@@ -49,6 +50,12 @@ namespace Horn.Core.Dsl
         }
 
         public List<IRepositoryElement> RepositoryElementList
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        public string Version
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }

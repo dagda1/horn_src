@@ -10,13 +10,33 @@ namespace Horn.Core.PackageStructure
     {
         string BuildFile { get; }
 
+        void BuildTree(IPackageTree parent, DirectoryInfo directory);
+
         IBuildMetaData BuildMetaData { get; }
 
+        event BuildNodeCreatedHandler BuildNodeCreated;
+
+        List<IPackageTree> BuildNodes();
+
+        event CategoryNodeCreated CategoryCreated;
+
         DirectoryInfo CurrentDirectory { get; }
+
+        void DeleteWorkingDirectory();
 
         bool Exists { get; }
 
         string FullName { get; }
+
+        List<IBuildMetaData> GetAllPackageMetaData();
+
+        IBuildMetaData GetBuildMetaData();
+
+        IBuildMetaData GetBuildMetaData(string packageName);
+
+        IRevisionData GetRevisionData();
+
+        IPackageTree GetRootPackageTree(DirectoryInfo rootFolder);
 
         bool IsAversionRequest { get; }
 
@@ -26,9 +46,9 @@ namespace Horn.Core.PackageStructure
 
         string Name { get; }
 
-        FileInfo Nant { get; }
-
         DirectoryInfo OutputDirectory { get; }
+
+        void PatchPackage();
 
         DirectoryInfo PatchDirectory { get; }
 
@@ -36,32 +56,16 @@ namespace Horn.Core.PackageStructure
 
         DirectoryInfo Result { get; }
 
-        IPackageTree Root { get; }
-
-        FileInfo Sn { get; }
-
-        DirectoryInfo WorkingDirectory { get; }
-
-        string Version { get; set; }
-
-        void CreateRequiredDirectories();
-
-        void DeleteWorkingDirectory();
-
-        List<IPackageTree> BuildNodes();
-
-        IBuildMetaData GetBuildMetaData(string packageName);
-
-        IRevisionData GetRevisionData();
-
-        IPackageTree GetRootPackageTree(DirectoryInfo rootFolder);
-
-        void PatchPackage();
-
         IPackageTree RetrievePackage(string packageName);
 
         IPackageTree RetrievePackage(Dependency dependency);
 
         IPackageTree RetrievePackage(ICommandArgs commandArgs);
+
+        IPackageTree Root { get; }
+
+        string Version { get; set; }
+
+        DirectoryInfo WorkingDirectory { get; }
     }
 }

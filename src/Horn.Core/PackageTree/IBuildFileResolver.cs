@@ -8,6 +8,6 @@ namespace Horn.Core.PackageStructure
 
         string BuildFile { get; }
 
-        string Extension { get; }
+        string Version { get; }
     }
 }

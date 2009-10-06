@@ -65,6 +65,7 @@ namespace Horn.Console
         private static DirectoryInfo GetRootFolderPath(ICommandArgs commandArgs)
         {
             string rootFolder;
+
             if (!String.IsNullOrEmpty(commandArgs.OutputPath))
             {
                 rootFolder = Path.Combine(commandArgs.OutputPath, PackageTree.RootPackageTreeName);

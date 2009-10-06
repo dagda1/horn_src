@@ -8,17 +8,17 @@ namespace Horn.Core.extensions
 {
     public static class FileSystemInfoExtensions
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof (FileSystemInfoExtensions));
+        private static readonly ILog log = LogManager.GetLogger(typeof(FileSystemInfoExtensions));
 
         public static void CopyToDirectory(this DirectoryInfo source, DirectoryInfo destination, bool deleteDestination)
         {
-            if(deleteDestination)
+            if (deleteDestination)
             {
                 if (destination.Exists)
-                    destination.SafeDelete();               
+                    destination.SafeDelete();
             }
 
-            if(!destination.Exists)
+            if (!destination.Exists)
                 destination.Create();
 
             LogCopyTask(source, destination);
@@ -26,6 +26,19 @@ namespace Horn.Core.extensions
             CopyFiles(source, destination);
 
             CopyDirectories(source, destination, deleteDestination);
+        }
+
+        public static bool ContainsIllegalFiles(this DirectoryInfo directory)
+        {
+            string[] fileTypes = new[] { "*.cs", "*.dll", "*.exe", "*.config", "*.db" };
+
+            foreach (var fileType in fileTypes)
+            {
+                if (directory.GetFiles(fileType).Length > 0)
+                    return true;
+            }
+
+            return false;
         }
 
         public static FileSystemInfo GetExportPath(string fullPath)
@@ -50,7 +63,7 @@ namespace Horn.Core.extensions
 
         public static DirectoryInfo GetDirectoryFromParts(this FileSystemInfo source, string parts)
         {
-            return (DirectoryInfo) GetFileSystemObjectFromParts(source, parts, false);
+            return (DirectoryInfo)GetFileSystemObjectFromParts(source, parts, false);
         }
 
         public static DirectoryInfo GetFileFromParts(this FileSystemInfo source, string parts)
@@ -66,7 +79,7 @@ namespace Horn.Core.extensions
         }
 
         public static FileSystemInfo GetFileSystemObjectFromParts(this FileSystemInfo source, string parts, bool isFile)
-        {            
+        {
             var outputPath = CorrectFilePath(parts, source);
 
             return (isFile) ? (FileSystemInfo)new FileInfo(outputPath) : new DirectoryInfo(outputPath);
@@ -130,7 +143,7 @@ namespace Horn.Core.extensions
 
                 LogCopyTask(source, destination);
 
-                if(!destinationFile.Directory.Exists)
+                if (!destinationFile.Directory.Exists)
                     destinationFile.Directory.Create();
 
                 file.CopyTo(destinationFile.FullName, true);
@@ -144,9 +157,9 @@ namespace Horn.Core.extensions
                 source.Delete(true);
             }
             catch
-            {               
+            {
             }
-            
+
         }
 
         private static void LogCopyTask(FileSystemInfo source, FileSystemInfo destination)
@@ -186,7 +199,7 @@ namespace Horn.Core.extensions
                 return source.FullName;
 
             if (parts.Trim() == "." && (!source.IsFile()))
-                return Path.Combine(((DirectoryInfo) source).Parent.FullName, "Output");
+                return Path.Combine(((DirectoryInfo)source).Parent.FullName, "Output");
 
             var outputPath = source.FullName;
 

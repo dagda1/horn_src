@@ -15,6 +15,7 @@ using Horn.Core.Utils;
 using Horn.Core.Utils.Framework;
 using Horn.Framework.helpers;
 using Horn.Spec.Framework.doubles;
+using Horn.Spec.Framework.Stubs;
 using Rhino.Mocks;
 using Xunit;
 

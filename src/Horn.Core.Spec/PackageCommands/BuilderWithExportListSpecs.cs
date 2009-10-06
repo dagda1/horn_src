@@ -4,11 +4,11 @@ using Horn.Core.GetOperations;
 using Horn.Core.PackageCommands;
 using Horn.Core.SCM;
 using Horn.Core.Spec.BuildEngineSpecs;
-using Horn.Core.Spec.Doubles;
 using Horn.Core.Spec.helpers;
 using Horn.Core.Spec.Unit.GetSpecs;
 using Horn.Core.Utils;
 using Horn.Spec.Framework.doubles;
+using Horn.Spec.Framework.Stubs;
 using Rhino.Mocks;
 using Xunit;
 

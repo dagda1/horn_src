@@ -1,4 +1,3 @@
-using System.IO;
 using Horn.Core.Dsl;
 using Horn.Core.SCM;
 using Horn.Core.Spec.helpers;
@@ -155,28 +154,6 @@ namespace Horn.Core.Spec.Unit.HornTree
         protected override void Because()
         {
             packageTree = TreeHelper.GetTempEmptyPackageTree();
-        }
-
-
-        [Fact]
-        public void Then_the_meta_data_synchroniser_returns_false()
-        {
-            Assert.False(packageTree.Exists);
-        }
-
-    }
-
-    public class When_the_package_tree_root_directory_exists_but_there_are_no_build_files : DirectorySpecificationBase
-    {
-
-        private IPackageTree packageTree;
-
-
-        protected override void Because()
-        {
-            packageTree = TreeHelper.GetTempEmptyPackageTree();
-
-            packageTree.CreateRequiredDirectories();
         }
 
 

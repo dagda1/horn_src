@@ -9,8 +9,13 @@ namespace Horn.Core.PackageStructure
 {
     public class NullPackageTree : IPackageTree
     {
+        public event BuildNodeCreatedHandler BuildNodeCreated;
+
         public void Add(IPackageTree item)
         {
+            if (BuildNodeCreated != null)
+                BuildNodeCreated(item);
+
             throw new NullTreeException();
         }
 
@@ -33,6 +38,11 @@ namespace Horn.Core.PackageStructure
         public string BuildFile
         {
             get { throw new NullTreeException(); }
+        }
+
+        public void BuildTree(IPackageTree parent, DirectoryInfo directory)
+        {
+            throw new NullTreeException();
         }
 
         public IBuildMetaData BuildMetaData
@@ -121,11 +131,6 @@ namespace Horn.Core.PackageStructure
             set { throw new NullTreeException(); }
         }
 
-        public void CreateRequiredDirectories()
-        {
-            throw new NullTreeException();
-        }
-
         public void DeleteWorkingDirectory()
         {
             throw new NullTreeException();
@@ -134,6 +139,29 @@ namespace Horn.Core.PackageStructure
         public List<IPackageTree> BuildNodes()
         {
             throw new NullTreeException();
+        }
+
+        public bool CannotAddThisDirectory(IPackageTree packageTreeNode, string[] reservedNames)
+        {
+            throw new NullTreeException();
+        }
+
+        public event CategoryNodeCreated CategoryCreated;
+
+        public virtual void OnCategoryCreated(IPackageTree packageTreeNode)
+        {
+            if (CategoryCreated != null)
+                CategoryCreated(packageTreeNode);
+        }
+
+        public List<IBuildMetaData> GetAllPackageMetaData()
+        {
+            throw new NullTreeException();
+        }
+
+        public IBuildMetaData GetBuildMetaData()
+        {
+            return GetBuildMetaData(Name);
         }
 
         public IBuildMetaData GetBuildMetaData(string packageName)
@@ -153,7 +181,7 @@ namespace Horn.Core.PackageStructure
 
         public void PatchPackage()
         {
-            throw new NotImplementedException();
+            throw new NullTreeException();
         }
 
         public IPackageTree RetrievePackage(string packageName)

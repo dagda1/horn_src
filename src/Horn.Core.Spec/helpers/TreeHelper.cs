@@ -8,6 +8,7 @@ using Horn.Core.SCM;
 using Horn.Core.Spec.BuildEngineSpecs;
 using Horn.Core.Spec.Doubles;
 using Horn.Framework.helpers;
+using Horn.Spec.Framework.Stubs;
 using Rhino.Mocks;
 
 namespace Horn.Core.Spec.helpers

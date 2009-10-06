@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Horn.Core.Spec.Unit.HornTree
 {
-    public class When_resolving_a_boo_build_file : BaseDSLSpecification
+    public class When_resolving_build_file : BaseDSLSpecification
     {
         private IBuildFileResolver _fileResolver;
         private DirectoryInfo buildFolder;
@@ -22,9 +22,9 @@ namespace Horn.Core.Spec.Unit.HornTree
         }
 
         [Fact]
-        public void Then_a_boo_extension_is_returned_from_the_resolver()
+        public void Then_the_version_number_is_parsed_from_the_file_name()
         {
-            Assert.Equal("boo", _fileResolver.Resolve(buildFolder, "horn").Extension);
+            Assert.Equal("trunk", _fileResolver.Resolve(buildFolder, "horn").Version);
         }
     }
 }
