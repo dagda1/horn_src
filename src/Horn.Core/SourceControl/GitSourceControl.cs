@@ -123,10 +123,9 @@ namespace Horn.Core.SCM
 
         public override bool ShouldUpdate(string currentRevision)
         {
-            string revision = Revision;
             log.InfoFormat("Current Revision is = {0}", currentRevision);
 
-            log.InfoFormat("Revision at remote scm is {0}", revision);
+            log.InfoFormat("Revision at remote scm is {0}", Revision);
 
             return Revision != "0";
         }
