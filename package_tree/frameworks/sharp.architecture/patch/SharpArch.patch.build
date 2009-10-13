@@ -1,8 +1,0 @@
-<?xml version="1.0" ?>
-<project name="SharpArch" xmlns="http://nant.sf.net/schemas/nant.xsd">
-  <include buildfile="SharpArch.build"/>
-
-  <target name="compileandcopytobuild" depends="move-for-test">
-  </target>
-
-</project>
