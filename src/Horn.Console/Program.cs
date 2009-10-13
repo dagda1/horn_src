@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Horn.Core;
+using Horn.Core.exceptions;
 using Horn.Core.PackageCommands;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.CmdLine;
@@ -50,6 +51,10 @@ namespace Horn.Console
             catch(RemoteScmException scm)
             {
                 log.Info(scm.Message);
+            }
+            catch(EnvironmentVariableNotFoundException eve)
+            {
+                log.Info(eve.Message);
             }
         }
 

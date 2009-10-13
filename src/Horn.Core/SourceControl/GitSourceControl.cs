@@ -16,6 +16,10 @@ namespace Horn.Core.SCM
         private void SetupGit(IEnvironmentVariable environmentVariable)
         {
             string gitDir = environmentVariable.GetDirectoryFor("git.cmd");
+
+            if (string.IsNullOrEmpty(gitDir))
+                throw new EnvironmentVariableNotFoundException("No environment variable found for the git.cmd file.");
+
             Settings.GitDir = gitDir;
             Settings.GitBinDir = Path.Combine(new DirectoryInfo(gitDir).Parent.FullName, "bin");
             Settings.UseFastChecks = false;
