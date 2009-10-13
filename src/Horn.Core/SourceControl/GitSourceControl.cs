@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using GitCommands;
+using Horn.Core.exceptions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils;
 
