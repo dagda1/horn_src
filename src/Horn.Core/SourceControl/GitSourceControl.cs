@@ -127,7 +127,7 @@ namespace Horn.Core.SCM
 
             log.InfoFormat("Revision at remote scm is {0}", Revision);
 
-            return Revision != "0";
+            return Revision != currentRevision;
         }
     }
 }
