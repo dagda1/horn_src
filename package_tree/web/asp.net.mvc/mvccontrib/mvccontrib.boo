@@ -1,5 +1,5 @@
 install mvccontrib:
-    get_from svn("http://mvccontrib.googlecode.com/svn/trunk/")
+    get_from git("git://github.com/mvccontrib/MvcContrib.git")
     build_with batch, buildfile("build.bat"), FrameworkVersion35	
 
     shared_library "bin"
