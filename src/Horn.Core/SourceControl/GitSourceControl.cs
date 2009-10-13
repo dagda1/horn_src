@@ -15,9 +15,9 @@ namespace Horn.Core.SCM
 
         private void SetupGit(IEnvironmentVariable environmentVariable)
         {
-            string gitDir = environmentVariable.GetDirectoryFor("git.exe");
-            Settings.GitBinDir = gitDir;
-            Settings.GitDir = Path.Combine(new DirectoryInfo(gitDir).Parent.FullName, "cmd");
+            string gitDir = environmentVariable.GetDirectoryFor("git.cmd");
+            Settings.GitDir = gitDir;
+            Settings.GitBinDir = Path.Combine(new DirectoryInfo(gitDir).Parent.FullName, "bin");
             Settings.UseFastChecks = false;
             Settings.ShowGitCommandLine = false;
         }
