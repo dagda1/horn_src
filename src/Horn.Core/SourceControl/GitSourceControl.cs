@@ -9,6 +9,8 @@ namespace Horn.Core.SCM
 {
     public class GitSourceControl : SourceControl
     {
+        private string revision;
+
         public GitSourceControl(IEnvironmentVariable environmentVariable)
         {
             SetupGit(environmentVariable);
@@ -33,19 +35,24 @@ namespace Horn.Core.SCM
             {
                 try
                 {
-                    return GitCommands.GitCommands.GetRemoteHeads(Url, false, true)[0].Guid;
+                    if(string.IsNullOrEmpty(revision))
+                        revision = GitCommands.GitCommands.GetRemoteHeads(Url, false, true)[0].Guid;
+
+                    return revision;
                 }
                 catch (Exception ex)
                 {
                     HandleExceptions(ex);
                 }
-                return "1";
+
+                return "0";
             }
         }
 
-        private string CurrentRevisionNumber()
+        private string CurrentRevisionNumber()  
         {
             string rev = null;
+
             try
             {
                 rev = GitCommands.GitCommands.GetCurrentCheckout();
@@ -54,6 +61,7 @@ namespace Horn.Core.SCM
             {
                 HandleExceptions(ex);
             }
+
             return rev;
         }
 
@@ -120,7 +128,7 @@ namespace Horn.Core.SCM
 
             log.InfoFormat("Revision at remote scm is {0}", revision);
 
-            return Revision != currentRevision;
+            return Revision != "0";
         }
     }
 }
