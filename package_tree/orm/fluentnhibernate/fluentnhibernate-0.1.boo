@@ -1,5 +1,5 @@
 install fluentnhibernate:
-    get_from git("git://github.com/jagregory/fluent-nhibernate.git")
+    get_from svn("http://fluent-nhibernate.googlecode.com/svn/trunk/")
     build_with rake, buildfile("RakeFile"), FrameworkVersion35
 
     shared_library "tools/NHibernate"
