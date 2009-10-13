@@ -1,6 +1,6 @@
 install sharp.architecture:
-    get_from svn("http://sharp-architecture.googlecode.com/svn/trunk")
-    build_with nant, buildfile("SharpArch.patch.build"), FrameworkVersion35
+    get_from git("git://github.com/codai/Sharp-Architecture.git")
+    build_with batch, buildfile("go.bat"), FrameworkVersion35
     with:
         tasks compileandcopytobuild
 
