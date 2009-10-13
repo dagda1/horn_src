@@ -35,8 +35,9 @@ namespace Horn.Core.SCM
             {
                 try
                 {
-                    if(string.IsNullOrEmpty(revision))
-                        revision = GitCommands.GitCommands.GetRemoteHeads(Url, false, true)[0].Guid;
+                    if (string.IsNullOrEmpty(revision))
+                        revision = GitCommands.GitCommands.GetRemoteHeads(Url, false, true)
+                            .Find(x => x.Name == "master").Guid;
 
                     return revision;
                 }
@@ -49,7 +50,7 @@ namespace Horn.Core.SCM
             }
         }
 
-        private string CurrentRevisionNumber()  
+        private string CurrentRevisionNumber()
         {
             string rev = null;
 
