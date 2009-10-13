@@ -52,7 +52,7 @@ namespace Horn.Core.PackageCommands
         {
             log.InfoFormat("\nHorn is building {0}.\n\n".ToUpper(), nextMetaData.InstallName);
 
-            nextMetaData.BuildEngine.Build(processFactory, nextTree);
+            nextMetaData.BuildEngine.Build( processFactory, nextTree, commandArgs.Mode );
         }
 
         protected virtual void ExecutePrebuildCommands(IBuildMetaData metaData, IPackageTree packageTree)
@@ -78,9 +78,12 @@ namespace Horn.Core.PackageCommands
             var message = string.Format("installing {0} ", commandArgs.PackageName);
 
             if (!string.IsNullOrEmpty(commandArgs.Version))
-                message += string.Format(" Version {0}.", commandArgs.Version);
+                message += string.Format(" Version {0}", commandArgs.Version);
 
-            log.Info(message);
+            if (!string.IsNullOrEmpty(commandArgs.Mode))
+                message += string.Format(" Mode {0}.", commandArgs.Mode);
+
+            log.Info(message + ".");
         }
 
         protected virtual IDependencyTree GetDependencyTree(IPackageTree componentTree)

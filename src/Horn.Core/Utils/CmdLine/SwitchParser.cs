@@ -178,7 +178,8 @@ Options :
                                      new Parameter("rebuildonly", false, false, false),
                                      new Parameter("version", false, true, false),
                                      new Parameter("refresh", false, false, false),
-                                     new Parameter("output",false,true,false)
+                                     new Parameter("output",false,true,false),
+                                     new Parameter( "mode", false, true, false )
                                  };
 
             paramTable = parameters.ToArray();

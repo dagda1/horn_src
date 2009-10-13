@@ -7,5 +7,6 @@ namespace Horn.Core.Utils.CmdLine
         string Version { get; }
         bool Refresh { get; }
         string OutputPath { get; }
+        string Mode { get; }
     }
 }

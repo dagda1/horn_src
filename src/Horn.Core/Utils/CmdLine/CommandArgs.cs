@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Horn.Core.Utils.CmdLine
@@ -26,6 +25,8 @@ namespace Horn.Core.Utils.CmdLine
 
         public virtual string OutputPath { get; private set; }
 
+        public virtual string Mode { get; private set; }
+
         public CommandArgs(IDictionary<string, IList<string>> switches)
         {
             PackageName = switches["install"][0];
@@ -39,6 +40,9 @@ namespace Horn.Core.Utils.CmdLine
 
             if (switches.Keys.Contains("output"))
                 OutputPath = switches["output"][0];
+
+            if (switches.Keys.Contains("mode"))
+                Mode = switches["mode"][0];
         }
     }
 }

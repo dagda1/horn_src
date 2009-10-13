@@ -8,6 +8,13 @@ install nhibernate:
     with:
         tasks clean,build
 
+    mode release:
+        switches:
+            parameters "project.config=release", "with.examples=false"
+
+        with:
+            tasks clean,build
+
     shared_library "lib/net/3.5"
     build_root_dir "build"
 

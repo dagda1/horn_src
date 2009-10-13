@@ -42,32 +42,29 @@ namespace Horn.Core.BuildEngines
             return new FileInfo(path);            
         }
 
-        public virtual Dictionary<string, string> Parameters
+        public virtual IDictionary<string, string> Parameters
         {
             get
             {
-                var parameters = new Dictionary<string, string>( DefaultModeSettings.Parameters );
-                if( CurrentModeSettings != null )
+                if (CurrentModeSettings == null)
                 {
-                    // Current mode settings will override any duplicate key values
-                    CurrentModeSettings.Parameters.ForEach(parameter => parameters[parameter.Key] = parameter.Value);
+                    return DefaultModeSettings.Parameters;
                 }
-                return parameters;
+                return CurrentModeSettings.Parameters;                
             }
         }
 
         public virtual string SharedLibrary { get; set; }
 
-        public virtual List<string> Tasks
+        public virtual IList<string> Tasks
         {
             get
             {
-                var tasks = new List<string>( DefaultModeSettings.Tasks );
-                if( CurrentModeSettings != null )
+                if ( CurrentModeSettings == null )
                 {
-                    CurrentModeSettings.Tasks.ForEach( tasks.Add, task => !tasks.Contains( task ) );
+                    return new List<string>( DefaultModeSettings.Tasks );
                 }
-                return tasks;
+                return new List<string>( CurrentModeSettings.Tasks );
             }
         }
 
@@ -113,10 +110,31 @@ namespace Horn.Core.BuildEngines
             CurrentModeSettings = Modes[ DefaultModeName ];
         }
 
-        public virtual BuildEngine Build(IProcessFactory processFactory, IPackageTree packageTree)
+        public virtual void SetBuildMode( string modeName )
+        {
+            if( string.IsNullOrEmpty( modeName ) )
+            {
+                modeName = DefaultModeName;
+            }
+
+            if (Modes.ContainsKey(modeName))
+            {
+                CurrentModeSettings = Modes[modeName];
+                return;
+            }            
+        }
+
+        public virtual BuildEngine Build( IProcessFactory processFactory, IPackageTree packageTree )
+        {
+            return Build( processFactory, packageTree, DefaultModeName );
+        }
+
+        public virtual BuildEngine Build(IProcessFactory processFactory, IPackageTree packageTree, string mode)
         {
             if (builtPackages.ContainsKey(packageTree.Name))
                 return this;
+
+            SetBuildMode( mode );
 
             string pathToBuildFile = string.Format("{0}", GetBuildFilePath(packageTree).QuotePath());
 

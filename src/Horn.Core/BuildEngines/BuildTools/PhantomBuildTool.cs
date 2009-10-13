@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using Horn.Core.BuildEngines;
+using Horn.Core.extensions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.Framework;
 
@@ -36,16 +38,15 @@ namespace Horn.Core
 			return new FileInfo(path).FullName;
 		}
 
-		private string GenerateTasks(List<string> tasks)
+		private string GenerateTasks(IEnumerable<string> tasks)
 		{
-			if (tasks == null || tasks.Count == 0)
-				return string.Empty;
-
-			var ret = "";
-
-			tasks.ForEach(x => ret += string.Format("{0} ", x));
-
-			return ret;
+            if( tasks == null )
+            {
+                return String.Empty;
+            }
+		    var tasksArgument = String.Empty;
+			tasks.ForEach( task => tasksArgument += String.Format("{0} ", task) );
+			return tasksArgument;
 		}
 	}
 }

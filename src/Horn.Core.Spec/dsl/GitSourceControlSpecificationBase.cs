@@ -21,7 +21,7 @@ namespace Horn.Core.Spec.Unit.dsl
 		{
 			dependencyResolver = CreateStub<IDependencyResolver>();
 			var environmentVariable = CreateStub<IEnvironmentVariable>();
-			environmentVariable.Stub(x => x.GetDirectoryFor("git.exe")).Return(Environment.CurrentDirectory);
+			environmentVariable.Stub(x => x.GetDirectoryFor("git.cmd")).Return(Environment.CurrentDirectory);
 			dependencyResolver.Stub(x => x.Resolve<GitSourceControl>()).Return(new GitSourceControl(environmentVariable));
 
 			IoC.InitializeWith(dependencyResolver);

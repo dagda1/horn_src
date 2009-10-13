@@ -30,7 +30,7 @@ namespace Horn.Core
         }
 
 
-        string GenerateParameters(Dictionary<string, string> parameters)
+        private string GenerateParameters(IDictionary<string, string> parameters)
         {
             if (parameters == null || parameters.Keys.Count == 0)
                 return string.Empty;

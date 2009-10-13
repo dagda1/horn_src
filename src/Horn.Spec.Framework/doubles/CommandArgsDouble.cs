@@ -11,6 +11,7 @@ namespace Horn.Spec.Framework.doubles
         public string Version { get; private set; }
         public bool Refresh { get; set; }
         public string OutputPath { get; set; }
+        public string Mode { get; set; }
 
         public CommandArgsDouble(string installName)
         {

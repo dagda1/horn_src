@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Horn.Core.BuildEngines;
 using Horn.Core.extensions;
@@ -42,7 +43,8 @@ namespace Horn.Core
     		if (buildEngine.Tasks == null || buildEngine.Tasks.Count == 0)
     			return;
 
-    		cmdLine.AppendFormat(" /t:{0}", String.Join(";", buildEngine.Tasks.ToArray()));
+    	    var tasks = new List<string>( buildEngine.Tasks );
+    		cmdLine.AppendFormat(" /t:{0}", String.Join(";", tasks.ToArray()));
     	}
 
     	public string GetFrameworkVersionForBuildTool(FrameworkVersion version)
