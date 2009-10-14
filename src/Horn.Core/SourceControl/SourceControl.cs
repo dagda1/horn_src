@@ -55,14 +55,40 @@ namespace Horn.Core.SCM
             return sourceControl;
         }
 
-        public abstract bool ShouldUpdate(string currentRevision);
+        public virtual bool ShouldUpdate(string currentRevision)
+        {
+            string revision = Revision;
+
+            log.InfoFormat("Current Revision is = {0}", currentRevision);
+            log.InfoFormat("Revision at remote scm is {0}", revision);
+
+            return revision != currentRevision;
+        }
+
+        public virtual bool ShouldUpdate(string currentRevision, IPackageTree packageTree)
+        {
+            return ShouldUpdate(currentRevision);
+        }
+
+        public virtual bool ShouldUpdate(IPackageTree packageTree)
+        {
+            string currentRevision = packageTree.GetRevisionData().Revision;
+
+            if (currentRevision == "0")
+            {
+                log.InfoFormat("Empty Repository");
+                return true;
+            }
+
+            return ShouldUpdate(currentRevision, packageTree);
+        }
 
         public virtual void RetrieveSource(IPackageTree packageTree)
         {
             if (downloadedPackages.ContainsKey(packageTree.Name))
                 return;
 
-            if (!ShouldUpdate(packageTree.GetRevisionData().Revision))
+            if (!ShouldUpdate(packageTree))
             {
                 downloadedPackages.Add(packageTree.Name, packageTree.Name);
                 return;

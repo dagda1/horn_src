@@ -78,18 +78,6 @@ namespace Horn.Core.SCM
 				return;
 		}
 
-		public override bool ShouldUpdate(string currentRevision)
-		{
-			string revision = Revision;
-			log.InfoFormat("Current Revision is = {0}", currentRevision);
-
-			log.InfoFormat("Revision at remote scm is {0}", revision);
-
-			return Revision != currentRevision;
-
-		}
-
-
 		private string RunHGCommand(string args, string workingDirectory)
 		{
 			return shellRunner.RunCommand(GetHGExecutableLocation(), args, workingDirectory);

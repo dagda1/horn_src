@@ -1,14 +1,18 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using GitCommands;
 using Horn.Core.exceptions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils;
+using System.Linq;
 
 namespace Horn.Core.SCM
 {
     public class GitSourceControl : SourceControl
     {
+        const string MASTER = "master";
+
         private string revision;
 
         public GitSourceControl(IEnvironmentVariable environmentVariable)
@@ -37,7 +41,7 @@ namespace Horn.Core.SCM
                 {
                     if (string.IsNullOrEmpty(revision))
                         revision = GitCommands.GitCommands.GetRemoteHeads(Url, false, true)
-                            .Find(x => x.Name == "master").Guid;
+                            .Find(x => x.Name == MASTER).Guid;
 
                     return revision;
                 }
@@ -49,6 +53,7 @@ namespace Horn.Core.SCM
                 return "0";
             }
         }
+
 
         private string CurrentRevisionNumber()
         {
@@ -122,13 +127,20 @@ namespace Horn.Core.SCM
                 return;
         }
 
-        public override bool ShouldUpdate(string currentRevision)
+        public override bool ShouldUpdate(string currentRevision, IPackageTree packageTree)
         {
-            log.InfoFormat("Current Revision is = {0}", currentRevision);
+            Settings.WorkingDir = packageTree.WorkingDirectory.FullName;
+          
+            string localRevGuid = CurrentRevisionNumber();
+            log.InfoFormat("Current Revision is = {0}", localRevGuid);
 
-            log.InfoFormat("Revision at remote scm is {0}", Revision);
 
-            return Revision != currentRevision;
+            var remoteHeads = GitCommands.GitCommands.GetHeads(true, true).Where(x => x.IsRemote);
+            string remoteRevGuid = remoteHeads.Where(x => x.Name == "origin/" + MASTER).Single().Guid;
+            log.InfoFormat("Revision at remote scm is {0}", remoteRevGuid);
+
+            revision = remoteRevGuid;
+            return revision != localRevGuid;
         }
     }
 }
