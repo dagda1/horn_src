@@ -15,5 +15,4 @@ package.description = "log4net is a tool to help the programmer output log state
 package.forum = "http://mail-archives.apache.org/mod_mbox/logging-log4net-user/"
 package.homepage = "http://logging.apache.org/log4net/index.html"
 package.name = "Log4Net"
-package.notes = "The Trunk of Log4Net is Broken. Use Package <log4net-1.2.10>"
-package.version = "1.0.0.0"
+package.notes = ""

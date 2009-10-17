@@ -10,4 +10,3 @@ package.description = "A view engine for ASP.NET MVC that uses VB.NET XML litera
 package.homepage = "http://www.assembla.com/wiki/show/hasic"
 package.name = "Hasic"
 package.notes = ""
-package.version = "1.0.0.0"

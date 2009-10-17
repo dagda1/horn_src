@@ -8,12 +8,11 @@ install nhibernate:
     with:
         tasks clean,build
 
-    mode release:
-        switches:
-            parameters "project.config=release", "with.examples=false"
+	switches:
+		parameters "with.examples=false"
 
-        with:
-            tasks clean,build
+	with:
+		tasks clean,build
 
     shared_library "lib/net/3.5"
     build_root_dir "build"
@@ -28,4 +27,3 @@ package.forum = "http://groups.google.co.uk/group/nhusers?hl=en"
 package.homepage = "http://www.hibernate.org/343.html"
 package.name = "NHibernate"
 package.notes = ""
-package.version = "1.0.0.0"

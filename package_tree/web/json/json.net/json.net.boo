@@ -11,4 +11,3 @@ package.description = "A .NET serialization for converting objects to JSON and v
 package.homepage = "http://james.newtonking.com/pages/json-net.aspx/"
 package.name = "JSON.NET"
 package.notes = ""
-package.version = "1.0.0.0"
