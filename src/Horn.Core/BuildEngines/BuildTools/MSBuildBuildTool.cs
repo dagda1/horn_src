@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Horn.Core.BuildEngines;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.Framework;
 using System.IO;

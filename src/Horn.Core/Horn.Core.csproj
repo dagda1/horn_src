@@ -83,6 +83,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\GitCommands.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\log4net.dll</HintPath>
@@ -100,10 +104,14 @@
       <HintPath>..\..\lib\SharpSvn-x86\SharpSvn.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -120,11 +128,14 @@
     <Compile Include="BuildEngines\Process\CommandLineRunner.cs" />
     <Compile Include="exceptions\BuildFailedException.cs" />
     <Compile Include="exceptions\EnvironmentVariableNotFoundException.cs" />
+    <Compile Include="exceptions\CannotDeleteTempHornDirectoryException.cs" />
+    <Compile Include="extensions\SerialisationExtensions.cs" />
     <Compile Include="PackageTree\BuildNodeCreatedHandler.cs" />
     <Compile Include="SourceControl\GitSourceControl.cs" />
     <Compile Include="BuildEngines\Process\IShellRunner.cs" />
     <Compile Include="SourceControl\MercurialSourceControl.cs" />
     <Compile Include="Utils\EnvironmentVariable.cs" />
+    <Compile Include="Utils\FileSystemProvider.cs" />
     <Compile Include="Utils\IEnvironmentVariable.cs" />
     <Compile Include="BuildEngines\Dependency.cs" />
     <Compile Include="Dependencies\BuildTree.cs" />
@@ -146,6 +157,7 @@
     <Compile Include="extensions\ExceptionExtensions.cs" />
     <Compile Include="Utils\CmdLine\CommandArgs.cs" />
     <Compile Include="Utils\CmdLine\ICommandArgs.cs" />
+    <Compile Include="Utils\IoC\IDependencyResolver.cs" />
     <Compile Include="Utils\WithLogging.cs" />
     <Compile Include="extensions\FileSystemInfoExtensions.cs" />
     <Compile Include="BuildEngines\Process\DiagnosticsProcess.cs" />

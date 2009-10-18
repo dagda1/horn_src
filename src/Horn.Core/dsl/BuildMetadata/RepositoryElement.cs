@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.GetOperations;
 using Horn.Core.PackageStructure;
 

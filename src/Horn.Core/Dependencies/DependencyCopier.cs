@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.Utils;
 
 namespace Horn.Core.Dependencies

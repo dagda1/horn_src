@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using log4net;
 
 namespace Horn.Core.Utils.CmdLine

@@ -42,11 +42,10 @@ namespace Horn.Core.Dsl
             return this;
         }
 
-
-
         private IBuildMetaData CreateBuildMetaData(DirectoryInfo buildFolder, string buildFile)
         {
             var buildFileResolver = new BuildFileResolver();
+
             var buildFilePath = buildFileResolver.Resolve(buildFolder, buildFile).BuildFile;
 
             try
@@ -62,10 +61,15 @@ namespace Horn.Core.Dsl
 
             foreach (var packageInfo in configReader.PackageMetaData.PackageInfo)
             {
+                if(packageInfo.Key == "version")
+                    continue;
+
                 configReader.BuildMetaData.ProjectInfo.Add(packageInfo.Key, packageInfo.Value);
             }
 
             configReader.PackageMetaData.PackageInfo.Clear();
+
+            configReader.BuildMetaData.Version = buildFileResolver.Version;
 
             return configReader.BuildMetaData;
         }

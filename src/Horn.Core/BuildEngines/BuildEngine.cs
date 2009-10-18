@@ -6,7 +6,7 @@ using Horn.Core.Dependencies;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.Framework;
 using log4net;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 
 namespace Horn.Core.BuildEngines
 {

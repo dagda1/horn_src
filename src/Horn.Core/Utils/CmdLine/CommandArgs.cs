@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 
 namespace Horn.Core.Utils.CmdLine
 {
     public class CommandArgs : ICommandArgs
     {
+        public const string IoCKey = "commandargs";
+
         public virtual string FullName
         {
             get
@@ -15,6 +18,8 @@ namespace Horn.Core.Utils.CmdLine
             }
         }
 
+        public virtual string Mode { get; private set; }
+
         public virtual string PackageName { get; private set; }
 
         public virtual bool RebuildOnly { get; private set; }
@@ -25,7 +30,14 @@ namespace Horn.Core.Utils.CmdLine
 
         public virtual string OutputPath { get; private set; }
 
-        public virtual string Mode { get; private set; }
+        public virtual void SetArguments(string packageName, bool rebuildOnly, string version, bool refresh, string outputPath)
+        {
+            PackageName = packageName;
+            RebuildOnly = rebuildOnly;
+            Version = version;
+            Refresh = refresh;
+            OutputPath = outputPath;            
+        }
 
         public CommandArgs(IDictionary<string, IList<string>> switches)
         {
@@ -43,6 +55,15 @@ namespace Horn.Core.Utils.CmdLine
 
             if (switches.Keys.Contains("mode"))
                 Mode = switches["mode"][0];
+        }
+
+        public CommandArgs(string packageName, bool rebuildOnly, string version, bool refresh, string outputPath)
+        {
+            PackageName = packageName;
+            RebuildOnly = rebuildOnly;
+            Version = version;
+            Refresh = refresh;
+            OutputPath = outputPath;
         }
     }
 }

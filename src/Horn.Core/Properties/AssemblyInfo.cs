@@ -1,3 +1,3 @@
 ﻿using System.Reflection;
 
-//[assembly: AssemblyTitle("Horn.Core")]
+[assembly: AssemblyTitle("Horn.Core")]

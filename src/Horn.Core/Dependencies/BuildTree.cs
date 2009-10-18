@@ -28,6 +28,7 @@ namespace Horn.Core.Dependencies
         private IList<IPackageTree> GetAncestors(IList<IPackageTree> ancestorList)
         {
             ancestorList.Add(Node);
+
             if (Parent != null)
                 return Parent.GetAncestors(ancestorList);
             

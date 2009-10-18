@@ -9,13 +9,29 @@ namespace Horn.Core.Utils
     public interface IFileSystemProvider
     {
         void CreateDirectory(string path);
-    }
 
-    public class FileSystemProvider : IFileSystemProvider
-    {
-        public void CreateDirectory(string path)
-        {
-            Directory.CreateDirectory(path);
-        }
+        void CopyDirectory(string source, string destination);
+
+        void CopyFile(string source, string destination, bool overwrite);
+
+        DirectoryInfo CreateTemporaryHornDirectory(string path);
+
+        void DeleteDirectory(string path);
+
+        void DeleteFile(string path);
+
+        bool Exists(string path);
+
+        DirectoryInfo GetTemporaryBuildDirectory(DirectoryInfo tempDirectory);
+
+        DirectoryInfo GetHornRootDirectory(string path);
+
+        void MkDir(string path);
+
+        void MkFile(string path);
+
+        void WriteTextFile(string destination, string text);
+
+        FileInfo ZipFolder(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, string packageName);
     }
 }

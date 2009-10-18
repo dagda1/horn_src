@@ -13,7 +13,7 @@ namespace Horn.Core.Dsl
         List<SourceControl> ExportList { get; set; }
 
         string InstallName { get; set; }
-
+        
         SourceControl SourceControl { get; set; }
 
         List<string> PrebuildCommandList { get; set; }

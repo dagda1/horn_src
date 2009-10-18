@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Xml.Linq;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.Utils;
 
 namespace Horn.Core.Dependencies

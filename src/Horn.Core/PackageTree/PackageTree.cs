@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dsl;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Core.Utils.CmdLine;
 using log4net;
@@ -48,21 +48,27 @@ namespace Horn.Core.PackageStructure
 
             foreach (var child in directory.GetDirectories())
             {
-                if(IsReservedDirectory(child))
+                if (IsReservedDirectory(child))
                     continue;
 
                 var newNode = new PackageTree(child, this);
 
-                children.Add(newNode);
+                children.Add(newNode);                  
             }
 
             if (DirectoryIsBuildNode(CurrentDirectory))
+            {
                 CreateRequiredDirectories();
+
+                OnBuildNodeCreated(this);
+            }
 
             if (parent == null)
             {
                 Result.Delete(true);
             }
+
+            OnCategoryCreated(this); 
         }
 
         public virtual DirectoryInfo CurrentDirectory { get; private set; }
@@ -357,19 +363,13 @@ namespace Horn.Core.PackageStructure
             return BuildMetaData;
         }
 
-        private PackageTree CreatePackageTreeNode(DirectoryInfo child)
+        private bool DirectoryIsBuildNode(DirectoryInfo directory)
         {
-            //var newNode = new PackageTree();
+            if (IsRoot)
+                return false;
 
-            //newNode.BuildNodeCreated += NewNode_BuildNodeCreated;
-            //newNode.CategoryCreated += NewNode_CategoryCreated;
-
-            //OnCategoryCreated(newNode);
-
-            //if (DirectoryIsBuildNode(child))
-            //    OnBuildNodeCreated(newNode);
-
-            return new PackageTree(child, this);
+            return (directory.GetFiles("*.boo").Length > 0) &&
+                   (!libraryNodes.Contains(directory.Name.ToLower()));
         }
 
         private bool DirectoryIsChildOfReservedDirectory(DirectoryInfo directory, string[] reservedDirectories)
@@ -401,7 +401,7 @@ namespace Horn.Core.PackageStructure
             if (!string.IsNullOrEmpty(reservedDirectory))
                 return true;
 
-            return DirectoryIsChildOfReservedDirectory(child, reservedDirectoryNames);
+            return false;// DirectoryIsChildOfReservedDirectory(child, reservedDirectoryNames);
         }
 
         private void NewNode_CategoryCreated(IPackageTree packageTreeNode)
@@ -412,15 +412,6 @@ namespace Horn.Core.PackageStructure
         private void NewNode_BuildNodeCreated(IPackageTree packagetree)
         {
             OnBuildNodeCreated(packagetree);
-        }
-
-        private bool DirectoryIsBuildNode(DirectoryInfo directory)
-        {
-            if (IsRoot)
-                return false;
-
-            return (directory.GetFiles("*.boo").Length > 0) &&
-                   (!libraryNodes.Contains(directory.Name.ToLower()));
         }
 
         public PackageTree()

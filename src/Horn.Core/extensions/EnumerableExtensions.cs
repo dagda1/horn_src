@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Horn.Core.extensions
+namespace Horn.Core.Extensions
 {
     public static class EnumerableExtensions
     {
@@ -13,13 +13,13 @@ namespace Horn.Core.extensions
             return items;
         }
 
-        public static IEnumerable<T> ForEach<T>( this IEnumerable<T> items, Action<T> action, Predicate<T> when )
+        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> items, Action<T> action, Predicate<T> when)
         {
-            foreach( var item in items )
+            foreach (var item in items)
             {
-                if( when(item) )
+                if (when(item))
                 {
-                    action( item );
+                    action(item);
                 }
             }
 

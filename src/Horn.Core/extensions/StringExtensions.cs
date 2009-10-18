@@ -2,7 +2,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System;
 
-namespace Horn.Core.extensions
+namespace Horn.Core.Extensions
 {
     public static class StringExtensions
     {

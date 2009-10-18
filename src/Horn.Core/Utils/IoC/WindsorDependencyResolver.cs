@@ -1,3 +1,4 @@
+using System;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Horn.Core.BuildEngines;
@@ -16,9 +17,25 @@ namespace Horn.Core.Utils.IoC
 {
 	public class WindsorDependencyResolver : IDependencyResolver
 	{
-		private readonly WindsorContainer innerContainer;
+		protected readonly WindsorContainer innerContainer;
 
-		public T Resolve<T>()
+	    public void AddComponentInstance<Ttype>(string key, Type service, Ttype instance)
+	    {
+            innerContainer.Kernel.AddComponentInstance(key, service, instance);
+	    }
+
+	    public bool HasComponent<TService>()
+	    {
+            return innerContainer.Kernel.HasComponent(typeof(TService));
+	    }
+
+	    //TODO: Remove
+	    public IWindsorContainer GetContainer()
+	    {
+	        return innerContainer;
+	    }
+
+	    public T Resolve<T>()
 		{
 			return innerContainer.Resolve<T>();
 		}
@@ -28,11 +45,12 @@ namespace Horn.Core.Utils.IoC
 			return innerContainer.Resolve<T>(key);
 		}
 
-		public WindsorDependencyResolver(ICommandArgs commandArgs)
+	    public WindsorDependencyResolver(ICommandArgs commandArgs)
 		{
 			innerContainer = new WindsorContainer();
 
-			innerContainer.Kernel.AddComponentInstance<ICommandArgs>(typeof(ICommandArgs), commandArgs);
+            if(commandArgs != null)
+			    innerContainer.Kernel.AddComponentInstance<ICommandArgs>(typeof(ICommandArgs), commandArgs);
 
 			innerContainer.Kernel.Resolver.AddSubResolver(new EnumerableResolver(innerContainer.Kernel));
 
@@ -94,7 +112,7 @@ namespace Horn.Core.Utils.IoC
 			innerContainer.Register(
 				Component.For<SourceControl>()
 							.ImplementedBy<SVNSourceControl>()
-							.Parameters(Parameter.ForKey("url").Eq(MetaDataSynchroniser.PACKAGE_TREE_URI))
+							.Parameters(Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri))
 							.LifeStyle.Transient
 				);
 

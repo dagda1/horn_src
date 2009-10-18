@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.PackageStructure;
 using log4net;
 

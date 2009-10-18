@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using Horn.Core.BuildEngines;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.Framework;
 
@@ -48,8 +48,8 @@ namespace Horn.Core
 
             var stringBuilder = new StringBuilder();
 
-            foreach(var key in parameters.Keys)
-               stringBuilder.AppendFormat("-D:{0}={1} ", key, parameters[key]);
+            foreach (var key in parameters.Keys)
+                stringBuilder.AppendFormat("-D:{0}={1} ", key, parameters[key]);
 
             return stringBuilder.ToString();
         }
@@ -67,4 +67,3 @@ namespace Horn.Core
         }
     }
 }
- 

@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using log4net;
 
-namespace Horn.Core.extensions
+namespace Horn.Core.Extensions
 {
     public static class FileSystemInfoExtensions
     {

@@ -6,7 +6,7 @@ namespace Horn.Core.Tree.MetaDataSynchroniser
     public class MetaDataSynchroniser : IMetaDataSynchroniser
     {
         private readonly SourceControl sourceControl;
-        public const string PACKAGE_TREE_URI = "http://hornget.googlecode.com/svn/trunk/package_tree/";
+        public const string PackageTreeUri = "http://hornget.googlecode.com/svn/trunk/package_tree/";
 
         public void SynchronisePackageTree(IPackageTree packageTree)
         {
