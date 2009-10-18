@@ -5,7 +5,6 @@ using Horn.Core.Dependencies;
 using Horn.Core.Dsl;
 using Horn.Core.PackageStructure;
 using Horn.Core.Spec.BuildEngineSpecs;
-using Horn.Core.Spec.helpers;
 using Rhino.Mocks;
 using Xunit;
 

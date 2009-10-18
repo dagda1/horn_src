@@ -1,8 +1,9 @@
 using System.IO;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
-using Horn.Core.Spec.helpers;
 using Horn.Framework.helpers;
+using Horn.Spec.Framework.helpers;
+using Horn.Spec.Framework.Stubs;
 using Xunit;
 using scm = Horn.Core.SCM;
 namespace Horn.Core.Spec.SCM

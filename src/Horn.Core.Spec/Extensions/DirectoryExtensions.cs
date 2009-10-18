@@ -1,5 +1,5 @@
 using System.IO;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Framework.helpers;
 using Xunit;
 

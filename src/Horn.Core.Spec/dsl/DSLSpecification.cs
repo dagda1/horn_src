@@ -1,6 +1,7 @@
 using System;
 using Horn.Core.Dsl;
 using Horn.Core.SCM;
+using Horn.Core.Utils.IoC;
 using Horn.Framework.helpers;
 using Rhino.DSL;
 using Rhino.Mocks;

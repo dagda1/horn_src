@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using Horn.Core.PackageStructure;
-using Horn.Core.Spec.Doubles;
-using Horn.Core.Spec.helpers;
+using Horn.Spec.Framework.helpers;
+using Horn.Spec.Framework.Stubs;
 using Xunit;
 
 namespace Horn.Core.Spec.BuildEngineSpecs

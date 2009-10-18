@@ -2,6 +2,7 @@ using System.IO;
 using Horn.Core.PackageStructure;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Framework.helpers;
+using Horn.Spec.Framework.Stubs;
 
 namespace Horn.Core.Spec.MetaSynchroniserfixture
 {

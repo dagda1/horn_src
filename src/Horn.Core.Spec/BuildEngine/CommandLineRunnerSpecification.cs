@@ -1,4 +1,5 @@
 using Horn.Core.BuildEngines;
+using Horn.Spec.Framework.Stubs;
 using Xunit;
 using Rhino.Mocks;
 

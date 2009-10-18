@@ -1,13 +1,12 @@
+using Horn.Core.Dsl;
+using Horn.Core.PackageStructure;
+using Horn.Core.SCM;
+using Horn.Core.Utils.IoC;
+using Horn.Framework.helpers;
+using Rhino.DSL;
+using Rhino.Mocks;
 namespace Horn.Core.Spec.Unit.dsl
 {
-    using System;
-    using Core.SCM;
-    using Dsl;
-    using Framework.helpers;
-    using PackageStructure;
-    using Rhino.DSL;
-    using Rhino.Mocks;
-
     public abstract class BuildWithBatchSpecificationBase : Specification
     {
         protected BooConfigReader configReader;

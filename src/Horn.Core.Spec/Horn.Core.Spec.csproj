@@ -116,7 +116,7 @@
     </Compile>
     <Content Include="BuildConfigs\Horn\hornbatch.boo" />
     <Compile Include="BuildEngine\BuildEngineExceptionSpecs.cs" />
-    <Compile Include="BuildEngine\BuildEngineStub.cs" />
+    <Compile Include="BuildEngine\BuildToolStub.cs" />
     <Compile Include="BuildEngine\BuildWithBatchSpecification.cs" />
     <Compile Include="BuildEngine\BuildWithNantSpecification.cs" />
     <Compile Include="BuildEngine\BuildWithPhantomSpec.cs" />
@@ -135,9 +135,6 @@
     <Compile Include="dsl\WithModesSpecification.cs" />
     <Compile Include="PrebuildSpecs\ConventionPrebuildSpecs.cs" />
     <Compile Include="RevisionDataSpec\RevisionDataVersionSepecs.cs" />
-    <Compile Include="Stubs\PackageBuilderWithOnlyPrebuildStub.cs" />
-    <Compile Include="Stubs\StubProcess.cs" />
-    <Compile Include="Stubs\StubProcessFactory.cs" />
     <Compile Include="CmdLine\CommandArgsSpec.cs" />
     <Compile Include="CmdLine\RefreshCommandLineFixture.cs" />
     <Compile Include="Dependencies\DependencyDispatcherSpecification.cs" />
@@ -158,25 +155,18 @@
     <Compile Include="PackageTreeSpecs\PackageTreeFixtures.cs" />
     <Compile Include="RepositorySpecs\RepositoryElementSpecBase.cs" />
     <Compile Include="RepositorySpecs\RepositoryElementSpecs.cs" />
-    <Compile Include="Stubs\BuildEngineStub.cs" />
     <Compile Include="dsl\BuildWithNantSpecificationBase.cs" />
     <Compile Include="dsl\DslWithNantSpecification.cs" />
     <Compile Include="Extensions\DirectoryExtensions.cs" />
     <Compile Include="Extensions\stringextensionspecs.cs" />
-    <Compile Include="helpers\TreeHelper.cs" />
     <Compile Include="MetaDataSynchroniser\metadatasynchroniserfixture.cs" />
     <Compile Include="MetaDataSynchroniser\metadatasynchroniserfixturebase.cs" />
     <Compile Include="SourceControl\PackageTree\BuildEnginePackageSpecifications.cs" />
     <Compile Include="SourceControl\PackageTree\BuildFileResolverSpec.cs" />
     <Compile Include="RevisionDataSpec\RevisionDataSpecs.cs" />
-    <Compile Include="SourceControlDouble.cs" />
     <Compile Include="SourceControl\SourceControlSpecs.cs" />
     <Compile Include="SpecificationHelper.cs" />
     <Compile Include="BuildEngine\BuildEngineSpec.cs" />
-    <Compile Include="Stubs\BuildMetaDataStub.cs" />
-    <Compile Include="Stubs\PackageBuilderStub.cs" />
-    <Compile Include="Stubs\PackageTreeStub.cs" />
-    <Compile Include="Stubs\RepositoryElementStub.cs" />
     <Compile Include="Utils\FileSystemProvider.cs" />
     <Compile Include="CmdLine\CmdLineSpecificationBase.cs" />
     <Compile Include="CmdLine\CmdLineSpecification.cs" />

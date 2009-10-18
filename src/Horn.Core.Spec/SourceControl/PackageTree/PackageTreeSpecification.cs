@@ -1,10 +1,11 @@
 using Horn.Core.Dsl;
 using Horn.Core.SCM;
-using Horn.Core.Spec.helpers;
+using Horn.Core.Utils.IoC;
 using Horn.Framework.helpers;
-using Rhino.Mocks;
+using Horn.Spec.Framework.helpers;
 using Horn.Core.PackageStructure;
 using Horn.Core.Spec.Unit.dsl;
+using Rhino.Mocks;
 using Xunit;
 
 namespace Horn.Core.Spec.Unit.HornTree

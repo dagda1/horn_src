@@ -7,12 +7,11 @@ using Horn.Core.GetOperations;
 using Horn.Core.PackageCommands;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
-using Horn.Core.Spec.Doubles;
-using Horn.Core.Spec.helpers;
-using Horn.Core.Spec.Stubs;
 using Horn.Core.Spec.Unit.GetSpecs;
 using Horn.Framework.helpers;
 using Horn.Spec.Framework.doubles;
+using Horn.Spec.Framework.helpers;
+using Horn.Spec.Framework.Stubs;
 using Rhino.Mocks;
 using Xunit;
 

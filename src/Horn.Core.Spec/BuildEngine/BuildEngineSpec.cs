@@ -3,6 +3,7 @@ using Horn.Core.BuildEngines;
 using Horn.Core.Dependencies;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils.Framework;
+using Horn.Spec.Framework.Stubs;
 using Rhino.Mocks;
 using Xunit;
 

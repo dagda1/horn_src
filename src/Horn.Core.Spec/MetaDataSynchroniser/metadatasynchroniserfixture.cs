@@ -1,7 +1,7 @@
 using System.IO;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
-using Horn.Core.Spec.helpers;
+using Horn.Spec.Framework.helpers;
 using Xunit;
 
 namespace Horn.Core.Spec.MetaSynchroniserfixture

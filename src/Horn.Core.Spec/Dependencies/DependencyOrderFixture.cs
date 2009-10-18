@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dependencies;
 using Horn.Core.PackageStructure;
-using Horn.Core.Spec.helpers;
+using Horn.Spec.Framework.helpers;
 using Horn.Spec.Framework.Stubs;
 using Xunit;
 

@@ -1,6 +1,7 @@
 using Horn.Core.Dsl;
 using Horn.Core.GetOperations;
 using Horn.Core.PackageStructure;
+using Horn.Spec.Framework.Stubs;
 
 namespace Horn.Core.Spec.Unit.GetSpecs
 {
