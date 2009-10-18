@@ -13,7 +13,7 @@ namespace Horn.Core.Dependencies
         private readonly IDependentUpdaterExecutor dependentUpdater;
         private readonly DependencyCopier dependentCopier;
         private static string[] AllowedExtensions = new string[]
-                                                        {".exe", ".dll", ".pdb", ".exe.config", ".config", ".resources", ".rsp"};
+                                                        {".exe", ".dll", ".pdb", ".exe.config", ".config", ".resources", ".rsp", ".xml"};
 
         public void Dispatch(IPackageTree packageTree, IList<Dependency> dependencies, string dependenciesRoot)
         {
