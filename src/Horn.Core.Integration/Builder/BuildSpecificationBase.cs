@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using Horn.Core.BuildEngines;
-using Horn.Core.extensions;
+using Horn.Core.Extensions;
 using Horn.Core.PackageStructure;
 using Horn.Framework.helpers;
 using Horn.Spec.Framework.Extensions;

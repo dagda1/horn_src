@@ -17,7 +17,7 @@ namespace Horn.Core.Integration.MetaDataSynchroniserFixtures
         {
             SourceControl.ClearDownLoadedPackages();
 
-            metaDataSynchroniser = new MetaDataSynchroniser(new SVNSourceControl(MetaDataSynchroniser.PACKAGE_TREE_URI));
+            metaDataSynchroniser = new MetaDataSynchroniser(new SVNSourceControl(MetaDataSynchroniser.PackageTreeUri));
         }
 
         protected override void After_each_spec()
