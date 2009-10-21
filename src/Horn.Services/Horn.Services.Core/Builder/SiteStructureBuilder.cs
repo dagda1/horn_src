@@ -31,7 +31,7 @@ namespace Horn.Services.Core.Builder
         protected TimeSpan frequency;
         protected static readonly ILog log = LogManager.GetLogger(typeof(SiteStructureBuilder));
 
-        private string[] excludePackages = new string[]{"castle"};
+        private readonly string[] excludePackages = new string[]{"castle"};
 
         public virtual List<Category> Categories { get; private set; }
 
