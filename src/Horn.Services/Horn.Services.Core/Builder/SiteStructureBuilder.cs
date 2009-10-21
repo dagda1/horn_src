@@ -103,7 +103,9 @@ namespace Horn.Services.Core.Builder
         {
             BuildPackage(package, newDirectory);
 
-            fileSystemProvider.ZipFolder(rootPackageTree.Result, newDirectory, package.FileName);
+            var zipFile = fileSystemProvider.ZipFolder(rootPackageTree.Result, newDirectory, package.FileName);
+
+            package.SetContents(rootPackageTree.Result, zipFile);
         }
 
         protected virtual void BuildPackage(Package package, DirectoryInfo newDirectory)

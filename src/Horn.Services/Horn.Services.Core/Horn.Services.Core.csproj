@@ -72,6 +72,7 @@
     <Compile Include="IoC\ServicesDependencyResolver.cs" />
     <Compile Include="Log\PackageTreeLog.cs" />
     <Compile Include="Model\IResource.cs" />
+    <Compile Include="Model\packagefile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\MetaData.cs" />
     <Compile Include="Model\Package.cs" />

@@ -90,7 +90,7 @@
     <Compile Include="SiteStructureSpecs\BuildSpecs.cs" />
     <Compile Include="Helpers\FileSystemHelper.cs" />
     <Compile Include="Helpers\PackageTreeHelper.cs" />
-    <Compile Include="PackageSpecs\BuildMetaDataValueSpecs.cs" />
+    <Compile Include="PackageSpecs\PackagSpecs.cs" />
     <Compile Include="SiteStructureSpecs\BuilderSpecBase.cs" />
     <Compile Include="SiteStructureSpecs\BuilderIniitialiseBase.cs" />
     <Compile Include="SiteStructureSpecs\BuilderIniitialiseSpecs.cs" />

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using Horn.Core.BuildEngines;
 using Horn.Core.Dsl;
 using horn.services.core.Value;
@@ -8,7 +10,7 @@ using NUnit.Framework;
 
 namespace Horn.Services.Core.Tests.Unit.PackageSpecs
 {
-    public class When_mapping_a_build_package_meta_data_to_a_value_object : ContextSpecification 
+    public class When_mapping_a_build_package_meta_data_to_a_package_object : ContextSpecification 
     {
         private Package package;
 
@@ -17,10 +19,9 @@ namespace Horn.Services.Core.Tests.Unit.PackageSpecs
 
         protected override void establish_context()
         {
-            var horn = new Category(null, "horn");
+            var horn = new Category(null, "orm");
 
-            nhibernate = new Category(horn, "orm");
-
+            nhibernate = new Category(horn, "nhibernate");
 
             buildMetaData = TreeHelper.GetPackageTreeParts(new List<Dependency>());
 
@@ -37,15 +38,23 @@ namespace Horn.Services.Core.Tests.Unit.PackageSpecs
         }
 
         [Test]
-        public void Then_the_value_object_is_created()
+        public void Then_the_package_details_are_recorded()
         {
             Assert.That(package.Name, Is.EqualTo("nhibernate"));
 
             Assert.That(package.Version, Is.EqualTo("trunk"));
 
             Assert.That(package.MetaData.Count, Is.GreaterThan(0));
+        }
 
-            Assert.That(package.Url, Is.EqualTo("orm/nhibernate-trunk"));
+        [Test]
+        public void Then_the_contents_of_the_build_are_recorded()
+        {
+            package.SetContents(new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory), new FileInfo(@"C:\output.zip"));
+
+            Assert.That(package.ZipFileName.Name, Is.EqualTo("output.zip"));
+
+            Assert.That(package.Contents.Count, Is.GreaterThan(0));
         }
     }
 }

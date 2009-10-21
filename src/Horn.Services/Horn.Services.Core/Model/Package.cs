@@ -1,6 +1,7 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.IO;
 using System.Runtime.Serialization;
 using Horn.Core.Dsl;
 using Horn.Services.Core.Extensions;
@@ -31,15 +32,29 @@ namespace horn.services.core.Value
 
         public IResource Parent { get; private set; }
 
-        [DataMember(Order = 3)]
-        public string Version { get; set; }
+        public bool IsTrunk
+        {
+            get { return Version == "trunk"; }
+        }
+
+        public void SetContents(DirectoryInfo buildDirectory, FileInfo zipFile)
+        {
+            ZipFileName = new PackageFile(zipFile);
+
+            foreach (var file in buildDirectory.GetFiles())
+            {
+                Contents.Add(new PackageFile(file));
+            }
+
+            Contents.Sort((x, y) => string.Compare(x.Name, y.Name));
+        }
 
         [DataMember(Order = 4)]
         public string Url
         {
             get
             {
-                var url = this.GetResourceUrl().Trim(new[]{'/'});
+                var url = this.GetResourceUrl().Trim(new[] { '/' });
 
                 return string.Format("{0}-{1}", url, Version);
             }
@@ -49,13 +64,19 @@ namespace horn.services.core.Value
             }
         }
 
-        public bool IsTrunk
-        {
-            get { return Version == "trunk"; }
-        }
+        [DataMember(Order = 3)]
+        public string Version { get; set; }
+
+        [DataMember(Order = 4)]
+        public PackageFile ZipFileName { get; set; }
+
+        [DataMember(Order = 5)]
+        public List<PackageFile> Contents { get; set; }
 
         public Package(Category parent, IBuildMetaData buildMetaData)
         {
+            Contents = new List<PackageFile>();
+
             Name = parent.Name;
 
             Version = buildMetaData.Version;
