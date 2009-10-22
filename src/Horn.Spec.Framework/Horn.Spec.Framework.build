@@ -16,6 +16,7 @@
       <include name="Castle.Windsor.dll" />
       <include name="Horn.Core.dll" />
       <include name="log4net.dll" />
+      <include name="nunit.framework.dll"/>
       <include name="Rhino.DSL.dll" />
       <include name="Rhino.Mocks.dll" />
       <include name="SharpSvn.dll" />
