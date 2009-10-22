@@ -1,11 +1,8 @@
-using System;
 using Horn.Core.PackageStructure;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Core.Utils;
-using Horn.Spec.Framework;
 using Horn.Spec.Framework.helpers;
 using Horn.Spec.Framework.Stubs;
-using NUnit.Framework;
 using Xunit;
 
 namespace Horn.Core.Spec.SCM
