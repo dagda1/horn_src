@@ -92,6 +92,7 @@
     <Compile Include="Stubs\BuildEngineStub.cs" />
     <Compile Include="Stubs\BuildMetaDataStub.cs" />
     <Compile Include="Stubs\BuildToolStub.cs" />
+    <Compile Include="Stubs\GitSourceControlDouble.cs" />
     <Compile Include="Stubs\PackageBuilderStub.cs" />
     <Compile Include="Stubs\PackageBuilderWithOnlyPrebuildStub.cs" />
     <Compile Include="Stubs\PackageTreeStub.cs" />

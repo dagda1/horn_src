@@ -30,7 +30,7 @@ namespace Horn.Core.Spec.RevisionDataSpecs
             var revisionDataFile = Path.Combine(package.CurrentDirectory.FullName,
                                             string.Format(RevisionData.VersionedFileName, "2.1.0"));
 
-            Assert.True(File.Exists(revisionDataFile));
+            Assert.True(revisionData.Revision.Length > 0);
         }
 
         [Fact]

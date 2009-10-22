@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using GitCommands;
 using Horn.Core.exceptions;
+using Horn.Core.Extensions;
 using Horn.Core.PackageStructure;
 using Horn.Core.Utils;
 using System.Linq;
@@ -11,51 +12,35 @@ namespace Horn.Core.SCM
 {
     public class GitSourceControl : SourceControl
     {
-        const string MASTER = "master";
-
-        private string revision;
-
-        public GitSourceControl(IEnvironmentVariable environmentVariable)
-        {
-            SetupGit(environmentVariable);
-        }
-
-        private void SetupGit(IEnvironmentVariable environmentVariable)
-        {
-            string gitDir = environmentVariable.GetDirectoryFor("git.cmd");
-
-            if (string.IsNullOrEmpty(gitDir))
-                throw new EnvironmentVariableNotFoundException("No environment variable found for the git.cmd file.");
-
-            Settings.GitDir = gitDir;
-            Settings.GitBinDir = Path.Combine(new DirectoryInfo(gitDir).Parent.FullName, "bin");
-            Settings.UseFastChecks = false;
-            Settings.ShowGitCommandLine = false;
-        }
-
         public override string Revision
         {
             get
             {
-                try
-                {
-                    if (string.IsNullOrEmpty(revision))
-                        revision = GitCommands.GitCommands.GetRemoteHeads(Url, false, true)
-                            .Find(x => x.Name == MASTER).Guid;
-
-                    return revision;
-                }
-                catch (Exception ex)
-                {
-                    HandleExceptions(ex);
-                }
-
-                return "0";
+                //We always want to do a pull with git
+                return Guid.NewGuid().ToString();
             }
         }
 
+        public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
+        {
+            Settings.WorkingDir = destination.FullName;
 
-        private string CurrentRevisionNumber()
+            try
+            {
+                if (!destination.Exists)
+                    Directory.CreateDirectory(destination.FullName);
+
+                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false).Replace("-v", ""));
+            }
+            catch (Exception ex)
+            {
+                HandleExceptions(ex);
+            }
+
+            return CurrentRevisionNumber();
+        }
+
+        protected virtual string CurrentRevisionNumber()
         {
             string rev = null;
 
@@ -71,22 +56,38 @@ namespace Horn.Core.SCM
             return rev;
         }
 
-        public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
+        public override string Export(IPackageTree packageTree, FileSystemInfo destination)
         {
             Settings.WorkingDir = destination.FullName;
-
-            try
-            {
-                if (!destination.Exists)
-                    Directory.CreateDirectory(destination.FullName);
-                RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false).Replace("-v", ""));
-            }
-            catch (Exception ex)
-            {
-                HandleExceptions(ex);
-            }
-
+            //nothing here for now.
             return CurrentRevisionNumber();
+        }
+
+        public override bool ShouldUpdate(string currentRevision, IPackageTree packageTree)
+        {
+            return true;
+        }
+
+        protected override void Initialise(IPackageTree packageTree)
+        {
+        }
+
+        protected virtual string RunGitCommand(string args)
+        {
+            return GitCommands.GitCommands.RunCmd(string.Format("{0}git.exe", Settings.GitBinDir), args);
+        }
+
+        protected virtual void SetupGit(IEnvironmentVariable environmentVariable)
+        {
+            string gitDir = environmentVariable.GetDirectoryFor("git.cmd");
+
+            if (string.IsNullOrEmpty(gitDir))
+                throw new EnvironmentVariableNotFoundException("No environment variable found for the git.cmd file.");
+
+            Settings.GitDir = gitDir;
+            Settings.GitBinDir = Path.Combine(new DirectoryInfo(gitDir).Parent.FullName, "bin");
+            Settings.UseFastChecks = false;
+            Settings.ShowGitCommandLine = false;
         }
 
         public override string Update(IPackageTree packageTree, FileSystemInfo destination)
@@ -95,7 +96,7 @@ namespace Horn.Core.SCM
 
             try
             {
-                GitCommands.GitCommands.Pull("origin", "master", false);
+                GitCommands.GitCommands.Pull("origin", "master", true);
             }
             catch (Exception ex)
             {
@@ -105,42 +106,14 @@ namespace Horn.Core.SCM
             return CurrentRevisionNumber();
         }
 
-        public override string Export(IPackageTree packageTree, FileSystemInfo destination)
+        public GitSourceControl(string url, IEnvironmentVariable environmentVariable) : base(url)
         {
-            Settings.WorkingDir = destination.FullName;
-            //nothing here for now.
-            return CurrentRevisionNumber();
+            SetupGit(environmentVariable);
         }
 
-        private string RunGitCommand(string args)
+        public GitSourceControl(IEnvironmentVariable environmentVariable)
         {
-            return GitCommands.GitCommands.RunCmd(Settings.GitBinDir + "git.exe", args);
-        }
-
-        protected override void Initialise(IPackageTree packageTree)
-        {
-            //I don't know what we need this. it's taken from the svn one. (may)
-            if (!packageTree.Root.Name.StartsWith(PackageTree.RootPackageTreeName))
-                throw new InvalidOperationException("The root of the package tree is not named .horn");
-
-            if (!packageTree.WorkingDirectory.Exists)
-                return;
-        }
-
-        public override bool ShouldUpdate(string currentRevision, IPackageTree packageTree)
-        {
-            Settings.WorkingDir = packageTree.WorkingDirectory.FullName;
-          
-            string localRevGuid = CurrentRevisionNumber();
-            log.InfoFormat("Current Revision is = {0}", localRevGuid);
-
-
-            var remoteHeads = GitCommands.GitCommands.GetHeads(true, true).Where(x => x.IsRemote);
-            string remoteRevGuid = remoteHeads.Where(x => x.Name == "origin/" + MASTER).Single().Guid;
-            log.InfoFormat("Revision at remote scm is {0}", remoteRevGuid);
-
-            revision = remoteRevGuid;
-            return revision != localRevGuid;
+            SetupGit(environmentVariable);
         }
     }
 }

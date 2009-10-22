@@ -109,7 +109,7 @@ namespace Horn.Core.PackageStructure
 			if (revisionFileInfo.Exists)
 				return;
 
-			RecordRevision(revisionFileInfo, "0");
+		    revision = "0";
 		}
 	}
 }
