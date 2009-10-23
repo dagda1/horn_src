@@ -96,7 +96,7 @@ namespace Horn.Core.SCM
 
             try
             {
-                GitCommands.GitCommands.Pull("origin", "master", true);
+                GitCommands.GitCommands.Pull("origin", "master", false);
             }
             catch (Exception ex)
             {
