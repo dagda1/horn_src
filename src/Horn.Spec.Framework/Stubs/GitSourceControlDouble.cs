@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading;
+using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
 using Horn.Core.Utils;
 
@@ -8,18 +10,25 @@ namespace Horn.Spec.Framework.Stubs
 {
     public class GitSourceControlDouble : GitSourceControl
     {
+        private string revision;
+
+        public override string Revision
+        {
+            get
+            {
+                return revision;
+            }
+        }
+
         protected override string CurrentRevisionNumber()
         {
-            return Guid.NewGuid().ToString();
+            revision = Guid.NewGuid().ToString();
+
+            return revision;
         }
 
         protected override string RunGitCommand(string args)
         {
-            foreach (var arg in args.Where(x => true))
-            {
-                Console.WriteLine(arg);
-            }
-
             return string.Empty;
         }
 
@@ -33,6 +42,15 @@ namespace Horn.Spec.Framework.Stubs
             Console.WriteLine("Source control download monitoring started.");
 
             return null;
+        }
+
+        public override string Update(IPackageTree packageTree, FileSystemInfo destination)
+        {
+            Console.WriteLine(string.Format("pulling {0} to {1}", packageTree.Name, destination.FullName));
+
+            revision = Guid.NewGuid().ToString();
+
+            return revision;
         }
 
         protected override void StopMonitoring(Thread thread)
