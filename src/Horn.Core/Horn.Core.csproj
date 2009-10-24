@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="BuildEngines\BuildTools\BatchBuildTool.cs" />
     <Compile Include="BuildEngines\BuildTools\PhantomBuildTool.cs" />
+    <Compile Include="BuildEngines\BuildTools\PsakeBuildTool.cs" />
     <Compile Include="BuildEngines\IModeSettings.cs" />
     <Compile Include="BuildEngines\ModeSettings.cs" />
     <Compile Include="BuildEngines\Process\CommandLineRunner.cs" />

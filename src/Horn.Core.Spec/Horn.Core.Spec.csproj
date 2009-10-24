@@ -132,6 +132,7 @@
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />
     <Compile Include="dsl\BuildWithBatchSpecificationBase.cs" />
     <Compile Include="dsl\DslWithGitSpecification.cs" />
+    <Compile Include="dsl\DslWithPsakeSpecification.cs" />
     <Compile Include="dsl\DslWithRakeSpecification.cs" />
     <Compile Include="dsl\GitSourceControlSpecificationBase.cs" />
     <Compile Include="dsl\VersionedDependencySpec.cs" />
@@ -218,6 +219,7 @@
     <Content Include="BuildConfigs\Horn\hornphantom.boo">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="BuildConfigs\Horn\hornpsake.boo" />
     <None Include="BuildConfigs\Horn\hornwithmodes.boo" />
     <None Include="Horn.Core.Spec.build" />
   </ItemGroup>

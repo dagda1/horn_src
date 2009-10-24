@@ -303,6 +303,13 @@ namespace Horn.Core.Dsl
 			SetBuildEngine(new PhantomBuildTool(), buildFile, version);
 		}
 
+        protected void psake(string buildFile, string frameWorkVersion)
+        {
+            var version = (FrameworkVersion)Enum.Parse(typeof(FrameworkVersion), frameWorkVersion);
+
+            SetBuildEngine(new PSakeBuildTool(), buildFile, version);
+        }
+
         protected void SetBuildTargets(string[] taskActions)
         {
             buildMetaData.BuildEngine.AssignTasks(taskActions);
