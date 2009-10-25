@@ -96,8 +96,6 @@ namespace Horn.Core.SCM
         {
             Settings.WorkingDir = destination.FullName;
 
-            Debugger.Break();
-
             try
             {
                 var processFactory = new DiagnosticsProcessFactory();
