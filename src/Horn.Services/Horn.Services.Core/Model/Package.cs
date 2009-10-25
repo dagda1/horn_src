@@ -71,6 +71,12 @@ namespace horn.services.core.Value
         [DataMember(Order = 5)]
         public List<PackageFile> Contents { get; set; }
 
+        [DataMember(Order = 6)]
+        public bool IsError { get; set; }
+
+        [DataMember(Order = 7)]
+        public string ErrorMessage { get; set; }
+
         public Package(Category parent, IBuildMetaData buildMetaData)
         {
             Contents = new List<PackageFile>();

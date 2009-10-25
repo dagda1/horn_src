@@ -192,6 +192,10 @@ namespace Horn.Services.Core.Builder
                     catch (Exception ex)
                     {
                         log.Error(ex);
+                         
+                        package.IsError = true;
+
+                        package.ErrorMessage = ex.UnwrapException();
 
                         CreateErrorTextFile(ex, package, newDirectory);
                     }                
