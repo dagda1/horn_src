@@ -30,7 +30,7 @@ namespace Horn.Core.SCM
                 if (!destination.Exists)
                     Directory.CreateDirectory(destination.FullName);
 
-                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false).Replace("-v", ""));
+                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false));
             }
             catch (Exception ex)
             {
@@ -96,7 +96,8 @@ namespace Horn.Core.SCM
 
             try
             {
-                GitCommands.GitCommands.Pull("origin", "master", false);
+                RunGitCommand("pull -v");
+                //GitCommands.GitCommands.Pull("origin", "master", false);
             }
             catch (Exception ex)
             {
