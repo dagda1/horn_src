@@ -50,9 +50,7 @@ namespace Horn.Services.Core.Tests.Unit.PackageSpecs
         [Test]
         public void Then_the_contents_of_the_build_are_recorded()
         {
-            package.SetContents(new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory), new FileInfo(@"C:\output.zip"));
-
-            Assert.That(package.ZipFileName.Name, Is.EqualTo("output.zip"));
+            package.SetContents(new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory));
 
             Assert.That(package.Contents.Count, Is.GreaterThan(0));
         }

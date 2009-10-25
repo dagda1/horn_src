@@ -37,10 +37,8 @@ namespace horn.services.core.Value
             get { return Version == "trunk"; }
         }
 
-        public void SetContents(DirectoryInfo buildDirectory, FileInfo zipFile)
-        {
-            ZipFileName = new PackageFile(zipFile);
-
+        public void SetContents(DirectoryInfo buildDirectory)
+        {            
             foreach (var file in buildDirectory.GetFiles())
             {
                 Contents.Add(new PackageFile(file));

@@ -70,8 +70,6 @@ namespace Horn.Services.Core.Builder
 
         public virtual void Run()
         {
-            var hasRanOnce = false;
-
             while (ServiceStarted)
             {
                 if (hasRanOnce)
@@ -90,6 +88,8 @@ namespace Horn.Services.Core.Builder
                 }
                 catch (Exception ex)
                 {
+                    Debugger.Break();
+
                     log.Error(ex);
 
                     throw;
@@ -103,9 +103,11 @@ namespace Horn.Services.Core.Builder
         {
             BuildPackage(package, newDirectory);
 
+            package.SetContents(rootPackageTree.Result);
+
             var zipFile = fileSystemProvider.ZipFolder(rootPackageTree.Result, newDirectory, package.FileName);
 
-            package.SetContents(rootPackageTree.Result, zipFile);
+            package.ZipFileName = new PackageFile(zipFile);
         }
 
         protected virtual void BuildPackage(Package package, DirectoryInfo newDirectory)
