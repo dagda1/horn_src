@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using GitCommands;
+using Horn.Core.BuildEngines;
 using Horn.Core.exceptions;
 using Horn.Core.Extensions;
 using Horn.Core.PackageStructure;
@@ -30,7 +32,7 @@ namespace Horn.Core.SCM
                 if (!destination.Exists)
                     Directory.CreateDirectory(destination.FullName);
 
-                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false));
+                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false).Replace("-v", ""));
             }
             catch (Exception ex)
             {
@@ -94,9 +96,36 @@ namespace Horn.Core.SCM
         {
             Settings.WorkingDir = destination.FullName;
 
+            Debugger.Break();
+
             try
             {
-                RunGitCommand("pull -v");
+                var processFactory = new DiagnosticsProcessFactory();
+
+                var git = Path.Combine(Settings.GitBinDir, "git.exe");
+
+                IProcess process = processFactory.GetProcess(git, "pull -v ", packageTree.WorkingDirectory.FullName);
+
+                while (true)
+                {
+                    string line = process.GetLineOrOutput();
+
+                    if (line == null)
+                        break;
+
+                    log.Info(line);
+                }
+
+                try
+                {
+                    process.WaitForExit();
+                }
+                catch (ProcessFailedException)
+                {
+                    throw new GitPullFailedException(string.Format("A git pull failed for the {0} package", packageTree.BuildMetaData.BuildEngine.BuildTool, packageTree.Name));
+                }
+
+                //TODO: The following should work.  Might be the way I set up msysgit?
                 //GitCommands.GitCommands.Pull("origin", "master", false);
             }
             catch (Exception ex)

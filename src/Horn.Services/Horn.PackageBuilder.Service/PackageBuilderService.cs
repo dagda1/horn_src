@@ -64,12 +64,16 @@ namespace Horn.PackageBuilder.Service
 
         protected override void OnStop()
         {
+            Debugger.Break();
+
             if(!builderThread.IsAlive)
                 return;
 
             siteStructureBuilder.ServiceStarted = false;
 
-            builderThread.Join();
+            builderThread.Interrupt();
+
+            builderThread.Abort();
         }
     }
 }
