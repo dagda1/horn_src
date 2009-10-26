@@ -23,7 +23,7 @@ namespace Horn.Core.PackageStructure
         private DirectoryInfo patchDirectory;
         private DirectoryInfo workingDirectory;
         public readonly static string[] libraryNodes = new[] { "lib", "debug", "buildengines", "output", "working" };
-        public static readonly string[] reservedDirectoryNames = new[] { "buildengines", "result", "bin", "working", "output", ".svn", "patch", "lib", "debug", "app_data" };
+        public static readonly string[] reservedDirectoryNames = new[] { "buildengines", "result", "bin", "working", "output", ".svn", ".git", "patch", "lib", "debug", "app_data" };
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(PackageTree));
 
