@@ -72,7 +72,7 @@ namespace Horn.Core.Dsl
                                                     version));
             }
             else
-                throw new ArgumentOutOfRangeException(string.Format("Unkonwn Expression type {0} passed to RightShiftToMethodCompilerStep.AddDependency", binaryExpression.Left.GetType().Name));
+                throw new ArgumentOutOfRangeException(string.Format("Unknown Expression type {0} passed to RightShiftToMethodCompilerStep.AddDependency", binaryExpression.Left.GetType().Name));
 
 
             dependencies.Items.Add(dependency);
