@@ -255,6 +255,11 @@ namespace Horn.Core.PackageStructure
                 return;
 
             PatchDirectory.CopyToDirectory(WorkingDirectory, false);
+
+            foreach (var file in PatchDirectory.GetFiles())
+            {
+                file.CopyTo(Path.Combine(workingDirectory.FullName, file.Name), true);
+            }
         }
 
         public virtual void Remove(IPackageTree item)

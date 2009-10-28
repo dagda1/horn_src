@@ -31,7 +31,7 @@ namespace Horn.Services.Core.Builder
         protected TimeSpan frequency;
         protected static readonly ILog log = LogManager.GetLogger(typeof(SiteStructureBuilder));
 
-        private readonly string[] excludePackages = new string[] { "castle", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn" };
+        private readonly string[] excludePackages = new string[] { "castle", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino.dsl" };
 
         public virtual List<Category> Categories { get; private set; }
 
@@ -179,11 +179,12 @@ namespace Horn.Services.Core.Builder
                     if(!hasRanOnce)
                     {
                         log.Info("Running for the first time.");
-
-                        Debugger.Break();
                     }
                         
                     hasRanOnce = true;
+
+                    if (package.Name.ToLower() == "castle.activerecord")
+                        Debugger.Break();
 
                     try
                     {

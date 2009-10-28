@@ -65,9 +65,6 @@ namespace horn.services.core.Value
 
             foreach (var buildMetaData in packageTreeNode.GetAllPackageMetaData())
             {
-                if (buildMetaData.InstallName.IndexOf("mvccontrib") > -1)
-                    Debugger.Break();
-
                 Packages.Add(new Package(this, buildMetaData));
             }
         }

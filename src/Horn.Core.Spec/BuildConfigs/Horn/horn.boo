@@ -12,6 +12,7 @@ dependencies:
 	depend @castle  >> "Castle.DynamicProxy2"
 	depend @castle  >> "castle.microKernel"
 	depend @castle  >> "castle.windsor"
+	exclude @castle >> "Boo.Lang"
 	
 package.homepage = "http://code.google.com/p/scotaltdotnet/"
 package.forum    = "http://groups.google.co.uk/group/horn-development?hl=en"

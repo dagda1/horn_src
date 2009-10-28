@@ -60,7 +60,7 @@ namespace Horn.Core.Spec.Unit.dsl
 
             Assert.Equal("Output", reader.BuildMetaData.BuildEngine.BuildRootDirectory);
 
-            Assert.Equal(5, reader.BuildMetaData.BuildEngine.Dependencies.Count);
+            Assert.Equal(6, reader.BuildMetaData.BuildEngine.Dependencies.Count);
 
             Assert.Equal("log4net", reader.BuildMetaData.BuildEngine.Dependencies[0].PackageName);
 
