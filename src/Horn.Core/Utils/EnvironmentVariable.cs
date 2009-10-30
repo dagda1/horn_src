@@ -11,9 +11,12 @@ namespace Horn.Core.Utils
             {
                 if (string.IsNullOrEmpty(item))
                     continue;
-                if (File.Exists(Path.Combine(item, fileName)))
+				
+				var path = item.Replace("\"", string.Empty);
+
+                if (File.Exists(Path.Combine(path, fileName)))
                 {
-                    return item;
+                    return path;
                 }
             }
             return String.Empty;
