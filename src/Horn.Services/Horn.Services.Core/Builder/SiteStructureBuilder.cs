@@ -44,10 +44,10 @@ namespace Horn.Services.Core.Builder
         }
 
         public virtual void Initialise()
-        {
+        {           
             var rootDirectory = fileSystemProvider.GetHornRootDirectory(HornConfig.Settings.HornRootDirectory);
 
-            //metaDataSynchroniser.SynchronisePackageTree(new PackageTree(rootDirectory, null));
+            metaDataSynchroniser.SynchronisePackageTree(new PackageTree(rootDirectory, null));
 
             rootPackageTree = new PackageTree(rootDirectory, null);
 
@@ -194,7 +194,7 @@ namespace Horn.Services.Core.Builder
                         
                     hasRanOnce = true;
 
-                    if (package.Name.ToLower() == "castle.activerecord")
+                    if (package.Name.ToLower() == "caliburn-silverlight")
                         Debugger.Break();
 
                     try
