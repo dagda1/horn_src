@@ -7,6 +7,7 @@ using Horn.Core.Dsl;
 using Horn.Core.Extensions;
 using Horn.Core.GetOperations;
 using Horn.Core.PackageStructure;
+using Horn.Core.SCM;
 using Horn.Core.Utils.CmdLine;
 using log4net;
 
@@ -22,6 +23,8 @@ namespace Horn.Core.PackageCommands
 
         public virtual void Execute(IPackageTree packageTree)
         {
+            Initialise();
+
             LogPackageDetails();
 
             if (!packageTree.BuildNodes().Select(x => x.Name).ToList().Contains(commandArgs.PackageName))
@@ -137,6 +140,13 @@ namespace Horn.Core.PackageCommands
             {
                 repositoryElement.PrepareRepository(componentTree, get).Export();
             }
+        }
+
+        protected virtual void Initialise()
+        {
+            BuildEngine.ClearBuiltPackages();
+
+            SourceControl.ClearDownLoadedPackages();
         }
 
         public PackageBuilder(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs)

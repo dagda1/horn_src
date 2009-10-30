@@ -406,7 +406,7 @@ namespace Horn.Core.PackageStructure
             if (!string.IsNullOrEmpty(reservedDirectory))
                 return true;
 
-            return false;// DirectoryIsChildOfReservedDirectory(child, reservedDirectoryNames);
+            return (child.Name.ToLower().IndexOf("working-") > -1);// DirectoryIsChildOfReservedDirectory(child, reservedDirectoryNames);
         }
 
         private void NewNode_CategoryCreated(IPackageTree packageTreeNode)

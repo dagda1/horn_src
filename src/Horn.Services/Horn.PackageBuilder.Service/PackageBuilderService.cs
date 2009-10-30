@@ -7,6 +7,7 @@ using Horn.Services.Core.Config;
 using Horn.Services.Core.Builder;
 using Horn.Services.Core.IoCServices;
 using log4net;
+using log4net.Config;
 
 namespace Horn.PackageBuilder.Service
 {
@@ -42,6 +43,8 @@ namespace Horn.PackageBuilder.Service
         {
             try
             {
+                XmlConfigurator.Configure();
+
                 var dropDirectory = new DirectoryInfo(HornConfig.Settings.DropDirectory);
 
                 var resolver = new ServicesDependencyResolver(dropDirectory);

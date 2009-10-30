@@ -31,7 +31,8 @@ namespace Horn.Services.Core.Builder
         protected TimeSpan frequency;
         protected static readonly ILog log = LogManager.GetLogger(typeof(SiteStructureBuilder));
 
-        private readonly string[] excludePackages = new string[] { "castle", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino.dsl" };
+        //HACK: Temporary measure to get up and running
+        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino", "rhino.etl", "moq", "json.net", "hasic" };
 
         public virtual List<Category> Categories { get; private set; }
 
@@ -46,7 +47,7 @@ namespace Horn.Services.Core.Builder
         {
             var rootDirectory = fileSystemProvider.GetHornRootDirectory(HornConfig.Settings.HornRootDirectory);
 
-            metaDataSynchroniser.SynchronisePackageTree(new PackageTree(rootDirectory, null));
+            //metaDataSynchroniser.SynchronisePackageTree(new PackageTree(rootDirectory, null));
 
             rootPackageTree = new PackageTree(rootDirectory, null);
 
@@ -135,7 +136,7 @@ namespace Horn.Services.Core.Builder
         {           
             foreach (var childTree in packageTree.Children)
             {
-                if(!string.IsNullOrEmpty(excludePackages.Where(x => x.ToLower() == childTree.Name.ToLower()).FirstOrDefault()))
+                if(IsExcludedName(childTree))
                     continue;
 
                 var childCategory = new Category(parent, childTree);
@@ -146,6 +147,14 @@ namespace Horn.Services.Core.Builder
 
                 parent.Categories.Add(childCategory);
             }
+        }
+
+        private bool IsExcludedName(IPackageTree childTree)
+        {
+            if (!string.IsNullOrEmpty(excludePackages.Where(x => x.ToLower() == childTree.Name.ToLower()).FirstOrDefault()))
+                return true;
+
+            return (childTree.Name.ToLower().IndexOf("working-") > -1);
         }
 
         private void CreateErrorTextFile(Exception exception, Package package, DirectoryInfo directory)
@@ -178,6 +187,8 @@ namespace Horn.Services.Core.Builder
                 {
                     if(!hasRanOnce)
                     {
+                        Debugger.Break();
+
                         log.Info("Running for the first time.");
                     }
                         

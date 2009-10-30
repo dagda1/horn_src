@@ -33,6 +33,11 @@ namespace Horn.Core.BuildEngines
 
         public virtual bool GenerateStrongKey { get; set; }
 
+        public static void ClearBuiltPackages()
+        {
+            builtPackages.Clear();
+        }
+
         public virtual FileInfo GetSnExe(IPackageTree packageTree)
         {
             var path = Path.Combine(packageTree.Root.CurrentDirectory.FullName, "buildengines");

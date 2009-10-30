@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using Horn.Console.Config;
 using Horn.Core;
 using Horn.Core.exceptions;
 using Horn.Core.PackageCommands;
@@ -77,9 +78,23 @@ namespace Horn.Console
             }
             else
             {
-                var documents = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                try
+                {
+                    var rootDir = new DirectoryInfo(HornConfig.Settings.HornRootDirectory);
 
-                rootFolder = Path.Combine(documents.Parent.FullName, PackageTree.RootPackageTreeName);   
+                    if (!rootDir.Exists)
+                        rootDir.Create();
+
+                    rootFolder = rootDir.FullName;
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex);
+
+                    var documents = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+
+                    rootFolder = Path.Combine(documents.Parent.FullName, PackageTree.RootPackageTreeName);   
+                }
             }            
 
             log.DebugFormat("root folder = {0}", rootFolder);
