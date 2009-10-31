@@ -80,7 +80,7 @@ namespace Horn.Console
             {
                 try
                 {
-                    var rootDir = new DirectoryInfo(HornConfig.Settings.HornRootDirectory);
+                    var rootDir = new DirectoryInfo(Path.Combine(HornConfig.Settings.HornRootDirectory, ".horn"));
 
                     if (!rootDir.Exists)
                         rootDir.Create();
