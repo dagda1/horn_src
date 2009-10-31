@@ -33,7 +33,7 @@ namespace Horn.Services.Core.Builder
         protected static readonly ILog log = LogManager.GetLogger(typeof(SiteStructureBuilder));
 
         //HACK: Temporary measure to get up and running
-        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino", "rhino.etl", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine" };
+        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino", "rhino.etl", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine", "caliburn-silverlight" };
 
         public virtual List<Category> Categories { get; private set; }
 
@@ -223,9 +223,6 @@ namespace Horn.Services.Core.Builder
                         
                     hasRanOnce = true;
 
-                    if (package.Name.ToLower() == "caliburn-silverlight")
-                        Debugger.Break();
-
                     try
                     {
                         BuildAndZipPackage(rootPackageTree, fileSystemProvider, package, newDirectory, sandBox);    
@@ -253,6 +250,10 @@ namespace Horn.Services.Core.Builder
             var hornFile = Path.Combine(sandBox.FullName, "horn.xml");
 
             fileSystemProvider.WriteTextFile(hornFile, xml);
+
+            var resultXml = Path.Combine(HornConfig.Settings.XmlLocation, "horn.xml");
+
+            fileSystemProvider.CopyFile(hornFile, resultXml, true);
 
             Debugger.Break();
 

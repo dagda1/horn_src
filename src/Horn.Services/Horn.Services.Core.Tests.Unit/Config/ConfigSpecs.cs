@@ -33,5 +33,11 @@ namespace Horn.Services.Core.Tests.Unit.Config
         {
             Assert.That(HornConfig.Settings.HornRootDirectory.Length, Is.GreaterThan(0));
         }
+
+        [Test]
+        public void Then_the_xml_location_is_retured()
+        {
+            Assert.That(HornConfig.Settings.XmlLocation.Length, Is.GreaterThan(0));
+        }
     }
 }

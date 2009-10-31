@@ -35,6 +35,13 @@ namespace Horn.Services.Core.Config
             set { this["horntempdirectory"] = value; }
         }
 
+        [ConfigurationProperty("xmllocation", IsRequired = true)]
+        public string XmlLocation
+        {
+            get { return (string)this["xmllocation"]; }
+            set { this["xmllocation"] = value; }
+        }
+
         public static HornConfig Settings
         {
             get
