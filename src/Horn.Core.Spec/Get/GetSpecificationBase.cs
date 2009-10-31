@@ -12,7 +12,6 @@ namespace Horn.Core.Spec.Unit.GetSpecs
         protected IGet get;
         protected IFileSystemProvider fileSystemProvider;
         protected SourceControlDouble sourceControl;
-        protected Package package;
         protected IBuildMetaData buildMetaData;
         protected IPackageTree packageTree;
 
@@ -23,8 +22,6 @@ namespace Horn.Core.Spec.Unit.GetSpecs
             sourceControl = new SourceControlDouble("http://localhost/horn");
 
             packageTree = new PackageTree(rootDirectory, null);
-
-            package = new Package("horn", SpecificationHelper.GetBuildMetaData());
 
             fileSystemProvider = CreateStub<IFileSystemProvider>();
         }

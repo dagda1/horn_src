@@ -160,6 +160,7 @@
     <Compile Include="Utils\CmdLine\CommandArgs.cs" />
     <Compile Include="Utils\CmdLine\ICommandArgs.cs" />
     <Compile Include="Utils\IoC\IDependencyResolver.cs" />
+    <Compile Include="Utils\IO\FileInfoCompare.cs" />
     <Compile Include="Utils\WithLogging.cs" />
     <Compile Include="extensions\FileSystemInfoExtensions.cs" />
     <Compile Include="BuildEngines\Process\DiagnosticsProcess.cs" />
@@ -217,7 +218,6 @@
     <Compile Include="Utils\IoC\IoC.cs" />
     <Compile Include="Utils\IFileSystemProvider.cs" />
     <Compile Include="Get\IGet.cs" />
-    <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\IoC\WindsorDependencyResolver.cs" />
   </ItemGroup>

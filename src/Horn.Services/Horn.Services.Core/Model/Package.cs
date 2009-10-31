@@ -11,12 +11,12 @@ namespace horn.services.core.Value
     [DataContract(Name = "Package", Namespace = "http://hornget.com/services")]
     public class Package : IResource
     {
-        public bool IsRoot
+        public virtual bool IsRoot
         {
             get { return false; }
         }
 
-        public string FileName
+        public virtual string FileName
         {
             get
             {
@@ -25,19 +25,19 @@ namespace horn.services.core.Value
         }
 
         [DataMember(Order = 1)]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [DataMember(Order = 2)]
-        public List<MetaData> MetaData { get; set; }
+        public virtual List<MetaData> MetaData { get; set; }
 
-        public IResource Parent { get; private set; }
+        public virtual IResource Parent { get; private set; }
 
-        public bool IsTrunk
+        public virtual bool IsTrunk
         {
             get { return Version == "trunk"; }
         }
 
-        public void SetContents(DirectoryInfo buildDirectory)
+        public virtual void SetContents(DirectoryInfo buildDirectory)
         {            
             foreach (var file in buildDirectory.GetFiles())
             {
@@ -48,7 +48,7 @@ namespace horn.services.core.Value
         }
 
         [DataMember(Order = 4)]
-        public string Url
+        public virtual string Url
         {
             get
             {
@@ -63,16 +63,16 @@ namespace horn.services.core.Value
         }
 
         [DataMember(Order = 3)]
-        public string Version { get; set; }
+        public virtual string Version { get; set; }
 
         [DataMember(Order = 4)]
-        public PackageFile ZipFileName { get; set; }
+        public virtual PackageFile ZipFileName { get; set; }
 
         [DataMember(Order = 5)]
-        public List<PackageFile> Contents { get; set; }
+        public virtual List<PackageFile> Contents { get; set; }
 
         [DataMember(Order = 6)]
-        public bool IsError { get; set; }
+        public virtual bool IsError { get; set; }
 
         [DataMember(Order = 7)]
         public string ErrorMessage { get; set; }

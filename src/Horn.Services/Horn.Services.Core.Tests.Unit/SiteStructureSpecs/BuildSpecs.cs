@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Horn.Services.Core.Builder;
+using Horn.Services.Core.Tests.Unit.Doubles;
 using Horn.Services.Core.Tests.Unit.SiteStructureSpecs;
 using horn.services.core.Value;
 using NUnit.Framework;

@@ -1,14 +1,15 @@
 using System.IO;
+using Horn.Core.PackageStructure;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Core.Utils;
 using Horn.Services.Core.Builder;
 using horn.services.core.Value;
 
-namespace Horn.Services.Core.Tests.Unit.SiteStructureSpecs
+namespace Horn.Services.Core.Tests.Unit.Doubles
 {
     public class SiteStructureBuilderDouble : SiteStructureBuilder
     {
-        protected override void BuildAndZipPackage(IFileSystemProvider fileSystemProvider, Package package, DirectoryInfo newDirectory, DirectoryInfo tempDirectory)
+        public override void BuildAndZipPackage(IPackageTree root, IFileSystemProvider fileSystemProvider, Package package, DirectoryInfo newDirectory, DirectoryInfo tempDirectory)
         {
             var tempFileName = Path.Combine(newDirectory.FullName, string.Format("{0}.txt", package.FileName));
             fileSystemProvider.WriteTextFile(tempFileName, "some text");

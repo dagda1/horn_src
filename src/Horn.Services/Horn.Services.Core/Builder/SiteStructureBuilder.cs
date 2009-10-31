@@ -10,6 +10,7 @@ using Horn.Core.PackageStructure;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Core.Utils;
 using Horn.Core.Utils.CmdLine;
+using Horn.Core.Utils.IO;
 using Horn.Services.Core.Config;
 using horn.services.core.Value;
 using log4net;
@@ -32,7 +33,7 @@ namespace Horn.Services.Core.Builder
         protected static readonly ILog log = LogManager.GetLogger(typeof(SiteStructureBuilder));
 
         //HACK: Temporary measure to get up and running
-        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino", "rhino.etl", "moq", "json.net", "hasic" };
+        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino", "rhino.etl", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine" };
 
         public virtual List<Category> Categories { get; private set; }
 
@@ -100,13 +101,15 @@ namespace Horn.Services.Core.Builder
             }
         }
 
-        protected virtual void BuildAndZipPackage(IFileSystemProvider fileSystemProvider, Package package, DirectoryInfo newDirectory, DirectoryInfo tempDirectory)
+        public virtual void BuildAndZipPackage(IPackageTree root, IFileSystemProvider fileSystemProvider, Package package, DirectoryInfo newDirectory, DirectoryInfo tempDirectory)
         {
             BuildPackage(package, newDirectory);
 
-            package.SetContents(rootPackageTree.Result);
+            package.SetContents(root.Result);
 
-            var zipFile = fileSystemProvider.ZipFolder(rootPackageTree.Result, newDirectory, package.FileName);
+            DeleteOldZipFiles(newDirectory);
+
+            var zipFile = fileSystemProvider.ZipFolder(root.Result, newDirectory, package.FileName);
 
             package.ZipFileName = new PackageFile(zipFile);
         }
@@ -146,6 +149,32 @@ namespace Horn.Services.Core.Builder
                 BuildCategories(childTree, childCategory, newDirectory);
 
                 parent.Categories.Add(childCategory);
+            }
+        }
+
+        protected virtual void DeleteOldZipFiles(DirectoryInfo directory)
+        {
+            var oldZips = fileSystemProvider.GetFiles(directory, "*.zip");
+
+            if(oldZips.Length <= 1)
+                return;
+
+            Array.Sort(oldZips, new FileInfoCompare());
+
+            var files = new List<FileInfo>(oldZips);
+
+            files.RemoveAt(0);  //do not delete the most current file
+
+            foreach (var file in files)
+            {
+                try
+                {
+                    fileSystemProvider.DeleteFile(file.FullName);
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex);
+                }
             }
         }
 
@@ -199,7 +228,7 @@ namespace Horn.Services.Core.Builder
 
                     try
                     {
-                        BuildAndZipPackage(fileSystemProvider, package, newDirectory, sandBox);    
+                        BuildAndZipPackage(rootPackageTree, fileSystemProvider, package, newDirectory, sandBox);    
                     }
                     catch (Exception ex)
                     {

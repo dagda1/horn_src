@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 
 namespace Horn.Core.Utils
@@ -21,6 +22,8 @@ namespace Horn.Core.Utils
         void DeleteFile(string path);
 
         bool Exists(string path);
+
+        FileInfo[] GetFiles(DirectoryInfo directory, string pattern);
 
         DirectoryInfo GetTemporaryBuildDirectory(DirectoryInfo tempDirectory);
 

@@ -14,8 +14,7 @@ namespace Horn.Core.Spec.Unit.GetSpecs
 
             get = new Get(fileSystemProvider);
 
-            destinationPath = get.Package(package)
-                                .From(sourceControl)
+            destinationPath = get.From(sourceControl)
                                 .ExportTo(packageTree)
                                 .RetrievePackage("horn").WorkingDirectory.FullName;
         }

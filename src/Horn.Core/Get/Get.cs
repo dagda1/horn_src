@@ -7,7 +7,6 @@ namespace Horn.Core.GetOperations
     public class Get : IGet
     {
         protected readonly IFileSystemProvider fileSystemProvider;
-        protected Package package;
         protected SourceControl sourceControl;
 
         public virtual IPackageTree ExportTo(IPackageTree packageTree)
@@ -28,12 +27,6 @@ namespace Horn.Core.GetOperations
         {
             sourceControl = sourceControlToGetFrom;
 
-            return this;
-        }
-
-        public virtual IGet Package(Package packageToGet)
-        {
-            package = packageToGet; 
             return this;
         }
 

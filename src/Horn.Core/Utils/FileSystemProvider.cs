@@ -9,6 +9,8 @@ namespace Horn.Core.Utils
 {
     public class FileSystemProvider : IFileSystemProvider
     {
+        public const string FileDateFormat = "dd-MM-yy-HHmmss";
+
         private static readonly ILog log = LogManager.GetLogger(typeof (FileSystemProvider));
 
         public virtual void CreateDirectory(string path)
@@ -84,6 +86,11 @@ namespace Horn.Core.Utils
             return File.Exists(path) || Directory.Exists(path);
         }
 
+        public virtual FileInfo[] GetFiles(DirectoryInfo directory, string pattern)
+        {
+            return directory.GetFiles(pattern);
+        }
+
         public DirectoryInfo GetHornRootDirectory(string path)
         {
             var hornPath = new DirectoryInfo(path);
@@ -130,7 +137,7 @@ namespace Horn.Core.Utils
 
         public virtual FileInfo ZipFolder(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, string packageName)
         {
-            var zipFileName = Path.Combine(targetDirectory.FullName, string.Format("{0}.zip", packageName));
+            var zipFileName = Path.Combine(targetDirectory.FullName, string.Format("{0}-{1}.zip", packageName, DateTime.Now.ToString(FileDateFormat)));
 
             ZipFolder(sourceDirectory, zipFileName);
 
