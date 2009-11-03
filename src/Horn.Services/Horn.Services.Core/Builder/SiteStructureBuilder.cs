@@ -24,7 +24,6 @@ namespace Horn.Services.Core.Builder
         private readonly IFileSystemProvider fileSystemProvider;
         private readonly DirectoryInfo dropDirectory;
         private IPackageTree rootPackageTree;
-        private DirectoryInfo sandBox;
 
         private bool hasRanOnce;
 
@@ -45,14 +44,12 @@ namespace Horn.Services.Core.Builder
         }
 
         public virtual void Initialise()
-        {           
+        {   
             var rootDirectory = fileSystemProvider.GetHornRootDirectory(HornConfig.Settings.HornRootDirectory);
 
             metaDataSynchroniser.SynchronisePackageTree(new PackageTree(rootDirectory, null));
 
             rootPackageTree = new PackageTree(rootDirectory, null);
-
-            sandBox = fileSystemProvider.CreateTemporaryHornDirectory(HornConfig.Settings.HornTempDirectory);
         }
 
         public virtual void Build()
@@ -61,7 +58,7 @@ namespace Horn.Services.Core.Builder
 
             var root = new Category(null, rootPackageTree);
 
-            var parentDirectory = CreatePackageDirectory(root, sandBox, rootPackageTree);
+            var parentDirectory = CreatePackageDirectory(root, dropDirectory, rootPackageTree);
 
             BuildCategories(rootPackageTree, root, parentDirectory);
 
@@ -90,7 +87,7 @@ namespace Horn.Services.Core.Builder
                 }
                 catch (Exception ex)
                 {
-                    Debugger.Break();
+                    //Debugger.Break();
 
                     log.Error(ex);
 
@@ -216,7 +213,7 @@ namespace Horn.Services.Core.Builder
                 {
                     if(!hasRanOnce)
                     {
-                        Debugger.Break();
+                        //Debugger.Break();
 
                         log.Info("Running for the first time.");
                     }
@@ -225,7 +222,7 @@ namespace Horn.Services.Core.Builder
 
                     try
                     {
-                        BuildAndZipPackage(rootPackageTree, fileSystemProvider, package, newDirectory, sandBox);    
+                        BuildAndZipPackage(rootPackageTree, fileSystemProvider, package, newDirectory, dropDirectory);    
                     }
                     catch (Exception ex)
                     {
@@ -245,21 +242,17 @@ namespace Horn.Services.Core.Builder
 
         protected virtual void CreateWebStructure(Category root)
         {
+            //Debugger.Break();
+
             var xml = root.ToDataContractXml<Category>();
 
-            var hornFile = Path.Combine(sandBox.FullName, "horn.xml");
+            var hornFile = Path.Combine(Path.Combine(dropDirectory.FullName, PackageTree.RootPackageTreeName), "horn.xml");
 
             fileSystemProvider.WriteTextFile(hornFile, xml);
 
             var resultXml = Path.Combine(HornConfig.Settings.XmlLocation, "horn.xml");
 
             fileSystemProvider.CopyFile(hornFile, resultXml, true);
-
-            Debugger.Break();
-
-            var destinationDirectory = Path.Combine(dropDirectory.FullName, PackageTree.RootPackageTreeName);
-
-            fileSystemProvider.CopyDirectory(sandBox.FullName, destinationDirectory);
         }
 
         protected virtual void SuspendTask()

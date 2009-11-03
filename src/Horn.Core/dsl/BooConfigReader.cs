@@ -61,6 +61,34 @@ namespace Horn.Core.Dsl
         }
 
         [Meta]
+        public static Expression exclude(BlockExpression action)
+        {
+            var arrayExpression = new ArrayLiteralExpression();
+
+            foreach (Statement statement in action.Body.Statements)
+            {
+                var stringLiteral =
+                    new StringLiteralExpression(
+                        ((MethodInvocationExpression) (((ExpressionStatement) (statement)).Expression)).Arguments[0].ToString().Trim(new[]{'\''}));
+
+                arrayExpression.Items.Add(stringLiteral);
+            }
+
+            return new MethodInvocationExpression(
+                new ReferenceExpression("SetExcludeList"),
+                arrayExpression
+            );
+        }
+
+        protected virtual void SetExcludeList(string[] exclusions)
+        {
+            foreach (var exclude in exclusions)
+            {
+                buildMetaData.BuildEngine.Exclusions.Add(exclude.ToLower());
+            }
+        }
+
+        [Meta]
         public static Expression get_from(MethodInvocationExpression get)
         {
             return get;
@@ -250,6 +278,11 @@ namespace Horn.Core.Dsl
         public void build_root_dir(string path)
         {
             buildMetaData.BuildEngine.BuildRootDirectory = path;
+        }
+
+        public virtual void library(string dependency)
+        {
+            Console.WriteLine(dependency);
         }
 
         public void ParseCommands(string[] cmdList)

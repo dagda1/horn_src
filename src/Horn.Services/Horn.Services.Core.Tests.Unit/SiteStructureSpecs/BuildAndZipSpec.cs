@@ -18,6 +18,42 @@ using Rhino.Mocks;
 
 namespace Horn.Services.Core.Tests.Unit.SiteStructureSpecs
 {
+    //public class Copy : ContextSpecification
+    //{
+    //    private DirectoryInfo sourceTest;
+    //    private DirectoryInfo destinationTest;
+
+    //    protected override void establish_context()
+    //    {
+    //        sourceTest = new DirectoryInfo(@"C:\temp\Horn\horn\.horn");
+
+    //        destinationTest = new DirectoryInfo(@"C:\zip");
+    //    }
+
+    //    protected override void because()
+    //    {
+    //    }
+
+    //    public void SynchDirectories(DirectoryInfo source, DirectoryInfo destination)
+    //    {
+    //        foreach (var directory in source.GetDirectories())
+    //        {
+    //            var destinationDirectory = new DirectoryInfo(Path.Combine(destination.FullName, directory.Name));
+
+    //            if(!destinationDirectory.Exists)
+    //                destinationDirectory.Create();
+
+    //            SynchDirectories(directory, destinationDirectory);
+    //        }
+    //    }
+
+    //    [Test]
+    //    public void CopyDirectoriesTest()
+    //    {
+    //        SynchDirectories(sourceTest, destinationTest);
+    //    }
+    //}
+
     public class When_a_package_is_being_built : ContextSpecification
     {
         protected IFileSystemProvider fileSystemProvider;

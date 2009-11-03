@@ -77,6 +77,8 @@ namespace Horn.Core.BuildEngines
 
         public virtual IDictionary<string, IModeSettings> Modes { get; private set;}
 
+        public virtual List<string> Exclusions { get; set; }
+
         public virtual void AssignParameters(string[] parameters)
         {
             CurrentModeSettings.AssignParameters( parameters );
@@ -258,6 +260,9 @@ namespace Horn.Core.BuildEngines
             {
                 var outputFile = Path.Combine(packageTree.Result.FullName, Path.GetFileName(file.FullName));
 
+                if(Exclusions.Contains(Path.GetFileNameWithoutExtension(file.FullName).ToLower()))
+                    continue;
+
                 CopyFileFromWorkingToResult(file, outputFile);
             }
         }
@@ -288,6 +293,7 @@ namespace Horn.Core.BuildEngines
             BuildFile = buildFile;
             Version = version;
             Dependencies = new List<Dependency>();
+            Exclusions = new List<string>();
             this.dependencyDispatcher = dependencyDispatcher;
             Modes = new Dictionary<string, IModeSettings>();
             var defaultMode = new ModeSettings( DefaultModeName );

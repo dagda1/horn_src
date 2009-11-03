@@ -12,7 +12,11 @@ dependencies:
 	depend @castle  >> "Castle.DynamicProxy2"
 	depend @castle  >> "castle.microKernel"
 	depend @castle  >> "castle.windsor"
-	exclude @castle >> "Boo.Lang"
+
+exclude:
+	library "Iesi.Collections"
+	library "NHibernate.ByteCode.Castle"
+	library "NHibernate"
 	
 package.homepage = "http://code.google.com/p/scotaltdotnet/"
 package.forum    = "http://groups.google.co.uk/group/horn-development?hl=en"

@@ -120,7 +120,7 @@ namespace Horn.Core.SCM
                 }
                 catch (ProcessFailedException)
                 {
-                    throw new GitPullFailedException(string.Format("A git pull failed for the {0} package", packageTree.BuildMetaData.BuildEngine.BuildTool, packageTree.Name));
+                    throw new GitPullFailedException(string.Format("A git pull failed for the {0} package", packageTree.Name));
                 }
 
                 //TODO: The following should work.  Might be the way I set up msysgit?

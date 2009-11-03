@@ -55,7 +55,7 @@ namespace Horn.PackageBuilder.Service
             }
             catch (Exception ex)
             {
-                Debugger.Break();
+                //Debugger.Break();
 
                 log.Error(ex);
 
