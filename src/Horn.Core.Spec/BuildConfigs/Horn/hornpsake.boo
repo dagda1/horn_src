@@ -5,7 +5,7 @@
 	build_with psake, buildfile("default.ps1"), FrameworkVersion35
 	
 	with:
-		tasks Compile	
+		tasks Compile
 
 dependencies:
 	depend @log4net >> "lib"

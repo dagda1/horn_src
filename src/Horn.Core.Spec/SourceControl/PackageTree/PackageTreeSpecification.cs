@@ -148,22 +148,18 @@ namespace Horn.Core.Spec.Unit.HornTree
 
     public class When_the_package_tree_root_directory_does_not_exist : DirectorySpecificationBase
     {
-
         private IPackageTree packageTree;
-
 
         protected override void Because()
         {
             packageTree = TreeHelper.GetTempEmptyPackageTree();
         }
 
-
         [Fact]
         public void Then_the_meta_data_synchroniser_returns_false()
         {
             Assert.False(packageTree.Exists);
         }
-
     }
 
     public class When_the_root_directory_exists_and_contains_build_files : DirectorySpecificationBase

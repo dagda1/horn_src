@@ -35,7 +35,7 @@ namespace Horn.Core.Spec.BuildEngineSpecs
 
 
             Assert.Equal(EXPECTED, pathToBuildFile);
-            Assert.Equal("-command .\\default.ps1 Compile", cmdLineArgs);
+            Assert.Equal("-command .\\psake default.ps1 Compile", cmdLineArgs);
         }
     }
 

@@ -12,7 +12,7 @@ namespace Horn.Core
     {
         public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree, FrameworkVersion version)
         {
-            return string.Format(@"  -command .\{0} {1}", Path.GetFileName(pathToBuildFile.Trim('"')), GenerateTasks(buildEngine.Tasks));
+            return string.Format(@"  -command .\psake {0} {1}", Path.GetFileName(pathToBuildFile.Trim('"')), GenerateTasks(buildEngine.Tasks));
         }
 
         public string PathToBuildTool(IPackageTree packageTree, FrameworkVersion version)
