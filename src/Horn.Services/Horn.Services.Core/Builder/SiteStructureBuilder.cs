@@ -32,7 +32,7 @@ namespace Horn.Services.Core.Builder
         protected static readonly ILog log = LogManager.GetLogger(typeof(SiteStructureBuilder));
 
         //HACK: Temporary measure to get up and running
-        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "rhino", "rhino.etl", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine", "caliburn-silverlight" };
+        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine", "caliburn-silverlight" };
 
         public virtual List<Category> Categories { get; private set; }
 
