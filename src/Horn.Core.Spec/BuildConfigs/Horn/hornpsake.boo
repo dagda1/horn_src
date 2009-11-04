@@ -2,7 +2,10 @@
 	description "A .NET build and dependency manager"
 	get_from svn("http://hornget.googlecode.com/svn/trunk/")
 	
-	build_with psake, buildfile("psake.ps1"), FrameworkVersion35
+	build_with psake, buildfile("default.ps1"), FrameworkVersion35
+	
+	with:
+		tasks Compile	
 
 dependencies:
 	depend @log4net >> "lib"
