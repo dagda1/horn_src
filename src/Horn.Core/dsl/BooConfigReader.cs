@@ -340,7 +340,7 @@ namespace Horn.Core.Dsl
         {
             var version = (FrameworkVersion)Enum.Parse(typeof(FrameworkVersion), frameWorkVersion);
 
-            SetBuildEngine(new PSakeBuildTool(), buildFile, version);
+            SetBuildEngine(PSakeBuildToolFactory.Create(), buildFile, version);
         }
 
         protected void SetBuildTargets(string[] taskActions)
