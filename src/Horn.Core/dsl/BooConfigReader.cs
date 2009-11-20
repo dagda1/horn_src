@@ -371,6 +371,13 @@ namespace Horn.Core.Dsl
             buildMetaData.SourceControl = SourceControl.Create<GitSourceControl>(url);
         }
 
+		protected void git(string url, string branchName)
+		{
+			var sourceControl = SourceControl.Create<GitSourceControl>(url);
+			sourceControl.BranchName = branchName;
+			buildMetaData.SourceControl = sourceControl;
+		}
+
 		protected void hg(string url)
 		{
 			buildMetaData.SourceControl = SourceControl.Create<MercurialSourceControl>(url);
