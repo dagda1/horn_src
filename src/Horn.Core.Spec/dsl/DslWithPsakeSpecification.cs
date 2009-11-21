@@ -15,11 +15,21 @@ namespace Horn.Core.Spec.BuildEngineSpecs
 	public class When_The_Build_MetaData_Specifies_PSake : BuildWithBatchSpecificationBase
 	{
 		//private const string EXPECTED = "Powershell.exe";
+		private string teamcityVersion = "";
 
 		protected override void Because()
 		{
+			// reset TEAMCITY_VERSION in case we are running the test on a TC environment.
+			teamcityVersion = Environment.GetEnvironmentVariable("TEAMCITY_VERSION");						
+			Environment.SetEnvironmentVariable("TEAMCITY_VERSION", "");
 			configReader = factory.Create<BooConfigReader>(@"BuildConfigs/Horn/hornpsake.boo");
 			configReader.Prepare();
+		}
+
+		protected override void After_each_spec()
+		{
+			// restore the TC environment.
+			Environment.SetEnvironmentVariable("TEAMCITY_VERSION", teamcityVersion);
 		}
 
 		[Fact]
