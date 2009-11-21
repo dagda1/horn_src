@@ -32,7 +32,7 @@ namespace Horn.Core.Spec.Unit.dsl
     {
         private IBuildTool buildTool;
         private const string EXPECTED_CMD_LINE_ARGUMENTS =
-            @"C:\Ruby\bin\rake --rakefile Horn.build build release quick rebuild ";
+            @"C:\Ruby\bin\rake --rakefile Horn.build sign=false testrunner=NUnit common.testrunner.enabled=true common.testrunner.failonerror=true build.msbuild=true build release quick rebuild";
 
         protected override void Because()
         {

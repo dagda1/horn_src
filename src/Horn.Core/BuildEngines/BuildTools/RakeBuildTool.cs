@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+
 using Horn.Core.BuildEngines;
 using Horn.Core.Extensions;
 using Horn.Core.PackageStructure;
@@ -21,7 +23,7 @@ namespace Horn.Core
 
         public string CommandLineArguments(string pathToBuildFile, BuildEngine buildEngine, IPackageTree packageTree, FrameworkVersion version)
         {
-            return string.Format("{0} --rakefile {1} {2}", Path.Combine(GetRubyDirectory(), "rake"), pathToBuildFile, GenerateTasks(buildEngine.Tasks));
+			return string.Format("{0} --rakefile {1} {2}{3}", Path.Combine(GetRubyDirectory(), "rake"), pathToBuildFile, GenerateParameters(buildEngine.Parameters), GenerateTasks(buildEngine.Tasks)).Trim();
         }
 
         public string PathToBuildTool(IPackageTree packageTree, FrameworkVersion version)
@@ -46,6 +48,18 @@ namespace Horn.Core
             return tasksArgument;
         }
 
+		private string GenerateParameters(IDictionary<string, string> parameters)
+		{
+			if (parameters == null || parameters.Keys.Count == 0)
+				return String.Empty;
+
+			var stringBuilder = new StringBuilder();
+
+			foreach (var key in parameters.Keys)
+				stringBuilder.AppendFormat("{0}={1} ", key, parameters[key]);
+
+			return stringBuilder.ToString();
+		}
 
         private string GetRubyDirectory()
         {
