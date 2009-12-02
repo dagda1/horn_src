@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -25,7 +26,6 @@ namespace Horn.Core.PackageStructure
         {
             buildFile = Path.Combine(buildFolder.FullName,
                                       string.Format("{0}.{1}", fileName, "boo"));
-
 
             if (!File.Exists(buildFile))
                 throw new MissingBuildFileException(buildFolder);

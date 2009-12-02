@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using Castle.Core;
 using Horn.Core.BuildEngines;
@@ -44,9 +45,6 @@ namespace Horn.Core.PackageCommands
             foreach (var nextTree in dependencyTree)
             {
                 IBuildMetaData nextMetaData = GetBuildMetaData(nextTree);
-
-                if (nextTree.Name.ToLower() == "rhino")
-                    Console.WriteLine("Test");
 
                 if (!commandArgs.RebuildOnly)
                     RetrieveSourceCode(nextMetaData, nextTree);

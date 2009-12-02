@@ -310,7 +310,7 @@ namespace Horn.Core.PackageStructure
 
             if (nodes.Count() == 0)
                 return new NullPackageTree();
-
+            
             var result = nodes.First();
 
             //HACK: Need a better way of initialising the package tree with the version information

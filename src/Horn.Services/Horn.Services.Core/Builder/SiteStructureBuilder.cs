@@ -87,8 +87,6 @@ namespace Horn.Services.Core.Builder
                 }
                 catch (Exception ex)
                 {
-                    //Debugger.Break();
-
                     log.Error(ex);
 
                     throw;
@@ -177,6 +175,11 @@ namespace Horn.Services.Core.Builder
 
         private bool IsExcludedName(IPackageTree childTree)
         {
+            //if (childTree.Name.ToLower() == "mspec")
+            //{
+            //    Debugger.Break();
+            //}
+
             if (!string.IsNullOrEmpty(excludePackages.Where(x => x.ToLower() == childTree.Name.ToLower()).FirstOrDefault()))
                 return true;
 
@@ -210,14 +213,7 @@ namespace Horn.Services.Core.Builder
             if(packageTree.IsBuildNode)
             {
                 foreach (var package in category.Packages)
-                {
-                    if(!hasRanOnce)
-                    {
-                        //Debugger.Break();
-
-                        log.Info("Running for the first time.");
-                    }
-                        
+                {                        
                     hasRanOnce = true;
 
                     try
@@ -242,8 +238,6 @@ namespace Horn.Services.Core.Builder
 
         protected virtual void CreateWebStructure(Category root)
         {
-            //Debugger.Break();
-
             var xml = root.ToDataContractXml<Category>();
 
             var hornFile = Path.Combine(Path.Combine(dropDirectory.FullName, PackageTree.RootPackageTreeName), "horn.xml");
