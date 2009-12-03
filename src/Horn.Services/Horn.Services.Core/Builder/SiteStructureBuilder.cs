@@ -33,6 +33,7 @@ namespace Horn.Services.Core.Builder
 
         //HACK: Temporary measure to get up and running
         private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "magnum", "topshelf", "network", "network", "dndns", "hasic", "horn", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine", "caliburn-silverlight" };
+        private DirectoryInfo rootDirectory;
 
         public virtual List<Category> Categories { get; private set; }
 
@@ -44,8 +45,8 @@ namespace Horn.Services.Core.Builder
         }
 
         public virtual void Initialise()
-        {   
-            var rootDirectory = fileSystemProvider.GetHornRootDirectory(HornConfig.Settings.HornRootDirectory);
+        {
+            rootDirectory = fileSystemProvider.GetHornRootDirectory(HornConfig.Settings.HornRootDirectory);
 
             metaDataSynchroniser.SynchronisePackageTree(new PackageTree(rootDirectory, null));
 
@@ -127,7 +128,7 @@ namespace Horn.Services.Core.Builder
 
             var packageBuilder = IoC.Resolve<IPackageCommand>("install");
 
-            packageBuilder.Execute(rootPackageTree);
+            packageBuilder.Execute(new PackageTree(rootDirectory, null));
         }
 
         protected virtual void BuildCategories(IPackageTree packageTree, Category parent, DirectoryInfo parentDirectory)
@@ -175,19 +176,19 @@ namespace Horn.Services.Core.Builder
 
         private bool IsExcludedName(IPackageTree childTree)
         {
-            if ((childTree.Name.ToLower() == "web") || (childTree.Name.ToLower() == "asp.net.mvc") || (childTree.Name.ToLower() == "mvccontrib"))
-            {
-                Debugger.Break();
+            //if ((childTree.Name.ToLower() == "web") || (childTree.Name.ToLower() == "asp.net.mvc") || (childTree.Name.ToLower() == "mvccontrib"))
+            //{
+            //    Debugger.Break();
 
-                return false;
-            }
+            //    return false;
+            //}
 
-            return true;
+            //return true;
 
-            //if (!string.IsNullOrEmpty(excludePackages.Where(x => x.ToLower() == childTree.Name.ToLower()).FirstOrDefault()))
-            //    return true;
+            if (!string.IsNullOrEmpty(excludePackages.Where(x => x.ToLower() == childTree.Name.ToLower()).FirstOrDefault()))
+                return true;
 
-            //return (childTree.Name.ToLower().IndexOf("working-") > -1);
+            return (childTree.Name.ToLower().IndexOf("working-") > -1);
         }
 
         private void CreateErrorTextFile(Exception exception, Package package, DirectoryInfo directory)
