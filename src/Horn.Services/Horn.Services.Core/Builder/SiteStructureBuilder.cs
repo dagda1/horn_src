@@ -128,6 +128,7 @@ namespace Horn.Services.Core.Builder
 
             var packageBuilder = IoC.Resolve<IPackageCommand>("install");
 
+            //I had to rebuild the package tree each time to reset all the version numbers.  Not great
             packageBuilder.Execute(new PackageTree(rootDirectory, null));
         }
 
