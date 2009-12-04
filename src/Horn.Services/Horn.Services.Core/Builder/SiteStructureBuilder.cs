@@ -179,19 +179,19 @@ namespace Horn.Services.Core.Builder
 
         private bool IsExcludedName(IPackageTree childTree)
         {
-            //if ((childTree.Name.ToLower() == "web") || (childTree.Name.ToLower() == "asp.net.mvc") || (childTree.Name.ToLower() == "mvccontrib"))
-            //{
-            //    Debugger.Break();
+            if ((childTree.Name.ToLower() == "testing") || (childTree.Name.ToLower() == "mspec") || (childTree.Name.ToLower() == "mvccontrib"))
+            {
+                Debugger.Break();
 
-            //    return false;
-            //}
+                return false;
+            }
 
-            //return true;
+            return true;
 
-            if (!string.IsNullOrEmpty(excludePackages.Where(x => x.ToLower() == childTree.Name.ToLower()).FirstOrDefault()))
-                return true;
+            //if (!string.IsNullOrEmpty(excludePackages.Where(x => x.ToLower() == childTree.Name.ToLower()).FirstOrDefault()))
+            //    return true;
 
-            return (childTree.Name.ToLower().IndexOf("working-") > -1);
+            //return (childTree.Name.ToLower().IndexOf("working-") > -1);
         }
 
         private void CreateErrorTextFile(Exception exception, Package package, DirectoryInfo directory)
