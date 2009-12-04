@@ -28,7 +28,7 @@ namespace Horn.Core
 
         public string PathToBuildTool(IPackageTree packageTree, FrameworkVersion version)
         {
-            return Path.Combine(GetRubyDirectory(), "ruby.exe");
+            return Path.Combine(GetRubyDirectory(), "rake.bat");
         }
 
         public string GetFrameworkVersionForBuildTool(FrameworkVersion version)
