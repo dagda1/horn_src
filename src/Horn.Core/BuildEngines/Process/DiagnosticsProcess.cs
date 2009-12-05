@@ -8,7 +8,7 @@ namespace Horn.Core.BuildEngines
 
         public string GetLineOrOutput()
         {
-            return process.StandardOutput.ReadLine();
+            return process.StandardOutput.ReadLine() ?? process.StandardError.ReadLine();
         }
 
         public void WaitForExit()

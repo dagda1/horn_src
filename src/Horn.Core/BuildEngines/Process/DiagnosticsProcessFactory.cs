@@ -33,12 +33,13 @@ namespace Horn.Core.BuildEngines
         {
             var psi = new ProcessStartInfo(pathToBuildTool, cmdLineArguments)
                           {
-                              UseShellExecute = false,
-                              RedirectStandardOutput = true,
-                              WorkingDirectory = workingDirectoryPath,
+                              UseShellExecute = false,                      
+                              RedirectStandardOutput = true,                      
+                              RedirectStandardError = true,                      
+                              WorkingDirectory = workingDirectoryPath,                      
                               Arguments = cmdLineArguments
-                          };
-
+                          };    
+            
             return new DiagnosticsProcess(Process.Start(psi));
         }
     }
