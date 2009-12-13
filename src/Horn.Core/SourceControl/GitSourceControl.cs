@@ -40,7 +40,7 @@ namespace Horn.Core.SCM
                 if (!destination.Exists)
                     Directory.CreateDirectory(destination.FullName);
 
-                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false).Replace("-v", ""));
+                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false, 1).Replace("-v", ""));
 
 				if(BranchName != "master")
 				{
