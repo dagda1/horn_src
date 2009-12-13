@@ -366,6 +366,13 @@ namespace Horn.Core.Dsl
             buildMetaData.SourceControl = SourceControl.Create<SVNSourceControl>(url);
         }
 
+        protected void svn(string url, int revision)
+        {
+            var sourceControl = SourceControl.Create<SVNSourceControl>(url);
+            sourceControl.UseRevision = revision;
+            buildMetaData.SourceControl = sourceControl;
+        }
+
         protected void git(string url)
         {
             buildMetaData.SourceControl = SourceControl.Create<GitSourceControl>(url);

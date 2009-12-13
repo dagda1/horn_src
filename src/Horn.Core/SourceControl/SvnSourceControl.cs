@@ -35,6 +35,8 @@ namespace Horn.Core.SCM
             }
         }
 
+        public int? UseRevision { get; set; }
+
         public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
         {
             SvnUpdateResult result = null;
@@ -43,7 +45,10 @@ namespace Horn.Core.SCM
             {
                 try
                 {
-                    client.CheckOut(new SvnUriTarget(new Uri(Url)), destination.FullName, out result);
+                    var svnOptions = new SvnCheckOutArgs();
+                    if (UseRevision.HasValue)
+                        svnOptions.Revision = new SvnRevision(UseRevision.Value);
+                    client.CheckOut(new SvnUriTarget(new Uri(Url)), destination.FullName, svnOptions, out result);
                 }
                 catch (SvnRepositoryIOException sre)
                 {
@@ -89,7 +94,10 @@ namespace Horn.Core.SCM
             {
                 try
                 {
-                    client.Update(destination.FullName, out result);
+                    var svnOptions = new SvnUpdateArgs();
+                    if (UseRevision.HasValue)
+                        svnOptions.Revision = new SvnRevision(UseRevision.Value);
+                    client.Update(destination.FullName, svnOptions, out result);
                 }
                 catch (SvnRepositoryIOException sre)
                 {
@@ -120,6 +128,13 @@ namespace Horn.Core.SCM
             log.InfoFormat("Current Revision is = {0}", currentRevision);
 
             log.InfoFormat("Revision at remote scm is {0}", revision);
+
+            if (UseRevision.HasValue) 
+            {
+                log.InfoFormat("Forced revision is {0}", UseRevision);
+                revision = UseRevision.ToString();
+            }
+
 
             return (long.Parse(revision) > long.Parse(currentRevision));
         }
