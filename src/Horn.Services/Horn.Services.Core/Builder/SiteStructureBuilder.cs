@@ -246,13 +246,19 @@ namespace Horn.Services.Core.Builder
 
         protected virtual void CreateWebStructure(Category root)
         {
+            log.Info("Creating web structure");
+
             var xml = root.ToDataContractXml<Category>();
 
             var hornFile = Path.Combine(Path.Combine(dropDirectory.FullName, PackageTree.RootPackageTreeName), "horn.xml");
 
+            log.InfoFormat("Writing xml to {0}", hornFile);
+
             fileSystemProvider.WriteTextFile(hornFile, xml);
 
             var resultXml = Path.Combine(HornConfig.Settings.XmlLocation, "horn.xml");
+
+            log.InfoFormat("Copying xml file to {0}", resultXml);
 
             fileSystemProvider.CopyFile(hornFile, resultXml, true);
         }
