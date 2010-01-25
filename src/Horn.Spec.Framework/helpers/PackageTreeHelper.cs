@@ -37,7 +37,7 @@ namespace Horn.Framework.helpers
             string loggers = CreateDirectory(rootDirectory, "loggers");
             string log4net = CreateDirectory(loggers, "log4net");
 
-            CreatePatchDirectory(log4net);
+            CreatePatchDirectory(log4net, null);
 
             var log4NetBuildFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"BuildConfigs\Horn\log4net.boo");
 
@@ -55,6 +55,8 @@ namespace Horn.Framework.helpers
 
             File.Copy(castleVersionBuildFile, Path.Combine(castle, "castle-2.1.0.boo"));
 
+            CreatePatchDirectory(castle, "2.1.0");
+
             CreateBuildFiles(castleBuildFile, castle, true, false);
 
             string tests = CreateDirectory(rootDirectory, "tests");
@@ -67,11 +69,15 @@ namespace Horn.Framework.helpers
             return new DirectoryInfo(rootDirectory);
         }
 
-        public static void CreatePatchDirectory(string rootFolder)
+        public static void CreatePatchDirectory(string rootFolder, string version)
         {
             const string patchFile = "patchfile.txt";
 
-            var patchDirectory = CreateDirectory(Path.Combine(rootFolder, "patch"));
+          string patchPath = "patch";
+          if (!String.IsNullOrEmpty(version))
+            patchPath = "patch-" + version;
+
+          var patchDirectory = CreateDirectory(Path.Combine(rootFolder, patchPath));
 
             var childDirectory = CreateDirectory(Path.Combine(patchDirectory, "child"));
 
@@ -82,7 +88,7 @@ namespace Horn.Framework.helpers
             File.Copy(sourceFile, destinationFile, true);
         }
 
-        public static void CreateBuildFiles(string sourceFile, string destinationFolder, bool createRevisionFile, bool createVersionedRevisionFile)
+      public static void CreateBuildFiles(string sourceFile, string destinationFolder, bool createRevisionFile, bool createVersionedRevisionFile)
         {
             if (!File.Exists(sourceFile))
                 throw new FileNotFoundException(string.Format("The build file {0} does not exist", sourceFile));

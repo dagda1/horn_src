@@ -125,7 +125,12 @@ namespace Horn.Core.PackageStructure
                 if (patchDirectory != null)
                     return patchDirectory;
 
-                patchDirectory = new DirectoryInfo(Path.Combine(CurrentDirectory.FullName, "patch"));
+                string patchPath = "patch";
+
+                if (!String.IsNullOrEmpty(Version))
+                    patchPath = string.Format("{0}-{1}", patchPath, Version);
+
+                patchDirectory = new DirectoryInfo(Path.Combine(CurrentDirectory.FullName, patchPath));
 
                 return patchDirectory;
             }
