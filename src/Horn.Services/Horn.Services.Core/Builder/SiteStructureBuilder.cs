@@ -32,7 +32,7 @@ namespace Horn.Services.Core.Builder
         protected static readonly ILog log = LogManager.GetLogger(typeof(SiteStructureBuilder));
 
         //HACK: Temporary measure to get up and running
-        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "esbs", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "network", "network", "dndns", "hasic", "horn", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine", "caliburn-silverlight" };
+        private readonly string[] excludePackages = new[] { "builders", "cms", "viewengines", "json", "languages", "castle", "network", "boo", "n2cms", "masstransit", "network", "network", "dndns", "hasic", "horn", "moq", "json.net", "hasic", "sharp.architecture", "wpf", "caliburn", "castle.nvelocity", "castle.templateengine", "caliburn-silverlight", "dotless" };
         private DirectoryInfo rootDirectory;
 
         public virtual List<Category> Categories { get; private set; }
@@ -58,6 +58,8 @@ namespace Horn.Services.Core.Builder
             log.Info("in build.");
 
             var root = new Category(null, rootPackageTree);
+
+            Debugger.Break();
 
             var parentDirectory = CreatePackageDirectory(root, dropDirectory, rootPackageTree);
 
@@ -103,7 +105,7 @@ namespace Horn.Services.Core.Builder
 
             package.SetContents(root.Result);
 
-            DeleteOldZipFiles(newDirectory);
+            //DeleteOldZipFiles(newDirectory);
 
             var zipFile = fileSystemProvider.ZipFolder(root.Result, newDirectory, package.FileName);
 
@@ -214,6 +216,8 @@ namespace Horn.Services.Core.Builder
 
         protected virtual DirectoryInfo CreatePackageDirectory(Category category, DirectoryInfo directory, IPackageTree packageTree)
         {
+            Debugger.Break();
+
             var newDirectory = new DirectoryInfo(Path.Combine(directory.FullName, category.Name));
 
             fileSystemProvider.CreateDirectory(newDirectory.FullName);
