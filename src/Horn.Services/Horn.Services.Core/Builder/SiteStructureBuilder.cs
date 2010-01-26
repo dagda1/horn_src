@@ -59,8 +59,6 @@ namespace Horn.Services.Core.Builder
 
             var root = new Category(null, rootPackageTree);
 
-            Debugger.Break();
-
             var parentDirectory = CreatePackageDirectory(root, dropDirectory, rootPackageTree);
 
             BuildCategories(rootPackageTree, root, parentDirectory);
@@ -216,8 +214,6 @@ namespace Horn.Services.Core.Builder
 
         protected virtual DirectoryInfo CreatePackageDirectory(Category category, DirectoryInfo directory, IPackageTree packageTree)
         {
-            Debugger.Break();
-
             var newDirectory = new DirectoryInfo(Path.Combine(directory.FullName, category.Name));
 
             fileSystemProvider.CreateDirectory(newDirectory.FullName);

@@ -145,6 +145,8 @@ namespace Horn.Core.BuildEngines
 
             string pathToBuildFile = string.Format("{0}", GetBuildFilePath(packageTree).QuotePath());
 
+            log.InfoFormat("Path to build file is {0}.", pathToBuildFile);
+
             if (GenerateStrongKey)
                 GenerateKeyFile(processFactory, packageTree);
 
@@ -208,6 +210,9 @@ namespace Horn.Core.BuildEngines
 
             foreach (var child in root.GetDirectories())
             {
+                if(child.Name.ToLower() == ".svn")
+                    continue;
+
                 ret = GetBuildDirectory(child);
 
                 if(ret != null)
