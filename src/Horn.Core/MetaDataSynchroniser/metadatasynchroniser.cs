@@ -1,3 +1,4 @@
+using Horn.Core.Config;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
 
@@ -7,7 +8,7 @@ namespace Horn.Core.Tree.MetaDataSynchroniser
     {
         private readonly SourceControl sourceControl;
 
-        public const string PackageTreeUri = "git://github.com/dagda1/hornget.git";
+        public readonly static string PackageTreeUri = HornConfig.Settings.PackageTreeUri;
 
         public void SynchronisePackageTree(IPackageTree packageTree)
         {

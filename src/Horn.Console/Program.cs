@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
-using Horn.Console.Config;
 using Horn.Core;
+using Horn.Core.Config;
 using Horn.Core.exceptions;
 using Horn.Core.PackageCommands;
 using Horn.Core.PackageStructure;
