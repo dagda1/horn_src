@@ -2,6 +2,7 @@ using System;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Horn.Core.BuildEngines;
+using Horn.Core.Config;
 using Horn.Core.Dsl;
 using Horn.Core.GetOperations;
 using Horn.Core.PackageCommands;
@@ -112,7 +113,9 @@ namespace Horn.Core.Utils.IoC
 			innerContainer.Register(
 				Component.For<SourceControl>()
 							.ImplementedBy<GitSourceControl>()
-							.Parameters(Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri))
+							.Parameters(
+								Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri),
+								Parameter.ForKey("BranchName").Eq(HornConfig.Settings.PackageTreeBranch))
 							.LifeStyle.Transient
 				);
 

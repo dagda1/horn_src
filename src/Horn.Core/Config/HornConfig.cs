@@ -18,7 +18,14 @@ namespace Horn.Core.Config
         {
             get { return (string)this["packagetreeuri"]; }
             set { this["packagetreeuri"] = value; }
-        }
+		}
+
+		[ConfigurationProperty("packagetreebranch", IsRequired = true)]
+		public string PackageTreeBranch
+		{
+			get { return (string)this["packagetreebranch"]; }
+			set { this["packagetreebranch"] = value; }
+		}
 
         public static HornConfig Settings
         {
