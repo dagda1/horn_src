@@ -46,7 +46,7 @@ namespace Horn.Services.Core.Tests.Unit.SiteStructureSpecs
 
             fileSystemProvider.Stub(x => x.GetHornRootDirectory(Arg<string>.Is.TypeOf)).Return(FileSystemHelper.GetFakeDummyHornDirectory());
 
-            fileSystemProvider.Stub(x => x.CreateTemporaryHornDirectory(Arg<string>.Is.TypeOf)).Return(new DirectoryInfo(HornConfig.Settings.HornTempDirectory));
+            fileSystemProvider.Stub(x => x.CreateTemporaryHornDirectory(Arg<string>.Is.TypeOf)).Return(new DirectoryInfo(HornServiceConfig.Settings.HornTempDirectory));
 
             fileSystemProvider.Stub(x => x.ZipFolder(Arg<DirectoryInfo>.Is.TypeOf, Arg<DirectoryInfo>.Is.TypeOf, Arg<string>.Is.TypeOf)).Return(
                 new FileInfo(@"C:\zip"));

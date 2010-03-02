@@ -46,7 +46,7 @@ namespace Horn.Services.Core.Builder
 
         public virtual void Initialise()
         {
-            rootDirectory = fileSystemProvider.GetHornRootDirectory(HornConfig.Settings.HornRootDirectory);
+            rootDirectory = fileSystemProvider.GetHornRootDirectory(HornServiceConfig.Settings.HornRootDirectory);
 
             metaDataSynchroniser.SynchronisePackageTree(new PackageTree(rootDirectory, null));
 
@@ -256,7 +256,7 @@ namespace Horn.Services.Core.Builder
 
             fileSystemProvider.WriteTextFile(hornFile, xml);
 
-            var resultXml = Path.Combine(HornConfig.Settings.XmlLocation, "horn.xml");
+            var resultXml = Path.Combine(HornServiceConfig.Settings.XmlLocation, "horn.xml");
 
             log.InfoFormat("Copying xml file to {0}", resultXml);
 
@@ -275,7 +275,7 @@ namespace Horn.Services.Core.Builder
             dropDirectory = new DirectoryInfo(dropDirectoryPath);
             Categories = new List<Category>();
 
-            frequency = new TimeSpan(0, 0, HornConfig.Settings.BuildFrequency, 0);
+            frequency = new TimeSpan(0, 0, HornServiceConfig.Settings.BuildFrequency, 0);
         }
     }
 }
