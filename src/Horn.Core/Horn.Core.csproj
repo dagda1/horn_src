@@ -141,8 +141,12 @@
     <Compile Include="exceptions\GitPullFailedException.cs" />
     <Compile Include="extensions\SerialisationExtensions.cs" />
     <Compile Include="PackageTree\BuildNodeCreatedHandler.cs" />
+    <Compile Include="SourceControl\BashInvokedGitCommand.cs" />
+    <Compile Include="SourceControl\CmdInvokedGitCommand.cs" />
+    <Compile Include="SourceControl\GitCommand.cs" />
     <Compile Include="SourceControl\GitSourceControl.cs" />
     <Compile Include="BuildEngines\Process\IShellRunner.cs" />
+    <Compile Include="SourceControl\IGitCommand.cs" />
     <Compile Include="SourceControl\MercurialSourceControl.cs" />
     <Compile Include="Utils\EnvironmentVariable.cs" />
     <Compile Include="Utils\FileSystemProvider.cs" />

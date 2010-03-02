@@ -14,9 +14,10 @@ namespace Horn.Core.SCM
 {
     public class GitSourceControl : SourceControl
     {
-    	private string _branchName = "master";
+        private string _branchName = "master";
+        private IGitCommand _gitCommand = new CmdInvokedGitCommand();
 
-    	public override string Revision
+        public override string Revision
         {
             get
             {
@@ -25,13 +26,19 @@ namespace Horn.Core.SCM
             }
         }
 
-    	public string BranchName
-    	{
-    		get { return _branchName; }
-    		set { _branchName = value; }
-    	}
+        public string BranchName
+        {
+            get { return _branchName; }
+            set { _branchName = value; }
+        }
 
-    	public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
+        public IGitCommand GitCommand
+        {
+            get { return _gitCommand; }
+            set { _gitCommand = value; }
+        }
+
+        public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
         {
             Settings.WorkingDir = destination.FullName;
 
@@ -40,7 +47,7 @@ namespace Horn.Core.SCM
                 if (!destination.Exists)
                     Directory.CreateDirectory(destination.FullName);
 
-                var result = RunGitCommand(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false, 1).Replace("-v", ""));
+                var result = _gitCommand.Run(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false, 1).Replace("-v", ""));
 
 				if(BranchName != "master")
 				{
@@ -57,7 +64,7 @@ namespace Horn.Core.SCM
 
 		private bool IsBranchCheckedOut(string branchName)
 		{
-			var branches = RunGitCommand("branch").Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+			var branches = _gitCommand.Run("branch").Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 			var currentBranch = branches.Single(x => x.Trim().StartsWith("*"));
 			return currentBranch.Trim(' ', '*') == branchName;
 		}
@@ -77,7 +84,7 @@ namespace Horn.Core.SCM
     		string command = string.Format(trackRemoteBranch, branchName);
 
 			log.Info("Tracking remote branch " + branchName);
-    		RunGitCommand(command);
+			_gitCommand.Run(command);
     	}
 
     	protected virtual string CurrentRevisionNumber()
@@ -112,11 +119,6 @@ namespace Horn.Core.SCM
         {
         }
 
-        protected virtual string RunGitCommand(string args)
-        {
-            return GitCommands.GitCommands.RunCmd(string.Format("{0}git.exe", Settings.GitBinDir), args);
-        }
-
         protected virtual void SetupGit(IEnvironmentVariable environmentVariable)
         {
             string gitDir = environmentVariable.GetDirectoryFor("git.cmd");
@@ -136,11 +138,7 @@ namespace Horn.Core.SCM
 
             try
             {
-                var processFactory = new DiagnosticsProcessFactory();
-
-                var git = Path.Combine(Settings.GitBinDir, "git.exe");
-
-                IProcess process = processFactory.GetProcess(git, "pull -v ", packageTree.WorkingDirectory.FullName);
+                IProcess process = _gitCommand.Run("pull -v", packageTree.WorkingDirectory.FullName);
 
                 while (true)
                 {
@@ -166,7 +164,7 @@ namespace Horn.Core.SCM
 				{
 					if(BranchExists(BranchName))
 					{
-						RunGitCommand(string.Format("checkout {0}", BranchName));
+						_gitCommand.Run(string.Format("checkout {0}", BranchName));
 					}
 					else
 					{
@@ -184,7 +182,7 @@ namespace Horn.Core.SCM
 
             return CurrentRevisionNumber();
         }
-
+																								  
         public GitSourceControl(string url, IEnvironmentVariable environmentVariable) : base(url)
         {
             SetupGit(environmentVariable);

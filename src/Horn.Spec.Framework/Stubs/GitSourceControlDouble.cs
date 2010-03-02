@@ -27,11 +27,6 @@ namespace Horn.Spec.Framework.Stubs
             return revision;
         }
 
-        protected override string RunGitCommand(string args)
-        {
-            return string.Empty;
-        }
-
         protected override void SetMonitor(string destination)
         {
             downloadMonitor = new DefaultDownloadMonitor();
