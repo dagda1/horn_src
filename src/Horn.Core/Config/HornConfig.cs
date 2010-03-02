@@ -20,11 +20,12 @@ namespace Horn.Core.Config
             set { this["packagetreeuri"] = value; }
 		}
 
-		[ConfigurationProperty("packagetreebranch", IsRequired = true)]
-		public string PackageTreeBranch
-		{
-			get { return (string)this["packagetreebranch"]; }
-			set { this["packagetreebranch"] = value; }
+        [ConfigurationProperty("packagetreebranch", IsRequired = true)]
+        public string PackageTreeBranch
+        {
+            get { return (string)this["packagetreebranch"]; }
+            set { this["packagetreebranch"] = value; }
+        }
 		
 
 		[ConfigurationProperty("usebash", IsRequired = true)]
