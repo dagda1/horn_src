@@ -27,6 +27,13 @@ namespace Horn.Core.Config
 			set { this["packagetreebranch"] = value; }
 		}
 
+		[ConfigurationProperty("usebash", IsRequired = true)]
+		public bool UseBash
+		{
+			get { return (bool)this["usebash"]; }
+			set { this["usebash"] = value; }
+		}
+
         public static HornConfig Settings
         {
             get

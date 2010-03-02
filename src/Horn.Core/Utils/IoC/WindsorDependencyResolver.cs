@@ -155,6 +155,11 @@ namespace Horn.Core.Utils.IoC
 				AllTypes.Of<IDependentUpdater>().FromAssembly(Assembly.GetExecutingAssembly())
 					.WithService.FirstInterface().Configure(config => config.LifeStyle.Transient)
 				);
+
+			if (HornConfig.Settings.UseBash)
+				innerContainer.Register(
+					Component.For<IGitCommand>()
+						.ImplementedBy<BashInvokedGitCommand>());
 		}
 	}
 }
