@@ -282,9 +282,16 @@ namespace Horn.Core.PackageStructure
 
         public virtual IPackageTree RetrievePackage(ICommandArgs commandArgs)
         {
-            var packageName = commandArgs.PackageName;
+            if (commandArgs.Packages.Length > 1)
+            {
+                throw new NotImplementedException();
+            }
 
-            var version = commandArgs.Version;
+            PackageArgs packageArgs = commandArgs.Packages[0];
+
+            var packageName = packageArgs.PackageName;
+
+            var version = packageArgs.Version;
 
             return RetrievePackage(packageName, version);
         }

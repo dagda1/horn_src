@@ -227,7 +227,7 @@ namespace Horn.Spec.Framework.Stubs
 
         public IPackageTree RetrievePackage(ICommandArgs commandArgs)
         {
-            return RetrievePackage(commandArgs.PackageName);
+            return RetrievePackage(commandArgs.Packages[0].PackageName);
         }
 
         public PackageTreeStub(string baseDirectory)

@@ -23,13 +23,13 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_command_arguments_contain_the_version_number()
         {
-            Assert.Equal("2.1.0", parser.CommandArguments.Version);
+            Assert.Equal("2.1.0", parser.CommandArguments.Packages[0].Version);
         }
 
         [Fact]
         public void Then_the_package_name_is_correct()
         {
-            Assert.Equal("nhibernate", parser.CommandArguments.PackageName);
+            Assert.Equal("nhibernate", parser.CommandArguments.Packages[0].PackageName);
         }
     }
 

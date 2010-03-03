@@ -24,7 +24,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_parsed_arguments_contain_the_install_name()
         {
-            Assert.Equal(installName, parser.CommandArguments.PackageName);
+            Assert.Equal(installName, parser.CommandArguments.Packages[0].PackageName);
         }
 
     }
@@ -160,7 +160,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_install_name_should_be_castle_windsor()
         {
-            Assert.Equal("castle.windsor", parser.CommandArguments.PackageName);
+            Assert.Equal("castle.windsor", parser.CommandArguments.Packages[0].PackageName);
         }
 
         [Fact]
@@ -198,7 +198,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_install_name_should_be_castle_windsor()
         {
-            Assert.Equal("castle.windsor", parser.CommandArguments.PackageName);
+            Assert.Equal("castle.windsor", parser.CommandArguments.Packages[0].PackageName);
         }
 
         [Fact]

@@ -23,7 +23,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_command_arguments_contain_the_mode()
         {
-            Assert.Equal("debug", parser.CommandArguments.Mode);
+            Assert.Equal("debug", parser.CommandArguments.Packages[0].Mode);
         }
     }
 
@@ -65,7 +65,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_mode_is_null()
         {
-            Assert.Equal( null, parser.CommandArguments.Mode );
+            Assert.Equal( null, parser.CommandArguments.Packages[0].Mode );
         }
     }
 }

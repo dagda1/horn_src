@@ -20,6 +20,7 @@ namespace Horn.Core.PackageCommands
         private readonly IGet get;
         private readonly IProcessFactory processFactory;
         private readonly ICommandArgs commandArgs;
+        private readonly PackageArgs packageArgs;
         private static readonly ILog log = LogManager.GetLogger(typeof(PackageBuilder));
 
         public virtual void Execute(IPackageTree packageTree)
@@ -28,8 +29,8 @@ namespace Horn.Core.PackageCommands
 
             LogPackageDetails();
 
-            if (!packageTree.BuildNodes().Select(x => x.Name).ToList().Contains(commandArgs.PackageName))
-                throw new UnknownInstallPackageException(string.Format("No package definition exists for {0}.", commandArgs.PackageName));
+            if (!packageTree.BuildNodes().Select(x => x.Name).ToList().Contains(packageArgs.PackageName))
+                throw new UnknownInstallPackageException(string.Format("No package definition exists for {0}.", packageArgs.PackageName));
             
             IPackageTree componentTree = packageTree.RetrievePackage(commandArgs);
 
@@ -37,7 +38,7 @@ namespace Horn.Core.PackageCommands
 
             BuildDependencyTree(packageTree, dependencyTree);
 
-            log.InfoFormat("\nHorn has finished installing {0}.\n\n".ToUpper(), commandArgs.PackageName);
+            log.InfoFormat("\nHorn has finished installing {0}.\n\n".ToUpper(), packageArgs.PackageName);
         }
 
         protected virtual void BuildDependencyTree(IPackageTree packageTree, IDependencyTree dependencyTree)
@@ -59,7 +60,7 @@ namespace Horn.Core.PackageCommands
         {
             log.InfoFormat("\nHorn is building {0}.\n\n".ToUpper(), nextMetaData.InstallName);
 
-            nextMetaData.BuildEngine.Build( processFactory, nextTree, commandArgs.Mode );
+            nextMetaData.BuildEngine.Build(processFactory, nextTree, packageArgs.Mode);
         }
 
         protected virtual void ExecutePrebuildCommands(IBuildMetaData metaData, IPackageTree packageTree)
@@ -82,13 +83,13 @@ namespace Horn.Core.PackageCommands
 
         protected virtual void LogPackageDetails()
         {
-            var message = string.Format("installing {0} ", commandArgs.PackageName);
+            var message = string.Format("installing {0} ", packageArgs.PackageName);
 
-            if (!string.IsNullOrEmpty(commandArgs.Version))
-                message += string.Format(" Version {0}", commandArgs.Version);
+            if (!string.IsNullOrEmpty(packageArgs.Version))
+                message += string.Format(" Version {0}", packageArgs.Version);
 
-            if (!string.IsNullOrEmpty(commandArgs.Mode))
-                message += string.Format(" Mode {0}.", commandArgs.Mode);
+            if (!string.IsNullOrEmpty(packageArgs.Mode))
+                message += string.Format(" Mode {0}.", packageArgs.Mode);
 
             log.Info(message + ".");
         }
@@ -152,6 +153,7 @@ namespace Horn.Core.PackageCommands
             this.get = get;
             this.processFactory = processFactory;
             this.commandArgs = commandArgs;
+            packageArgs = commandArgs.Packages[0];
         }
     }
 }
