@@ -29,7 +29,7 @@ namespace Horn.Core.Utils.CmdLine
             }
             else if (switches.ContainsKey("installmultiple"))
             {
-                throw new NotImplementedException();
+                Packages = new MultiPackageNameParser().Parse(switches["installmultiple"]);
             }
 
             RebuildOnly = switches.Keys.Contains("rebuildonly");
