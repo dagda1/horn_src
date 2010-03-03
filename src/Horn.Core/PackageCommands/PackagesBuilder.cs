@@ -93,7 +93,7 @@ namespace Horn.Core.PackageCommands
 
                 Func<IList<IPackageTree>, string> toText = tree => tree.Count == 0 ? "-None-" : string.Join(", ", tree.Select(t => t.FullName).ToArray());
 
-                log.DebugFormat("Requested package tree: {0}\nAlready built: {1}\nFiltered: {2}", toText(original), toText(alreadyBuilt), toText(filtered));
+                log.InfoFormat("Requested package tree: {0}\nAlready built: {1}\nFiltered: {2}", toText(original), toText(alreadyBuilt), toText(filtered));
 
                 alreadyBuilt.AddRange(filtered);
             }
