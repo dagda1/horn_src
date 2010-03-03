@@ -17,7 +17,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_a_command_args_object_is_created()
         {
-            Assert.Equal(installName, parser.CommandArguments.PackageName);
+            Assert.Equal(installName, parser.CommandArguments.Packages[0].PackageName);
 
             Assert.False(parser.CommandArguments.RebuildOnly);
         }

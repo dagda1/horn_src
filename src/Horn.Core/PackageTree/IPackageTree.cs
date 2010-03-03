@@ -60,7 +60,7 @@ namespace Horn.Core.PackageStructure
 
         IPackageTree RetrievePackage(Dependency dependency);
 
-        IPackageTree RetrievePackage(ICommandArgs commandArgs);
+        IPackageTree RetrievePackage(PackageArgs packageArgs);
 
         IPackageTree Root { get; }
 

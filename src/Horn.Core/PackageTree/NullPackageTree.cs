@@ -194,7 +194,7 @@ namespace Horn.Core.PackageStructure
             throw new NullTreeException();
         }
 
-        public IPackageTree RetrievePackage(ICommandArgs commandArgs)
+        public IPackageTree RetrievePackage(PackageArgs packageArgs)
         {
             throw new NullTreeException();
         }

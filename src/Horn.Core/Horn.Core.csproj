@@ -140,6 +140,9 @@
     <Compile Include="exceptions\CannotDeleteTempHornDirectoryException.cs" />
     <Compile Include="exceptions\GitPullFailedException.cs" />
     <Compile Include="extensions\SerialisationExtensions.cs" />
+    <Compile Include="PackageCommands\PackageBuilderBase.cs" />
+    <Compile Include="PackageCommands\PackageEnvironmentInitialization.cs" />
+    <Compile Include="PackageCommands\PackagesBuilder.cs" />
     <Compile Include="PackageTree\BuildNodeCreatedHandler.cs" />
     <Compile Include="SourceControl\BashInvokedGitCommand.cs" />
     <Compile Include="SourceControl\CmdInvokedGitCommand.cs" />
@@ -149,6 +152,8 @@
     <Compile Include="BuildEngines\Process\IShellRunner.cs" />
     <Compile Include="SourceControl\IGitCommand.cs" />
     <Compile Include="SourceControl\MercurialSourceControl.cs" />
+    <Compile Include="Utils\CmdLine\MultiPackageNameParser.cs" />
+    <Compile Include="Utils\CmdLine\PackageArgs.cs" />
     <Compile Include="Utils\EnvironmentVariable.cs" />
     <Compile Include="Utils\FileSystemProvider.cs" />
     <Compile Include="Utils\IEnvironmentVariable.cs" />

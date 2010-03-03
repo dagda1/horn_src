@@ -280,11 +280,11 @@ namespace Horn.Core.PackageStructure
             return RetrievePackage(dependency.PackageName, dependency.Version);
         }
 
-        public virtual IPackageTree RetrievePackage(ICommandArgs commandArgs)
+        public virtual IPackageTree RetrievePackage(PackageArgs packageArgs)
         {
-            var packageName = commandArgs.PackageName;
+            var packageName = packageArgs.PackageName;
 
-            var version = commandArgs.Version;
+            var version = packageArgs.Version;
 
             return RetrievePackage(packageName, version);
         }

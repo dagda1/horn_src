@@ -10,6 +10,8 @@ namespace Horn.Core.Utils.CmdLine
 
         public bool Required { get; private set; }
 
+		public string[] SupersededBy { get; private set; }
+
         public bool RequiresArgument
         {
             get
@@ -19,11 +21,16 @@ namespace Horn.Core.Utils.CmdLine
         }
 
         public Parameter(string key, bool required, bool requiresArgument, bool reoccurs)
+			: this(key, required, new string[0], requiresArgument, reoccurs)
         {
-            Key = key;
-            Required = required;
-            this.requiresArgument = requiresArgument;
-            Reoccurs = reoccurs;
         }
+		public Parameter(string key, bool required, string[] supersededBy, bool requiresArgument, bool reoccurs)
+		{
+			Key = key;
+			Required = required;
+			SupersededBy = supersededBy;
+			this.requiresArgument = requiresArgument;
+			Reoccurs = reoccurs;
+		}
     }
 }

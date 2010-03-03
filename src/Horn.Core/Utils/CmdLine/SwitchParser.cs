@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Horn.Core.Extensions;
 using log4net;
@@ -61,7 +62,12 @@ namespace Horn.Core.Utils.CmdLine
                 if (arg == null)
                 {
                     if (paramRow.Required)
-                        ret = OutputValidationMessage(string.Format("Missing required argument key: {0}.", paramRow.Key));
+                    {
+                        if (!paramRow.SupersededBy.Intersect(ParsedArgs.Keys).Any())
+                        {
+                            ret = OutputValidationMessage(string.Format("Missing required argument key: {0}.", paramRow.Key));
+                        }
+                    }
 
                     continue;
                 }
@@ -134,8 +140,13 @@ namespace Horn.Core.Utils.CmdLine
                 if (!parsedArgs.ContainsKey(name))
                     parsedArgs.Add(name, new List<string>());
 
-                if (!parsedArgs[name].Contains(value))
-                    parsedArgs[name].Add(value);
+                string[] values = value.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var itemValue in values)
+                {
+                    if (!parsedArgs[name].Contains(itemValue))
+                        parsedArgs[name].Add(itemValue);
+                }
             }
 
             LogArguments(parsedArgs);
@@ -150,7 +161,7 @@ namespace Horn.Core.Utils.CmdLine
                 log.InfoFormat("Command {0} was issued with values:", arg.Key);
 
                 foreach (var value in arg.Value)
-                    log.InfoFormat("{0}\n", value);
+                    log.InfoFormat("{0}", value);
             }
         }
 
@@ -174,7 +185,8 @@ Options :
 
             var parameters = new List<Parameter>
                                  {
-                                     new Parameter("install", true, true, false),
+                                     new Parameter("install", true, new[] { "installmultiple" }, true, false),
+                                     new Parameter("installmultiple", true, new[] { "install" }, true, true),
                                      new Parameter("rebuildonly", false, false, false),
                                      new Parameter("version", false, true, false),
                                      new Parameter("refresh", false, false, false),
