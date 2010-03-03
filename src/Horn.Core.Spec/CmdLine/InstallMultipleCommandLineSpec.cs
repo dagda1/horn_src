@@ -38,7 +38,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_parsed_arguments_are_valid()
         {
-            Assert.True(IsValid);
+            AssertIsValid();
         }
 
         [Fact]
