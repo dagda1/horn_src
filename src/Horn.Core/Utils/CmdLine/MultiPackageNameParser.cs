@@ -14,7 +14,10 @@ namespace Horn.Core.Utils.CmdLine
                 .ToArray();
         }
 
-        private static readonly Regex NameRegex = new Regex("^(?<PackageName>[^@#]+)(?:@(?<Version>[^#]+)){0,1}(?:#(?<Mode>.+)){0,1}");
+        private static readonly Regex NameRegex = new Regex(
+            "^(?<PackageName>[^@#]+)"
+            + "(?:@(?<Version>[^#]+)){0,1}"
+            + "(?:#(?<Mode>.+)){0,1}");
 
         public PackageArgs Parse(string name)
         {

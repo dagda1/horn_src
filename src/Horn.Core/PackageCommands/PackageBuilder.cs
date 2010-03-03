@@ -4,7 +4,6 @@ using Castle.Core;
 
 using Horn.Core.BuildEngines;
 using Horn.Core.GetOperations;
-using Horn.Core.SCM;
 using Horn.Core.Utils.CmdLine;
 
 using log4net;

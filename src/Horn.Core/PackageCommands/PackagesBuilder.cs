@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 using Castle.Core;
 
@@ -11,8 +13,6 @@ using Horn.Core.PackageStructure;
 using Horn.Core.Utils.CmdLine;
 
 using log4net;
-
-using System.Linq;
 
 namespace Horn.Core.PackageCommands
 {
@@ -34,6 +34,7 @@ namespace Horn.Core.PackageCommands
         public void Execute(IPackageTree packageTree)
         {
             AlreadyBuilt.Clear();
+            LogPackagesDetails();
             PackageEnvironmentInitialization.InitialiseForClearEnvironment();
 
             foreach (var packageArgs in commandArgs.Packages)
@@ -43,20 +44,30 @@ namespace Horn.Core.PackageCommands
             }
         }
 
-        protected virtual void LogPackageDetails()
+        protected virtual void LogPackagesDetails()
         {
-            foreach (var packageArgs in commandArgs.Packages)
+            StringBuilder details = new StringBuilder();
+            foreach (PackageArgs packageArgs in commandArgs.Packages)
             {
-                var message = string.Format("installing {0} ", packageArgs.PackageName);
+                if (details.Length > 0)
+                {
+                    details.AppendLine();
+                }
+
+                details.AppendFormat("installing {0} ", packageArgs.PackageName);
 
                 if (!string.IsNullOrEmpty(packageArgs.Version))
-                    message += string.Format(" Version {0}", packageArgs.Version);
+                {
+                    details.AppendFormat(" Version {0}", packageArgs.Version);
+                }
 
                 if (!string.IsNullOrEmpty(packageArgs.Mode))
-                    message += string.Format(" Mode {0}.", packageArgs.Mode);
-
-                log.Info(message + ".");
+                {
+                    details.AppendFormat(" Mode {0}.", packageArgs.Mode);
+                }
             }
+
+            log.Info(details);
         }
 
         public PackagesBuilder(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs)
@@ -66,7 +77,25 @@ namespace Horn.Core.PackageCommands
             this.commandArgs = commandArgs;
         }
 
-        public class AlreadyBuiltFilteredDependencyTree
+        private class FilteredPackageBuilder
+            : PackageBuilderBase
+        {
+            private readonly List<IPackageTree> alreadyBuilt;
+
+            public FilteredPackageBuilder(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs, PackageArgs packageArgs, List<IPackageTree> alreadyBuilt)
+                : base(get, processFactory, commandArgs, packageArgs)
+            {
+                this.alreadyBuilt = alreadyBuilt;
+            }
+
+            protected override IDependencyTree GetDependencyTree(IPackageTree componentTree)
+            {
+                var sourceTree = base.GetDependencyTree(componentTree);
+                return new AlreadyBuiltFilteredDependencyTree(sourceTree, alreadyBuilt);
+            }
+        }
+
+        private class AlreadyBuiltFilteredDependencyTree
             : IDependencyTree
         {
             private readonly IList<IPackageTree> _packageTree;
@@ -96,24 +125,6 @@ namespace Horn.Core.PackageCommands
                 log.InfoFormat("Requested package tree: {0}\nAlready built: {1}\nFiltered: {2}", toText(original), toText(alreadyBuilt), toText(filtered));
 
                 alreadyBuilt.AddRange(filtered);
-            }
-        }
-
-        public class FilteredPackageBuilder
-            : PackageBuilderBase
-        {
-            private readonly List<IPackageTree> alreadyBuilt;
-
-            public FilteredPackageBuilder(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs, PackageArgs packageArgs, List<IPackageTree> alreadyBuilt)
-                : base(get, processFactory, commandArgs, packageArgs)
-            {
-                this.alreadyBuilt = alreadyBuilt;
-            }
-
-            protected override IDependencyTree GetDependencyTree(IPackageTree componentTree)
-            {
-                var sourceTree = base.GetDependencyTree(componentTree);
-                return new AlreadyBuiltFilteredDependencyTree(sourceTree, alreadyBuilt);
             }
         }
     }
