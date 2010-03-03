@@ -127,6 +127,7 @@
     <Compile Include="BuildEngine\CommandLineRunnerSpecification.cs" />
     <Compile Include="BuildEngine\OutputDirectorySpecs.cs" />
     <Compile Include="BuildEngine\MSBuildBuildToolSpecification.cs" />
+    <Compile Include="CmdLine\InstallMultipleCommandLineSpec.cs" />
     <Compile Include="CmdLine\ModeCmdLineSpecs.cs" />
     <Compile Include="CmdLine\OutputPathCmdLineSpecs.cs" />
     <Compile Include="CmdLine\VersionCmdLineSpecs.cs" />

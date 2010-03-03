@@ -140,8 +140,13 @@ namespace Horn.Core.Utils.CmdLine
                 if (!parsedArgs.ContainsKey(name))
                     parsedArgs.Add(name, new List<string>());
 
-                if (!parsedArgs[name].Contains(value))
-                    parsedArgs[name].Add(value);
+                string[] values = value.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var itemValue in values)
+                {
+                    if (!parsedArgs[name].Contains(itemValue))
+                        parsedArgs[name].Add(itemValue);
+                }
             }
 
             LogArguments(parsedArgs);
@@ -156,7 +161,7 @@ namespace Horn.Core.Utils.CmdLine
                 log.InfoFormat("Command {0} was issued with values:", arg.Key);
 
                 foreach (var value in arg.Value)
-                    log.InfoFormat("{0}\n", value);
+                    log.InfoFormat("{0}", value);
             }
         }
 
