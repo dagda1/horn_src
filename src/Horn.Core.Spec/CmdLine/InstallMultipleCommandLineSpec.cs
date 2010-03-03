@@ -23,6 +23,25 @@ namespace Horn.Core.Spec.Unit.CmdLine
             Assert.Contains("fourth", parser.ParsedArgs["installmultiple"]);
         }
     }
+    
+    public class When_multiple_values_are_specified_separately : CmdLineSpecificationBase
+    {
+        private readonly string[] args = new[] { "-installmultiple:first@version#mode", "-installmultiple:second#mode", "-installmultiple:third@version", "-installmultiple:fourth" };
+
+        protected override void Because()
+        {
+            parser = new SwitchParser(Output, args);
+        }
+
+        [Fact]
+        public void Then_the_ParsedArgs_should_contain_an_array()
+        {
+            Assert.Contains("first@version#mode", parser.ParsedArgs["installmultiple"]);
+            Assert.Contains("second#mode", parser.ParsedArgs["installmultiple"]);
+            Assert.Contains("third@version", parser.ParsedArgs["installmultiple"]);
+            Assert.Contains("fourth", parser.ParsedArgs["installmultiple"]);
+        }
+    }
 
     public class When_an_installmultiple_switch_is_provided : CmdLineSpecificationBase
     {
