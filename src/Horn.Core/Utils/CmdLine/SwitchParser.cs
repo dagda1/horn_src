@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Horn.Core.Extensions;
 using log4net;
@@ -61,7 +62,12 @@ namespace Horn.Core.Utils.CmdLine
                 if (arg == null)
                 {
                     if (paramRow.Required)
-                        ret = OutputValidationMessage(string.Format("Missing required argument key: {0}.", paramRow.Key));
+                    {
+                        if (!paramRow.SupersededBy.Intersect(ParsedArgs.Keys).Any())
+                        {
+                            ret = OutputValidationMessage(string.Format("Missing required argument key: {0}.", paramRow.Key));
+                        }
+                    }
 
                     continue;
                 }
@@ -174,7 +180,8 @@ Options :
 
             var parameters = new List<Parameter>
                                  {
-                                     new Parameter("install", true, true, false),
+                                     new Parameter("install", true, new[] { "installmultiple" }, true, false),
+                                     new Parameter("installmultiple", true, new[] { "install" }, true, false),
                                      new Parameter("rebuildonly", false, false, false),
                                      new Parameter("version", false, true, false),
                                      new Parameter("refresh", false, false, false),

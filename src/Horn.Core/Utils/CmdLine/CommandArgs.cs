@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Horn.Core.Utils.CmdLine
 {
@@ -41,7 +42,7 @@ namespace Horn.Core.Utils.CmdLine
 
         public CommandArgs(IDictionary<string, IList<string>> switches)
         {
-            PackageName = switches["install"][0];
+            PackageName = switches[switches.Keys.First()][0];
 
             RebuildOnly = switches.Keys.Contains("rebuildonly");
 

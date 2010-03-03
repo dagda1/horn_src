@@ -38,6 +38,15 @@ namespace Horn.Core.Spec.Integration
         }
     }
 
+    public class When_An_InstallMultiple_Key_Is_Requested_From_The_Container : IoCSpecificationBase
+    {
+        [Fact]
+        public void Then_A_Multi_Package_Builder_Is_Returned()
+        {
+            Assert.IsAssignableFrom<MultiPackageBuilder>(IoC.Resolve<IPackageCommand>("installmultiple"));
+        }
+    }
+
     public class When_An_IProcessFactory_Is_Requested_From_The_Contaier : IoCSpecificationBase
     {
         [Fact]

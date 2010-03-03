@@ -140,6 +140,7 @@
     <Compile Include="exceptions\CannotDeleteTempHornDirectoryException.cs" />
     <Compile Include="exceptions\GitPullFailedException.cs" />
     <Compile Include="extensions\SerialisationExtensions.cs" />
+    <Compile Include="PackageCommands\MultiPackageBuilder.cs" />
     <Compile Include="PackageTree\BuildNodeCreatedHandler.cs" />
     <Compile Include="SourceControl\BashInvokedGitCommand.cs" />
     <Compile Include="SourceControl\CmdInvokedGitCommand.cs" />
