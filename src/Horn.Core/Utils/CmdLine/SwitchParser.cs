@@ -186,7 +186,7 @@ Options :
             var parameters = new List<Parameter>
                                  {
                                      new Parameter("install", true, new[] { "installmultiple" }, true, false),
-                                     new Parameter("installmultiple", true, new[] { "install" }, true, false),
+                                     new Parameter("installmultiple", true, new[] { "install" }, true, true),
                                      new Parameter("rebuildonly", false, false, false),
                                      new Parameter("version", false, true, false),
                                      new Parameter("refresh", false, false, false),
