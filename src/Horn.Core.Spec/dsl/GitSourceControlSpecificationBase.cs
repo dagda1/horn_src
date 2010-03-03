@@ -21,9 +21,7 @@ namespace Horn.Core.Spec.Unit.dsl
 		protected override void Before_each_spec()
 		{
 			dependencyResolver = CreateStub<IDependencyResolver>();
-			var environmentVariable = CreateStub<IEnvironmentVariable>();
-			environmentVariable.Stub(x => x.GetDirectoryFor("git.cmd")).Return(Environment.CurrentDirectory);
-			dependencyResolver.Stub(x => x.Resolve<GitSourceControl>()).Return(new GitSourceControl(environmentVariable));
+			dependencyResolver.Stub(x => x.Resolve<GitSourceControl>()).Return(new GitSourceControl(Environment.CurrentDirectory));
 
 			IoC.InitializeWith(dependencyResolver);
 

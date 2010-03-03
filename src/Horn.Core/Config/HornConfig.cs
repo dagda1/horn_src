@@ -18,7 +18,7 @@ namespace Horn.Core.Config
         {
             get { return (string)this["packagetreeuri"]; }
             set { this["packagetreeuri"] = value; }
-		}
+        }
 
         [ConfigurationProperty("packagetreebranch", IsRequired = true)]
         public string PackageTreeBranch
@@ -26,14 +26,13 @@ namespace Horn.Core.Config
             get { return (string)this["packagetreebranch"]; }
             set { this["packagetreebranch"] = value; }
         }
-		
 
-		[ConfigurationProperty("usebash", IsRequired = true)]
-		public bool UseBash
-		{
-			get { return (bool)this["usebash"]; }
-			set { this["usebash"] = value; }
-		}
+        [ConfigurationProperty("bashdirectory", IsRequired = false)]
+        public string BashDirectory
+        {
+            get { return (string)this["bashdirectory"]; }
+            set { this["bashdirectory"] = value; }
+        }
 
         public static HornConfig Settings
         {

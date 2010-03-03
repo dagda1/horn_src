@@ -49,10 +49,10 @@ namespace Horn.Core.SCM
 
                 var result = _gitCommand.Run(GitCommands.GitCommands.CloneCmd(Url, destination.FullName, false, 1).Replace("-v", ""));
 
-				if(BranchName != "master")
-				{
-					CreateAndTrackRemoteBranch(BranchName, destination);
-				}
+                if(BranchName != "master")
+                {
+                    CreateAndTrackRemoteBranch(BranchName, destination);
+                }
             }
             catch (Exception ex)
             {
@@ -62,32 +62,32 @@ namespace Horn.Core.SCM
             return CurrentRevisionNumber();
         }
 
-		private bool IsBranchCheckedOut(string branchName)
-		{
-			var branches = _gitCommand.Run("branch").Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-			var currentBranch = branches.Single(x => x.Trim().StartsWith("*"));
-			return currentBranch.Trim(' ', '*') == branchName;
-		}
+        private bool IsBranchCheckedOut(string branchName)
+        {
+            var branches = _gitCommand.Run("branch").Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var currentBranch = branches.Single(x => x.Trim().StartsWith("*"));
+            return currentBranch.Trim(' ', '*') == branchName;
+        }
 
-		private bool BranchExists(string branchName)
-		{
-			var branches = GitCommands.GitCommands.GetHeads(false, true);
-			return branches.Any(x => x.Name == branchName);
-		}
+        private bool BranchExists(string branchName)
+        {
+            var branches = GitCommands.GitCommands.GetHeads(false, true);
+            return branches.Any(x => x.Name == branchName);
+        }
 
-    	private void CreateAndTrackRemoteBranch(string branchName, FileSystemInfo destination)
-    	{
-    		Settings.WorkingDir = destination.FullName;
-			
-    		//doesn't look like there's an equivalent for this in GitCommands
-    		const string trackRemoteBranch = "checkout -b {0} --track origin/{0}";
-    		string command = string.Format(trackRemoteBranch, branchName);
+        private void CreateAndTrackRemoteBranch(string branchName, FileSystemInfo destination)
+        {
+            Settings.WorkingDir = destination.FullName;
 
-			log.Info("Tracking remote branch " + branchName);
-			_gitCommand.Run(command);
-    	}
+            //doesn't look like there's an equivalent for this in GitCommands
+            const string trackRemoteBranch = "checkout -b {0} --track origin/{0}";
+            string command = string.Format(trackRemoteBranch, branchName);
 
-    	protected virtual string CurrentRevisionNumber()
+            log.Info("Tracking remote branch " + branchName);
+            _gitCommand.Run(command);
+        }
+
+        protected virtual string CurrentRevisionNumber()
         {
             string rev = null;
 
@@ -110,7 +110,7 @@ namespace Horn.Core.SCM
             return CurrentRevisionNumber();
         }
 
-		public override bool ShouldUpdate(string currentRevision, IPackageTree packageTree)
+        public override bool ShouldUpdate(string currentRevision, IPackageTree packageTree)
         {
             return true;
         }
@@ -119,15 +119,10 @@ namespace Horn.Core.SCM
         {
         }
 
-        protected virtual void SetupGit(IEnvironmentVariable environmentVariable)
+        protected virtual void SetupGit(string gitBinDirectory)
         {
-            string gitDir = environmentVariable.GetDirectoryFor("git.cmd");
-
-            if (string.IsNullOrEmpty(gitDir))
-                throw new EnvironmentVariableNotFoundException("No environment variable found for the git.cmd file.");
-
-            Settings.GitDir = gitDir;
-            Settings.GitBinDir = Path.Combine(new DirectoryInfo(gitDir).Parent.FullName, "bin");
+            Settings.GitDir = new DirectoryInfo(gitBinDirectory).Parent.FullName;
+            Settings.GitBinDir = gitBinDirectory;
             Settings.UseFastChecks = false;
             Settings.ShowGitCommandLine = false;
         }
@@ -159,18 +154,18 @@ namespace Horn.Core.SCM
                     throw new GitPullFailedException(string.Format("A git pull failed for the {0} package", packageTree.Name));
                 }
 
-				//Ensure we're on the right branch
-				if(! IsBranchCheckedOut(BranchName))
-				{
-					if(BranchExists(BranchName))
-					{
-						_gitCommand.Run(string.Format("checkout {0}", BranchName));
-					}
-					else
-					{
-						CreateAndTrackRemoteBranch(BranchName, destination);
-					}
-				}
+                //Ensure we're on the right branch
+                if(! IsBranchCheckedOut(BranchName))
+                {
+                    if(BranchExists(BranchName))
+                    {
+                        _gitCommand.Run(string.Format("checkout {0}", BranchName));
+                    }
+                    else
+                    {
+                        CreateAndTrackRemoteBranch(BranchName, destination);
+                    }
+                }
 
                 //TODO: The following should work.  Might be the way I set up msysgit?
                 //GitCommands.GitCommands.Pull("origin", "master", false);
@@ -182,15 +177,15 @@ namespace Horn.Core.SCM
 
             return CurrentRevisionNumber();
         }
-																								  
-        public GitSourceControl(string url, IEnvironmentVariable environmentVariable) : base(url)
+    
+        public GitSourceControl(string url, string gitBinDirectory) : base(url)
         {
-            SetupGit(environmentVariable);
+            SetupGit(gitBinDirectory);
         }
 
-        public GitSourceControl(IEnvironmentVariable environmentVariable)
+        public GitSourceControl(string gitBinDirectory)
         {
-            SetupGit(environmentVariable);
+            SetupGit(gitBinDirectory);
         }
     }
 }

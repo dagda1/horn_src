@@ -1,9 +1,11 @@
 using System;
+using System.IO;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Horn.Core.BuildEngines;
 using Horn.Core.Config;
 using Horn.Core.Dsl;
+using Horn.Core.exceptions;
 using Horn.Core.GetOperations;
 using Horn.Core.PackageCommands;
 using Horn.Core.PackageStructure;
@@ -20,23 +22,23 @@ namespace Horn.Core.Utils.IoC
 	{
 		protected readonly WindsorContainer innerContainer;
 
-	    public void AddComponentInstance<Ttype>(string key, Type service, Ttype instance)
-	    {
-            innerContainer.Kernel.AddComponentInstance(key, service, instance);
-	    }
+		public void AddComponentInstance<Ttype>(string key, Type service, Ttype instance)
+		{
+			innerContainer.Kernel.AddComponentInstance(key, service, instance);
+		}
 
-	    public bool HasComponent<TService>()
-	    {
-            return innerContainer.Kernel.HasComponent(typeof(TService));
-	    }
+		public bool HasComponent<TService>()
+		{
+			return innerContainer.Kernel.HasComponent(typeof(TService));
+		}
 
-	    //TODO: Remove
-	    public IWindsorContainer GetContainer()
-	    {
-	        return innerContainer;
-	    }
+		//TODO: Remove
+		public IWindsorContainer GetContainer()
+		{
+			return innerContainer;
+		}
 
-	    public T Resolve<T>()
+		public T Resolve<T>()
 		{
 			return innerContainer.Resolve<T>();
 		}
@@ -46,11 +48,11 @@ namespace Horn.Core.Utils.IoC
 			return innerContainer.Resolve<T>(key);
 		}
 
-	    public WindsorDependencyResolver(ICommandArgs commandArgs)
+		public WindsorDependencyResolver(ICommandArgs commandArgs)
 		{
 			innerContainer = new WindsorContainer();
 
-            if(commandArgs != null)
+			if(commandArgs != null)
 			    innerContainer.Kernel.AddComponentInstance<ICommandArgs>(typeof(ICommandArgs), commandArgs);
 
 			innerContainer.Kernel.Resolver.AddSubResolver(new EnumerableResolver(innerContainer.Kernel));
@@ -69,17 +71,10 @@ namespace Horn.Core.Utils.IoC
 				);
 
 			innerContainer.Register(
-				Component.For<GitSourceControl>()
-							.Named("Git")
-							.LifeStyle.Transient
-				);
-
-			innerContainer.Register(
 				Component.For<MercurialSourceControl>()
 							.Named("Hg")
 							.LifeStyle.Transient
 				);
-
 
 			innerContainer.Register(
 				Component.For<IPackageCommand>()
@@ -108,15 +103,6 @@ namespace Horn.Core.Utils.IoC
 							.ImplementedBy<DiagnosticsProcessFactory>()
 							.LifeStyle.Transient
 
-				);
-
-			innerContainer.Register(
-				Component.For<SourceControl>()
-							.ImplementedBy<GitSourceControl>()
-							.Parameters(
-								Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri),
-								Parameter.ForKey("BranchName").Eq(HornConfig.Settings.PackageTreeBranch))
-							.LifeStyle.Transient
 				);
 
 			innerContainer.Register(
@@ -156,10 +142,31 @@ namespace Horn.Core.Utils.IoC
 					.WithService.FirstInterface().Configure(config => config.LifeStyle.Transient)
 				);
 
-			if (HornConfig.Settings.UseBash)
+			var gitBinDirectory = new GitBinDirectoryFinder().FindPreferred();
+
+			innerContainer.Register(
+				Component.For<SourceControl>()
+							.ImplementedBy<GitSourceControl>()
+							.Parameters(
+								Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri),
+								Parameter.ForKey("gitBinDirectory").Eq(gitBinDirectory),
+								Parameter.ForKey("BranchName").Eq(HornConfig.Settings.PackageTreeBranch))
+							.LifeStyle.Transient
+				);
+
+			innerContainer.Register(
+				Component.For<GitSourceControl>()
+							.Named("Git")
+							.Parameters(Parameter.ForKey("gitBinDirectory").Eq(gitBinDirectory))
+							.LifeStyle.Transient
+				);
+
+			if (!string.IsNullOrEmpty(HornConfig.Settings.BashDirectory))
+			{
 				innerContainer.Register(
 					Component.For<IGitCommand>()
 						.ImplementedBy<BashInvokedGitCommand>());
+			}
 		}
 	}
 }

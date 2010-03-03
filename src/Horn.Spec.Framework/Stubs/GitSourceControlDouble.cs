@@ -53,7 +53,7 @@ namespace Horn.Spec.Framework.Stubs
             Console.WriteLine("Source control download monitoring stopped.");
         }
 
-        public GitSourceControlDouble(string url, IEnvironmentVariable environmentVariable) : base(url, environmentVariable)
+        public GitSourceControlDouble(string url, string gitBinDirectory) : base(url, gitBinDirectory)
         {
         }
     }

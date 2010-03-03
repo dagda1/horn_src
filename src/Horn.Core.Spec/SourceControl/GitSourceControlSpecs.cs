@@ -20,7 +20,7 @@ namespace Horn.Core.Spec.SCM
         {
             packageTree = TreeHelper.GetTempEmptyPackageTree();
 
-            gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, new EnvironmentVariable());
+            gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, Environment.CurrentDirectory);
         }
 
         protected override void Because()
@@ -45,7 +45,7 @@ namespace Horn.Core.Spec.SCM
         {
             packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithRevision);
 
-            gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, new EnvironmentVariable());
+            gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, Environment.CurrentDirectory);
         }
 
         protected override void Because()
