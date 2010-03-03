@@ -32,7 +32,7 @@ namespace Horn.Core.PackageCommands
             if (!packageTree.BuildNodes().Select(x => x.Name).ToList().Contains(packageArgs.PackageName))
                 throw new UnknownInstallPackageException(string.Format("No package definition exists for {0}.", packageArgs.PackageName));
             
-            IPackageTree componentTree = packageTree.RetrievePackage(commandArgs);
+            IPackageTree componentTree = packageTree.RetrievePackage(packageArgs);
 
             IDependencyTree dependencyTree = GetDependencyTree(componentTree);
 
@@ -148,12 +148,12 @@ namespace Horn.Core.PackageCommands
             SourceControl.ClearDownLoadedPackages();
         }
 
-        public PackageBuilder(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs)
+        public PackageBuilder(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs, PackageArgs packageArgs)
         {
             this.get = get;
             this.processFactory = processFactory;
             this.commandArgs = commandArgs;
-            packageArgs = commandArgs.Packages[0];
+            this.packageArgs = packageArgs;
         }
     }
 }

@@ -1,6 +1,7 @@
  using System;
  using System.IO;
  using Horn.Core.PackageStructure;
+ using Horn.Core.Utils.CmdLine;
  using Horn.Framework.helpers;
  using Horn.Spec.Framework.helpers;
  using Xunit;
@@ -16,7 +17,7 @@ namespace Horn.Core.Spec.RevisionDataSpecs
         {
             var root = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithoutRevision);
 
-            package = root.RetrievePackage(CommandLineHelper.GetCommandLineArgs("castle", "2.1.0"));
+            package = root.RetrievePackage(CommandLineHelper.GetCommandLineArgs("castle", "2.1.0").Packages[0]);
         }
 
         protected override void Because()
@@ -47,7 +48,7 @@ namespace Horn.Core.Spec.RevisionDataSpecs
 
         protected override void Before_each_spec()
         {
-            package = TreeHelper.GetTempPackageTree().RetrievePackage(CommandLineHelper.GetCommandLineArgs(PackageTreeHelper.PackageWithRevision, "2.1.0"));
+            package = TreeHelper.GetTempPackageTree().RetrievePackage(CommandLineHelper.GetCommandLineArgs(PackageTreeHelper.PackageWithRevision, "2.1.0").Packages[0]);
         }
 
         protected override void Because()

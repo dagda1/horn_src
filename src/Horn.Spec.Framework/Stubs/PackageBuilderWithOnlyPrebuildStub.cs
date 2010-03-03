@@ -16,7 +16,7 @@ namespace Horn.Spec.Framework.Stubs
             ExecutePrebuildCommands(buildMetaData, packageTree);
         }
 
-        public PackageBuilderWithOnlyPrebuildStub(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs, IBuildMetaData buildMetaData) : base(get, processFactory, commandArgs)
+        public PackageBuilderWithOnlyPrebuildStub(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs, PackageArgs packageArgs, IBuildMetaData buildMetaData) : base(get, processFactory, commandArgs, packageArgs)
         {
             this.buildMetaData = buildMetaData;
         }

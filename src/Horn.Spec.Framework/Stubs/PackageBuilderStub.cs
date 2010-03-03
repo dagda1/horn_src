@@ -15,8 +15,8 @@ namespace Horn.Spec.Framework.Stubs
             Console.WriteLine(string.Format("Building {0}", nextMetaData.InstallName));
         }
 
-        public PackageBuilderStub(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs)
-            : base(get, processFactory, commandArgs)
+        public PackageBuilderStub(IGet get, IProcessFactory processFactory, ICommandArgs commandArgs, PackageArgs packageArgs)
+            : base(get, processFactory, commandArgs, packageArgs)
         {
         }
     }

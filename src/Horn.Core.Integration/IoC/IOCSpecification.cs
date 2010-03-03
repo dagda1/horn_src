@@ -32,9 +32,9 @@ namespace Horn.Core.Spec.Integration
     public class When_An_Install_Key_Is_Requested_From_The_Container : IoCSpecificationBase
     {
         [Fact]
-        public void Then_A_Package_Builder_Is_Returned()
+        public void Then_A_Multi_Package_Builder_Is_Returned()
         {
-            Assert.IsAssignableFrom<PackageBuilder>(IoC.Resolve<IPackageCommand>("install"));
+            Assert.IsAssignableFrom<PackagesBuilder>(IoC.Resolve<IPackageCommand>("install"));
         }
     }
 
@@ -43,7 +43,7 @@ namespace Horn.Core.Spec.Integration
         [Fact]
         public void Then_A_Multi_Package_Builder_Is_Returned()
         {
-            Assert.IsAssignableFrom<MultiPackageBuilder>(IoC.Resolve<IPackageCommand>("installmultiple"));
+            Assert.IsAssignableFrom<PackagesBuilder>(IoC.Resolve<IPackageCommand>("installmultiple"));
         }
     }
 

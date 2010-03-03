@@ -84,13 +84,13 @@ namespace Horn.Core.Utils.IoC
 			innerContainer.Register(
 				Component.For<IPackageCommand>()
 							.Named("install")
-							.ImplementedBy<PackageBuilder>()
+							.ImplementedBy<PackagesBuilder>()
 							.LifeStyle.Transient
 				);
 			innerContainer.Register(
 				Component.For<IPackageCommand>()
 							.Named("installmultiple")
-							.ImplementedBy<MultiPackageBuilder>()
+                            .ImplementedBy<PackagesBuilder>()
 							.LifeStyle.Transient
 				);
 

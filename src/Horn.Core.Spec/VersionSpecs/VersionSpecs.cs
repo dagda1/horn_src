@@ -49,7 +49,7 @@ namespace Horn.Core.Spec.VersionSpecs
 
             get.Stub(x => x.ExportTo(packageTree)).Return(packageTree);
 
-            packageBuilder = new PackageBuilderStub(get, MockRepository.GenerateStub<IProcessFactory>(), parser.CommandArguments);
+            packageBuilder = new PackageBuilderStub(get, MockRepository.GenerateStub<IProcessFactory>(), parser.CommandArguments, parser.CommandArguments.Packages[0]);
         }
 
         protected override void Because()

@@ -34,7 +34,8 @@ namespace Horn.Core.Spec.Unit.PackageCommands
 
             get = new Get(MockRepository.GenerateStub<IFileSystemProvider>());
 
-            packageBuilder = new PackageBuilder(get, new StubProcessFactory(), new CommandArgsDouble("castle"));
+            CommandArgsDouble commandArgsDouble = new CommandArgsDouble("castle");
+            packageBuilder = new PackageBuilder(get, new StubProcessFactory(), commandArgsDouble, commandArgsDouble.SinglePackage);
         }
 
         protected override void Because()
