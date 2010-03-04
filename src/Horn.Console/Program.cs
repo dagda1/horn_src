@@ -68,42 +68,52 @@ namespace Horn.Console
             log.Debug("IOC initialised.....");
         }
 
+        private static DirectoryInfo EnsureFolderExists(string path)
+        {
+            var rootDir = new DirectoryInfo(path);
+
+            if (!rootDir.Exists)
+                rootDir.Create();
+
+            return rootDir;
+        }
+
         private static DirectoryInfo GetRootFolderPath(ICommandArgs commandArgs)
         {
             string rootFolder;
+            DirectoryInfo rootDirInfo;
+
+            try
+            {
+                rootDirInfo = EnsureFolderExists(HornConfig.Settings.HornRootDirectory);
+                rootFolder = rootDirInfo.FullName;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+
+                rootDirInfo = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                rootFolder = Path.Combine(rootDirInfo.Parent.FullName, ".horn");
+            }
+
+            rootDirInfo = new DirectoryInfo(rootFolder);
 
             if (!String.IsNullOrEmpty(commandArgs.OutputPath))
             {
-                rootFolder = Path.Combine(commandArgs.OutputPath, PackageTree.RootPackageTreeName);
-            }
-            else
-            {
                 try
                 {
-                    var rootDir = new DirectoryInfo(Path.Combine(HornConfig.Settings.HornRootDirectory, ".horn"));
-
-                    if (!rootDir.Exists)
-                        rootDir.Create();
-
-                    rootFolder = rootDir.FullName;
+                    rootDirInfo = EnsureFolderExists(Path.Combine(commandArgs.OutputPath, rootDirInfo.Name));
+                    rootFolder = rootDirInfo.FullName;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     log.Error(ex);
-
-                    var documents = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-
-                    rootFolder = Path.Combine(documents.Parent.FullName, PackageTree.RootPackageTreeName);   
                 }
-            }            
+            }         
 
             log.DebugFormat("root folder = {0}", rootFolder);
 
-            var ret = new DirectoryInfo(rootFolder);
-
-            ret.Create();
-
-            return ret;
+            return rootDirInfo;
         }
     }
 }
