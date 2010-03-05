@@ -79,14 +79,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="GitCommands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\GitCommands.dll</HintPath>
-    </Reference>
-    <Reference Include="GitUIPluginInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\GitUIPluginInterfaces.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -146,14 +138,15 @@
     <Compile Include="PackageCommands\PackageEnvironmentInitialization.cs" />
     <Compile Include="PackageCommands\PackagesBuilder.cs" />
     <Compile Include="PackageTree\BuildNodeCreatedHandler.cs" />
-    <Compile Include="SourceControl\BashInvokedGitCommand.cs" />
-    <Compile Include="SourceControl\CmdInvokedGitCommand.cs" />
-    <Compile Include="SourceControl\GitBinDirectoryFinder.cs" />
-    <Compile Include="SourceControl\GitCommand.cs" />
-    <Compile Include="SourceControl\GitSourceControl.cs" />
+    <Compile Include="SourceControl\Git\BashGitWorker.cs" />
+    <Compile Include="SourceControl\Git\DefaultGitWorker.cs" />
+    <Compile Include="SourceControl\Git\GitHead.cs" />
+    <Compile Include="SourceControl\Git\GitHeadOutputParser.cs" />
+    <Compile Include="SourceControl\Git\GitSourceControl.cs" />
     <Compile Include="BuildEngines\Process\IShellRunner.cs" />
-    <Compile Include="SourceControl\IGitCommand.cs" />
+    <Compile Include="SourceControl\Git\IGitWorker.cs" />
     <Compile Include="SourceControl\MercurialSourceControl.cs" />
+    <Compile Include="SourceControl\Git\GitWorkerBase.cs" />
     <Compile Include="Utils\CmdLine\MultiPackageNameParser.cs" />
     <Compile Include="Utils\CmdLine\PackageArgs.cs" />
     <Compile Include="Utils\EnvironmentVariable.cs" />

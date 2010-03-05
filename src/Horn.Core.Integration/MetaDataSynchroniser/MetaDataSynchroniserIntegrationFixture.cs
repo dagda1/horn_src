@@ -18,7 +18,7 @@ namespace Horn.Core.Integration.MetaDataSynchroniserFixtures
         {
             SourceControl.ClearDownLoadedPackages();
 
-            metaDataSynchroniser = new MetaDataSynchroniser(new GitSourceControl(MetaDataSynchroniser.PackageTreeUri, new GitBinDirectoryFinder().FindPreferred()));
+			metaDataSynchroniser = new MetaDataSynchroniser(new GitSourceControl(MetaDataSynchroniser.PackageTreeUri, new DefaultGitWorker()));
         }
 
         protected override void After_each_spec()

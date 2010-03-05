@@ -1,18 +1,16 @@
 using System;
-using System.IO;
+using System.Reflection;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Horn.Core.BuildEngines;
 using Horn.Core.Config;
+using Horn.Core.Dependencies;
 using Horn.Core.Dsl;
-using Horn.Core.exceptions;
 using Horn.Core.GetOperations;
 using Horn.Core.PackageCommands;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
 using Horn.Core.Tree.MetaDataSynchroniser;
-using System.Reflection;
-using Horn.Core.Dependencies;
 using Horn.Core.Utils.CmdLine;
 using Parameter = Castle.MicroKernel.Registration.Parameter;
 
@@ -148,30 +146,32 @@ namespace Horn.Core.Utils.IoC
 					.WithService.FirstInterface().Configure(config => config.LifeStyle.Transient)
 				);
 
-			var gitBinDirectory = new GitBinDirectoryFinder().FindPreferred();
-
 			innerContainer.Register(
-				Component.For<SourceControl>()
-							.ImplementedBy<GitSourceControl>()
+				Component.For<GitSourceControl>()
+							.Named("Git")
 							.Parameters(
 								Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri),
-								Parameter.ForKey("gitBinDirectory").Eq(gitBinDirectory),
 								Parameter.ForKey("BranchName").Eq(HornConfig.Settings.PackageTreeBranch))
 							.LifeStyle.Transient
 				);
 
-			innerContainer.Register(
-				Component.For<GitSourceControl>()
-							.Named("Git")
-							.Parameters(Parameter.ForKey("gitBinDirectory").Eq(gitBinDirectory))
-							.LifeStyle.Transient
-				);
-
-			if (!string.IsNullOrEmpty(HornConfig.Settings.BashDirectory))
+			if (string.IsNullOrEmpty(HornConfig.Settings.BashDirectory))
 			{
 				innerContainer.Register(
-					Component.For<IGitCommand>()
-						.ImplementedBy<BashInvokedGitCommand>());
+					Component.For<IGitWorker>()
+						.ImplementedBy<DefaultGitWorker>()
+						.LifeStyle.Transient
+					);
+			}
+			else
+			{
+				innerContainer.Register(
+					Component.For<IGitWorker>()
+						.ImplementedBy<BashGitWorker>()
+						.Parameters(
+							Parameter.ForKey("bashDirectory").Eq(HornConfig.Settings.BashDirectory))
+						.LifeStyle.Transient
+					);
 			}
 		}
 	}

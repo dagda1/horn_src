@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using Horn.Core.PackageStructure;
+using Horn.Core.SCM;
 using Horn.Core.Tree.MetaDataSynchroniser;
 using Horn.Core.Utils;
 using Horn.Framework.helpers;
@@ -20,7 +21,7 @@ namespace Horn.Core.Spec.SCM
         {
             packageTree = TreeHelper.GetTempEmptyPackageTree();
 
-            gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, Environment.CurrentDirectory);
+			gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, new DefaultGitWorker());
         }
 
         protected override void Because()
@@ -45,7 +46,7 @@ namespace Horn.Core.Spec.SCM
         {
             packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(PackageTreeHelper.PackageWithRevision);
 
-            gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, Environment.CurrentDirectory);
+			gitSourceControl = new GitSourceControlDouble(MetaDataSynchroniser.PackageTreeUri, new DefaultGitWorker());
         }
 
         protected override void Because()

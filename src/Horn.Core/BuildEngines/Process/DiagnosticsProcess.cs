@@ -11,6 +11,11 @@ namespace Horn.Core.BuildEngines
             return process.StandardOutput.ReadLine() ?? process.StandardError.ReadLine();
         }
 
+		public bool IsComplete
+		{
+			get { return process.HasExited; }
+		}
+
         public void WaitForExit()
         {
             process.WaitForExit();

@@ -21,7 +21,7 @@ namespace Horn.Core.Spec.Unit.dsl
 		protected override void Before_each_spec()
 		{
 			dependencyResolver = CreateStub<IDependencyResolver>();
-			dependencyResolver.Stub(x => x.Resolve<GitSourceControl>()).Return(new GitSourceControl(Environment.CurrentDirectory));
+			dependencyResolver.Stub(x => x.Resolve<GitSourceControl>()).Return(new GitSourceControl(new DefaultGitWorker()));
 
 			IoC.InitializeWith(dependencyResolver);
 

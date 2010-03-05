@@ -20,7 +20,7 @@ namespace Horn.Spec.Framework.Stubs
             }
         }
 
-        protected override string CurrentRevisionNumber()
+        protected override string CurrentRevisionNumber(FileSystemInfo destination)
         {
             revision = Guid.NewGuid().ToString();
 
@@ -53,7 +53,7 @@ namespace Horn.Spec.Framework.Stubs
             Console.WriteLine("Source control download monitoring stopped.");
         }
 
-        public GitSourceControlDouble(string url, string gitBinDirectory) : base(url, gitBinDirectory)
+        public GitSourceControlDouble(string url, IGitWorker gitWorker) : base(url, gitWorker)
         {
         }
     }
