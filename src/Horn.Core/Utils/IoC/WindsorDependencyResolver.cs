@@ -150,13 +150,14 @@ namespace Horn.Core.Utils.IoC
 				Component.For<GitSourceControl>()
 							.Named("Git")
 							.Parameters(
-								Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri),
-								Parameter.ForKey("BranchName").Eq(HornConfig.Settings.PackageTreeBranch))
+								Parameter.ForKey("url").Eq(MetaDataSynchroniser.PackageTreeUri))
 							.LifeStyle.Transient
 				);
 
 			innerContainer.Register(
 				Component.For<SourceControl>()
+					.Parameters(
+						Parameter.ForKey("BranchName").Eq(HornConfig.Settings.PackageTreeBranch))
 					.ImplementedBy<GitSourceControl>()
 					.LifeStyle.Transient
 				);
