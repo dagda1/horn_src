@@ -43,6 +43,8 @@ namespace Horn.Core.SCM
 		{
 			string cloneCommand = string.Format("clone \"{0}\" \"{1}\"", source, workingDirectory.FullName);
 			RunGitCommand(workingDirectory, cloneCommand, false);
+
+			RunGitCommand(workingDirectory, "fetch", false);
 		}
 
 		public virtual string GetCurrentBranch(DirectoryInfo workingDirectory)
@@ -71,41 +73,25 @@ namespace Horn.Core.SCM
 
 		public virtual IEnumerable<GitHead> ListTags(DirectoryInfo workingDirectory)
 		{
-			return GetHeads(workingDirectory, true, false);
+			return GetHeads(workingDirectory)
+				.Where(head => head.IsTag);
 		}
 
 		public virtual IEnumerable<GitHead> ListBranches(DirectoryInfo workingDirectory)
 		{
-			return GetHeads(workingDirectory, false, true);
+			return GetHeads(workingDirectory)
+				.Where(head => head.IsHead || head.IsRemote);
 		}
 
-		public virtual void Pull(DirectoryInfo destination)
+		public virtual void Pull(DirectoryInfo workingDirectory)
 		{
-			RunGitCommand(destination, "pull -v", true);
+			RunGitCommand(workingDirectory, "pull -v", true);
+			RunGitCommand(workingDirectory, "fetch", false);
 		}
 
-		protected virtual IEnumerable<GitHead> GetHeads(DirectoryInfo workingDirectory, bool includeTags, bool includeBranches)
+		protected virtual IEnumerable<GitHead> GetHeads(DirectoryInfo workingDirectory)
 		{
-			if (!(includeTags || includeBranches))
-			{
-				return new List<GitHead>();
-			}
-
-			string command = "show-ref --dereference";
-			if (includeTags && includeBranches)
-			{
-				// Don't alter the command
-			}
-			else if (includeTags)
-			{
-				command += " --tags";
-			}
-			else
-			{
-				command += " --heads";
-			}
-
-			string output = RunGitCommand(workingDirectory, command, false);
+			string output = RunGitCommand(workingDirectory, "show-ref --dereference", false);
 			List<GitHead> result = GitHeadOutputParser.ProcessShowRefOutputForHeads(output);
 			return result;
 		}

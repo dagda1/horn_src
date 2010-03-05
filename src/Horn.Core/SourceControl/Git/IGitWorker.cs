@@ -17,6 +17,6 @@ namespace Horn.Core.SCM
 		IEnumerable<GitHead> ListTags(DirectoryInfo workingDirectory);
 		IEnumerable<GitHead> ListBranches(DirectoryInfo workingDirectory);
 
-		void Pull(DirectoryInfo destination);
+		void Pull(DirectoryInfo workingDirectory);
 	}
 }
