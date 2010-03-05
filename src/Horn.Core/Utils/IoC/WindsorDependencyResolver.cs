@@ -155,6 +155,12 @@ namespace Horn.Core.Utils.IoC
 							.LifeStyle.Transient
 				);
 
+			innerContainer.Register(
+				Component.For<SourceControl>()
+					.ImplementedBy<GitSourceControl>()
+					.LifeStyle.Transient
+				);
+
 			if (string.IsNullOrEmpty(HornConfig.Settings.BashDirectory))
 			{
 				innerContainer.Register(
