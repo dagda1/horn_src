@@ -138,6 +138,7 @@
     <Compile Include="exceptions\BuildFailedException.cs" />
     <Compile Include="exceptions\EnvironmentVariableNotFoundException.cs" />
     <Compile Include="exceptions\CannotDeleteTempHornDirectoryException.cs" />
+    <Compile Include="exceptions\GitBranchNotFoundException.cs" />
     <Compile Include="exceptions\GitPullFailedException.cs" />
     <Compile Include="extensions\SerialisationExtensions.cs" />
     <Compile Include="PackageCommands\PackageBuilderBase.cs" />
