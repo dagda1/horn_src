@@ -34,7 +34,7 @@ namespace Horn.Core.SCM
 				throw new FileNotFoundException("Could not find git.exe", executable);
 			}
 
-			IProcess result = new DiagnosticsProcessFactory().GetProcess(executable, arguments, workingDirectory.FullName);
+			IProcess result = new DiagnosticsProcessFactory().GetProcess(executable, arguments, Environment.CurrentDirectory);
 			return result;
 		}
 

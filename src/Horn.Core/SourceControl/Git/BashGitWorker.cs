@@ -29,7 +29,7 @@ namespace Horn.Core.SCM
 
 			arguments = string.Format("--login -c 'git {0}'", arguments);
 
-			IProcess result = new DiagnosticsProcessFactory().GetProcess(executable, arguments, workingDirectory.FullName);
+			IProcess result = new DiagnosticsProcessFactory().GetProcess(executable, arguments, Environment.CurrentDirectory);
 			return result;
 		}
 	}
