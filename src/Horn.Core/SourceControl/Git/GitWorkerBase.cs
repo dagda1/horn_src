@@ -127,7 +127,7 @@ namespace Horn.Core.SCM
 			}
 			process.WaitForExit();
 
-			return result.ToString();
+			return result.ToString().TrimEnd('\r', '\n');
 		}
 
 		protected abstract IProcess BuildGitCommandProcess(DirectoryInfo workingDirectory, string arguments);
