@@ -55,7 +55,7 @@ namespace Horn.Services.Core.Config
 
         static HornConfig()
         {
-            settings = ConfigurationManager.GetSection("horn") as HornConfig;
+            settings = ConfigurationManager.GetSection("hornservice") as HornConfig;
         }
     }
 }
