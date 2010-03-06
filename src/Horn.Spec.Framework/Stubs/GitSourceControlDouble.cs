@@ -32,6 +32,13 @@ namespace Horn.Spec.Framework.Stubs
             downloadMonitor = new DefaultDownloadMonitor();
         }
 
+        public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
+        {
+            Console.WriteLine("In Download performing a CheckOut");
+
+            return Guid.NewGuid().ToString();
+        }
+
         protected override Thread StartMonitoring()
         {
             Console.WriteLine("Source control download monitoring started.");
