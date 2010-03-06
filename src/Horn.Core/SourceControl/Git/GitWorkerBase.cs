@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 
 using Horn.Core.BuildEngines;
+using Horn.Core.Extensions;
 
 namespace Horn.Core.SCM
 {
@@ -46,11 +47,9 @@ namespace Horn.Core.SCM
 				throw new InvalidOperationException("No clone source defined");
 			}
 
-			if (workingDirectory.FullName.Contains(" "))
-			{
-				throw new NotSupportedException("Can't currently handle working directories with spaces in their names");
-			}
-			string cloneCommand = string.Format("clone \"{0}\" {1}", source, workingDirectory.FullName);
+			string destinationName = workingDirectory.FullName;
+			destinationName = destinationName.TrimEnd('\\', '/');
+			string cloneCommand = string.Format("clone {0} {1}", source.QuotePath(), destinationName.QuotePath());
 			RunGitCommand(workingDirectory, cloneCommand, false);
 
 			RunGitCommand(workingDirectory, "fetch", false);
