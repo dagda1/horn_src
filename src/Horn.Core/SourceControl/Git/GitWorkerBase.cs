@@ -17,7 +17,7 @@ namespace Horn.Core.SCM
 		public virtual void CheckoutNewBranch(DirectoryInfo workingDirectory, string branch, string startingPoint, bool track)
 		{
 			StringBuilder command = new StringBuilder();
-			command.AppendFormat("checkout -b {0} ", branch);
+			command.AppendFormat("checkout -f -b {0} ", branch);
 
 			if (!string.IsNullOrEmpty(startingPoint))
 			{
