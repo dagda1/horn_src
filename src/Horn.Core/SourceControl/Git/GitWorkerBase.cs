@@ -41,7 +41,16 @@ namespace Horn.Core.SCM
 
 		public virtual void Clone(string source, DirectoryInfo workingDirectory)
 		{
-			string cloneCommand = string.Format("clone \"{0}\" \"{1}\"", source, workingDirectory.FullName);
+			if (string.IsNullOrEmpty(source))
+			{
+				throw new InvalidOperationException("No clone source defined");
+			}
+
+			if (workingDirectory.FullName.Contains(" "))
+			{
+				throw new NotSupportedException("Can't currently handle working directories with spaces in their names");
+			}
+			string cloneCommand = string.Format("clone \"{0}\" {1}", source, workingDirectory.FullName);
 			RunGitCommand(workingDirectory, cloneCommand, false);
 
 			RunGitCommand(workingDirectory, "fetch", false);
@@ -117,6 +126,7 @@ namespace Horn.Core.SCM
 					log.Info(line);
 				}
 			}
+			process.WaitForExit();
 
 			return result.ToString();
 		}
