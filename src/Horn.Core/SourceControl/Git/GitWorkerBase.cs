@@ -52,7 +52,7 @@ namespace Horn.Core.SCM
 			string cloneCommand = string.Format("clone {0} {1}", source.QuotePath(), destinationName.QuotePath());
 			RunGitCommand(workingDirectory, cloneCommand, false);
 
-			RunGitCommand(workingDirectory, "fetch", false);
+			RunGitCommand(workingDirectory, "fetch", false); // Also grabs tags
 		}
 
 		public virtual string GetCurrentBranch(DirectoryInfo workingDirectory)
@@ -93,8 +93,8 @@ namespace Horn.Core.SCM
 
 		public virtual void Pull(DirectoryInfo workingDirectory)
 		{
-			RunGitCommand(workingDirectory, "pull -v", true);
-			RunGitCommand(workingDirectory, "fetch", false);
+			RunGitCommand(workingDirectory, "pull -v", true); // Updates (and merges) tracked branches
+			RunGitCommand(workingDirectory, "fetch", false); // The additional fetch should grab new tags and branches
 		}
 
 		protected virtual IEnumerable<GitHead> GetHeads(DirectoryInfo workingDirectory)
