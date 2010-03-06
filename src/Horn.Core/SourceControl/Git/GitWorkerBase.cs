@@ -110,13 +110,13 @@ namespace Horn.Core.SCM
 
 			StringBuilder result = new StringBuilder();
 
-			while (!process.IsComplete)
+			while (true)
 			{
 				string line = process.GetLineOrOutput();
 
 				if (line == null)
 				{
-					continue;
+					break;
 				}
 
 				result.AppendLine(line);

@@ -8,11 +8,6 @@ namespace Horn.Spec.Framework.Stubs
     {
         private static readonly ILog log = LogManager.GetLogger(typeof (StubProcess));
 
-		public bool IsComplete
-		{
-			get { return true; }
-		}
-
         public string GetLineOrOutput()
         {
             return null;
