@@ -59,7 +59,7 @@ namespace Horn.Core.SCM
 		{
 			string output = RunGitCommand(workingDirectory, "branch", false);
 
-			string[] lines = output.Split('\n');
+			string[] lines = output.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 			
 			string currentBranch = lines
 				.Where(l => l.StartsWith("*"))
