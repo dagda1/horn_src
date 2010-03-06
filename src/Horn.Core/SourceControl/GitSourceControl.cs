@@ -73,7 +73,7 @@ namespace Horn.Core.SCM
     		Settings.WorkingDir = destination.FullName;
 			
     		//doesn't look like there's an equivalent for this in GitCommands
-    		const string trackRemoteBranch = "checkout -b {0} --track origin/{0}";
+    		const string trackRemoteBranch = "checkout -f -b {0} --track origin/{0}";
     		string command = string.Format(trackRemoteBranch, branchName);
 
 			log.Info("Tracking remote branch " + branchName);
