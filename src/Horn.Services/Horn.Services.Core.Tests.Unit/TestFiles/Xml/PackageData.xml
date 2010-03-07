@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Category>ORM</Category>
+  <Name>NHibernate</Name>
+  <Url>https://nhibernate.svn.sourceforge.net/svnroot/nhibernate/trunk/nhibernate/</Url>
+  <Description>NHibernate handles persisting plain .NET objects to and from an underlying relational database.</Description>
+  <Version>1.0.0.0</Version>
+  <meta>
+	  <forum>http://groups.google.co.uk/group/nhusers?hl=en</forum>
+	  <homepage>http://www.hibernate.org/343.html</homepage>
+	  <HomepageUrl>http://www.nhforge.org</HomepageUrl>
+	  <notes>Some notes about nhibernate</notes>
+  </meta>
+  <FileName>nhibernate-2-1.zip</FileName>
+  <Contents>
+    <File>
+      <Name>ABC.hbm.xml</Name>
+    </File>
+    <File>
+      <Name>antlr.runtime.dll</Name>
+    </File>
+  </Contents>
+</Package>
