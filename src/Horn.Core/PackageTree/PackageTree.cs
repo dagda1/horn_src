@@ -19,7 +19,7 @@ namespace Horn.Core.PackageStructure
 
         private readonly IMetaDataSynchroniser metaDataSynchroniser;
         private DirectoryInfo result;
-        public const string RootPackageTreeName = ".horn";
+        public static string RootPackageTreeName = ".horn";
         private IList<IPackageTree> children;
         private DirectoryInfo patchDirectory;
         private DirectoryInfo workingDirectory;
@@ -280,11 +280,11 @@ namespace Horn.Core.PackageStructure
             return RetrievePackage(dependency.PackageName, dependency.Version);
         }
 
-        public virtual IPackageTree RetrievePackage(ICommandArgs commandArgs)
+        public virtual IPackageTree RetrievePackage(PackageArgs packageArgs)
         {
-            var packageName = commandArgs.PackageName;
+            var packageName = packageArgs.PackageName;
 
-            var version = commandArgs.Version;
+            var version = packageArgs.Version;
 
             return RetrievePackage(packageName, version);
         }
@@ -436,6 +436,9 @@ namespace Horn.Core.PackageStructure
 
         public PackageTree(DirectoryInfo directory, IPackageTree parent)
         {
+            if (parent == null)
+                RootPackageTreeName = directory.Name;
+
             BuildTree(parent, directory);
         }
     }

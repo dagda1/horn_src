@@ -20,21 +20,23 @@ namespace Horn.Spec.Framework.Stubs
             }
         }
 
-        protected override string CurrentRevisionNumber()
+        protected override string CurrentRevisionNumber(FileSystemInfo destination)
         {
             revision = Guid.NewGuid().ToString();
 
             return revision;
         }
 
-        protected override string RunGitCommand(string args)
-        {
-            return string.Empty;
-        }
-
         protected override void SetMonitor(string destination)
         {
             downloadMonitor = new DefaultDownloadMonitor();
+        }
+
+        public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
+        {
+            Console.WriteLine("In Download performing a CheckOut");
+
+            return Guid.NewGuid().ToString();
         }
 
         protected override Thread StartMonitoring()
@@ -58,7 +60,7 @@ namespace Horn.Spec.Framework.Stubs
             Console.WriteLine("Source control download monitoring stopped.");
         }
 
-        public GitSourceControlDouble(string url, IEnvironmentVariable environmentVariable) : base(url, environmentVariable)
+        public GitSourceControlDouble(string url, IGitWorker gitWorker) : base(url, gitWorker)
         {
         }
     }

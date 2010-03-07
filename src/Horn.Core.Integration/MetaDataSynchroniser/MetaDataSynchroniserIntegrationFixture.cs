@@ -3,6 +3,7 @@ using System.IO;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
 using Horn.Core.Tree.MetaDataSynchroniser;
+using Horn.Core.Utils;
 using Horn.Framework.helpers;
 using Xunit;
 namespace Horn.Core.Integration.MetaDataSynchroniserFixtures
@@ -17,7 +18,7 @@ namespace Horn.Core.Integration.MetaDataSynchroniserFixtures
         {
             SourceControl.ClearDownLoadedPackages();
 
-            metaDataSynchroniser = new MetaDataSynchroniser(new SVNSourceControl(MetaDataSynchroniser.PackageTreeUri));
+			metaDataSynchroniser = new MetaDataSynchroniser(new GitSourceControl(MetaDataSynchroniser.PackageTreeUri, new DefaultGitWorker()));
         }
 
         protected override void After_each_spec()

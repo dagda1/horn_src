@@ -225,9 +225,9 @@ namespace Horn.Spec.Framework.Stubs
             return RetrievePackage(dependency.PackageName);
         }
 
-        public IPackageTree RetrievePackage(ICommandArgs commandArgs)
+        public IPackageTree RetrievePackage(PackageArgs packageArgs)
         {
-            return RetrievePackage(commandArgs.PackageName);
+            return RetrievePackage(packageArgs.PackageName);
         }
 
         public PackageTreeStub(string baseDirectory)

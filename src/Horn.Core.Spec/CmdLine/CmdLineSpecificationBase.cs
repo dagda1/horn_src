@@ -24,6 +24,11 @@ namespace Horn.Core.Spec.Unit.CmdLine
 
         protected TextWriter Output { get { return textWriter; } }
         protected bool IsValid { get; set; }
+
+        protected void AssertIsValid()
+        {
+            Assert.True(IsValid, Output.ToString());
+        }
     }
 
 

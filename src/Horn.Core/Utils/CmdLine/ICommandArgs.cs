@@ -4,14 +4,10 @@ namespace Horn.Core.Utils.CmdLine
     {
         string OutputPath { get; }
 
-        string Mode { get; }
-
-        string PackageName { get; }
+        PackageArgs[] Packages { get; }
 
         bool RebuildOnly { get; }
 
         bool Refresh { get; }
-
-        string Version { get; }               
     }
 }

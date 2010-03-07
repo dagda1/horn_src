@@ -45,7 +45,7 @@ namespace Horn.PackageBuilder.Service
             {
                 XmlConfigurator.Configure();
 
-                var dropDirectory = new DirectoryInfo(HornConfig.Settings.DropDirectory);
+                var dropDirectory = new DirectoryInfo(HornServiceConfig.Settings.DropDirectory);
 
                 var resolver = new ServicesDependencyResolver(dropDirectory);
 

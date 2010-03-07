@@ -38,7 +38,8 @@ namespace Horn.Core.Spec.Unit.PackageCommands
 
             get.Stub(x => x.ExportTo(packageTree)).Return(packageTree);
 
-            packageBuilder = new PackageBuilderStub(get, new DiagnosticsProcessFactory(), new CommandArgsDouble("log4net", true));
+            CommandArgsDouble commandArgsDouble = new CommandArgsDouble("log4net", true);
+            packageBuilder = new PackageBuilderStub(get, new DiagnosticsProcessFactory(), commandArgsDouble, commandArgsDouble.SinglePackage);
         }
 
         protected override void After_each_spec()

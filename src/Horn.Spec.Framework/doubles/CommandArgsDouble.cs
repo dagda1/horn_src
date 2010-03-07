@@ -5,36 +5,43 @@ namespace Horn.Spec.Framework.doubles
 {
     public class CommandArgsDouble : ICommandArgs
     {
-        public string PackageName{ get; private set; }
+        private readonly PackageArgs singlePackage = new PackageArgs();
+        public PackageArgs SinglePackage
+        {
+            get { return singlePackage; }
+        }
+
+        private readonly PackageArgs[] packages;
+        public PackageArgs[] Packages
+        {
+            get { return packages; }
+        }
 
         public bool RebuildOnly { get; private set; }
-        public string Version { get; private set; }
         public bool Refresh { get; set; }
         public string OutputPath { get; set; }
-        public string Mode { get; set; }
 
         public CommandArgsDouble(string installName)
         {
-            PackageName = installName;
+            packages = new[] { singlePackage };
+            SinglePackage.PackageName = installName;
         }
 
         public CommandArgsDouble(string installName, bool rebuildOnly) : this(installName)
         {
-            PackageName = installName;
             RebuildOnly = rebuildOnly;
         }
 
         public CommandArgsDouble(string installName, string version)
             : this(installName)
         {
-            PackageName = installName;
-            Version = version;
+            SinglePackage.Version = version;
         }
 
         public CommandArgsDouble(string installName, bool rebuildOnly, string version)
             : this(installName, rebuildOnly)
         {
-            Version = version;
+            SinglePackage.Version = version;
         }
 
         public CommandArgsDouble(string installName, bool rebuildOnly, string version, string outputPath)

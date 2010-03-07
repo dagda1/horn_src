@@ -42,7 +42,7 @@ namespace Horn.Core.Spec.Unit.PackageCommands
 
             wholeTree.Stub(x => x.BuildNodes()).Return(new List<IPackageTree> {wholeTree});
 
-            wholeTree.Stub(x => x.RetrievePackage(CommandLineHelper.GetCommandLineArgs("horn"))).Return(componentTree).IgnoreArguments();
+            wholeTree.Stub(x => x.RetrievePackage(CommandLineHelper.GetCommandLineArgs("horn").Packages[0])).Return(componentTree).IgnoreArguments();
 
             wholeTree.Stub(x => x.GetBuildMetaData("horn")).Return(buildMetaData).IgnoreArguments().Repeat.Any();
 
@@ -97,7 +97,8 @@ namespace Horn.Core.Spec.Unit.PackageCommands
         [Fact]
         public void Then_The_Builder_Coordinates_The_Build()
         {
-            IPackageCommand command = new PackageBuilder(get, new StubProcessFactory(), new CommandArgsDouble("horn"));
+            CommandArgsDouble commandArgsDouble = new CommandArgsDouble("horn");
+            IPackageCommand command = new PackageBuilder(get, new StubProcessFactory(), commandArgsDouble, commandArgsDouble.SinglePackage);
 
             command.Execute(wholeTree);
         }
@@ -109,7 +110,8 @@ namespace Horn.Core.Spec.Unit.PackageCommands
 
         protected override void Because()
         {
-            packageBuilder = new PackageBuilder(get, MockRepository.GenerateStub<IProcessFactory>(), new CommandArgsDouble("unknownpackage"));
+            CommandArgsDouble commandArgsDouble = new CommandArgsDouble("unknownpackage");
+            packageBuilder = new PackageBuilder(get, MockRepository.GenerateStub<IProcessFactory>(), commandArgsDouble, commandArgsDouble.SinglePackage);
 
             packageTree = TreeHelper.GetTempPackageTree();
         }
@@ -138,7 +140,8 @@ namespace Horn.Core.Spec.Unit.PackageCommands
 
             get.Stub(x => x.ExportTo(packageTree)).Return(packageTree);
 
-            packageBuilder = new PackageBuilder(get, MockRepository.GenerateStub<IProcessFactory>(), new CommandArgsDouble("log4net", true));
+            CommandArgsDouble commandArgsDouble = new CommandArgsDouble("log4net", true);
+            packageBuilder = new PackageBuilder(get, MockRepository.GenerateStub<IProcessFactory>(), commandArgsDouble, commandArgsDouble.SinglePackage);
         }
 
         protected override void Because()

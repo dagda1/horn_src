@@ -29,7 +29,7 @@ namespace Horn.Core.Spec.Unit.CmdLine
         [Fact]
         public void Then_the_package_name_is_correct()
         {
-            Assert.Equal("nhibernate", parser.CommandArguments.PackageName);
+            Assert.Equal("nhibernate", parser.CommandArguments.Packages[0].PackageName);
         }
     }
 

@@ -67,7 +67,7 @@
   <ItemGroup>
     <Compile Include="Builder\ISiteStructureBuilder.cs" />
     <Compile Include="Builder\SiteStructureBuilder.cs" />
-    <Compile Include="Config\HornConfig.cs" />
+    <Compile Include="Config\HornServiceConfig.cs" />
     <Compile Include="Extensions\ResourceExtensions.cs" />
     <Compile Include="IoC\ServicesDependencyResolver.cs" />
     <Compile Include="Log\PackageTreeLog.cs" />

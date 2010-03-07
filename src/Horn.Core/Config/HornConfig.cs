@@ -20,6 +20,20 @@ namespace Horn.Core.Config
             set { this["packagetreeuri"] = value; }
         }
 
+        [ConfigurationProperty("packagetreebranch", IsRequired = true)]
+        public string PackageTreeBranch
+        {
+            get { return (string)this["packagetreebranch"]; }
+            set { this["packagetreebranch"] = value; }
+        }
+
+        [ConfigurationProperty("bashdirectory", IsRequired = false)]
+        public string BashDirectory
+        {
+            get { return (string)this["bashdirectory"]; }
+            set { this["bashdirectory"] = value; }
+        }
+
         public static HornConfig Settings
         {
             get

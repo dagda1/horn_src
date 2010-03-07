@@ -8,6 +8,7 @@ using Horn.Core.PackageCommands;
 using Horn.Core.PackageStructure;
 using Horn.Core.SCM;
 using Horn.Core.Spec.Unit.GetSpecs;
+using Horn.Core.Utils.CmdLine;
 using Horn.Framework.helpers;
 using Horn.Spec.Framework.doubles;
 using Horn.Spec.Framework.helpers;
@@ -37,7 +38,8 @@ namespace Horn.Core.Spec.PrebuildSpecs
 
             buildMetaData = TreeHelper.GetPackageTreeParts(new List<Dependency>());
 
-            packageBuilder = new PackageBuilderWithOnlyPrebuildStub(get, new DiagnosticsProcessFactory(), new CommandArgsDouble("log4net", true), buildMetaData);
+            CommandArgsDouble commandArgsDouble = new CommandArgsDouble("log4net", true);
+            packageBuilder = new PackageBuilderWithOnlyPrebuildStub(get, new DiagnosticsProcessFactory(), commandArgsDouble, commandArgsDouble.SinglePackage, buildMetaData);
         }
 
         protected override void Because()
@@ -67,7 +69,7 @@ namespace Horn.Core.Spec.PrebuildSpecs
         {
             mockRepository = new MockRepository();
 
-            packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(CommandLineHelper.GetCommandLineArgs("castle", "2.1.0"));
+            packageTree = TreeHelper.GetTempPackageTree().RetrievePackage(CommandLineHelper.GetCommandLineArgs("castle", "2.1.0").Packages[0]);
 
             get = MockRepository.GenerateStub<IGet>();
 
@@ -77,7 +79,8 @@ namespace Horn.Core.Spec.PrebuildSpecs
 
             buildMetaData = TreeHelper.GetPackageTreeParts(new List<Dependency>());
 
-            packageBuilder = new PackageBuilderWithOnlyPrebuildStub(get, new DiagnosticsProcessFactory(), new CommandArgsDouble("castle", true), buildMetaData);
+            CommandArgsDouble commandArgsDouble = new CommandArgsDouble("castle", true);
+            packageBuilder = new PackageBuilderWithOnlyPrebuildStub(get, new DiagnosticsProcessFactory(), commandArgsDouble, commandArgsDouble.SinglePackage, buildMetaData);
         }
 
         protected override void Because()
