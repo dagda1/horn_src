@@ -1,0 +1,963 @@
+ INFO [2010-03-16 16:31:34,802] - Command install was issued with values:
+ INFO [2010-03-16 16:31:34,813] - horn
+
+ INFO [2010-03-16 16:31:34,986] - Reading the current revision for .horn
+ INFO [2010-03-16 16:31:34,988] - Empty Repository
+ INFO [2010-03-16 16:31:34,989] - Reading the current revision for .horn
+ INFO [2010-03-16 16:31:34,991] - working......
+ INFO [2010-03-16 16:31:37,991] - working......
+ INFO [2010-03-16 16:31:40,995] - Reading the current revision for .horn
+ INFO [2010-03-16 16:31:41,265] - installing horn .
+ INFO [2010-03-16 16:31:42,180] - 
+HORN IS FETCHING http://svn.apache.org/repos/asf/logging/log4net/tags/log4net-1.2.10/.
+
+
+ INFO [2010-03-16 16:31:42,183] - Reading the current revision for log4net
+ INFO [2010-03-16 16:31:42,184] - Empty Repository
+ INFO [2010-03-16 16:31:42,184] - Reading the current revision for log4net
+ INFO [2010-03-16 16:31:42,186] - working......
+ INFO [2010-03-16 16:31:45,187] - working......
+ INFO [2010-03-16 16:31:48,188] - working......
+ INFO [2010-03-16 16:31:51,190] - working......
+ INFO [2010-03-16 16:31:54,191] - working......
+ INFO [2010-03-16 16:31:57,193] - working......
+ INFO [2010-03-16 16:32:00,193] - working......
+ INFO [2010-03-16 16:32:03,193] - working......
+ INFO [2010-03-16 16:32:06,193] - working......
+ INFO [2010-03-16 16:32:09,193] - working......
+ INFO [2010-03-16 16:32:12,193] - working......
+ INFO [2010-03-16 16:32:15,195] - working......
+ INFO [2010-03-16 16:32:18,195] - Reading the current revision for log4net
+ INFO [2010-03-16 16:32:18,204] - 
+HORN IS BUILDING log4net.
+
+
+ INFO [2010-03-16 16:32:18,215] - Path to build file is "C:\hornget\.horn\loggers\log4net\Working-1.2.10\log4net.build".
+ INFO [2010-03-16 16:32:18,258] - 
+ INFO [2010-03-16 16:32:18,260] - Microsoft (R) .NET Framework Strong Name Utility  Version 2.0.50727.42
+ INFO [2010-03-16 16:32:18,261] - Copyright (c) Microsoft Corporation.  All rights reserved.
+ INFO [2010-03-16 16:32:18,263] - 
+ INFO [2010-03-16 16:32:18,601] - Key pair written to C:\hornget\.horn\loggers\log4net\Working-1.2.10\log4net.snk
+ INFO [2010-03-16 16:32:20,205] - NAnt 0.86 (Build 0.86.3412.0; nightly; 05/05/2009)
+ INFO [2010-03-16 16:32:20,205] - Copyright (C) 2001-2009 Gerry Shaw
+ INFO [2010-03-16 16:32:20,205] - http://nant.sourceforge.net
+ INFO [2010-03-16 16:32:20,205] - 
+ INFO [2010-03-16 16:32:20,550] - Buildfile: file:///C:/hornget/.horn/loggers/log4net/Working-1.2.10/log4net.build
+ INFO [2010-03-16 16:32:20,550] - Target framework: Microsoft .NET Framework 2.0
+ INFO [2010-03-16 16:32:20,550] - Target(s) specified: compile-all 
+ INFO [2010-03-16 16:32:20,550] - 
+ INFO [2010-03-16 16:32:20,614] - 
+ INFO [2010-03-16 16:32:20,614] - check-current-build-config:
+ INFO [2010-03-16 16:32:20,614] - 
+ INFO [2010-03-16 16:32:20,624] - 
+ INFO [2010-03-16 16:32:20,624] - set-build-configuration:
+ INFO [2010-03-16 16:32:20,624] - 
+ INFO [2010-03-16 16:32:20,630] - 
+ INFO [2010-03-16 16:32:20,630] - set-debug-build-configuration:
+ INFO [2010-03-16 16:32:20,630] - 
+ INFO [2010-03-16 16:32:20,642] - 
+ INFO [2010-03-16 16:32:20,642] - check-current-build-config:
+ INFO [2010-03-16 16:32:20,642] - 
+ INFO [2010-03-16 16:32:20,643] - 
+ INFO [2010-03-16 16:32:20,643] - set-build-configuration-flags:
+ INFO [2010-03-16 16:32:20,644] - 
+ INFO [2010-03-16 16:32:20,649] - 
+ INFO [2010-03-16 16:32:20,649] - check-current-build-config:
+ INFO [2010-03-16 16:32:20,649] - 
+ INFO [2010-03-16 16:32:20,650] - 
+ INFO [2010-03-16 16:32:20,650] - set-framework-configuration:
+ INFO [2010-03-16 16:32:20,650] - 
+ INFO [2010-03-16 16:32:20,656] - 
+ INFO [2010-03-16 16:32:20,656] - check-bin-dir:
+ INFO [2010-03-16 16:32:20,656] - 
+ INFO [2010-03-16 16:32:20,664] -     [mkdir] Creating directory 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin'.
+ INFO [2010-03-16 16:32:20,665] - 
+ INFO [2010-03-16 16:32:20,665] - check-doc-dir:
+ INFO [2010-03-16 16:32:20,665] - 
+ INFO [2010-03-16 16:32:20,668] - 
+ INFO [2010-03-16 16:32:20,668] - check-sdkdoc-dir:
+ INFO [2010-03-16 16:32:20,668] - 
+ INFO [2010-03-16 16:32:20,671] - 
+ INFO [2010-03-16 16:32:20,671] - check-sdkdoc-debug:
+ INFO [2010-03-16 16:32:20,671] - 
+ INFO [2010-03-16 16:32:20,672] - 
+ INFO [2010-03-16 16:32:20,672] - check-current-build-config:
+ INFO [2010-03-16 16:32:20,672] - 
+ INFO [2010-03-16 16:32:20,674] - 
+ INFO [2010-03-16 16:32:20,674] - check-build-debug:
+ INFO [2010-03-16 16:32:20,674] - 
+ INFO [2010-03-16 16:32:20,675] - 
+ INFO [2010-03-16 16:32:20,675] - check-build-defines:
+ INFO [2010-03-16 16:32:20,675] - 
+ INFO [2010-03-16 16:32:20,682] - 
+ INFO [2010-03-16 16:32:20,682] - set-net-2.0-runtime-configuration:
+ INFO [2010-03-16 16:32:20,682] - 
+ INFO [2010-03-16 16:32:20,695] - 
+ INFO [2010-03-16 16:32:20,695] - compile-all:
+ INFO [2010-03-16 16:32:20,696] - 
+ INFO [2010-03-16 16:32:20,698] -      [echo] Compiling all build configurations for all runtime configurations.
+ INFO [2010-03-16 16:32:20,702] - 
+ INFO [2010-03-16 16:32:20,702] - set-debug-build-configuration:
+ INFO [2010-03-16 16:32:20,702] - 
+ INFO [2010-03-16 16:32:20,722] - 
+ INFO [2010-03-16 16:32:20,722] - check-current-build-config:
+ INFO [2010-03-16 16:32:20,722] - 
+ INFO [2010-03-16 16:32:20,724] - 
+ INFO [2010-03-16 16:32:20,724] - set-build-configuration-flags:
+ INFO [2010-03-16 16:32:20,724] - 
+ INFO [2010-03-16 16:32:20,731] - 
+ INFO [2010-03-16 16:32:20,731] - compile-build:
+ INFO [2010-03-16 16:32:20,731] - 
+ INFO [2010-03-16 16:32:20,732] -      [echo] Compiling all framework versions for the debug build configuration.
+ INFO [2010-03-16 16:32:20,747] -      [echo] The .NET Compact Framework 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:20,765] -      [echo] The .NET Framework 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:20,782] -      [echo] The .NET Framework 1.1 is not available. Build skipped.
+ INFO [2010-03-16 16:32:20,786] - 
+ INFO [2010-03-16 16:32:20,787] - check-bin-dir:
+ INFO [2010-03-16 16:32:20,787] - 
+ INFO [2010-03-16 16:32:20,789] - 
+ INFO [2010-03-16 16:32:20,789] - check-doc-dir:
+ INFO [2010-03-16 16:32:20,789] - 
+ INFO [2010-03-16 16:32:20,791] - 
+ INFO [2010-03-16 16:32:20,791] - check-sdkdoc-dir:
+ INFO [2010-03-16 16:32:20,791] - 
+ INFO [2010-03-16 16:32:20,793] - 
+ INFO [2010-03-16 16:32:20,793] - check-sdkdoc-debug:
+ INFO [2010-03-16 16:32:20,793] - 
+ INFO [2010-03-16 16:32:20,794] - 
+ INFO [2010-03-16 16:32:20,794] - check-current-build-config:
+ INFO [2010-03-16 16:32:20,794] - 
+ INFO [2010-03-16 16:32:20,796] - 
+ INFO [2010-03-16 16:32:20,796] - check-build-debug:
+ INFO [2010-03-16 16:32:20,796] - 
+ INFO [2010-03-16 16:32:20,797] - 
+ INFO [2010-03-16 16:32:20,797] - check-build-defines:
+ INFO [2010-03-16 16:32:20,797] - 
+ INFO [2010-03-16 16:32:20,804] - 
+ INFO [2010-03-16 16:32:20,804] - set-net-2.0-runtime-configuration:
+ INFO [2010-03-16 16:32:20,804] - 
+ INFO [2010-03-16 16:32:20,815] - 
+ INFO [2010-03-16 16:32:20,815] - check-log4net-basedir:
+ INFO [2010-03-16 16:32:20,815] - 
+ INFO [2010-03-16 16:32:20,816] - 
+ INFO [2010-03-16 16:32:20,816] - check-current-bin-dir:
+ INFO [2010-03-16 16:32:20,816] - 
+ INFO [2010-03-16 16:32:20,818] -     [mkdir] Creating directory 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\debug'.
+ INFO [2010-03-16 16:32:20,820] - 
+ INFO [2010-03-16 16:32:20,820] - clean-current-bin-dir:
+ INFO [2010-03-16 16:32:20,820] - 
+ INFO [2010-03-16 16:32:20,821] -      [echo] Cleaning the bin/net/2.0/debug binaries directory.
+ INFO [2010-03-16 16:32:20,824] -    [delete] Deleting directory 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\debug'.
+ INFO [2010-03-16 16:32:20,827] -     [mkdir] Creating directory 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\debug'.
+ INFO [2010-03-16 16:32:20,827] - 
+ INFO [2010-03-16 16:32:20,827] - compile-net-2.0:
+ INFO [2010-03-16 16:32:20,828] - 
+ INFO [2010-03-16 16:32:21,083] -       [csc] Compiling 203 files to 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\debug\log4net.dll'.
+ INFO [2010-03-16 16:32:22,619] -      [echo] Mono 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:22,642] -      [echo] Mono 2.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:22,656] -      [echo] SSCLI 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:22,660] - 
+ INFO [2010-03-16 16:32:22,660] - set-release-build-configuration:
+ INFO [2010-03-16 16:32:22,660] - 
+ INFO [2010-03-16 16:32:22,685] - 
+ INFO [2010-03-16 16:32:22,686] - check-current-build-config:
+ INFO [2010-03-16 16:32:22,703] - 
+ INFO [2010-03-16 16:32:22,703] - 
+ INFO [2010-03-16 16:32:22,703] - set-build-configuration-flags:
+ INFO [2010-03-16 16:32:22,703] - 
+ INFO [2010-03-16 16:32:22,738] - 
+ INFO [2010-03-16 16:32:22,738] - compile-build:
+ INFO [2010-03-16 16:32:22,738] - 
+ INFO [2010-03-16 16:32:22,739] -      [echo] Compiling all framework versions for the release build configuration.
+ INFO [2010-03-16 16:32:22,754] -      [echo] The .NET Compact Framework 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:22,761] -      [echo] The .NET Framework 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:22,768] -      [echo] The .NET Framework 1.1 is not available. Build skipped.
+ INFO [2010-03-16 16:32:22,772] - 
+ INFO [2010-03-16 16:32:22,772] - check-bin-dir:
+ INFO [2010-03-16 16:32:22,772] - 
+ INFO [2010-03-16 16:32:22,775] - 
+ INFO [2010-03-16 16:32:22,775] - check-doc-dir:
+ INFO [2010-03-16 16:32:22,775] - 
+ INFO [2010-03-16 16:32:22,778] - 
+ INFO [2010-03-16 16:32:22,778] - check-sdkdoc-dir:
+ INFO [2010-03-16 16:32:22,778] - 
+ INFO [2010-03-16 16:32:22,779] - 
+ INFO [2010-03-16 16:32:22,779] - check-sdkdoc-debug:
+ INFO [2010-03-16 16:32:22,779] - 
+ INFO [2010-03-16 16:32:22,780] - 
+ INFO [2010-03-16 16:32:22,780] - check-current-build-config:
+ INFO [2010-03-16 16:32:22,780] - 
+ INFO [2010-03-16 16:32:22,781] - 
+ INFO [2010-03-16 16:32:22,781] - check-build-debug:
+ INFO [2010-03-16 16:32:22,781] - 
+ INFO [2010-03-16 16:32:22,783] - 
+ INFO [2010-03-16 16:32:22,783] - check-build-defines:
+ INFO [2010-03-16 16:32:22,783] - 
+ INFO [2010-03-16 16:32:22,790] - 
+ INFO [2010-03-16 16:32:22,790] - set-net-2.0-runtime-configuration:
+ INFO [2010-03-16 16:32:22,790] - 
+ INFO [2010-03-16 16:32:22,801] - 
+ INFO [2010-03-16 16:32:22,801] - check-log4net-basedir:
+ INFO [2010-03-16 16:32:22,801] - 
+ INFO [2010-03-16 16:32:22,802] - 
+ INFO [2010-03-16 16:32:22,802] - check-current-bin-dir:
+ INFO [2010-03-16 16:32:22,802] - 
+ INFO [2010-03-16 16:32:22,804] -     [mkdir] Creating directory 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\release'.
+ INFO [2010-03-16 16:32:22,805] - 
+ INFO [2010-03-16 16:32:22,805] - clean-current-bin-dir:
+ INFO [2010-03-16 16:32:22,805] - 
+ INFO [2010-03-16 16:32:22,806] -      [echo] Cleaning the bin/net/2.0/release binaries directory.
+ INFO [2010-03-16 16:32:22,807] -    [delete] Deleting directory 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\release'.
+ INFO [2010-03-16 16:32:22,809] -     [mkdir] Creating directory 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\release'.
+ INFO [2010-03-16 16:32:22,810] - 
+ INFO [2010-03-16 16:32:22,810] - compile-net-2.0:
+ INFO [2010-03-16 16:32:22,810] - 
+ INFO [2010-03-16 16:32:22,945] -       [csc] Compiling 203 files to 'C:\hornget\.horn\loggers\log4net\Working-1.2.10\bin\net\2.0\release\log4net.dll'.
+ INFO [2010-03-16 16:32:24,276] -      [echo] Mono 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:24,310] -      [echo] Mono 2.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:24,323] -      [echo] SSCLI 1.0 is not available. Build skipped.
+ INFO [2010-03-16 16:32:24,325] - 
+ INFO [2010-03-16 16:32:24,325] - BUILD SUCCEEDED
+ INFO [2010-03-16 16:32:24,325] - 
+ INFO [2010-03-16 16:32:24,325] - Total time: 3.8 seconds.
+ INFO [2010-03-16 16:32:24,325] - 
+ INFO [2010-03-16 16:32:24,349] - 
+HORN IS FETCHING git://github.com/castleproject/Castle.Core.git.
+
+
+ INFO [2010-03-16 16:32:24,349] - Reading the current revision for castle.core
+ INFO [2010-03-16 16:32:24,350] - Empty Repository
+ INFO [2010-03-16 16:32:24,350] - Reading the current revision for castle.core
+ INFO [2010-03-16 16:32:24,350] - working......
+ INFO [2010-03-16 16:32:27,350] - working......
+ INFO [2010-03-16 16:32:30,351] - working......
+ INFO [2010-03-16 16:32:33,353] - working......
+ INFO [2010-03-16 16:32:36,353] - working......
+ INFO [2010-03-16 16:32:39,354] - working......
+ INFO [2010-03-16 16:32:41,506] - Tracking remote branch 1-2-stable
+ INFO [2010-03-16 16:32:42,354] - Reading the current revision for castle.core
+ INFO [2010-03-16 16:32:42,359] - 
+HORN IS BUILDING core.
+
+
+ INFO [2010-03-16 16:32:42,363] - Path to build file is "C:\hornget\.horn\ioc\castle.core\Working-1.2\default.build".
+ INFO [2010-03-16 16:32:42,635] - NAnt 0.86 (Build 0.86.3412.0; nightly; 05/05/2009)
+ INFO [2010-03-16 16:32:42,636] - Copyright (C) 2001-2009 Gerry Shaw
+ INFO [2010-03-16 16:32:42,636] - http://nant.sourceforge.net
+ INFO [2010-03-16 16:32:42,637] - 
+ INFO [2010-03-16 16:32:42,950] - Buildfile: file:///C:/hornget/.horn/ioc/castle.core/Working-1.2/default.build
+ INFO [2010-03-16 16:32:42,951] - Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:32:42,952] - Target(s) specified: build 
+ INFO [2010-03-16 16:32:42,952] - 
+ INFO [2010-03-16 16:32:43,022] -  [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:32:43,049] - 
+ INFO [2010-03-16 16:32:43,050] - common.find-svninfo:
+ INFO [2010-03-16 16:32:43,050] - 
+ INFO [2010-03-16 16:32:44,105] -      [exec] svn: 'C:\hornget\.horn\ioc\castle.core\Working-1.2' is not a working copy
+ INFO [2010-03-16 16:32:44,109] -      [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:32:44,113] -      [exec] <info>
+ INFO [2010-03-16 16:32:44,116] -      [exec] C:\hornget\.horn\ioc\castle.core\Working-1.2\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:32:44,117] -      [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:32:44,121] -   [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.core\Working-1.2\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:32:44,125] -   [xmlpeek] C:\hornget\.horn\ioc\castle.core\Working-1.2\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:32:44,126] -   [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.core\Working-1.2\_revision.xml'.
+ INFO [2010-03-16 16:32:44,127] -   [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:32:44,131] -    [delete] Deleting file C:\hornget\.horn\ioc\castle.core\Working-1.2\_revision.xml.
+ INFO [2010-03-16 16:32:44,135] -      [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:32:44,145] - 
+ INFO [2010-03-16 16:32:44,146] - common.build:
+ INFO [2010-03-16 16:32:44,146] - 
+ INFO [2010-03-16 16:32:44,154] - 
+ INFO [2010-03-16 16:32:44,154] - common.build.internal:
+ INFO [2010-03-16 16:32:44,155] - 
+ INFO [2010-03-16 16:32:44,162] -      [nant] C:\hornget\.horn\ioc\castle.core\Working-1.2\src\Castle.Core\default.build 
+ INFO [2010-03-16 16:32:44,165] -             Buildfile: file:///C:/hornget/.horn/ioc/castle.core/Working-1.2/src/Castle.Core/default.build
+ INFO [2010-03-16 16:32:44,167] -             Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:32:44,167] -             Target(s) specified: build 
+ INFO [2010-03-16 16:32:44,168] -             
+ INFO [2010-03-16 16:32:44,216] -              [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:32:44,243] -             
+ INFO [2010-03-16 16:32:44,245] -             common.find-svninfo:
+ INFO [2010-03-16 16:32:44,246] -             
+ INFO [2010-03-16 16:32:44,320] -                  [exec] svn: 'C:\hornget\.horn\ioc\castle.core\Working-1.2\src\Castle.Core' is not a working copy
+ INFO [2010-03-16 16:32:44,325] -                  [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:32:44,328] -                  [exec] <info>
+ INFO [2010-03-16 16:32:44,332] -                  [exec] C:\hornget\.horn\ioc\castle.core\Working-1.2\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:32:44,334] -                  [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:32:44,338] -               [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.core\Working-1.2\src\Castle.Core\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:32:44,341] -               [xmlpeek] C:\hornget\.horn\ioc\castle.core\Working-1.2\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:32:44,342] -               [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.core\Working-1.2\src\Castle.Core\_revision.xml'.
+ INFO [2010-03-16 16:32:44,345] -               [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:32:44,349] -                [delete] Deleting file C:\hornget\.horn\ioc\castle.core\Working-1.2\src\Castle.Core\_revision.xml.
+ INFO [2010-03-16 16:32:44,351] -                  [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:32:44,352] -             
+ INFO [2010-03-16 16:32:44,355] -             set-framework-configuration:
+ INFO [2010-03-16 16:32:44,357] -             
+ INFO [2010-03-16 16:32:44,560] -                [script] Scanning assembly "ax8--zzg" for extensions.
+ INFO [2010-03-16 16:32:44,564] -             
+ INFO [2010-03-16 16:32:44,565] -             set-net-3.5-framework-configuration:
+ INFO [2010-03-16 16:32:44,566] -             
+ INFO [2010-03-16 16:32:44,571] -             
+ INFO [2010-03-16 16:32:44,572] -             set-project-configuration:
+ INFO [2010-03-16 16:32:44,574] -             
+ INFO [2010-03-16 16:32:44,582] -             
+ INFO [2010-03-16 16:32:44,583] -             set-debug-project-configuration:
+ INFO [2010-03-16 16:32:44,583] -             
+ INFO [2010-03-16 16:32:44,596] -             
+ INFO [2010-03-16 16:32:44,597] -             common.init:
+ INFO [2010-03-16 16:32:44,597] -             
+ INFO [2010-03-16 16:32:44,611] -                 [mkdir] Creating directory 'C:\hornget\.horn\ioc\castle.core\Working-1.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:44,615] -                 [mkdir] Creating directory 'C:\hornget\.horn\ioc\castle.core\Working-1.2\build\net-3.5\debug\test-results'.
+ INFO [2010-03-16 16:32:44,619] -             
+ INFO [2010-03-16 16:32:44,619] -             init:
+ INFO [2010-03-16 16:32:44,620] -             
+ INFO [2010-03-16 16:32:44,629] -             
+ INFO [2010-03-16 16:32:44,630] -             common.set-assembly-attribute-values:
+ INFO [2010-03-16 16:32:44,630] -             
+ INFO [2010-03-16 16:32:44,643] -             
+ INFO [2010-03-16 16:32:44,644] -             common.generate-assemblyinfo:
+ INFO [2010-03-16 16:32:44,644] -             
+ INFO [2010-03-16 16:32:44,830] -               [asminfo] Generated file 'C:\hornget\.horn\ioc\castle.core\Working-1.2\src\Castle.Core\AssemblyInfo.cs'.
+ INFO [2010-03-16 16:32:44,833] -             
+ INFO [2010-03-16 16:32:44,835] -             common.copy.project.references:
+ INFO [2010-03-16 16:32:44,836] -             
+ INFO [2010-03-16 16:32:44,863] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.core\Working-1.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:44,870] -             
+ INFO [2010-03-16 16:32:44,870] -             common.compile-dll:
+ INFO [2010-03-16 16:32:44,871] -             
+ INFO [2010-03-16 16:32:45,000] -                   [csc] Compiling 106 files to 'C:\hornget\.horn\ioc\castle.core\Working-1.2\build\net-3.5\debug\Castle.Core.dll'.
+ INFO [2010-03-16 16:32:45,810] -             
+ INFO [2010-03-16 16:32:45,811] -             build:
+ INFO [2010-03-16 16:32:45,813] -             
+ INFO [2010-03-16 16:32:45,815] -             
+ INFO [2010-03-16 16:32:45,816] -             BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:32:45,819] -             
+ INFO [2010-03-16 16:32:45,821] -             Total time: 1.7 seconds.
+ INFO [2010-03-16 16:32:45,822] -             
+ INFO [2010-03-16 16:32:45,827] - 
+ INFO [2010-03-16 16:32:45,828] - build:
+ INFO [2010-03-16 16:32:45,828] - 
+ INFO [2010-03-16 16:32:45,829] - 
+ INFO [2010-03-16 16:32:45,830] - BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:32:45,830] - 
+ INFO [2010-03-16 16:32:45,831] - Total time: 2.9 seconds.
+ INFO [2010-03-16 16:32:45,832] - 
+ INFO [2010-03-16 16:32:45,850] - 
+HORN IS FETCHING git://github.com/castleproject/Castle.DynamicProxy.git.
+
+
+ INFO [2010-03-16 16:32:45,853] - Reading the current revision for castle.dynamicproxy
+ INFO [2010-03-16 16:32:45,855] - Empty Repository
+ INFO [2010-03-16 16:32:45,856] - Reading the current revision for castle.dynamicproxy
+ INFO [2010-03-16 16:32:45,860] - working......
+ INFO [2010-03-16 16:32:48,860] - working......
+ INFO [2010-03-16 16:32:51,389] - Tracking remote branch 2-2-stable
+ INFO [2010-03-16 16:32:51,861] - working......
+ INFO [2010-03-16 16:32:54,861] - Reading the current revision for castle.dynamicproxy
+ INFO [2010-03-16 16:32:55,238] - 
+HORN IS BUILDING dynamicproxy.
+
+
+ INFO [2010-03-16 16:32:55,243] - Path to build file is "C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\default.build".
+ INFO [2010-03-16 16:32:55,259] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\mono-3.5\Castle.Core.dll ...
+ INFO [2010-03-16 16:32:55,375] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\net-2.0\Castle.Core.dll ...
+ INFO [2010-03-16 16:32:55,383] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\net-3.5\Castle.Core.dll ...
+ INFO [2010-03-16 16:32:55,389] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\silverlight-3.0\Castle.Core.dll ...
+ INFO [2010-03-16 16:32:55,398] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\Castle.Core.dll ...
+ INFO [2010-03-16 16:32:55,407] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.pdb to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\Castle.Core.pdb ...
+ INFO [2010-03-16 16:32:55,413] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\mono-3.5\Castle.Core.xml ...
+ INFO [2010-03-16 16:32:55,415] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\net-2.0\Castle.Core.xml ...
+ INFO [2010-03-16 16:32:55,417] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\net-3.5\Castle.Core.xml ...
+ INFO [2010-03-16 16:32:55,420] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\silverlight-3.0\Castle.Core.xml ...
+ INFO [2010-03-16 16:32:55,422] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\lib\Castle.Core.xml ...
+ INFO [2010-03-16 16:32:55,656] - NAnt 0.86 (Build 0.86.3412.0; nightly; 05/05/2009)
+ INFO [2010-03-16 16:32:55,658] - Copyright (C) 2001-2009 Gerry Shaw
+ INFO [2010-03-16 16:32:55,658] - http://nant.sourceforge.net
+ INFO [2010-03-16 16:32:55,659] - 
+ INFO [2010-03-16 16:32:55,974] - Buildfile: file:///C:/hornget/.horn/ioc/castle.dynamicproxy/Working-2.2/default.build
+ INFO [2010-03-16 16:32:55,976] - Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:32:55,977] - Target(s) specified: build 
+ INFO [2010-03-16 16:32:55,978] - 
+ INFO [2010-03-16 16:32:56,045] -  [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:32:56,073] - 
+ INFO [2010-03-16 16:32:56,074] - common.find-svninfo:
+ INFO [2010-03-16 16:32:56,074] - 
+ INFO [2010-03-16 16:32:56,114] -      [exec] svn: 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2' is not a working copy
+ INFO [2010-03-16 16:32:56,117] -      [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:32:56,117] -      [exec] <info>
+ INFO [2010-03-16 16:32:56,449] -      [exec] C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:32:56,499] -      [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:32:56,500] -   [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:32:56,501] -   [xmlpeek] C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:32:56,502] -   [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\_revision.xml'.
+ INFO [2010-03-16 16:32:56,503] -   [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:32:56,504] -    [delete] Deleting file C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\_revision.xml.
+ INFO [2010-03-16 16:32:56,504] -      [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:32:56,508] - 
+ INFO [2010-03-16 16:32:56,508] - common.build:
+ INFO [2010-03-16 16:32:56,509] - 
+ INFO [2010-03-16 16:32:56,516] - 
+ INFO [2010-03-16 16:32:56,517] - common.build.internal:
+ INFO [2010-03-16 16:32:56,518] - 
+ INFO [2010-03-16 16:32:56,525] -      [nant] C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\src\Castle.DynamicProxy\default.build 
+ INFO [2010-03-16 16:32:56,529] -             Buildfile: file:///C:/hornget/.horn/ioc/castle.dynamicproxy/Working-2.2/src/Castle.DynamicProxy/default.build
+ INFO [2010-03-16 16:32:56,530] -             Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:32:56,530] -             Target(s) specified: build 
+ INFO [2010-03-16 16:32:56,531] -             
+ INFO [2010-03-16 16:32:56,576] -              [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:32:56,599] -             
+ INFO [2010-03-16 16:32:56,599] -             common.find-svninfo:
+ INFO [2010-03-16 16:32:56,600] -             
+ INFO [2010-03-16 16:32:56,632] -                  [exec] svn: 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\src\Castle.DynamicProxy' is not a working copy
+ INFO [2010-03-16 16:32:56,635] -                  [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:32:56,637] -                  [exec] <info>
+ INFO [2010-03-16 16:32:56,640] -                  [exec] C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:32:56,652] -                  [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:32:56,653] -               [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\src\Castle.DynamicProxy\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:32:56,656] -               [xmlpeek] C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:32:56,658] -               [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\src\Castle.DynamicProxy\_revision.xml'.
+ INFO [2010-03-16 16:32:56,660] -               [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:32:56,661] -                [delete] Deleting file C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\src\Castle.DynamicProxy\_revision.xml.
+ INFO [2010-03-16 16:32:56,662] -                  [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:32:56,664] -             
+ INFO [2010-03-16 16:32:56,665] -             set-framework-configuration:
+ INFO [2010-03-16 16:32:56,666] -             
+ INFO [2010-03-16 16:32:56,823] -                [script] Scanning assembly "vbkfha_i" for extensions.
+ INFO [2010-03-16 16:32:56,827] -             
+ INFO [2010-03-16 16:32:56,828] -             set-net-3.5-framework-configuration:
+ INFO [2010-03-16 16:32:56,828] -             
+ INFO [2010-03-16 16:32:56,831] -             
+ INFO [2010-03-16 16:32:56,832] -             set-project-configuration:
+ INFO [2010-03-16 16:32:56,832] -             
+ INFO [2010-03-16 16:32:56,840] -             
+ INFO [2010-03-16 16:32:56,840] -             set-debug-project-configuration:
+ INFO [2010-03-16 16:32:56,841] -             
+ INFO [2010-03-16 16:32:56,853] -             
+ INFO [2010-03-16 16:32:56,853] -             common.init:
+ INFO [2010-03-16 16:32:56,854] -             
+ INFO [2010-03-16 16:32:56,868] -                 [mkdir] Creating directory 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:56,873] -                 [mkdir] Creating directory 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug\test-results'.
+ INFO [2010-03-16 16:32:56,876] -             
+ INFO [2010-03-16 16:32:56,876] -             init:
+ INFO [2010-03-16 16:32:56,877] -             
+ INFO [2010-03-16 16:32:56,889] -             
+ INFO [2010-03-16 16:32:56,890] -             common.set-assembly-attribute-values:
+ INFO [2010-03-16 16:32:56,890] -             
+ INFO [2010-03-16 16:32:56,904] -             
+ INFO [2010-03-16 16:32:56,904] -             common.generate-assemblyinfo:
+ INFO [2010-03-16 16:32:56,905] -             
+ INFO [2010-03-16 16:32:57,093] -               [asminfo] Generated file 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\src\Castle.DynamicProxy\AssemblyInfo.cs'.
+ INFO [2010-03-16 16:32:57,094] -             
+ INFO [2010-03-16 16:32:57,094] -             common.copy.project.references:
+ INFO [2010-03-16 16:32:57,095] -             
+ INFO [2010-03-16 16:32:57,127] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:57,132] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:57,136] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:57,507] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:57,514] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:57,517] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug'.
+ INFO [2010-03-16 16:32:57,523] -             
+ INFO [2010-03-16 16:32:57,525] -             common.compile-dll:
+ INFO [2010-03-16 16:32:57,526] -             
+ INFO [2010-03-16 16:32:57,596] -                   [csc] Compiling 134 files to 'C:\hornget\.horn\ioc\castle.dynamicproxy\Working-2.2\build\net-3.5\debug\Castle.DynamicProxy2.dll'.
+ INFO [2010-03-16 16:32:58,260] -             
+ INFO [2010-03-16 16:32:58,262] -             build:
+ INFO [2010-03-16 16:32:58,263] -             
+ INFO [2010-03-16 16:32:58,265] -             
+ INFO [2010-03-16 16:32:58,267] -             BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:32:58,268] -             
+ INFO [2010-03-16 16:32:58,269] -             Total time: 1.7 seconds.
+ INFO [2010-03-16 16:32:58,270] -             
+ INFO [2010-03-16 16:32:58,273] - 
+ INFO [2010-03-16 16:32:58,274] - build:
+ INFO [2010-03-16 16:32:58,275] - 
+ INFO [2010-03-16 16:32:58,276] - 
+ INFO [2010-03-16 16:32:58,276] - BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:32:58,278] - 
+ INFO [2010-03-16 16:32:58,278] - Total time: 2.3 seconds.
+ INFO [2010-03-16 16:32:58,279] - 
+ INFO [2010-03-16 16:32:58,301] - 
+HORN IS FETCHING git://github.com/castleproject/Castle.InversionOfControl.git.
+
+
+ INFO [2010-03-16 16:32:58,304] - Reading the current revision for castle.windsor
+ INFO [2010-03-16 16:32:58,306] - Empty Repository
+ INFO [2010-03-16 16:32:58,307] - Reading the current revision for castle.windsor
+ INFO [2010-03-16 16:32:58,311] - working......
+ INFO [2010-03-16 16:33:01,313] - working......
+ INFO [2010-03-16 16:33:04,314] - working......
+ INFO [2010-03-16 16:33:07,315] - working......
+ INFO [2010-03-16 16:33:10,318] - working......
+ INFO [2010-03-16 16:33:13,319] - working......
+ INFO [2010-03-16 16:33:16,319] - working......
+ INFO [2010-03-16 16:33:19,319] - working......
+ INFO [2010-03-16 16:33:19,807] - Tracking remote branch 2-1-stable
+ INFO [2010-03-16 16:33:22,319] - working......
+ INFO [2010-03-16 16:33:25,321] - Reading the current revision for castle.windsor
+ INFO [2010-03-16 16:33:25,323] - 
+HORN IS BUILDING windsor.
+
+
+ INFO [2010-03-16 16:33:25,324] - Path to build file is "C:\hornget\.horn\ioc\castle.windsor\Working-2.1\default.build".
+ INFO [2010-03-16 16:33:25,326] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\mono-3.5\Castle.DynamicProxy2.dll ...
+ INFO [2010-03-16 16:33:25,330] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\net-3.5\Castle.DynamicProxy2.dll ...
+ INFO [2010-03-16 16:33:25,333] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\silverlight-3.0\Castle.DynamicProxy2.dll ...
+ INFO [2010-03-16 16:33:25,336] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\Castle.DynamicProxy2.dll ...
+ INFO [2010-03-16 16:33:25,340] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.pdb to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\Castle.DynamicProxy2.pdb ...
+ INFO [2010-03-16 16:33:25,346] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\mono-3.5\Castle.DynamicProxy2.xml ...
+ INFO [2010-03-16 16:33:25,349] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\net-3.5\Castle.DynamicProxy2.xml ...
+ INFO [2010-03-16 16:33:25,352] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\silverlight-3.0\Castle.DynamicProxy2.xml ...
+ INFO [2010-03-16 16:33:25,356] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\Castle.DynamicProxy2.xml ...
+ INFO [2010-03-16 16:33:25,360] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\mono-3.5\Castle.Core.dll ...
+ INFO [2010-03-16 16:33:25,362] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\net-3.5\Castle.Core.dll ...
+ INFO [2010-03-16 16:33:25,364] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\silverlight-3.0\Castle.Core.dll ...
+ INFO [2010-03-16 16:33:25,367] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\Castle.Core.dll ...
+ INFO [2010-03-16 16:33:25,370] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.pdb to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\Castle.Core.pdb ...
+ INFO [2010-03-16 16:33:25,374] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\mono-3.5\Castle.Core.xml ...
+ INFO [2010-03-16 16:33:25,376] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\net-3.5\Castle.Core.xml ...
+ INFO [2010-03-16 16:33:25,379] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\silverlight-3.0\Castle.Core.xml ...
+ INFO [2010-03-16 16:33:25,381] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\ioc\castle.windsor\Working-2.1\lib\Castle.Core.xml ...
+ INFO [2010-03-16 16:33:25,610] - NAnt 0.86 (Build 0.86.3412.0; nightly; 05/05/2009)
+ INFO [2010-03-16 16:33:25,611] - Copyright (C) 2001-2009 Gerry Shaw
+ INFO [2010-03-16 16:33:25,612] - http://nant.sourceforge.net
+ INFO [2010-03-16 16:33:25,612] - 
+ INFO [2010-03-16 16:33:25,941] - Buildfile: file:///C:/hornget/.horn/ioc/castle.windsor/Working-2.1/default.build
+ INFO [2010-03-16 16:33:25,950] - Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:33:25,951] - Target(s) specified: build 
+ INFO [2010-03-16 16:33:25,953] - 
+ INFO [2010-03-16 16:33:26,024] -  [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:33:26,052] - 
+ INFO [2010-03-16 16:33:26,053] - common.find-svninfo:
+ INFO [2010-03-16 16:33:26,055] - 
+ INFO [2010-03-16 16:33:26,098] -      [exec] svn: 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1' is not a working copy
+ INFO [2010-03-16 16:33:26,103] -      [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:33:26,105] -      [exec] <info>
+ INFO [2010-03-16 16:33:26,107] -      [exec] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:33:26,109] -      [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:33:26,115] -   [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:33:26,120] -   [xmlpeek] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:33:26,124] -   [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\_revision.xml'.
+ INFO [2010-03-16 16:33:26,125] -   [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:33:26,128] -    [delete] Deleting file C:\hornget\.horn\ioc\castle.windsor\Working-2.1\_revision.xml.
+ INFO [2010-03-16 16:33:26,134] -      [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:33:26,154] - 
+ INFO [2010-03-16 16:33:26,156] - common.build:
+ INFO [2010-03-16 16:33:26,157] - 
+ INFO [2010-03-16 16:33:26,163] - 
+ INFO [2010-03-16 16:33:26,164] - common.build.internal:
+ INFO [2010-03-16 16:33:26,168] - 
+ INFO [2010-03-16 16:33:26,195] -      [nant] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.MicroKernel\default.build 
+ INFO [2010-03-16 16:33:26,197] -             Buildfile: file:///C:/hornget/.horn/ioc/castle.windsor/Working-2.1/src/Castle.MicroKernel/default.build
+ INFO [2010-03-16 16:33:26,204] -             Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:33:26,206] -             Target(s) specified: build 
+ INFO [2010-03-16 16:33:26,208] -             
+ INFO [2010-03-16 16:33:26,235] -              [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:33:26,259] -             
+ INFO [2010-03-16 16:33:26,259] -             common.find-svninfo:
+ INFO [2010-03-16 16:33:26,260] -             
+ INFO [2010-03-16 16:33:26,290] -                  [exec] svn: 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.MicroKernel' is not a working copy
+ INFO [2010-03-16 16:33:26,293] -                  [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:33:26,294] -                  [exec] <info>
+ INFO [2010-03-16 16:33:26,299] -                  [exec] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:33:26,306] -                  [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:33:26,308] -               [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.MicroKernel\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:33:26,310] -               [xmlpeek] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:33:26,311] -               [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.MicroKernel\_revision.xml'.
+ INFO [2010-03-16 16:33:26,312] -               [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:33:26,313] -                [delete] Deleting file C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.MicroKernel\_revision.xml.
+ INFO [2010-03-16 16:33:26,403] -                  [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:33:26,406] -             
+ INFO [2010-03-16 16:33:26,408] -             set-framework-configuration:
+ INFO [2010-03-16 16:33:26,410] -             
+ INFO [2010-03-16 16:33:26,598] -                [script] Scanning assembly "2ux-ropv" for extensions.
+ INFO [2010-03-16 16:33:26,602] -             
+ INFO [2010-03-16 16:33:26,602] -             set-net-3.5-framework-configuration:
+ INFO [2010-03-16 16:33:26,603] -             
+ INFO [2010-03-16 16:33:26,607] -             
+ INFO [2010-03-16 16:33:26,608] -             set-project-configuration:
+ INFO [2010-03-16 16:33:26,608] -             
+ INFO [2010-03-16 16:33:26,615] -             
+ INFO [2010-03-16 16:33:26,618] -             set-debug-project-configuration:
+ INFO [2010-03-16 16:33:26,619] -             
+ INFO [2010-03-16 16:33:26,629] -             
+ INFO [2010-03-16 16:33:26,630] -             common.init:
+ INFO [2010-03-16 16:33:26,630] -             
+ INFO [2010-03-16 16:33:26,645] -                 [mkdir] Creating directory 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,649] -                 [mkdir] Creating directory 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug\test-results'.
+ INFO [2010-03-16 16:33:26,653] -             
+ INFO [2010-03-16 16:33:26,653] -             init:
+ INFO [2010-03-16 16:33:26,654] -             
+ INFO [2010-03-16 16:33:26,664] -             
+ INFO [2010-03-16 16:33:26,665] -             common.set-assembly-attribute-values:
+ INFO [2010-03-16 16:33:26,667] -             
+ INFO [2010-03-16 16:33:26,680] -             
+ INFO [2010-03-16 16:33:26,681] -             common.generate-assemblyinfo:
+ INFO [2010-03-16 16:33:26,681] -             
+ INFO [2010-03-16 16:33:26,868] -               [asminfo] Generated file 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.MicroKernel\AssemblyInfo.cs'.
+ INFO [2010-03-16 16:33:26,869] -             
+ INFO [2010-03-16 16:33:26,870] -             common.copy.project.references:
+ INFO [2010-03-16 16:33:26,871] -             
+ INFO [2010-03-16 16:33:26,908] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,915] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,922] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,927] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,929] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,937] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,940] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,946] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,950] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,965] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,981] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:26,983] -             
+ INFO [2010-03-16 16:33:26,984] -             common.compile-dll:
+ INFO [2010-03-16 16:33:26,985] -             
+ INFO [2010-03-16 16:33:27,155] -                   [csc] Compiling 198 files to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug\Castle.MicroKernel.dll'.
+ INFO [2010-03-16 16:33:28,308] -             
+ INFO [2010-03-16 16:33:28,310] -             build:
+ INFO [2010-03-16 16:33:28,312] -             
+ INFO [2010-03-16 16:33:28,314] -             
+ INFO [2010-03-16 16:33:28,344] -             BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:33:28,495] -             
+ INFO [2010-03-16 16:33:28,499] -             Total time: 2.1 seconds.
+ INFO [2010-03-16 16:33:28,502] -             
+ INFO [2010-03-16 16:33:28,516] -      [nant] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Windsor\default.build 
+ INFO [2010-03-16 16:33:28,548] -             Buildfile: file:///C:/hornget/.horn/ioc/castle.windsor/Working-2.1/src/Castle.Windsor/default.build
+ INFO [2010-03-16 16:33:28,550] -             Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:33:28,551] -             Target(s) specified: build 
+ INFO [2010-03-16 16:33:28,552] -             
+ INFO [2010-03-16 16:33:28,553] -              [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:33:28,558] -             
+ INFO [2010-03-16 16:33:28,559] -             common.find-svninfo:
+ INFO [2010-03-16 16:33:28,561] -             
+ INFO [2010-03-16 16:33:28,586] -                  [exec] svn: 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Windsor' is not a working copy
+ INFO [2010-03-16 16:33:28,587] -                  [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:33:28,589] -                  [exec] <info>
+ INFO [2010-03-16 16:33:28,596] -                  [exec] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:33:28,597] -                  [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:33:28,602] -               [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Windsor\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:33:28,607] -               [xmlpeek] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:33:28,608] -               [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Windsor\_revision.xml'.
+ INFO [2010-03-16 16:33:28,615] -               [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:33:28,624] -                [delete] Deleting file C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Windsor\_revision.xml.
+ INFO [2010-03-16 16:33:28,626] -                  [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:33:28,635] -             
+ INFO [2010-03-16 16:33:28,639] -             set-framework-configuration:
+ INFO [2010-03-16 16:33:28,640] -             
+ INFO [2010-03-16 16:33:28,727] -                [script] Scanning assembly "knkitcdh" for extensions.
+ INFO [2010-03-16 16:33:28,731] -             
+ INFO [2010-03-16 16:33:28,732] -             set-net-3.5-framework-configuration:
+ INFO [2010-03-16 16:33:28,734] -             
+ INFO [2010-03-16 16:33:28,736] -             
+ INFO [2010-03-16 16:33:28,737] -             set-project-configuration:
+ INFO [2010-03-16 16:33:28,738] -             
+ INFO [2010-03-16 16:33:28,745] -             
+ INFO [2010-03-16 16:33:28,746] -             set-debug-project-configuration:
+ INFO [2010-03-16 16:33:28,748] -             
+ INFO [2010-03-16 16:33:28,759] -             
+ INFO [2010-03-16 16:33:28,760] -             common.init:
+ INFO [2010-03-16 16:33:28,762] -             
+ INFO [2010-03-16 16:33:28,769] -             
+ INFO [2010-03-16 16:33:28,770] -             init:
+ INFO [2010-03-16 16:33:28,772] -             
+ INFO [2010-03-16 16:33:28,781] -             
+ INFO [2010-03-16 16:33:28,782] -             common.set-assembly-attribute-values:
+ INFO [2010-03-16 16:33:28,783] -             
+ INFO [2010-03-16 16:33:28,806] -             
+ INFO [2010-03-16 16:33:28,807] -             common.generate-assemblyinfo:
+ INFO [2010-03-16 16:33:28,808] -             
+ INFO [2010-03-16 16:33:29,000] -               [asminfo] Generated file 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Windsor\AssemblyInfo.cs'.
+ INFO [2010-03-16 16:33:29,024] -             
+ INFO [2010-03-16 16:33:29,047] -             common.copy.project.references:
+ INFO [2010-03-16 16:33:29,049] -             
+ INFO [2010-03-16 16:33:29,050] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,051] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,053] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,057] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,059] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,060] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,061] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,063] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,064] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,071] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,074] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:29,080] -             
+ INFO [2010-03-16 16:33:29,082] -             common.compile-dll:
+ INFO [2010-03-16 16:33:29,082] -             
+ INFO [2010-03-16 16:33:29,101] -                   [csc] Compiling 48 files to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug\Castle.Windsor.dll'.
+ INFO [2010-03-16 16:33:29,945] -             
+ INFO [2010-03-16 16:33:29,947] -             build:
+ INFO [2010-03-16 16:33:29,948] -             
+ INFO [2010-03-16 16:33:29,950] -             
+ INFO [2010-03-16 16:33:29,950] -             BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:33:29,951] -             
+ INFO [2010-03-16 16:33:29,951] -             Total time: 1.6 seconds.
+ INFO [2010-03-16 16:33:29,952] -             
+ INFO [2010-03-16 16:33:29,953] -      [nant] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Facilities.Logging\default.build 
+ INFO [2010-03-16 16:33:29,954] -             Buildfile: file:///C:/hornget/.horn/ioc/castle.windsor/Working-2.1/src/Castle.Facilities.Logging/default.build
+ INFO [2010-03-16 16:33:29,955] -             Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:33:29,955] -             Target(s) specified: build 
+ INFO [2010-03-16 16:33:29,960] -             
+ INFO [2010-03-16 16:33:30,076] -              [property] Read-only property "common.silverlight" cannot be overwritten.
+ INFO [2010-03-16 16:33:30,104] -             
+ INFO [2010-03-16 16:33:30,106] -             common.find-svninfo:
+ INFO [2010-03-16 16:33:30,107] -             
+ INFO [2010-03-16 16:33:30,138] -                  [exec] svn: 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Facilities.Logging' is not a working copy
+ INFO [2010-03-16 16:33:30,139] -                  [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:33:30,141] -                  [exec] <info>
+ INFO [2010-03-16 16:33:30,150] -                  [exec] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(201,4):
+ INFO [2010-03-16 16:33:30,152] -                  [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:33:30,156] -               [xmlpeek] Peeking at 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Facilities.Logging\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:33:30,159] -               [xmlpeek] C:\hornget\.horn\ioc\castle.windsor\Working-2.1\buildscripts\common.xml(212,4):
+ INFO [2010-03-16 16:33:30,160] -               [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Facilities.Logging\_revision.xml'.
+ INFO [2010-03-16 16:33:30,162] -               [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:33:30,163] -                [delete] Deleting file C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Facilities.Logging\_revision.xml.
+ INFO [2010-03-16 16:33:30,167] -                  [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:33:30,170] -             
+ INFO [2010-03-16 16:33:30,174] -             set-framework-configuration:
+ INFO [2010-03-16 16:33:30,175] -             
+ INFO [2010-03-16 16:33:30,247] -                [script] Scanning assembly "vdgpnlz7" for extensions.
+ INFO [2010-03-16 16:33:30,251] -             
+ INFO [2010-03-16 16:33:30,253] -             set-net-3.5-framework-configuration:
+ INFO [2010-03-16 16:33:30,254] -             
+ INFO [2010-03-16 16:33:30,256] -             
+ INFO [2010-03-16 16:33:30,258] -             set-project-configuration:
+ INFO [2010-03-16 16:33:30,258] -             
+ INFO [2010-03-16 16:33:30,265] -             
+ INFO [2010-03-16 16:33:30,266] -             set-debug-project-configuration:
+ INFO [2010-03-16 16:33:30,268] -             
+ INFO [2010-03-16 16:33:30,279] -             
+ INFO [2010-03-16 16:33:30,280] -             common.init:
+ INFO [2010-03-16 16:33:30,282] -             
+ INFO [2010-03-16 16:33:30,348] -             
+ INFO [2010-03-16 16:33:30,388] -             init:
+ INFO [2010-03-16 16:33:30,410] -             
+ INFO [2010-03-16 16:33:30,445] -             
+ INFO [2010-03-16 16:33:30,465] -             common.set-assembly-attribute-values:
+ INFO [2010-03-16 16:33:30,500] -             
+ INFO [2010-03-16 16:33:30,520] -             
+ INFO [2010-03-16 16:33:30,531] -             common.generate-assemblyinfo:
+ INFO [2010-03-16 16:33:30,541] -             
+ INFO [2010-03-16 16:33:30,715] -               [asminfo] Generated file 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\src\Castle.Facilities.Logging\AssemblyInfo.cs'.
+ INFO [2010-03-16 16:33:30,785] -             
+ INFO [2010-03-16 16:33:30,799] -             common.copy.project.references:
+ INFO [2010-03-16 16:33:30,801] -             
+ INFO [2010-03-16 16:33:30,802] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,804] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,805] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,807] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,808] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,813] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,818] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,830] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,835] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,840] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,845] -                  [copy] Copying 1 file to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:30,851] -             
+ INFO [2010-03-16 16:33:30,853] -             common.compile-dll:
+ INFO [2010-03-16 16:33:30,854] -             
+ INFO [2010-03-16 16:33:30,867] -                   [csc] Compiling 3 files to 'C:\hornget\.horn\ioc\castle.windsor\Working-2.1\build\net-3.5\debug\Castle.Facilities.Logging.dll'.
+ INFO [2010-03-16 16:33:31,208] -             
+ INFO [2010-03-16 16:33:31,228] -             build:
+ INFO [2010-03-16 16:33:31,251] -             
+ INFO [2010-03-16 16:33:31,273] -             
+ INFO [2010-03-16 16:33:31,274] -             BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:33:31,279] -             
+ INFO [2010-03-16 16:33:31,279] -             Total time: 1.3 seconds.
+ INFO [2010-03-16 16:33:31,281] -             
+ INFO [2010-03-16 16:33:31,287] - 
+ INFO [2010-03-16 16:33:31,289] - build:
+ INFO [2010-03-16 16:33:31,290] - 
+ INFO [2010-03-16 16:33:31,294] - 
+ INFO [2010-03-16 16:33:31,296] - BUILD SUCCEEDED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:33:31,297] - 
+ INFO [2010-03-16 16:33:31,304] - Total time: 5.3 seconds.
+ INFO [2010-03-16 16:33:31,305] - 
+ INFO [2010-03-16 16:33:31,337] - 
+HORN IS FETCHING git://github.com/dagda1/horn_src.git.
+
+
+ INFO [2010-03-16 16:33:31,343] - Reading the current revision for horn
+ INFO [2010-03-16 16:33:31,344] - Empty Repository
+ INFO [2010-03-16 16:33:31,344] - Reading the current revision for horn
+ INFO [2010-03-16 16:33:31,345] - working......
+ INFO [2010-03-16 16:33:34,350] - working......
+ INFO [2010-03-16 16:33:37,350] - working......
+ INFO [2010-03-16 16:33:40,351] - working......
+ INFO [2010-03-16 16:33:43,353] - Reading the current revision for horn
+ INFO [2010-03-16 16:33:43,507] - 
+HORN IS BUILDING horn.
+
+
+ INFO [2010-03-16 16:33:43,511] - Path to build file is "C:\hornget\.horn\builders\horn\Working\src\Horn.build".
+ INFO [2010-03-16 16:33:43,531] - Dependency: Copying C:\hornget\.horn\result\log4net.dll to C:\hornget\.horn\builders\horn\Working\lib\log4net.dll ...
+ INFO [2010-03-16 16:33:43,536] - Dependency: Copying C:\hornget\.horn\result\log4net.dll to C:\hornget\.horn\builders\horn\Working\lib\Nant\log4net.dll ...
+ INFO [2010-03-16 16:33:43,542] - Dependency: Copying C:\hornget\.horn\result\log4net.dll to C:\hornget\.horn\builders\horn\Working\lib\log4net.dll ...
+ INFO [2010-03-16 16:33:43,555] - Dependency: Copying C:\hornget\.horn\result\log4net.pdb to C:\hornget\.horn\builders\horn\Working\lib\log4net.pdb ...
+ INFO [2010-03-16 16:33:43,565] - Dependency: Copying C:\hornget\.horn\result\log4net.xml to C:\hornget\.horn\builders\horn\Working\lib\log4net.xml ...
+ INFO [2010-03-16 16:33:43,570] - Dependency: Copying C:\hornget\.horn\result\log4net.xml to C:\hornget\.horn\builders\horn\Working\lib\log4net.xml ...
+ INFO [2010-03-16 16:33:43,579] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\builders\horn\Working\lib\Castle.Core.dll ...
+ INFO [2010-03-16 16:33:43,582] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.dll to C:\hornget\.horn\builders\horn\Working\lib\Castle.Core.dll ...
+ INFO [2010-03-16 16:33:43,588] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.pdb to C:\hornget\.horn\builders\horn\Working\lib\Castle.Core.pdb ...
+ INFO [2010-03-16 16:33:43,592] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.pdb to C:\hornget\.horn\builders\horn\Working\lib\Castle.Core.pdb ...
+ INFO [2010-03-16 16:33:43,599] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\builders\horn\Working\lib\Castle.Core.xml ...
+ INFO [2010-03-16 16:33:43,601] - Dependency: Copying C:\hornget\.horn\result\Castle.Core.xml to C:\hornget\.horn\builders\horn\Working\lib\Castle.Core.xml ...
+ INFO [2010-03-16 16:33:43,607] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.dll to C:\hornget\.horn\builders\horn\Working\lib\Castle.DynamicProxy2.dll ...
+ INFO [2010-03-16 16:33:43,614] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.pdb to C:\hornget\.horn\builders\horn\Working\lib\Castle.DynamicProxy2.pdb ...
+ INFO [2010-03-16 16:33:43,621] - Dependency: Copying C:\hornget\.horn\result\Castle.DynamicProxy2.xml to C:\hornget\.horn\builders\horn\Working\lib\Castle.DynamicProxy2.xml ...
+ INFO [2010-03-16 16:33:43,628] - Dependency: Copying C:\hornget\.horn\result\Castle.MicroKernel.dll to C:\hornget\.horn\builders\horn\Working\lib\Castle.MicroKernel.dll ...
+ INFO [2010-03-16 16:33:43,631] - Dependency: Copying C:\hornget\.horn\result\Castle.MicroKernel.dll to C:\hornget\.horn\builders\horn\Working\lib\Castle.MicroKernel.dll ...
+ INFO [2010-03-16 16:33:43,643] - Dependency: Copying C:\hornget\.horn\result\Castle.MicroKernel.pdb to C:\hornget\.horn\builders\horn\Working\lib\Castle.MicroKernel.pdb ...
+ INFO [2010-03-16 16:33:43,647] - Dependency: Copying C:\hornget\.horn\result\Castle.MicroKernel.pdb to C:\hornget\.horn\builders\horn\Working\lib\Castle.MicroKernel.pdb ...
+ INFO [2010-03-16 16:33:43,655] - Dependency: Copying C:\hornget\.horn\result\Castle.MicroKernel.xml to C:\hornget\.horn\builders\horn\Working\lib\Castle.MicroKernel.xml ...
+ INFO [2010-03-16 16:33:43,658] - Dependency: Copying C:\hornget\.horn\result\Castle.MicroKernel.xml to C:\hornget\.horn\builders\horn\Working\lib\Castle.MicroKernel.xml ...
+ INFO [2010-03-16 16:33:43,665] - Dependency: Copying C:\hornget\.horn\result\Castle.Windsor.dll to C:\hornget\.horn\builders\horn\Working\lib\Castle.Windsor.dll ...
+ INFO [2010-03-16 16:33:43,667] - Dependency: Copying C:\hornget\.horn\result\Castle.Windsor.dll to C:\hornget\.horn\builders\horn\Working\lib\Castle.Windsor.dll ...
+ INFO [2010-03-16 16:33:43,673] - Dependency: Copying C:\hornget\.horn\result\Castle.Windsor.pdb to C:\hornget\.horn\builders\horn\Working\lib\Castle.Windsor.pdb ...
+ INFO [2010-03-16 16:33:43,675] - Dependency: Copying C:\hornget\.horn\result\Castle.Windsor.pdb to C:\hornget\.horn\builders\horn\Working\lib\Castle.Windsor.pdb ...
+ INFO [2010-03-16 16:33:43,682] - Dependency: Copying C:\hornget\.horn\result\Castle.Windsor.xml to C:\hornget\.horn\builders\horn\Working\lib\Castle.Windsor.xml ...
+ INFO [2010-03-16 16:33:43,684] - Dependency: Copying C:\hornget\.horn\result\Castle.Windsor.xml to C:\hornget\.horn\builders\horn\Working\lib\Castle.Windsor.xml ...
+ INFO [2010-03-16 16:33:43,913] - NAnt 0.86 (Build 0.86.3412.0; nightly; 05/05/2009)
+ INFO [2010-03-16 16:33:43,914] - Copyright (C) 2001-2009 Gerry Shaw
+ INFO [2010-03-16 16:33:43,914] - http://nant.sourceforge.net
+ INFO [2010-03-16 16:33:43,915] - 
+ INFO [2010-03-16 16:33:44,228] - Buildfile: file:///C:/hornget/.horn/builders/horn/Working/src/Horn.build
+ INFO [2010-03-16 16:33:44,229] - Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:33:44,229] - Target(s) specified: build 
+ INFO [2010-03-16 16:33:44,230] - 
+ INFO [2010-03-16 16:33:44,314] - 
+ INFO [2010-03-16 16:33:44,315] - set-framework-configuration:
+ INFO [2010-03-16 16:33:44,316] - 
+ INFO [2010-03-16 16:33:44,579] -    [script] Scanning assembly "gv3cb5yf" for extensions.
+ INFO [2010-03-16 16:33:44,596] - 
+ INFO [2010-03-16 16:33:44,599] - set-net-3.5-framework-configuration:
+ INFO [2010-03-16 16:33:44,603] - 
+ INFO [2010-03-16 16:33:44,618] - 
+ INFO [2010-03-16 16:33:44,619] - set-project-configuration:
+ INFO [2010-03-16 16:33:44,619] - 
+ INFO [2010-03-16 16:33:44,625] - 
+ INFO [2010-03-16 16:33:44,625] - set-debug-project-configuration:
+ INFO [2010-03-16 16:33:44,626] - 
+ INFO [2010-03-16 16:33:44,637] - 
+ INFO [2010-03-16 16:33:44,638] - common.check-nant-version:
+ INFO [2010-03-16 16:33:44,638] - 
+ INFO [2010-03-16 16:33:44,640] - 
+ INFO [2010-03-16 16:33:44,641] - common.init:
+ INFO [2010-03-16 16:33:44,641] - 
+ INFO [2010-03-16 16:33:44,646] - 
+ INFO [2010-03-16 16:33:44,646] - clean:
+ INFO [2010-03-16 16:33:44,647] - 
+ INFO [2010-03-16 16:33:44,654] - 
+ INFO [2010-03-16 16:33:44,655] - init:
+ INFO [2010-03-16 16:33:44,656] - 
+ INFO [2010-03-16 16:33:44,658] -     [mkdir] Creating directory 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:44,662] -     [mkdir] Creating directory 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug\test-results'.
+ INFO [2010-03-16 16:33:44,666] - 
+ INFO [2010-03-16 16:33:44,667] - common.find-svninfo:
+ INFO [2010-03-16 16:33:44,667] - 
+ INFO [2010-03-16 16:33:44,708] -      [exec] svn: 'C:\hornget\.horn\builders\horn\Working\src' is not a working copy
+ INFO [2010-03-16 16:33:44,713] -      [exec] <?xml version="1.0"?>
+ INFO [2010-03-16 16:33:44,713] -      [exec] <info>
+ INFO [2010-03-16 16:33:44,714] -      [exec] C:\hornget\.horn\builders\horn\Working\src\common.xml(217,6):
+ INFO [2010-03-16 16:33:44,715] -      [exec] External Program Failed: svn (return code was 1)
+ INFO [2010-03-16 16:33:44,721] -   [xmlpeek] Peeking at 'C:\hornget\.horn\builders\horn\Working\src\_revision.xml' with XPath expression '/info/entry/@revision'.
+ INFO [2010-03-16 16:33:44,724] -   [xmlpeek] C:\hornget\.horn\builders\horn\Working\src\common.xml(229,6):
+ INFO [2010-03-16 16:33:44,725] -   [xmlpeek] Failed to load the XML document 'C:\hornget\.horn\builders\horn\Working\src\_revision.xml'.
+ INFO [2010-03-16 16:33:44,726] -   [xmlpeek]     Unexpected end of file has occurred. The following elements are not closed: info. Line 3, position 1.
+ INFO [2010-03-16 16:33:44,729] -    [delete] Deleting file C:\hornget\.horn\builders\horn\Working\src\_revision.xml.
+ INFO [2010-03-16 16:33:44,734] -      [echo] INFO: Using Subversion revision number: 0
+ INFO [2010-03-16 16:33:44,734] - 
+ INFO [2010-03-16 16:33:44,734] - copy-referenced-assemblies:
+ INFO [2010-03-16 16:33:44,735] - 
+ INFO [2010-03-16 16:33:44,768] -      [copy] Copying 64 files to 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:44,835] -      [copy] Copying 7 files to 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:44,867] -      [copy] Copying 37 files to 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:44,931] -      [copy] Copying 1 file to 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug'.
+ INFO [2010-03-16 16:33:44,941] - 
+ INFO [2010-03-16 16:33:44,942] - copy-package-tree:
+ INFO [2010-03-16 16:33:44,943] - 
+ INFO [2010-03-16 16:33:44,944] -     [mkdir] Creating directory 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug\BuildConfigs\Horn'.
+ INFO [2010-03-16 16:33:44,948] - C:\hornget\.horn\builders\horn\Working\src\Horn.build(99,8): Element <includes... /> for <fileset... /> is deprecated. Use <include> element instead.
+ INFO [2010-03-16 16:33:44,956] -      [copy] Copying 16 files to 'C:\hornget\.horn\builders\horn\Working\src\build\net-3.5\debug\BuildConfigs\Horn'.
+ INFO [2010-03-16 16:33:44,970] - 
+ INFO [2010-03-16 16:33:44,971] - build:
+ INFO [2010-03-16 16:33:44,971] - 
+ INFO [2010-03-16 16:33:44,978] -      [nant] C:\hornget\.horn\builders\horn\Working\src\Horn.Core\Horn.Core.build build
+ INFO [2010-03-16 16:33:44,980] -             Buildfile: file:///C:/hornget/.horn/builders/horn/Working/src/Horn.Core/Horn.Core.build
+ INFO [2010-03-16 16:33:44,981] -             Target framework: Microsoft .NET Framework 3.5
+ INFO [2010-03-16 16:33:44,981] -             Target(s) specified: build 
+ INFO [2010-03-16 16:33:44,982] -             
+ INFO [2010-03-16 16:33:45,050] -             
+ INFO [2010-03-16 16:33:45,051] -             set-framework-configuration:
+ INFO [2010-03-16 16:33:45,051] -             
+ INFO [2010-03-16 16:33:45,121] -                [script] Scanning assembly "7aq5od-y" for extensions.
+ INFO [2010-03-16 16:33:45,125] -             
+ INFO [2010-03-16 16:33:45,126] -             set-net-3.5-framework-configuration:
+ INFO [2010-03-16 16:33:45,128] -             
+ INFO [2010-03-16 16:33:45,137] -             
+ INFO [2010-03-16 16:33:45,138] -             set-project-configuration:
+ INFO [2010-03-16 16:33:45,139] -             
+ INFO [2010-03-16 16:33:45,145] -             
+ INFO [2010-03-16 16:33:45,146] -             set-debug-project-configuration:
+ INFO [2010-03-16 16:33:45,146] -             
+ INFO [2010-03-16 16:33:45,158] -             
+ INFO [2010-03-16 16:33:45,158] -             common.check-nant-version:
+ INFO [2010-03-16 16:33:45,159] -             
+ INFO [2010-03-16 16:33:45,160] -             
+ INFO [2010-03-16 16:33:45,161] -             common.init:
+ INFO [2010-03-16 16:33:45,161] -             
+ INFO [2010-03-16 16:33:45,165] -             
+ INFO [2010-03-16 16:33:45,166] -             init:
+ INFO [2010-03-16 16:33:45,166] -             
+ INFO [2010-03-16 16:33:45,189] -             
+ INFO [2010-03-16 16:33:45,189] -             common.set-assembly-attribute-values:
+ INFO [2010-03-16 16:33:45,189] -             
+ INFO [2010-03-16 16:33:45,204] -             
+ INFO [2010-03-16 16:33:45,204] -             common.generate-assemblyinfo:
+ INFO [2010-03-16 16:33:45,205] -             
+ INFO [2010-03-16 16:33:45,397] -               [asminfo] Generated file 'C:\hornget\.horn\builders\horn\Working\src\Horn.Core\AssemblyInfo.cs'.
+ INFO [2010-03-16 16:33:45,400] -             
+ INFO [2010-03-16 16:33:45,402] -             generate-assemblyinfo:
+ INFO [2010-03-16 16:33:45,404] -             
+ INFO [2010-03-16 16:33:45,405] -             
+ INFO [2010-03-16 16:33:45,405] -             common.compile-dll:
+ INFO [2010-03-16 16:33:45,406] -             
+ INFO [2010-03-16 16:33:45,408] -                  [echo] build.msbuild = true
+ INFO [2010-03-16 16:33:46,115] -                  [exec] Microsoft (R) Build Engine Version 3.5.30729.4926
+ INFO [2010-03-16 16:33:46,118] -                  [exec] [Microsoft .NET Framework, Version 2.0.50727.4927]
+ INFO [2010-03-16 16:33:46,120] -                  [exec] Copyright (C) Microsoft Corporation 2007. All rights reserved.
+ INFO [2010-03-16 16:33:46,124] -                  [exec] 
+ INFO [2010-03-16 16:33:46,137] -                  [exec] Build started 16/03/2010 16:33:46.
+ INFO [2010-03-16 16:33:46,165] -                  [exec] Project "C:\hornget\.horn\builders\horn\Working\src\Horn.Core\Horn.Core.csproj" on node 0 (default targets).
+ INFO [2010-03-16 16:33:46,170] -                  [exec]   Processing 0 EDMX files.
+ INFO [2010-03-16 16:33:46,171] -                  [exec]   Finished processing 0 EDMX files.
+ INFO [2010-03-16 16:33:46,173] -                  [exec] PrepareForBuild:
+ INFO [2010-03-16 16:33:46,174] -                  [exec]   Creating directory "obj\debug\".
+ INFO [2010-03-16 16:33:46,437] -                  [exec] CSC : error CS2001: Source file 'Properties\AssemblyInfo.cs' could not be found
+ INFO [2010-03-16 16:33:46,452] -                  [exec] Done Building Project "C:\hornget\.horn\builders\horn\Working\src\Horn.Core\Horn.Core.csproj" (default targets) -- FAILED.
+ INFO [2010-03-16 16:33:46,453] -                  [exec] 
+ INFO [2010-03-16 16:33:46,461] -                  [exec] Build FAILED.
+ INFO [2010-03-16 16:33:46,472] -                  [exec] 
+ INFO [2010-03-16 16:33:46,474] -                  [exec] "C:\hornget\.horn\builders\horn\Working\src\Horn.Core\Horn.Core.csproj" (default target) (1) ->
+ INFO [2010-03-16 16:33:46,475] -                  [exec] (CoreCompile target) -> 
+ INFO [2010-03-16 16:33:46,476] -                  [exec]   CSC : error CS2001: Source file 'Properties\AssemblyInfo.cs' could not be found
+ INFO [2010-03-16 16:33:46,477] -                  [exec] 
+ INFO [2010-03-16 16:33:46,479] -                  [exec]     0 Warning(s)
+ INFO [2010-03-16 16:33:46,480] -                  [exec]     1 Error(s)
+ INFO [2010-03-16 16:33:46,481] -                  [exec] 
+ INFO [2010-03-16 16:33:46,483] -                  [exec] Time Elapsed 00:00:00.31
+ INFO [2010-03-16 16:33:46,490] -             
+ INFO [2010-03-16 16:33:46,492] -             BUILD FAILED
+ INFO [2010-03-16 16:33:46,496] -             
+ INFO [2010-03-16 16:33:46,501] -             C:\hornget\.horn\builders\horn\Working\src\common-project.xml(65,8):
+ INFO [2010-03-16 16:33:46,502] -             External Program Failed: C:\Windows\Microsoft.NET\Framework\v3.5/MSBuild.exe (return code was 1)
+ INFO [2010-03-16 16:33:46,503] -             
+ INFO [2010-03-16 16:33:46,504] -             Total time: 1.5 seconds.
+ INFO [2010-03-16 16:33:46,505] -             
+ INFO [2010-03-16 16:33:46,505] - 
+ INFO [2010-03-16 16:33:46,506] - BUILD FAILED - 2 non-fatal error(s), 2 warning(s)
+ INFO [2010-03-16 16:33:46,508] - 
+ INFO [2010-03-16 16:33:46,509] - Nested build failed.  Refer to build log for exact reason.
+ INFO [2010-03-16 16:33:46,511] - 
+ INFO [2010-03-16 16:33:46,512] - Total time: 2.3 seconds.
+ INFO [2010-03-16 16:33:46,514] - 
+ INFO [2010-03-16 16:33:46,518] - The build tool Horn.Core.NAntBuildTool failed building the horn package

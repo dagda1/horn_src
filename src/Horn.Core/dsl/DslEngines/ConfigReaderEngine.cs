@@ -10,7 +10,7 @@ namespace Horn.Core.Dsl
         {
             pipeline.Insert(1, new ImplicitBaseClassCompilerStep(typeof(BooConfigReader), "Prepare", "Horn.Core.Dsl"));
             pipeline.InsertBefore(typeof(ProcessMethodBodiesWithDuckTyping), new RightShiftToMethodCompilerStep());
-            pipeline.Insert(2, new UnderscorNamingConventionsToPascalCaseCompilerStep());
+            pipeline.Insert(2, new UnderscoreNamingConventionsToPascalCaseCompilerStep());
             pipeline.Insert(3, new UseSymbolsStep());            
         }
     }
