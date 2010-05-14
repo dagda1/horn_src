@@ -34,6 +34,8 @@ namespace Horn.Core.SCM
 			}
 		}
 
+		public string BranchName { get; set; }
+
 		public override string CheckOut(IPackageTree packageTree, FileSystemInfo destination)
 		{
 			try
@@ -41,6 +43,7 @@ namespace Horn.Core.SCM
 				if (!destination.Exists)
 					Directory.CreateDirectory(destination.FullName);
 				RunHGCommand(string.Format("{0} {1} {2}", "clone", Url, destination.FullName), destination.FullName);
+				UpdateBranch(destination);				
 			}
 			catch (Exception ex)
 			{
@@ -60,6 +63,7 @@ namespace Horn.Core.SCM
 			try
 			{
 				RunHGCommand("pull", destination.FullName);
+				UpdateBranch(destination);
 			}
 			catch (Exception ex)
 			{
@@ -67,6 +71,13 @@ namespace Horn.Core.SCM
 			}
 
 			return CurrentRevisionNumber(destination.FullName);
+		}
+
+		private void UpdateBranch(FileSystemInfo destination)
+		{
+			if (string.IsNullOrEmpty(BranchName))
+				BranchName = "default";			
+			RunHGCommand(string.Format("update -C \"{0}\"", BranchName), destination.FullName);			
 		}
 
 		protected override void Initialise(IPackageTree packageTree)

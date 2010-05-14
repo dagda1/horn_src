@@ -390,7 +390,14 @@ namespace Horn.Core.Dsl
 			buildMetaData.SourceControl = SourceControl.Create<MercurialSourceControl>(url);
 		}
 
-        private void SetBuildEngine(IBuildTool tool, string buildFile, FrameworkVersion version)
+		protected void hg(string url, string branchName)
+		{
+			var sourceControl = SourceControl.Create<MercurialSourceControl>(url);
+			sourceControl.BranchName = branchName;
+			buildMetaData.SourceControl = sourceControl;			
+		}
+
+    	private void SetBuildEngine(IBuildTool tool, string buildFile, FrameworkVersion version)
         {
             buildMetaData.BuildEngine = new BuildEngine(tool, buildFile, version, IoC.Resolve<IDependencyDispatcher>());
         }
