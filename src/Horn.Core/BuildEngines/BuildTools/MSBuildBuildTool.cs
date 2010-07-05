@@ -55,6 +55,8 @@ namespace Horn.Core
                     return "v2.0";
                 case FrameworkVersion.FrameworkVersion35:
                     return "v3.5";
+                case FrameworkVersion.FrameworkVersion40:
+                    return "v4.0";
                 default:
                     throw new ArgumentException(string.Format("Unknown framework Version: {0}", version));
             }

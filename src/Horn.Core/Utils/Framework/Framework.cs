@@ -9,7 +9,8 @@ namespace Horn.Core.Utils.Framework
     public enum FrameworkVersion
     {
         FrameworkVersion2,
-        FrameworkVersion35
+        FrameworkVersion35,
+        FrameworkVersion40,
     }
 
     public class Framework
@@ -48,6 +49,7 @@ namespace Horn.Core.Utils.Framework
 
             assemblyPaths.Add(FrameworkVersion.FrameworkVersion2, Path.Combine(frameworkDir.FullName, "v2.0.50727"));
             assemblyPaths.Add(FrameworkVersion.FrameworkVersion35, Path.Combine(frameworkDir.FullName, "v3.5"));
+            assemblyPaths.Add(FrameworkVersion.FrameworkVersion40, Path.Combine(frameworkDir.FullName, "v4.0.30319"));
         }
 
 
