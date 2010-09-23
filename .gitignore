@@ -10,3 +10,5 @@ build/
 _ReSharper.*/
 *.user
 *.InstallLog
+log/*
+tmp/*
